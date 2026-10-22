@@ -1,0 +1,3762 @@
+{
+ "updated": "2026-10-22T06:37+00:00",
+ "source": "Discogs + GetSongBPM.com",
+ "releases": [
+  {
+   "id": 4493316,
+   "title": "Bela Lugosi's Dead",
+   "artist": "Bauhaus",
+   "year": null,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "New Wave",
+    "Goth Rock",
+    "Post-Punk"
+   ],
+   "label": "Small Wonder Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/kLWOdZ40DUf047yb8pvmahBnaWcf18qmySUsaEO4mz8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ0OTMz/MTYtMTM5ODI3NDE1/OC02NzU2LmpwZWc.jpeg",
+   "thumb": "https://i.discogs.com/9yQ46qbaUkEEb8THmqmhmR7duRGnMxrGERqdHN9FA0A/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ0OTMz/MTYtMTM5ODI3NDE1/OC02NzU2LmpwZWc.jpeg",
+   "folder": "Goth Rock",
+   "added": "2022-08-21T06:48:09-07:00",
+   "url": "https://www.discogs.com/release/4493316",
+   "tracks": [
+    {
+     "pos": "A",
+     "title": "Bela Lugosi's Dead",
+     "artist": "Bauhaus",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B1",
+     "title": "Boys",
+     "artist": "Bauhaus",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B2",
+     "title": "Dark Entries (Demo)",
+     "artist": "Bauhaus",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    }
+   ]
+  },
+  {
+   "id": 12806671,
+   "title": "In The Flat Field",
+   "artist": "Bauhaus",
+   "year": 2018,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "Goth Rock"
+   ],
+   "label": "4AD",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/15VSHO74cmox6QKelE9wCJ1YRXn-tdhzWefkY8qQfFE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyODA2/NjcxLTE1NDQxMDky/NjktNDA1MC5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/rsmr-cQMqKp_nM_GaffmiigMdsP21V1ndYqKV12DYXM/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyODA2/NjcxLTE1NDQxMDky/NjktNDA1MC5qcGVn.jpeg",
+   "folder": "Goth Rock",
+   "added": "2022-08-21T06:48:38-07:00",
+   "url": "https://www.discogs.com/release/12806671",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Double Dare",
+     "artist": "Bauhaus",
+     "duration": "4:57",
+     "cue_in": "0:00*",
+     "cue_out": "4:37*",
+     "looked_up": "2026-10-22",
+     "bpm": "96",
+     "camelot": "8B"
+    },
+    {
+     "pos": "A2",
+     "title": "In The Flat Field",
+     "artist": "Bauhaus",
+     "duration": "4:00",
+     "cue_in": "0:00*",
+     "cue_out": "3:40*",
+     "looked_up": "2026-10-22",
+     "bpm": "152",
+     "camelot": "8B"
+    },
+    {
+     "pos": "A3",
+     "title": "A God In An Alcove",
+     "artist": "Bauhaus",
+     "duration": "4:07",
+     "cue_in": "0:00*",
+     "cue_out": "3:47*",
+     "looked_up": "2026-10-22",
+     "bpm": "142",
+     "camelot": "9A"
+    },
+    {
+     "pos": "A4",
+     "title": "Dive",
+     "artist": "Bauhaus",
+     "duration": "2:10",
+     "cue_in": "0:00*",
+     "cue_out": "1:50*",
+     "looked_up": "2026-10-22",
+     "bpm": "165",
+     "camelot": "10A"
+    },
+    {
+     "pos": "A5",
+     "title": "The Spy In The Cab",
+     "artist": "Bauhaus",
+     "duration": "4:27",
+     "cue_in": "0:00*",
+     "cue_out": "4:07*",
+     "looked_up": "2026-10-22",
+     "bpm": "107",
+     "camelot": "11B"
+    },
+    {
+     "pos": "B1",
+     "title": "Small Talk Stinks",
+     "artist": "Bauhaus",
+     "duration": "3:35",
+     "cue_in": "0:00*",
+     "cue_out": "3:15*",
+     "looked_up": "2026-10-22",
+     "bpm": "129",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B2",
+     "title": "St. Vitus Dance",
+     "artist": "Bauhaus",
+     "duration": "3:30",
+     "cue_in": "0:00*",
+     "cue_out": "3:10*",
+     "looked_up": "2026-10-22",
+     "bpm": "181",
+     "camelot": "11A"
+    },
+    {
+     "pos": "B3",
+     "title": "Stigmata Martyr",
+     "artist": "Bauhaus",
+     "duration": "3:37",
+     "cue_in": "0:00*",
+     "cue_out": "3:17*",
+     "looked_up": "2026-10-22",
+     "bpm": "141",
+     "camelot": "10A"
+    },
+    {
+     "pos": "B4",
+     "title": "Nerves",
+     "artist": "Bauhaus",
+     "duration": "7:10",
+     "cue_in": "0:00*",
+     "cue_out": "6:50*",
+     "looked_up": "2026-10-22",
+     "bpm": "96",
+     "camelot": "9A"
+    }
+   ]
+  },
+  {
+   "id": 11810704,
+   "title": "Lesser Man (Extended Version)",
+   "artist": "Boy Harsher",
+   "year": 2018,
+   "genres": [
+    "Electronic"
+   ],
+   "styles": [
+    "Darkwave",
+    "Electro",
+    "EBM",
+    "New Wave",
+    "Synthwave",
+    "Minimal"
+   ],
+   "label": "Nude Club Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/754dPXOBvnn01aB5E7dJVGkEIU-6x3NYRxf2cpK3vEQ/rs:fit/g:sm/q:90/h:600/w:597/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExODEw/NzA0LTE2ODE2Njg2/NDMtNjYzOS5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/6vs1YN04NGXmSRVROR7lxnZdR5A7xPFrw0nFcsigxIw/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExODEw/NzA0LTE2ODE2Njg2/NDMtNjYzOS5qcGVn.jpeg",
+   "folder": "Cold & Darkwave",
+   "added": "2022-08-22T10:06:32-07:00",
+   "url": "https://www.discogs.com/release/11810704",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Lust",
+     "artist": "Boy Harsher",
+     "duration": "3:04",
+     "cue_in": "0:00*",
+     "cue_out": "2:44*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A2",
+     "title": "Modulations",
+     "artist": "Boy Harsher",
+     "duration": "4:21",
+     "cue_in": "0:00*",
+     "cue_out": "4:01*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A3",
+     "title": "Pain",
+     "artist": "Boy Harsher",
+     "duration": "7:17",
+     "cue_in": "0:00*",
+     "cue_out": "6:57*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B1",
+     "title": "Run",
+     "artist": "Boy Harsher",
+     "duration": "3:41",
+     "cue_in": "0:00*",
+     "cue_out": "3:21*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B2",
+     "title": "Crimea",
+     "artist": "Boy Harsher",
+     "duration": "5:27",
+     "cue_in": "0:00*",
+     "cue_out": "5:07*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B3",
+     "title": "Love",
+     "artist": "Boy Harsher",
+     "duration": "5:38",
+     "cue_in": "0:00*",
+     "cue_out": "5:18*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B4",
+     "title": "Spell",
+     "artist": "Boy Harsher",
+     "duration": "3:19",
+     "cue_in": "0:00*",
+     "cue_out": "2:59*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    }
+   ]
+  },
+  {
+   "id": 5315804,
+   "title": "Only Theatre Of Pain",
+   "artist": "Christian Death",
+   "year": 2013,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "Goth Rock",
+    "Deathrock"
+   ],
+   "label": "Frontier Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/xjizkUAKXzV40Ukatpgv8DNjDopZiK-zhRPIuZ9XHGE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTUzMTU4/MDQtMTM5Mzc4NDg3/MS0xNDc5LmpwZWc.jpeg",
+   "thumb": "https://i.discogs.com/K92bcdb8JNNmKuy9egc8xy2qjjfCwFsOhebYqKzePj4/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTUzMTU4/MDQtMTM5Mzc4NDg3/MS0xNDc5LmpwZWc.jpeg",
+   "folder": "Goth Rock",
+   "added": "2022-08-22T11:39:56-07:00",
+   "url": "https://www.discogs.com/release/5315804",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Cavity - First Communion",
+     "artist": "Christian Death",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A2",
+     "title": "Figurative Theatre",
+     "artist": "Christian Death",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "155",
+     "camelot": "12B"
+    },
+    {
+     "pos": "A3",
+     "title": "Burnt Offerings",
+     "artist": "Christian Death",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "138",
+     "camelot": "10A"
+    },
+    {
+     "pos": "A4",
+     "title": "Mysterium Iniquitatis",
+     "artist": "Christian Death",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "136",
+     "camelot": "6A"
+    },
+    {
+     "pos": "A5",
+     "title": "Dream For Mother",
+     "artist": "Christian Death",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "126",
+     "camelot": "11B"
+    },
+    {
+     "pos": "B1",
+     "title": "Stairs - Uncertain Journey",
+     "artist": "Christian Death",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B2",
+     "title": "Spiritual Cramp",
+     "artist": "Christian Death",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "145",
+     "camelot": "3B"
+    },
+    {
+     "pos": "B3",
+     "title": "Romeo's Distress",
+     "artist": "Christian Death",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "187",
+     "camelot": "1B"
+    },
+    {
+     "pos": "B4",
+     "title": "Resurrection - Sixth Communion",
+     "artist": "Christian Death",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B5",
+     "title": "Prayer",
+     "artist": "Christian Death",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "80",
+     "camelot": "5B"
+    }
+   ]
+  },
+  {
+   "id": 72018,
+   "title": "Clan Of Xymox",
+   "artist": "Clan Of Xymox",
+   "year": 1985,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "Darkwave"
+   ],
+   "label": "4AD",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/oBS23HSL05zYGDYiDm4gPQShpgZemI7tc13d235ddvw/rs:fit/g:sm/q:90/h:599/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcyMDE4/LTE0NzQzMjY4Njkt/NTA5Ny5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/xF9UZMCLsqg6aAZjLSydQOTgUJM0yDbfJdEExNfxdHM/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcyMDE4/LTE0NzQzMjY4Njkt/NTA5Ny5qcGVn.jpeg",
+   "folder": "Cold & Darkwave",
+   "added": "2019-01-04T17:09:09-08:00",
+   "url": "https://www.discogs.com/release/72018",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "A Day",
+     "artist": "Clan Of Xymox",
+     "duration": "6:40",
+     "cue_in": "0:00*",
+     "cue_out": "6:20*",
+     "looked_up": "2026-10-22",
+     "bpm": "147",
+     "camelot": "3A"
+    },
+    {
+     "pos": "A2",
+     "title": "No Words",
+     "artist": "Clan Of Xymox",
+     "duration": "4:27",
+     "cue_in": "0:00*",
+     "cue_out": "4:07*",
+     "looked_up": "2026-10-22",
+     "bpm": "131",
+     "camelot": "3B"
+    },
+    {
+     "pos": "A3",
+     "title": "Stumble And Fall",
+     "artist": "Clan Of Xymox",
+     "duration": "5:05",
+     "cue_in": "0:00*",
+     "cue_out": "4:45*",
+     "looked_up": "2026-10-22",
+     "bpm": "131",
+     "camelot": "4B"
+    },
+    {
+     "pos": "A4",
+     "title": "Cry In The Wind",
+     "artist": "Clan Of Xymox",
+     "duration": "5:17",
+     "cue_in": "0:00*",
+     "cue_out": "4:57*",
+     "looked_up": "2026-10-22",
+     "bpm": "66",
+     "camelot": "11B"
+    },
+    {
+     "pos": "B5",
+     "title": "Stranger",
+     "artist": "Clan Of Xymox",
+     "duration": "7:41",
+     "cue_in": "0:00*",
+     "cue_out": "7:21*",
+     "looked_up": "2026-10-22",
+     "bpm": "129",
+     "camelot": "4A"
+    },
+    {
+     "pos": "B6",
+     "title": "Equal Ways",
+     "artist": "Clan Of Xymox",
+     "duration": "5:44",
+     "cue_in": "0:00*",
+     "cue_out": "5:24*",
+     "looked_up": "2026-10-22",
+     "bpm": "121",
+     "camelot": "3A"
+    },
+    {
+     "pos": "B7",
+     "title": "7th Time",
+     "artist": "Clan Of Xymox",
+     "duration": "4:38",
+     "cue_in": "0:00*",
+     "cue_out": "4:18*",
+     "looked_up": "2026-10-22",
+     "bpm": "152",
+     "camelot": "3A"
+    },
+    {
+     "pos": "B8",
+     "title": "No Human Can Drown",
+     "artist": "Clan Of Xymox",
+     "duration": "3:23",
+     "cue_in": "0:00*",
+     "cue_out": "3:03*",
+     "looked_up": "2026-10-22",
+     "bpm": "128",
+     "camelot": "8A"
+    }
+   ]
+  },
+  {
+   "id": 5529916,
+   "title": "Violator",
+   "artist": "Depeche Mode",
+   "year": 2014,
+   "genres": [
+    "Electronic"
+   ],
+   "styles": [
+    "Synth-pop"
+   ],
+   "label": "Music On Vinyl",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/rwMXqjcrvOJ2xq3VgZJAMdOr0pWb8u_eMNXdWWEH1_c/rs:fit/g:sm/q:90/h:600/w:599/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU1Mjk5/MTYtMTQ5MjYyNjgy/Ny0yOTI5LmpwZWc.jpeg",
+   "thumb": "https://i.discogs.com/QoRDsmhFF1gLVyWiXFj-VW9-0F2nS11SEF7W3csY-_Y/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU1Mjk5/MTYtMTQ5MjYyNjgy/Ny0yOTI5LmpwZWc.jpeg",
+   "folder": "Electronica & IDM",
+   "added": "2022-08-30T12:56:12-07:00",
+   "url": "https://www.discogs.com/release/5529916",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "World In My Eyes",
+     "artist": "Depeche Mode",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "123",
+     "camelot": "3A"
+    },
+    {
+     "pos": "A2",
+     "title": "Sweetest Perfection",
+     "artist": "Depeche Mode",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "101",
+     "camelot": "1B"
+    },
+    {
+     "pos": "A3",
+     "title": "Personal Jesus",
+     "artist": "Depeche Mode",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "129",
+     "camelot": "11A"
+    },
+    {
+     "pos": "A4",
+     "title": "Halo",
+     "artist": "Depeche Mode",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "112",
+     "camelot": "2A"
+    },
+    {
+     "pos": "A5",
+     "title": "Waiting For The Night",
+     "artist": "Depeche Mode",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "182",
+     "camelot": "3A"
+    },
+    {
+     "pos": "B1",
+     "title": "Enjoy The Silence",
+     "artist": "Depeche Mode",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "112",
+     "camelot": "5A"
+    },
+    {
+     "pos": "B2",
+     "title": "Policy Of Truth",
+     "artist": "Depeche Mode",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "112",
+     "camelot": "5A"
+    },
+    {
+     "pos": "B3",
+     "title": "Blue Dress",
+     "artist": "Depeche Mode",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "187",
+     "camelot": "11A"
+    },
+    {
+     "pos": "B4",
+     "title": "Clean",
+     "artist": "Depeche Mode",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "184",
+     "camelot": "9B"
+    }
+   ]
+  },
+  {
+   "id": 9664068,
+   "title": "The Demonstration",
+   "artist": "Drab Majesty",
+   "year": 2017,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "Darkwave",
+    "Goth Rock",
+    "Ethereal"
+   ],
+   "label": "Dais Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/VESn68DuHLA8hxyKc8VyX0yd9EqG7ANw4DOOsU9GXqY/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTk2NjQw/NjgtMTQ4NDQxMDM0/My0yMzAyLmpwZWc.jpeg",
+   "thumb": "https://i.discogs.com/sK-XunzglJPfSsRkifP_t5vBmjUbxVCCaflCFsaf8BY/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTk2NjQw/NjgtMTQ4NDQxMDM0/My0yMzAyLmpwZWc.jpeg",
+   "folder": "Cold & Darkwave",
+   "added": "2022-08-22T11:40:34-07:00",
+   "url": "https://www.discogs.com/release/9664068",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Induction",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "66",
+     "camelot": "5A"
+    },
+    {
+     "pos": "A2",
+     "title": "Dot In The Sky",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "114",
+     "camelot": "4B"
+    },
+    {
+     "pos": "A3",
+     "title": "39 By Design",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "144",
+     "camelot": "8A"
+    },
+    {
+     "pos": "A4",
+     "title": "Not Just A Name",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "104",
+     "camelot": "9B"
+    },
+    {
+     "pos": "A5",
+     "title": "Hath No Form",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "86",
+     "camelot": "8A"
+    },
+    {
+     "pos": "B1",
+     "title": "Too Soon To Tell",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "128",
+     "camelot": "10A"
+    },
+    {
+     "pos": "B2",
+     "title": "Cold Souls",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "150",
+     "camelot": "3B"
+    },
+    {
+     "pos": "B3",
+     "title": "Kissing The Ground",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "149",
+     "camelot": "3A"
+    },
+    {
+     "pos": "B4",
+     "title": "Behind The Wall",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "134",
+     "camelot": "9B"
+    }
+   ]
+  },
+  {
+   "id": 13875394,
+   "title": "Modern Mirror ",
+   "artist": "Drab Majesty",
+   "year": 2019,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "Darkwave",
+    "New Wave",
+    "Goth Rock"
+   ],
+   "label": "Dais Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/RZtkFOjso-QppmIsBoYzYGNU89cOECqxC_zSiaL389A/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzODc1/Mzk0LTE1NjMwODMw/NDAtMzE2MS5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/FOAZ1YiRBjVMif1OQZ__6bdeCRPiBHIfS67h4v1oCcU/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzODc1/Mzk0LTE1NjMwODMw/NDAtMzE2MS5qcGVn.jpeg",
+   "folder": "New Wave",
+   "added": "2022-08-19T02:11:55-07:00",
+   "url": "https://www.discogs.com/release/13875394",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "A Dialogue ",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "111",
+     "camelot": "3B"
+    },
+    {
+     "pos": "A2",
+     "title": "The Other Side ",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "119",
+     "camelot": "4A"
+    },
+    {
+     "pos": "B3",
+     "title": "Ellipsis",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "155",
+     "camelot": "10B"
+    },
+    {
+     "pos": "B4",
+     "title": "Noise Of The Void",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "115",
+     "camelot": "6B"
+    },
+    {
+     "pos": "C5",
+     "title": "Dolls In The Dark",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "129",
+     "camelot": "8A"
+    },
+    {
+     "pos": "C6",
+     "title": "Oxytocin",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "152",
+     "camelot": "3B"
+    },
+    {
+     "pos": "D7",
+     "title": "Long Division",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "95",
+     "camelot": "8B"
+    },
+    {
+     "pos": "D8",
+     "title": "Out Of Sequence ",
+     "artist": "Drab Majesty",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "132",
+     "camelot": "3B"
+    }
+   ]
+  },
+  {
+   "id": 2815429,
+   "title": "Ocean Rain",
+   "artist": "Echo & The Bunnymen",
+   "year": 1984,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "New Wave",
+    "Indie Rock"
+   ],
+   "label": "Korova",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/6DFJVywmJeJeSj45MWzUghTdsdxEzdG4oDXi1TS15Sc/rs:fit/g:sm/q:90/h:591/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4MTU0/MjktMTU5MjAzNjIw/Ni03MTcyLmpwZWc.jpeg",
+   "thumb": "https://i.discogs.com/WoG3bYRDT-0UpBz88_XRMDf9kRdmTd06NzGzQ6bsaMw/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4MTU0/MjktMTU5MjAzNjIw/Ni03MTcyLmpwZWc.jpeg",
+   "folder": "Goth Rock",
+   "added": "2019-01-08T18:53:52-08:00",
+   "url": "https://www.discogs.com/release/2815429",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Silver",
+     "artist": "Echo & The Bunnymen",
+     "duration": "3:19",
+     "cue_in": "0:00*",
+     "cue_out": "2:59*",
+     "looked_up": "2026-10-22",
+     "bpm": "136",
+     "camelot": "10B"
+    },
+    {
+     "pos": "A2",
+     "title": "Nocturnal Me",
+     "artist": "Echo & The Bunnymen",
+     "duration": "4:58",
+     "cue_in": "0:00*",
+     "cue_out": "4:38*",
+     "looked_up": "2026-10-22",
+     "bpm": "85",
+     "camelot": "8A"
+    },
+    {
+     "pos": "A3",
+     "title": "Crystal Days",
+     "artist": "Echo & The Bunnymen",
+     "duration": "2:25",
+     "cue_in": "0:00*",
+     "cue_out": "2:05*",
+     "looked_up": "2026-10-22",
+     "bpm": "138",
+     "camelot": "11B"
+    },
+    {
+     "pos": "A4",
+     "title": "The Yo Yo Man",
+     "artist": "Echo & The Bunnymen",
+     "duration": "3:12",
+     "cue_in": "0:00*",
+     "cue_out": "2:52*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A5",
+     "title": "Thorn Of Crowns",
+     "artist": "Echo & The Bunnymen",
+     "duration": "4:58",
+     "cue_in": "0:00*",
+     "cue_out": "4:38*",
+     "looked_up": "2026-10-22",
+     "bpm": "125",
+     "camelot": "10B"
+    },
+    {
+     "pos": "B1",
+     "title": "The Killing Moon",
+     "artist": "Echo & The Bunnymen",
+     "duration": "5:45",
+     "cue_in": "0:00*",
+     "cue_out": "5:25*",
+     "looked_up": "2026-10-22",
+     "bpm": "123",
+     "camelot": "9B"
+    },
+    {
+     "pos": "B2",
+     "title": "Seven Seas",
+     "artist": "Echo & The Bunnymen",
+     "duration": "3:20",
+     "cue_in": "0:00*",
+     "cue_out": "3:00*",
+     "looked_up": "2026-10-22",
+     "bpm": "134",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B3",
+     "title": "My Kingdom",
+     "artist": "Echo & The Bunnymen",
+     "duration": "4:05",
+     "cue_in": "0:00*",
+     "cue_out": "3:45*",
+     "looked_up": "2026-10-22",
+     "bpm": "127",
+     "camelot": "9B"
+    },
+    {
+     "pos": "B4",
+     "title": "Ocean Rain",
+     "artist": "Echo & The Bunnymen",
+     "duration": "5:10",
+     "cue_in": "0:00*",
+     "cue_out": "4:50*",
+     "looked_up": "2026-10-22",
+     "bpm": "104",
+     "camelot": "10B"
+    }
+   ]
+  },
+  {
+   "id": 1453298,
+   "title": "Unknown Pleasures",
+   "artist": "Joy Division",
+   "year": null,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "New Wave"
+   ],
+   "label": "Factory",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/MSTH4OmdPmwuGFR-fpaxRjN86I_JMzMV3D_tPN6N55A/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0NTMy/OTgtMTIyMDg2NjQ2/Ni5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/ltbFN9f7M1CBs-Pgtz6OMcoB8dZpJui9FByhuzXxNDQ/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0NTMy/OTgtMTIyMDg2NjQ2/Ni5qcGVn.jpeg",
+   "folder": "Goth Rock",
+   "added": "2022-08-19T02:09:12-07:00",
+   "url": "https://www.discogs.com/release/1453298",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Disorder",
+     "artist": "Joy Division",
+     "duration": "3:36",
+     "cue_in": "0:00*",
+     "cue_out": "3:16*",
+     "looked_up": "2026-10-22",
+     "bpm": "172",
+     "camelot": "3A"
+    },
+    {
+     "pos": "A2",
+     "title": "Day Of The Lords",
+     "artist": "Joy Division",
+     "duration": "4:43",
+     "cue_in": "0:00*",
+     "cue_out": "4:23*",
+     "looked_up": "2026-10-22",
+     "bpm": "124",
+     "camelot": "11B"
+    },
+    {
+     "pos": "A3",
+     "title": "Candidate",
+     "artist": "Joy Division",
+     "duration": "3:00",
+     "cue_in": "0:00*",
+     "cue_out": "2:40*",
+     "looked_up": "2026-10-22",
+     "bpm": "134",
+     "camelot": "10A"
+    },
+    {
+     "pos": "A4",
+     "title": "Insight",
+     "artist": "Joy Division",
+     "duration": "4:00",
+     "cue_in": "0:00*",
+     "cue_out": "3:40*",
+     "looked_up": "2026-10-22",
+     "bpm": "131",
+     "camelot": "10B"
+    },
+    {
+     "pos": "A5",
+     "title": "New Dawn Fades",
+     "artist": "Joy Division",
+     "duration": "4:47",
+     "cue_in": "0:00*",
+     "cue_out": "4:27*",
+     "looked_up": "2026-10-22",
+     "bpm": "78",
+     "camelot": "10B"
+    },
+    {
+     "pos": "B1",
+     "title": "She’s Lost Control",
+     "artist": "Joy Division",
+     "duration": "3:40",
+     "cue_in": "0:00*",
+     "cue_out": "3:20*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B2",
+     "title": "Shadowplay",
+     "artist": "Joy Division",
+     "duration": "3:50",
+     "cue_in": "0:00*",
+     "cue_out": "3:30*",
+     "looked_up": "2026-10-22",
+     "bpm": "144",
+     "camelot": "11B"
+    },
+    {
+     "pos": "B3",
+     "title": "Wilderness",
+     "artist": "Joy Division",
+     "duration": "2:35",
+     "cue_in": "0:00*",
+     "cue_out": "2:15*",
+     "looked_up": "2026-10-22",
+     "bpm": "120",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B4",
+     "title": "Interzone",
+     "artist": "Joy Division",
+     "duration": "2:10",
+     "cue_in": "0:00*",
+     "cue_out": "1:50*",
+     "looked_up": "2026-10-22",
+     "bpm": "78",
+     "camelot": "11B"
+    },
+    {
+     "pos": "B5",
+     "title": "I Remember Nothing",
+     "artist": "Joy Division",
+     "duration": "6:00",
+     "cue_in": "0:00*",
+     "cue_out": "5:40*",
+     "looked_up": "2026-10-22",
+     "bpm": "144",
+     "camelot": "11B"
+    }
+   ]
+  },
+  {
+   "id": 544142,
+   "title": "Night Time",
+   "artist": "Killing Joke",
+   "year": 1985,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "New Wave",
+    "Goth Rock",
+    "Post-Punk"
+   ],
+   "label": "EG",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/hRv8E4D6ZuPx61pen7TfOTpZsmH4uLFyWVO2th05Rbo/rs:fit/g:sm/q:90/h:600/w:590/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU0NDE0/Mi0xMTY4MTAzODYz/LmpwZWc.jpeg",
+   "thumb": "https://i.discogs.com/FNewRWWLUSdBlkGrW2wT83vTkJ8ZN2ouCtIg_87u9BM/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU0NDE0/Mi0xMTY4MTAzODYz/LmpwZWc.jpeg",
+   "folder": "New Wave",
+   "added": "2022-08-21T07:19:41-07:00",
+   "url": "https://www.discogs.com/release/544142",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Night Time",
+     "artist": "Killing Joke",
+     "duration": "4:55",
+     "cue_in": "0:00*",
+     "cue_out": "4:35*",
+     "looked_up": "2026-10-22",
+     "bpm": "136",
+     "camelot": "10B"
+    },
+    {
+     "pos": "A2",
+     "title": "Darkness Before Dawn",
+     "artist": "Killing Joke",
+     "duration": "5:18",
+     "cue_in": "0:00*",
+     "cue_out": "4:58*",
+     "looked_up": "2026-10-22",
+     "bpm": "145",
+     "camelot": "6A"
+    },
+    {
+     "pos": "A3",
+     "title": "Love Like Blood",
+     "artist": "Killing Joke",
+     "duration": "6:48",
+     "cue_in": "0:00*",
+     "cue_out": "6:28*",
+     "looked_up": "2026-10-22",
+     "bpm": "125",
+     "camelot": "6A"
+    },
+    {
+     "pos": "A4",
+     "title": "Kings And Queens",
+     "artist": "Killing Joke",
+     "duration": "4:38",
+     "cue_in": "0:00*",
+     "cue_out": "4:18*",
+     "looked_up": "2026-10-22",
+     "bpm": "139",
+     "camelot": "9B"
+    },
+    {
+     "pos": "B1",
+     "title": "Tabazan",
+     "artist": "Killing Joke",
+     "duration": "4:34",
+     "cue_in": "0:00*",
+     "cue_out": "4:14*",
+     "looked_up": "2026-10-22",
+     "bpm": "136",
+     "camelot": "5B"
+    },
+    {
+     "pos": "B2",
+     "title": "Multitudes",
+     "artist": "Killing Joke",
+     "duration": "4:56",
+     "cue_in": "0:00*",
+     "cue_out": "4:36*",
+     "looked_up": "2026-10-22",
+     "bpm": "123",
+     "camelot": "10B"
+    },
+    {
+     "pos": "B3",
+     "title": "Europe",
+     "artist": "Killing Joke",
+     "duration": "4:35",
+     "cue_in": "0:00*",
+     "cue_out": "4:15*",
+     "looked_up": "2026-10-22",
+     "bpm": "149",
+     "camelot": "7B"
+    },
+    {
+     "pos": "B4",
+     "title": "Eighties",
+     "artist": "Killing Joke",
+     "duration": "3:50",
+     "cue_in": "0:00*",
+     "cue_out": "3:30*",
+     "looked_up": "2026-10-22",
+     "bpm": "151",
+     "camelot": "5B"
+    }
+   ]
+  },
+  {
+   "id": 13718689,
+   "title": "Let Them Be Alien",
+   "artist": "Lebanon Hanover",
+   "year": 2018,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "Post-Punk",
+    "Coldwave",
+    "Darkwave"
+   ],
+   "label": "Fabrika Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/sj-ow1IaYf28rrK4xVnACPcsP-luwVFGNuKrDVKSl8Y/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzNzE4/Njg5LTE1NTk2Nzcx/MzAtNzEwOS5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/VjBxRO8ynk9GbzOcGsRGLZAm55aSKteFzoYH8fXXZIc/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzNzE4/Njg5LTE1NTk2Nzcx/MzAtNzEwOS5qcGVn.jpeg",
+   "folder": "Cold & Darkwave",
+   "added": "2022-08-19T07:43:50-07:00",
+   "url": "https://www.discogs.com/release/13718689",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Alien",
+     "artist": "Lebanon Hanover",
+     "duration": "4:48",
+     "cue_in": "0:00*",
+     "cue_out": "4:28*",
+     "looked_up": "2026-10-22",
+     "bpm": "115",
+     "camelot": "3B"
+    },
+    {
+     "pos": "A2",
+     "title": "Gravity Sucks",
+     "artist": "Lebanon Hanover",
+     "duration": "4:07",
+     "cue_in": "0:00*",
+     "cue_out": "3:47*",
+     "looked_up": "2026-10-22",
+     "bpm": "134",
+     "camelot": "9B"
+    },
+    {
+     "pos": "A3",
+     "title": "Kiss Me Until My Lips Fall Off",
+     "artist": "Lebanon Hanover",
+     "duration": "4:09",
+     "cue_in": "0:00*",
+     "cue_out": "3:49*",
+     "looked_up": "2026-10-22",
+     "bpm": "124",
+     "camelot": "8A"
+    },
+    {
+     "pos": "A4",
+     "title": "My Favorite Black Cat",
+     "artist": "Lebanon Hanover",
+     "duration": "3:58",
+     "cue_in": "0:00*",
+     "cue_out": "3:38*",
+     "looked_up": "2026-10-22",
+     "bpm": "129",
+     "camelot": "8A"
+    },
+    {
+     "pos": "A5",
+     "title": "Lavender Fields",
+     "artist": "Lebanon Hanover",
+     "duration": "4:09",
+     "cue_in": "0:00*",
+     "cue_out": "3:49*",
+     "looked_up": "2026-10-22",
+     "bpm": "135",
+     "camelot": "9A"
+    },
+    {
+     "pos": "B1",
+     "title": "Du Scrollst",
+     "artist": "Lebanon Hanover",
+     "duration": "3:05",
+     "cue_in": "0:00*",
+     "cue_out": "2:45*",
+     "looked_up": "2026-10-22",
+     "bpm": "155",
+     "camelot": "10A"
+    },
+    {
+     "pos": "B2",
+     "title": "True Romantics",
+     "artist": "Lebanon Hanover",
+     "duration": "3:35",
+     "cue_in": "0:00*",
+     "cue_out": "3:15*",
+     "looked_up": "2026-10-22",
+     "bpm": "174",
+     "camelot": "4B"
+    },
+    {
+     "pos": "B3",
+     "title": "The Silent Choir",
+     "artist": "Lebanon Hanover",
+     "duration": "3:59",
+     "cue_in": "0:00*",
+     "cue_out": "3:39*",
+     "looked_up": "2026-10-22",
+     "bpm": "130",
+     "camelot": "2A"
+    },
+    {
+     "pos": "B4",
+     "title": "Ebenholz",
+     "artist": "Lebanon Hanover",
+     "duration": "2:48",
+     "cue_in": "0:00*",
+     "cue_out": "2:28*",
+     "looked_up": "2026-10-22",
+     "bpm": "145",
+     "camelot": "11B"
+    },
+    {
+     "pos": "B5",
+     "title": "Petals",
+     "artist": "Lebanon Hanover",
+     "duration": "3:59",
+     "cue_in": "0:00*",
+     "cue_out": "3:39*",
+     "looked_up": "2026-10-22",
+     "bpm": "139",
+     "camelot": "8A"
+    }
+   ]
+  },
+  {
+   "id": 15173452,
+   "title": "Tomb For Two ",
+   "artist": "Lebanon Hanover",
+   "year": 2020,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "New Wave",
+    "Post-Punk",
+    "Coldwave"
+   ],
+   "label": "Fabrika Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/P4TZOwCKhAfyw0C1O_zA3JNd-gFolPtGxw_MTvDDMB8/rs:fit/g:sm/q:90/h:600/w:596/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1MTcz/NDUyLTE2NzcyMjY3/NzAtOTQxMi5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/XRiVj9oQ9bwjSrNV9dQv7lKgNPGhvhXNu7NbyW13TjE/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1MTcz/NDUyLTE2NzcyMjY3/NzAtOTQxMi5qcGVn.jpeg",
+   "folder": "Cold & Darkwave",
+   "added": "2022-08-19T07:42:23-07:00",
+   "url": "https://www.discogs.com/release/15173452",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Sadness Is Rebellion ",
+     "artist": "Lebanon Hanover",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "139",
+     "camelot": "8A"
+    },
+    {
+     "pos": "A2",
+     "title": "Your Fork Moves ",
+     "artist": "Lebanon Hanover",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "160",
+     "camelot": "3A"
+    },
+    {
+     "pos": "A3",
+     "title": "Stahlwerk ",
+     "artist": "Lebanon Hanover",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "140",
+     "camelot": "10B"
+    },
+    {
+     "pos": "A4",
+     "title": "Hall Of Ice ",
+     "artist": "Lebanon Hanover",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "140",
+     "camelot": "8A"
+    },
+    {
+     "pos": "A5",
+     "title": "Gallowdance ",
+     "artist": "Lebanon Hanover",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "136",
+     "camelot": "4B"
+    },
+    {
+     "pos": "B1",
+     "title": "I Believe You Can Survive (Elegy For The Introvert)",
+     "artist": "Lebanon Hanover",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B2",
+     "title": "Tomb For Two ",
+     "artist": "Lebanon Hanover",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "112",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B3",
+     "title": "Autofocus Has Ruined Quality ",
+     "artist": "Lebanon Hanover",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "104",
+     "camelot": "6B"
+    },
+    {
+     "pos": "B4",
+     "title": "Midnight Creature ",
+     "artist": "Lebanon Hanover",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "134",
+     "camelot": "10B"
+    },
+    {
+     "pos": "B5",
+     "title": "Invite Me To Your Country ",
+     "artist": "Lebanon Hanover",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "86",
+     "camelot": "8A"
+    }
+   ]
+  },
+  {
+   "id": 8593485,
+   "title": "Power, Corruption & Lies",
+   "artist": "New Order",
+   "year": 2015,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "New Wave",
+    "Synth-pop"
+   ],
+   "label": "London Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/bH7x26zAX9xvdoAgC-oswMXGLs3htjdwEMJrRD5Oaq8/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg1OTM0/ODUtMTQ2NDcxNTU4/Ni00OTczLmpwZWc.jpeg",
+   "thumb": "https://i.discogs.com/mpzPbZ2G1wSfFYWflw-Ae3tHH1F7bFnS9xCYu0NcWoc/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg1OTM0/ODUtMTQ2NDcxNTU4/Ni00OTczLmpwZWc.jpeg",
+   "folder": "New Wave",
+   "added": "2022-08-20T03:43:54-07:00",
+   "url": "https://www.discogs.com/release/8593485",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Age Of Consent",
+     "artist": "New Order",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "161",
+     "camelot": "10B"
+    },
+    {
+     "pos": "A2",
+     "title": "We All Stand",
+     "artist": "New Order",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "93",
+     "camelot": "11A"
+    },
+    {
+     "pos": "A3",
+     "title": "The Village",
+     "artist": "New Order",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "129",
+     "camelot": "8B"
+    },
+    {
+     "pos": "A4",
+     "title": "5 8 6",
+     "artist": "New Order",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "126",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B1",
+     "title": "Your Silent Face",
+     "artist": "New Order",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "117",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B2",
+     "title": "Ultraviolence",
+     "artist": "New Order",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "127",
+     "camelot": "12B"
+    },
+    {
+     "pos": "B3",
+     "title": "Ecstasy",
+     "artist": "New Order",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "133",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B4",
+     "title": "Leave Me Alone",
+     "artist": "New Order",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "134",
+     "camelot": "9B"
+    }
+   ]
+  },
+  {
+   "id": 14425375,
+   "title": "If Two Worlds Kiss",
+   "artist": "Pink Turns Blue",
+   "year": 2019,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "Alternative Rock",
+    "Post-Punk",
+    "Darkwave"
+   ],
+   "label": "Dais Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/Fcv5FR2nrZ5JtuOJW8LWQRSuC5yhuGoYADl0ZWLMdJs/rs:fit/g:sm/q:90/h:595/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0NDI1/Mzc1LTE1NzQyNzY0/NjQtODM0Ny5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/QktjfzDc2ck0ZRf01Cv-Cu-16VjWHl-aWT-jjEHspdk/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0NDI1/Mzc1LTE1NzQyNzY0/NjQtODM0Ny5qcGVn.jpeg",
+   "folder": "Punk & Post Punk",
+   "added": "2022-08-19T07:41:40-07:00",
+   "url": "https://www.discogs.com/release/14425375",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "I Coldly Stare Out",
+     "artist": "Pink Turns Blue",
+     "duration": "5:36",
+     "cue_in": "0:00*",
+     "cue_out": "5:16*",
+     "looked_up": "2026-10-22",
+     "bpm": "80",
+     "camelot": "5A"
+    },
+    {
+     "pos": "A2",
+     "title": "After All",
+     "artist": "Pink Turns Blue",
+     "duration": "4:26",
+     "cue_in": "0:00*",
+     "cue_out": "4:06*",
+     "looked_up": "2026-10-22",
+     "bpm": "150",
+     "camelot": "6A"
+    },
+    {
+     "pos": "A3",
+     "title": "Walking On Both Sides",
+     "artist": "Pink Turns Blue",
+     "duration": "3:42",
+     "cue_in": "0:00*",
+     "cue_out": "3:22*",
+     "looked_up": "2026-10-22",
+     "bpm": "175",
+     "camelot": "3B"
+    },
+    {
+     "pos": "A4",
+     "title": "State Of Mind",
+     "artist": "Pink Turns Blue",
+     "duration": "3:56",
+     "cue_in": "0:00*",
+     "cue_out": "3:36*",
+     "looked_up": "2026-10-22",
+     "bpm": "140",
+     "camelot": "8B"
+    },
+    {
+     "pos": "A5",
+     "title": "When It Rains",
+     "artist": "Pink Turns Blue",
+     "duration": "3:18",
+     "cue_in": "0:00*",
+     "cue_out": "2:58*",
+     "looked_up": "2026-10-22",
+     "bpm": "76",
+     "camelot": "6B"
+    },
+    {
+     "pos": "B1",
+     "title": "If Two Worlds Kiss",
+     "artist": "Pink Turns Blue",
+     "duration": "4:57",
+     "cue_in": "0:00*",
+     "cue_out": "4:37*",
+     "looked_up": "2026-10-22",
+     "bpm": "131",
+     "camelot": "10A"
+    },
+    {
+     "pos": "B2",
+     "title": "That Was You",
+     "artist": "Pink Turns Blue",
+     "duration": "3:56",
+     "cue_in": "0:00*",
+     "cue_out": "3:36*",
+     "looked_up": "2026-10-22",
+     "bpm": "127",
+     "camelot": "8A"
+    },
+    {
+     "pos": "B3",
+     "title": "Missing You",
+     "artist": "Pink Turns Blue",
+     "duration": "3:17",
+     "cue_in": "0:00*",
+     "cue_out": "2:57*",
+     "looked_up": "2026-10-22",
+     "bpm": "180",
+     "camelot": "10A"
+    },
+    {
+     "pos": "B4",
+     "title": "A Moment Sometimes",
+     "artist": "Pink Turns Blue",
+     "duration": "3:59",
+     "cue_in": "0:00*",
+     "cue_out": "3:39*",
+     "looked_up": "2026-10-22",
+     "bpm": "171",
+     "camelot": "9B"
+    },
+    {
+     "pos": "B5",
+     "title": "When The Hammer Comes Down",
+     "artist": "Pink Turns Blue",
+     "duration": "3:37",
+     "cue_in": "0:00*",
+     "cue_out": "3:17*",
+     "looked_up": "2026-10-22",
+     "bpm": "120",
+     "camelot": "10A"
+    }
+   ]
+  },
+  {
+   "id": 11890431,
+   "title": "Talk About The Weather",
+   "artist": "Red Lorry Yellow Lorry",
+   "year": 2018,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "Goth Rock"
+   ],
+   "label": "Radiation Reissues",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/PhvwfU48SgHnQgkwIVLR6vEYMa1eRM1yGR507Xj31P0/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExODkw/NDMxLTE1MjQyMTM2/NzEtNjA5OC5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/lM8KliLVUkFujvUPzbV5GE4Tdf8tuEDBNtG3VQGqImE/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExODkw/NDMxLTE1MjQyMTM2/NzEtNjA5OC5qcGVn.jpeg",
+   "folder": "Goth Rock",
+   "added": "2022-08-21T09:13:02-07:00",
+   "url": "https://www.discogs.com/release/11890431",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Talk About The Weather",
+     "artist": "Red Lorry Yellow Lorry",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "96",
+     "camelot": "10B"
+    },
+    {
+     "pos": "A2",
+     "title": "Hand On Heart",
+     "artist": "Red Lorry Yellow Lorry",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "110",
+     "camelot": "11A"
+    },
+    {
+     "pos": "A3",
+     "title": "Feel A Piece",
+     "artist": "Red Lorry Yellow Lorry",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "123",
+     "camelot": "7B"
+    },
+    {
+     "pos": "A4",
+     "title": "Hollow Eyes",
+     "artist": "Red Lorry Yellow Lorry",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "156",
+     "camelot": "8B"
+    },
+    {
+     "pos": "A5",
+     "title": "Beating My Head",
+     "artist": "Red Lorry Yellow Lorry",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "133",
+     "camelot": "9B"
+    },
+    {
+     "pos": "A6",
+     "title": "I'm Still Waiting",
+     "artist": "Red Lorry Yellow Lorry",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "115",
+     "camelot": "11B"
+    },
+    {
+     "pos": "B1",
+     "title": "This Today",
+     "artist": "Red Lorry Yellow Lorry",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "140",
+     "camelot": "10A"
+    },
+    {
+     "pos": "B2",
+     "title": "Sometimes",
+     "artist": "Red Lorry Yellow Lorry",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "123",
+     "camelot": "8A"
+    },
+    {
+     "pos": "B3",
+     "title": "Strange Dream",
+     "artist": "Red Lorry Yellow Lorry",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "176",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B4",
+     "title": "Happy",
+     "artist": "Red Lorry Yellow Lorry",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "158",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B5",
+     "title": "Take It All",
+     "artist": "Red Lorry Yellow Lorry",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "137",
+     "camelot": "9B"
+    },
+    {
+     "pos": "B6",
+     "title": "Happy (Single Version)",
+     "artist": "Red Lorry Yellow Lorry",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "158",
+     "camelot": "8B"
+    }
+   ]
+  },
+  {
+   "id": 11512586,
+   "title": "Belirdi Gece",
+   "artist": "She Past Away",
+   "year": 2017,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "Darkwave",
+    "Goth Rock",
+    "New Wave"
+   ],
+   "label": "Fabrika Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/275Ntc4itYvOQ7O83vcXzog4ltnE1DnFEghC1W-mSWo/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExNTEy/NTg2LTE2NDE2NzY2/MzgtMzM3MC5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/XYEalpfHHSRTi0kml24JsIhiZvUO-EZ77SqZkW_dxss/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExNTEy/NTg2LTE2NDE2NzY2/MzgtMzM3MC5qcGVn.jpeg",
+   "folder": "Cold & Darkwave",
+   "added": "2022-08-22T11:23:53-07:00",
+   "url": "https://www.discogs.com/release/11512586",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Sanri = Hallucination",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A2",
+     "title": "Ritüel = Ritual",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A3",
+     "title": "Monoton = Monotone",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A4",
+     "title": "Kasvetli Kutlama = Somber Celebration",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A5",
+     "title": "İnsanlar = People",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B1",
+     "title": "Belirdi Gece-Musallat = The Night Emerged - Haunt",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B2",
+     "title": "Ruh = Spirit",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B3",
+     "title": "Kemir Beni = Gnaw At Me",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B4",
+     "title": "Bozbulanik = Murky Grey",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B5",
+     "title": "İçe Kapanis = Escape Within",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    }
+   ]
+  },
+  {
+   "id": 13661827,
+   "title": "Disko Anksiyete",
+   "artist": "She Past Away",
+   "year": 2019,
+   "genres": [
+    "Electronic"
+   ],
+   "styles": [
+    "New Wave",
+    "Darkwave",
+    "Synthwave"
+   ],
+   "label": "Fabrika Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/Oxyweg3HmuU-2zbxDofTdNnR4M7S_IeXaf7XBtFQLvo/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzNjYx/ODI3LTE1NjIyNDE5/NDctOTExOS5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/z2cgltTS_TJmjiK9CpD27qjdceVP_n29bIWjXD5TMYs/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzNjYx/ODI3LTE1NjIyNDE5/NDctOTExOS5qcGVn.jpeg",
+   "folder": "Cold & Darkwave",
+   "added": "2022-08-20T09:54:52-07:00",
+   "url": "https://www.discogs.com/release/13661827",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Boşluk (Intro)",
+     "artist": "She Past Away",
+     "duration": "2:08",
+     "cue_in": "0:00*",
+     "cue_out": "1:48*",
+     "looked_up": "2026-10-22",
+     "bpm": "110*",
+     "camelot": "9A*"
+    },
+    {
+     "pos": "A2",
+     "title": "Durdu Dünya",
+     "artist": "She Past Away",
+     "duration": "4:49",
+     "cue_in": "0:00*",
+     "cue_out": "4:29*",
+     "looked_up": "2026-10-22",
+     "bpm": "129",
+     "camelot": "10A"
+    },
+    {
+     "pos": "A3",
+     "title": "Disko Anksiyete",
+     "artist": "She Past Away",
+     "duration": "4:07",
+     "cue_in": "0:00*",
+     "cue_out": "3:47*",
+     "looked_up": "2026-10-22",
+     "bpm": "140",
+     "camelot": "4B"
+    },
+    {
+     "pos": "A4",
+     "title": "İzole",
+     "artist": "She Past Away",
+     "duration": "4:51",
+     "cue_in": "0:00*",
+     "cue_out": "4:31*",
+     "looked_up": "2026-10-22",
+     "bpm": "143",
+     "camelot": "10A"
+    },
+    {
+     "pos": "A5",
+     "title": "La Maldad",
+     "artist": "She Past Away",
+     "duration": "3:46",
+     "cue_in": "0:00*",
+     "cue_out": "3:26*",
+     "looked_up": "2026-10-22",
+     "bpm": "139",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B1",
+     "title": "Renksiz",
+     "artist": "She Past Away",
+     "duration": "3:31",
+     "cue_in": "0:00*",
+     "cue_out": "3:11*",
+     "looked_up": "2026-10-22",
+     "bpm": "146",
+     "camelot": "10A"
+    },
+    {
+     "pos": "B2",
+     "title": "Sonbahar",
+     "artist": "She Past Away",
+     "duration": "4:10",
+     "cue_in": "0:00*",
+     "cue_out": "3:50*",
+     "looked_up": "2026-10-22",
+     "bpm": "129",
+     "camelot": "7B"
+    },
+    {
+     "pos": "B3",
+     "title": "Girdap",
+     "artist": "She Past Away",
+     "duration": "4:30",
+     "cue_in": "0:00*",
+     "cue_out": "4:10*",
+     "looked_up": "2026-10-22",
+     "bpm": "129",
+     "camelot": "5A"
+    },
+    {
+     "pos": "B4",
+     "title": "Yükseliyor Deniz",
+     "artist": "She Past Away",
+     "duration": "4:36",
+     "cue_in": "0:00*",
+     "cue_out": "4:16*",
+     "looked_up": "2026-10-22",
+     "bpm": "134",
+     "camelot": "11A"
+    },
+    {
+     "pos": "B5",
+     "title": "Ağıt",
+     "artist": "She Past Away",
+     "duration": "4:51",
+     "cue_in": "0:00*",
+     "cue_out": "4:31*",
+     "looked_up": "2026-10-22",
+     "bpm": "119*",
+     "camelot": "9B*"
+    }
+   ]
+  },
+  {
+   "id": 916585,
+   "title": "Kaleidoscope",
+   "artist": "Siouxsie & The Banshees",
+   "year": 1980,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "Post-Punk",
+    "New Wave"
+   ],
+   "label": "Polydor",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/kG7Dv3ethMzrzRhMD2HziLFt3_B9Cgp7TnFnYO37KUg/rs:fit/g:sm/q:90/h:550/w:550/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkxNjU4/NS0xNDEwNjQ4NzU3/LTg2MjAuanBlZw.jpeg",
+   "thumb": "https://i.discogs.com/TKM7Kp5ATAXm6aSvBx62QAYDu_SW5N87p1jYRJx9tjk/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkxNjU4/NS0xNDEwNjQ4NzU3/LTg2MjAuanBlZw.jpeg",
+   "folder": "Goth Rock",
+   "added": "2022-08-21T09:18:00-07:00",
+   "url": "https://www.discogs.com/release/916585",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Happy House",
+     "artist": "Siouxsie & The Banshees",
+     "duration": "3:51",
+     "cue_in": "0:00*",
+     "cue_out": "3:31*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A2",
+     "title": "Tenant",
+     "artist": "Siouxsie & The Banshees",
+     "duration": "3:41",
+     "cue_in": "0:00*",
+     "cue_out": "3:21*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A3",
+     "title": "Trophy",
+     "artist": "Siouxsie & The Banshees",
+     "duration": "3:19",
+     "cue_in": "0:00*",
+     "cue_out": "2:59*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A4",
+     "title": "Hybrid",
+     "artist": "Siouxsie & The Banshees",
+     "duration": "5:32",
+     "cue_in": "0:00*",
+     "cue_out": "5:12*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A5",
+     "title": "Clockface",
+     "artist": "Siouxsie & The Banshees",
+     "duration": "1:52",
+     "cue_in": "0:00*",
+     "cue_out": "1:32*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A6",
+     "title": "Lunar Camel",
+     "artist": "Siouxsie & The Banshees",
+     "duration": "3:03",
+     "cue_in": "0:00*",
+     "cue_out": "2:43*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B1",
+     "title": "Christine",
+     "artist": "Siouxsie & The Banshees",
+     "duration": "3:00",
+     "cue_in": "0:00*",
+     "cue_out": "2:40*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B2",
+     "title": "Desert Kisses",
+     "artist": "Siouxsie & The Banshees",
+     "duration": "4:14",
+     "cue_in": "0:00*",
+     "cue_out": "3:54*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B3",
+     "title": "Red Light",
+     "artist": "Siouxsie & The Banshees",
+     "duration": "3:21",
+     "cue_in": "0:00*",
+     "cue_out": "3:01*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B4",
+     "title": "Paradise Place",
+     "artist": "Siouxsie & The Banshees",
+     "duration": "4:35",
+     "cue_in": "0:00*",
+     "cue_out": "4:15*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B5",
+     "title": "Skin",
+     "artist": "Siouxsie & The Banshees",
+     "duration": "3:50",
+     "cue_in": "0:00*",
+     "cue_out": "3:30*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    }
+   ]
+  },
+  {
+   "id": 13957006,
+   "title": "Savior",
+   "artist": "Soft Kill",
+   "year": 2019,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "Alternative Rock",
+    "Post-Punk",
+    "Shoegaze"
+   ],
+   "label": "Profound Lore Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/jgrEx2Jc36_evze5U_GTJl3RyDqgjZ5JLeLW98e3CxU/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzOTU3/MDA2LTE1NjQ4ODEz/MzYtMTgxOS5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/rKZaB1HBi3QVi3MmrOAP4nP6zlqRskZ5exT0nHHIvEY/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzOTU3/MDA2LTE1NjQ4ODEz/MzYtMTgxOS5qcGVn.jpeg",
+   "folder": "Punk & Post Punk",
+   "added": "2022-08-21T09:34:27-07:00",
+   "url": "https://www.discogs.com/release/13957006",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Swaddle",
+     "artist": "Soft Kill",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "155",
+     "camelot": "7A"
+    },
+    {
+     "pos": "A2",
+     "title": "Trying Not To Die",
+     "artist": "Soft Kill",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "128",
+     "camelot": "9B"
+    },
+    {
+     "pos": "A3",
+     "title": "Bunny Room",
+     "artist": "Soft Kill",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "109",
+     "camelot": "7B"
+    },
+    {
+     "pos": "A4",
+     "title": "Savior",
+     "artist": "Soft Kill",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "109",
+     "camelot": "8A"
+    },
+    {
+     "pos": "A5",
+     "title": "Missing",
+     "artist": "Soft Kill",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "163",
+     "camelot": "2B"
+    },
+    {
+     "pos": "B1",
+     "title": "Changing Days",
+     "artist": "Soft Kill",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "138",
+     "camelot": "11B"
+    },
+    {
+     "pos": "B2",
+     "title": "Dancing On Glass",
+     "artist": "Soft Kill",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "146",
+     "camelot": "8A"
+    },
+    {
+     "pos": "B3",
+     "title": "Cry Now Cry Later",
+     "artist": "Soft Kill",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B4",
+     "title": "Do You Feel Nothing?",
+     "artist": "Soft Kill",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "155",
+     "camelot": "7A"
+    },
+    {
+     "pos": "B5",
+     "title": "Hard Candy",
+     "artist": "Soft Kill",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "113",
+     "camelot": "9A"
+    }
+   ]
+  },
+  {
+   "id": 5994837,
+   "title": "Script Of The Bridge",
+   "artist": "The Chameleons",
+   "year": 2012,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "New Wave",
+    "Post-Punk"
+   ],
+   "label": "Blue Apple Music",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/9b8R-rJJcs_xMMHlPHjlax043LR40e-e32H2yWyQzQI/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU5OTQ4/MzctMTQxNTAzNTE4/Mi01MjU5LmpwZWc.jpeg",
+   "thumb": "https://i.discogs.com/UiQDujlI0HwJ1h8ESMMZ06LDtRdKdYk0-r4HbIgdOHA/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU5OTQ4/MzctMTQxNTAzNTE4/Mi01MjU5LmpwZWc.jpeg",
+   "folder": "Uncategorized",
+   "added": "2026-02-28T09:59:40-08:00",
+   "url": "https://www.discogs.com/release/5994837",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Don't Fall",
+     "artist": "The Chameleons",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "130",
+     "camelot": "11B"
+    },
+    {
+     "pos": "A2",
+     "title": "Here Today",
+     "artist": "The Chameleons",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "121",
+     "camelot": "11A"
+    },
+    {
+     "pos": "A3",
+     "title": "Monkeyland",
+     "artist": "The Chameleons",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "112",
+     "camelot": "1B"
+    },
+    {
+     "pos": "B1",
+     "title": "Second Skin",
+     "artist": "The Chameleons",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "128",
+     "camelot": "1B"
+    },
+    {
+     "pos": "B2",
+     "title": "Up The Down Escalator",
+     "artist": "The Chameleons",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "136",
+     "camelot": "3B"
+    },
+    {
+     "pos": "B3",
+     "title": "Less Than Human",
+     "artist": "The Chameleons",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "90",
+     "camelot": "11A"
+    },
+    {
+     "pos": "C1",
+     "title": "Pleasure And Pain",
+     "artist": "The Chameleons",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "119",
+     "camelot": "11A"
+    },
+    {
+     "pos": "C2",
+     "title": "Thursday's Child",
+     "artist": "The Chameleons",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "124",
+     "camelot": "9A"
+    },
+    {
+     "pos": "C3",
+     "title": "As High As You Can Go",
+     "artist": "The Chameleons",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "131",
+     "camelot": "10A"
+    },
+    {
+     "pos": "D1",
+     "title": "A Person Isn't Safe Anywhere These Days",
+     "artist": "The Chameleons",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "123",
+     "camelot": "10A"
+    },
+    {
+     "pos": "D2",
+     "title": "Paper Tigers",
+     "artist": "The Chameleons",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "126",
+     "camelot": "11A"
+    },
+    {
+     "pos": "D3",
+     "title": "View From A Hill",
+     "artist": "The Chameleons",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "104",
+     "camelot": "11A"
+    }
+   ]
+  },
+  {
+   "id": 3177172,
+   "title": "Seventeen Seconds",
+   "artist": "The Cure",
+   "year": 2011,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "New Wave",
+    "Post-Punk"
+   ],
+   "label": "Music On Vinyl",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/g-OimVQtOaCDu_93FtUh6GLSBvCdFBHdkk0IfWORe_c/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNzcx/NzItMTc1NzM1ODAw/My00NjgxLmpwZWc.jpeg",
+   "thumb": "https://i.discogs.com/zCjaOJJ0Wnfkdk3_bq69arqwIln_K8hJE15Dlv97RKY/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNzcx/NzItMTc1NzM1ODAw/My00NjgxLmpwZWc.jpeg",
+   "folder": "Goth Rock",
+   "added": "2022-08-20T03:39:57-07:00",
+   "url": "https://www.discogs.com/release/3177172",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "A Reflection",
+     "artist": "The Cure",
+     "duration": "2:12",
+     "cue_in": "0:00*",
+     "cue_out": "1:52*",
+     "looked_up": "2026-10-22",
+     "bpm": "173",
+     "camelot": "10B"
+    },
+    {
+     "pos": "A2",
+     "title": "Play For Today",
+     "artist": "The Cure",
+     "duration": "3:41",
+     "cue_in": "0:00*",
+     "cue_out": "3:21*",
+     "looked_up": "2026-10-22",
+     "bpm": "80",
+     "camelot": "10A"
+    },
+    {
+     "pos": "A3",
+     "title": "Secrets",
+     "artist": "The Cure",
+     "duration": "3:20",
+     "cue_in": "0:00*",
+     "cue_out": "3:00*",
+     "looked_up": "2026-10-22",
+     "bpm": "140",
+     "camelot": "10A"
+    },
+    {
+     "pos": "A4",
+     "title": "In Your House",
+     "artist": "The Cure",
+     "duration": "4:08",
+     "cue_in": "0:00*",
+     "cue_out": "3:48*",
+     "looked_up": "2026-10-22",
+     "bpm": "104",
+     "camelot": "10B"
+    },
+    {
+     "pos": "A5",
+     "title": "Three",
+     "artist": "The Cure",
+     "duration": "2:36",
+     "cue_in": "0:00*",
+     "cue_out": "2:16*",
+     "looked_up": "2026-10-22",
+     "bpm": "169",
+     "camelot": "10A"
+    },
+    {
+     "pos": "B1",
+     "title": "The Final Sound",
+     "artist": "The Cure",
+     "duration": "0:52",
+     "cue_in": "0:00*",
+     "cue_out": "0:32*",
+     "looked_up": "2026-10-22",
+     "bpm": "120",
+     "camelot": "2B"
+    },
+    {
+     "pos": "B2",
+     "title": "A Forest",
+     "artist": "The Cure",
+     "duration": "5:55",
+     "cue_in": "0:00*",
+     "cue_out": "5:35*",
+     "looked_up": "2026-10-22",
+     "bpm": "162",
+     "camelot": "8A"
+    },
+    {
+     "pos": "B3",
+     "title": "M",
+     "artist": "The Cure",
+     "duration": "3:04",
+     "cue_in": "0:00*",
+     "cue_out": "2:44*",
+     "looked_up": "2026-10-22",
+     "bpm": "125",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B4",
+     "title": "At Night",
+     "artist": "The Cure",
+     "duration": "5:54",
+     "cue_in": "0:00*",
+     "cue_out": "5:34*",
+     "looked_up": "2026-10-22",
+     "bpm": "59",
+     "camelot": "11A"
+    },
+    {
+     "pos": "B5",
+     "title": "Seventeen Seconds",
+     "artist": "The Cure",
+     "duration": "4:00",
+     "cue_in": "0:00*",
+     "cue_out": "3:40*",
+     "looked_up": "2026-10-22",
+     "bpm": "111",
+     "camelot": "8A"
+    }
+   ]
+  },
+  {
+   "id": 9018182,
+   "title": "Pornography",
+   "artist": "The Cure",
+   "year": 2016,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "New Wave",
+    "Goth Rock"
+   ],
+   "label": "Fiction Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/4EE9DaXN8Q8NOzSS1iE6T34RrCmjddMdlrFE-2mfsT8/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkwMTgx/ODItMTQ3MzM1MzQ2/Ny0zOTA3LmpwZWc.jpeg",
+   "thumb": "https://i.discogs.com/SYXmYHvZ9UKYUJvHMn8G08X4sqbuqvUnhO-DFgCVZvQ/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkwMTgx/ODItMTQ3MzM1MzQ2/Ny0zOTA3LmpwZWc.jpeg",
+   "folder": "Goth Rock",
+   "added": "2022-08-20T03:39:28-07:00",
+   "url": "https://www.discogs.com/release/9018182",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "One Hundred Years",
+     "artist": "The Cure",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "132",
+     "camelot": "9B"
+    },
+    {
+     "pos": "A2",
+     "title": "A Short Term Effect",
+     "artist": "The Cure",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "117",
+     "camelot": "8B"
+    },
+    {
+     "pos": "A3",
+     "title": "The Hanging Garden",
+     "artist": "The Cure",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "135",
+     "camelot": "8B"
+    },
+    {
+     "pos": "A4",
+     "title": "Siamese Twins",
+     "artist": "The Cure",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "94",
+     "camelot": "10B"
+    },
+    {
+     "pos": "B1",
+     "title": "The Figurehead",
+     "artist": "The Cure",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "108",
+     "camelot": "3A"
+    },
+    {
+     "pos": "B2",
+     "title": "A Strange Day",
+     "artist": "The Cure",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "112",
+     "camelot": "8A"
+    },
+    {
+     "pos": "B3",
+     "title": "Cold",
+     "artist": "The Cure",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "100",
+     "camelot": "3A"
+    },
+    {
+     "pos": "B4",
+     "title": "Pornography",
+     "artist": "The Cure",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "123",
+     "camelot": "6B"
+    }
+   ]
+  },
+  {
+   "id": 21551143,
+   "title": "Disintegration",
+   "artist": "The Cure",
+   "year": 2021,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "Goth Rock",
+    "Post-Punk",
+    "Alternative Rock",
+    "New Wave"
+   ],
+   "label": "Fiction Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/7glFfQ1BXREWM9_grf7w3NtLj59feQkRg81HE-0mpR0/rs:fit/g:sm/q:90/h:600/w:598/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxNTUx/MTQzLTE2NDA5NTE3/ODQtNzUyNS5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/CJweCn-KTRvmS7GcjNGfl0I0c_kh54zKWQ8L0CmHEgM/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxNTUx/MTQzLTE2NDA5NTE3/ODQtNzUyNS5qcGVn.jpeg",
+   "folder": "Goth Rock",
+   "added": "2023-02-05T11:36:07-08:00",
+   "url": "https://www.discogs.com/release/21551143",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Plainsong",
+     "artist": "The Cure",
+     "duration": "5:15",
+     "cue_in": "0:00*",
+     "cue_out": "4:55*",
+     "looked_up": "2026-10-22",
+     "bpm": "86",
+     "camelot": "8B"
+    },
+    {
+     "pos": "A2",
+     "title": "Pictures Of You",
+     "artist": "The Cure",
+     "duration": "7:28",
+     "cue_in": "0:00*",
+     "cue_out": "7:08*",
+     "looked_up": "2026-10-22",
+     "bpm": "86",
+     "camelot": "11B"
+    },
+    {
+     "pos": "A3",
+     "title": "Closedown",
+     "artist": "The Cure",
+     "duration": "4:21",
+     "cue_in": "0:00*",
+     "cue_out": "4:01*",
+     "looked_up": "2026-10-22",
+     "bpm": "93",
+     "camelot": "12B"
+    },
+    {
+     "pos": "B1",
+     "title": "Lovesong",
+     "artist": "The Cure",
+     "duration": "3:30",
+     "cue_in": "0:00*",
+     "cue_out": "3:10*",
+     "looked_up": "2026-10-22",
+     "bpm": "140",
+     "camelot": "8A"
+    },
+    {
+     "pos": "B2",
+     "title": "Last Dance",
+     "artist": "The Cure",
+     "duration": "4:47",
+     "cue_in": "0:00*",
+     "cue_out": "4:27*",
+     "looked_up": "2026-10-22",
+     "bpm": "184",
+     "camelot": "8A"
+    },
+    {
+     "pos": "B3",
+     "title": "Lullaby",
+     "artist": "The Cure",
+     "duration": "4:12",
+     "cue_in": "0:00*",
+     "cue_out": "3:52*",
+     "looked_up": "2026-10-22",
+     "bpm": "93",
+     "camelot": "11B"
+    },
+    {
+     "pos": "B4",
+     "title": "Fascination Street",
+     "artist": "The Cure",
+     "duration": "5:16",
+     "cue_in": "0:00*",
+     "cue_out": "4:56*",
+     "looked_up": "2026-10-22",
+     "bpm": "99",
+     "camelot": "5A"
+    },
+    {
+     "pos": "C1",
+     "title": "Prayers For Rain",
+     "artist": "The Cure",
+     "duration": "6:07",
+     "cue_in": "0:00*",
+     "cue_out": "5:47*",
+     "looked_up": "2026-10-22",
+     "bpm": "116",
+     "camelot": "9B"
+    },
+    {
+     "pos": "C2",
+     "title": "The Same Deep Water As You",
+     "artist": "The Cure",
+     "duration": "9:22",
+     "cue_in": "0:00*",
+     "cue_out": "9:02*",
+     "looked_up": "2026-10-22",
+     "bpm": "99",
+     "camelot": "8A"
+    },
+    {
+     "pos": "D1",
+     "title": "Disintegration",
+     "artist": "The Cure",
+     "duration": "8:23",
+     "cue_in": "0:00*",
+     "cue_out": "8:03*",
+     "looked_up": "2026-10-22",
+     "bpm": "122",
+     "camelot": "10B"
+    },
+    {
+     "pos": "D2",
+     "title": "Homesick",
+     "artist": "The Cure",
+     "duration": "7:09",
+     "cue_in": "0:00*",
+     "cue_out": "6:49*",
+     "looked_up": "2026-10-22",
+     "bpm": "156",
+     "camelot": "8A"
+    },
+    {
+     "pos": "D3",
+     "title": "Untitled",
+     "artist": "The Cure",
+     "duration": "6:30",
+     "cue_in": "0:00*",
+     "cue_out": "6:10*",
+     "looked_up": "2026-10-22",
+     "bpm": "95",
+     "camelot": "9B"
+    }
+   ]
+  },
+  {
+   "id": 250345,
+   "title": "First And Last And Always",
+   "artist": "The Sisters Of Mercy",
+   "year": null,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "Goth Rock"
+   ],
+   "label": "Merciful Release",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/YwjwspmkLD0qilwalY1fu1nrNe1rSxfdw19Z8vreNuU/rs:fit/g:sm/q:90/h:600/w:597/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI1MDM0/NS0xNjkyMDExNzA2/LTkwNDMuanBlZw.jpeg",
+   "thumb": "https://i.discogs.com/YZM2yJSwU6x-oCYqypitPhbVbU4Ke5z4_ae9-N9ecEw/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI1MDM0/NS0xNjkyMDExNzA2/LTkwNDMuanBlZw.jpeg",
+   "folder": "Goth Rock",
+   "added": "2019-02-03T12:13:00-08:00",
+   "url": "https://www.discogs.com/release/250345",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Black Planet",
+     "artist": "The Sisters Of Mercy",
+     "duration": "4:27",
+     "cue_in": "0:00*",
+     "cue_out": "4:07*",
+     "looked_up": "2026-10-22",
+     "bpm": "150",
+     "camelot": "9B"
+    },
+    {
+     "pos": "A2",
+     "title": "Walk Away",
+     "artist": "The Sisters Of Mercy",
+     "duration": "3:20",
+     "cue_in": "0:00*",
+     "cue_out": "3:00*",
+     "looked_up": "2026-10-22",
+     "bpm": "108",
+     "camelot": "9A"
+    },
+    {
+     "pos": "A3",
+     "title": "No Time To Cry",
+     "artist": "The Sisters Of Mercy",
+     "duration": "4:03",
+     "cue_in": "0:00*",
+     "cue_out": "3:43*",
+     "looked_up": "2026-10-22",
+     "bpm": "150",
+     "camelot": "10B"
+    },
+    {
+     "pos": "A4",
+     "title": "A Rock And A Hard Place",
+     "artist": "The Sisters Of Mercy",
+     "duration": "3:36",
+     "cue_in": "0:00*",
+     "cue_out": "3:16*",
+     "looked_up": "2026-10-22",
+     "bpm": "133",
+     "camelot": "3B"
+    },
+    {
+     "pos": "A5",
+     "title": "Marian (Version)",
+     "artist": "The Sisters Of Mercy",
+     "duration": "5:37",
+     "cue_in": "0:00*",
+     "cue_out": "5:17*",
+     "looked_up": "2026-10-22",
+     "bpm": "128",
+     "camelot": "12B"
+    },
+    {
+     "pos": "B1",
+     "title": "First And Last And Always",
+     "artist": "The Sisters Of Mercy",
+     "duration": "3:58",
+     "cue_in": "0:00*",
+     "cue_out": "3:38*",
+     "looked_up": "2026-10-22",
+     "bpm": "129",
+     "camelot": "9B"
+    },
+    {
+     "pos": "B2",
+     "title": "Possession",
+     "artist": "The Sisters Of Mercy",
+     "duration": "4:36",
+     "cue_in": "0:00*",
+     "cue_out": "4:16*",
+     "looked_up": "2026-10-22",
+     "bpm": "133",
+     "camelot": "3B"
+    },
+    {
+     "pos": "B3",
+     "title": "Nine While Nine",
+     "artist": "The Sisters Of Mercy",
+     "duration": "4:07",
+     "cue_in": "0:00*",
+     "cue_out": "3:47*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B4",
+     "title": "Logic",
+     "artist": "The Sisters Of Mercy",
+     "duration": "4:46",
+     "cue_in": "0:00*",
+     "cue_out": "4:26*",
+     "looked_up": "2026-10-22",
+     "bpm": "133",
+     "camelot": "10B"
+    },
+    {
+     "pos": "B5",
+     "title": "Some Kind Of Stranger",
+     "artist": "The Sisters Of Mercy",
+     "duration": "7:16",
+     "cue_in": "0:00*",
+     "cue_out": "6:56*",
+     "looked_up": "2026-10-22",
+     "bpm": "149",
+     "camelot": "6A"
+    }
+   ]
+  },
+  {
+   "id": 313897,
+   "title": "Vision Thing",
+   "artist": "The Sisters Of Mercy",
+   "year": 1990,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "Alternative Rock",
+    "Goth Rock"
+   ],
+   "label": "Merciful Release",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/KqhvkzXKSCK-vYuXpoNvTmhmccki0ZC6pE2vwmz6Ois/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxMzg5/Ny0xNzExNzk1MTg0/LTcyMjAuanBlZw.jpeg",
+   "thumb": "https://i.discogs.com/sfQdzH63BcT_621gVT1wm3PocbjQzyTQZpkTHEEhcvc/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxMzg5/Ny0xNzExNzk1MTg0/LTcyMjAuanBlZw.jpeg",
+   "folder": "Goth Rock",
+   "added": "2022-08-21T09:33:02-07:00",
+   "url": "https://www.discogs.com/release/313897",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Vision Thing",
+     "artist": "The Sisters Of Mercy",
+     "duration": "4:36",
+     "cue_in": "0:00*",
+     "cue_out": "4:16*",
+     "looked_up": "2026-10-22",
+     "bpm": "142",
+     "camelot": "9A"
+    },
+    {
+     "pos": "A2",
+     "title": "Ribbons",
+     "artist": "The Sisters Of Mercy",
+     "duration": "5:25",
+     "cue_in": "0:00*",
+     "cue_out": "5:05*",
+     "looked_up": "2026-10-22",
+     "bpm": "93",
+     "camelot": "4B"
+    },
+    {
+     "pos": "A3",
+     "title": "Detonation Boulevard",
+     "artist": "The Sisters Of Mercy",
+     "duration": "3:49",
+     "cue_in": "0:00*",
+     "cue_out": "3:29*",
+     "looked_up": "2026-10-22",
+     "bpm": "137",
+     "camelot": "8B"
+    },
+    {
+     "pos": "A4",
+     "title": "Something Fast",
+     "artist": "The Sisters Of Mercy",
+     "duration": "4:36",
+     "cue_in": "0:00*",
+     "cue_out": "4:16*",
+     "looked_up": "2026-10-22",
+     "bpm": "145",
+     "camelot": "9A"
+    },
+    {
+     "pos": "B1",
+     "title": "When You Don't See Me",
+     "artist": "The Sisters Of Mercy",
+     "duration": "4:51",
+     "cue_in": "0:00*",
+     "cue_out": "4:31*",
+     "looked_up": "2026-10-22",
+     "bpm": "121",
+     "camelot": "8A"
+    },
+    {
+     "pos": "B2",
+     "title": "Doctor Jeep",
+     "artist": "The Sisters Of Mercy",
+     "duration": "4:39",
+     "cue_in": "0:00*",
+     "cue_out": "4:19*",
+     "looked_up": "2026-10-22",
+     "bpm": "169",
+     "camelot": "9B"
+    },
+    {
+     "pos": "B3",
+     "title": "More",
+     "artist": "The Sisters Of Mercy",
+     "duration": "8:22",
+     "cue_in": "0:00*",
+     "cue_out": "8:02*",
+     "looked_up": "2026-10-22",
+     "bpm": "142",
+     "camelot": "9A"
+    },
+    {
+     "pos": "B4",
+     "title": "I Was Wrong",
+     "artist": "The Sisters Of Mercy",
+     "duration": "6:03",
+     "cue_in": "0:00*",
+     "cue_out": "5:43*",
+     "looked_up": "2026-10-22",
+     "bpm": "100",
+     "camelot": "11B"
+    }
+   ]
+  },
+  {
+   "id": 5096910,
+   "title": "Floodland",
+   "artist": "The Sisters Of Mercy",
+   "year": 2013,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "Goth Rock"
+   ],
+   "label": "Mobile Fidelity Sound Lab",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/e9CXpSP7on94QH5O2xxdouZFisdVxFtWKF2x2X8Qp0s/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTUwOTY5/MTAtMTQzNjk5NzYw/MC03NjE4LmpwZWc.jpeg",
+   "thumb": "https://i.discogs.com/exc8v1djaLnoZwi0kBqcpoJz13n0CPsKnwlhcK871hg/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTUwOTY5/MTAtMTQzNjk5NzYw/MC03NjE4LmpwZWc.jpeg",
+   "folder": "Goth Rock",
+   "added": "2022-08-21T09:32:40-07:00",
+   "url": "https://www.discogs.com/release/5096910",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Dominion / Mother Russia",
+     "artist": "The Sisters Of Mercy",
+     "duration": "7:47",
+     "cue_in": "0:00*",
+     "cue_out": "7:27*",
+     "looked_up": "2026-10-22",
+     "bpm": "120",
+     "camelot": "9B"
+    },
+    {
+     "pos": "A2",
+     "title": "Flood I",
+     "artist": "The Sisters Of Mercy",
+     "duration": "6:19",
+     "cue_in": "0:00*",
+     "cue_out": "5:59*",
+     "looked_up": "2026-10-22",
+     "bpm": "87",
+     "camelot": "10A"
+    },
+    {
+     "pos": "A3",
+     "title": "Lucretia My Reflection",
+     "artist": "The Sisters Of Mercy",
+     "duration": "4:54",
+     "cue_in": "0:00*",
+     "cue_out": "4:34*",
+     "looked_up": "2026-10-22",
+     "bpm": "129",
+     "camelot": "8A"
+    },
+    {
+     "pos": "A4",
+     "title": "1959",
+     "artist": "The Sisters Of Mercy",
+     "duration": "4:07",
+     "cue_in": "0:00*",
+     "cue_out": "3:47*",
+     "looked_up": "2026-10-22",
+     "bpm": "135",
+     "camelot": "3B"
+    },
+    {
+     "pos": "B1",
+     "title": "This Corrosion",
+     "artist": "The Sisters Of Mercy",
+     "duration": "11:09",
+     "cue_in": "0:00*",
+     "cue_out": "10:49*",
+     "looked_up": "2026-10-22",
+     "bpm": "149",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B2",
+     "title": "Flood II",
+     "artist": "The Sisters Of Mercy",
+     "duration": "6:44",
+     "cue_in": "0:00*",
+     "cue_out": "6:24*",
+     "looked_up": "2026-10-22",
+     "bpm": "117",
+     "camelot": "12B"
+    },
+    {
+     "pos": "B3",
+     "title": "Driven Like The Snow",
+     "artist": "The Sisters Of Mercy",
+     "duration": "6:24",
+     "cue_in": "0:00*",
+     "cue_out": "6:04*",
+     "looked_up": "2026-10-22",
+     "bpm": "117",
+     "camelot": "9A"
+    },
+    {
+     "pos": "B4",
+     "title": "Never Land (A Fragment)",
+     "artist": "The Sisters Of Mercy",
+     "duration": "2:45",
+     "cue_in": "0:00*",
+     "cue_out": "2:25*",
+     "looked_up": "2026-10-22",
+     "bpm": "150",
+     "camelot": "8B"
+    }
+   ]
+  },
+  {
+   "id": 10725053,
+   "title": "Deeper ",
+   "artist": "The Soft Moon",
+   "year": 2016,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "Post-Punk",
+    "Industrial"
+   ],
+   "label": "Captured Tracks",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/HAVpD4Nip84OzUTz1hCwq0vLJ8MkTJJvQfuuhanpi7I/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNzI1/MDUzLTE1NjM3OTQ4/OTgtMjQ5NC5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/Z7pAAKwt8E3Qru4csRFmFpVDyJtulxaZ3Y5KAqTa1sU/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNzI1/MDUzLTE1NjM3OTQ4/OTgtMjQ5NC5qcGVn.jpeg",
+   "folder": "Uncategorized",
+   "added": "2024-08-17T05:06:54-07:00",
+   "url": "https://www.discogs.com/release/10725053",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Inward",
+     "artist": "The Soft Moon",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "118",
+     "camelot": "8B"
+    },
+    {
+     "pos": "A2",
+     "title": "Black",
+     "artist": "The Soft Moon",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "103",
+     "camelot": "8B"
+    },
+    {
+     "pos": "A3",
+     "title": "Far",
+     "artist": "The Soft Moon",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "179",
+     "camelot": "8A"
+    },
+    {
+     "pos": "A4",
+     "title": "Wasting",
+     "artist": "The Soft Moon",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "94",
+     "camelot": "8B"
+    },
+    {
+     "pos": "A5",
+     "title": "Wrong ",
+     "artist": "The Soft Moon",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "139",
+     "camelot": "3A"
+    },
+    {
+     "pos": "A6",
+     "title": "Try",
+     "artist": "The Soft Moon",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "125",
+     "camelot": "9A"
+    },
+    {
+     "pos": "B1",
+     "title": "Desertion",
+     "artist": "The Soft Moon",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "119",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B2",
+     "title": "Without",
+     "artist": "The Soft Moon",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "57",
+     "camelot": "4A"
+    },
+    {
+     "pos": "B3",
+     "title": "Feel",
+     "artist": "The Soft Moon",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "137",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B4",
+     "title": "Deeper",
+     "artist": "The Soft Moon",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "150",
+     "camelot": "3B"
+    },
+    {
+     "pos": "B5",
+     "title": "Being",
+     "artist": "The Soft Moon",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-22",
+     "bpm": "149",
+     "camelot": "4B"
+    }
+   ]
+  },
+  {
+   "id": 25827709,
+   "title": "Ceremony",
+   "artist": "Twin Tribes",
+   "year": 2023,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "Darkwave",
+    "Coldwave",
+    "Post-Punk"
+   ],
+   "label": "Young And Cold Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/6-3owa6I9Le4C2AxmwZVQxCQA1yGcceMJQI_0H9Vh2k/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI1ODI3/NzA5LTE3MzgzNDYw/MzAtNTExNy5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/xKanyG6rizRzb-7IHY6HYRgecAWB_DGfaIpcqAzKoms/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI1ODI3/NzA5LTE3MzgzNDYw/MzAtNTExNy5qcGVn.jpeg",
+   "folder": "Uncategorized",
+   "added": "2023-11-14T23:55:03-08:00",
+   "url": "https://www.discogs.com/release/25827709",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Exilio ",
+     "artist": "Twin Tribes",
+     "duration": "2:04",
+     "cue_in": "0:00*",
+     "cue_out": "1:44*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A2",
+     "title": "Heart And Feather",
+     "artist": "Twin Tribes",
+     "duration": "4:18",
+     "cue_in": "0:00*",
+     "cue_out": "3:58*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A3",
+     "title": "The River",
+     "artist": "Twin Tribes",
+     "duration": "3:55",
+     "cue_in": "0:00*",
+     "cue_out": "3:35*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A4",
+     "title": "Avalon",
+     "artist": "Twin Tribes",
+     "duration": "3:33",
+     "cue_in": "0:00*",
+     "cue_out": "3:13*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "A5",
+     "title": "Obsidian ",
+     "artist": "Twin Tribes",
+     "duration": "3:31",
+     "cue_in": "0:00*",
+     "cue_out": "3:11*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B1",
+     "title": "Fantasmas",
+     "artist": "Twin Tribes",
+     "duration": "3:09",
+     "cue_in": "0:00*",
+     "cue_out": "2:49*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B2",
+     "title": "VII ",
+     "artist": "Twin Tribes",
+     "duration": "3:41",
+     "cue_in": "0:00*",
+     "cue_out": "3:21*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B3",
+     "title": "Upir ",
+     "artist": "Twin Tribes",
+     "duration": "2:49",
+     "cue_in": "0:00*",
+     "cue_out": "2:29*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B4",
+     "title": "Perdidos ",
+     "artist": "Twin Tribes",
+     "duration": "3:51",
+     "cue_in": "0:00*",
+     "cue_out": "3:31*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    },
+    {
+     "pos": "B5",
+     "title": "Shrine ",
+     "artist": "Twin Tribes",
+     "duration": "4:19",
+     "cue_in": "0:00*",
+     "cue_out": "3:59*",
+     "looked_up": "2026-10-22",
+     "bpm": "",
+     "camelot": ""
+    }
+   ]
+  },
+  {
+   "id": 14970948,
+   "title": "Этажи = Etazhi",
+   "artist": "Молчат Дома",
+   "year": 2020,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "Lo-Fi",
+    "New Wave",
+    "Synth-pop",
+    "Post-Punk",
+    "Darkwave"
+   ],
+   "label": "Sacred Bones Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/48UY6dHss2MucwmdKUCq5SoCuFLuy_sRqZfh2L_iMfQ/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0OTcw/OTQ4LTE1ODUzNTE4/OTEtNDk0NC5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/glTMP-Uv4zwEzeAYpVotBk0b92gW3o14WaJYerFSRvk/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0OTcw/OTQ4LTE1ODUzNTE4/OTEtNDk0NC5qcGVn.jpeg",
+   "folder": "Punk & Post Punk",
+   "added": "2022-08-22T11:29:04-07:00",
+   "url": "https://www.discogs.com/release/14970948",
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Na Dne",
+     "artist": "Молчат Дома",
+     "duration": "4:07",
+     "cue_in": "0:00*",
+     "cue_out": "3:47*",
+     "looked_up": "2026-10-22",
+     "bpm": "109",
+     "camelot": "3B"
+    },
+    {
+     "pos": "A2",
+     "title": "Tancevat",
+     "artist": "Молчат Дома",
+     "duration": "3:23",
+     "cue_in": "0:00*",
+     "cue_out": "3:03*",
+     "looked_up": "2026-10-22",
+     "bpm": "84",
+     "camelot": "9B"
+    },
+    {
+     "pos": "A3",
+     "title": "Filmy",
+     "artist": "Молчат Дома",
+     "duration": "4:17",
+     "cue_in": "0:00*",
+     "cue_out": "3:57*",
+     "looked_up": "2026-10-22",
+     "bpm": "124",
+     "camelot": "6B"
+    },
+    {
+     "pos": "A4",
+     "title": "Volny",
+     "artist": "Молчат Дома",
+     "duration": "4:11",
+     "cue_in": "0:00*",
+     "cue_out": "3:51*",
+     "looked_up": "2026-10-22",
+     "bpm": "119",
+     "camelot": "9A"
+    },
+    {
+     "pos": "B1",
+     "title": "Toska",
+     "artist": "Молчат Дома",
+     "duration": "3:07",
+     "cue_in": "0:00*",
+     "cue_out": "2:47*",
+     "looked_up": "2026-10-22",
+     "bpm": "159",
+     "camelot": "11B"
+    },
+    {
+     "pos": "B2",
+     "title": "Prognoz",
+     "artist": "Молчат Дома",
+     "duration": "3:05",
+     "cue_in": "0:00*",
+     "cue_out": "2:45*",
+     "looked_up": "2026-10-22",
+     "bpm": "159",
+     "camelot": "3B"
+    },
+    {
+     "pos": "B3",
+     "title": "Sudno (Boris Ryzhy)",
+     "artist": "Молчат Дома",
+     "duration": "2:21",
+     "cue_in": "0:00*",
+     "cue_out": "2:01*",
+     "looked_up": "2026-10-22",
+     "bpm": "159",
+     "camelot": "3B"
+    },
+    {
+     "pos": "B4",
+     "title": "Kommersanty",
+     "artist": "Молчат Дома",
+     "duration": "3:47",
+     "cue_in": "0:00*",
+     "cue_out": "3:27*",
+     "looked_up": "2026-10-22",
+     "bpm": "139",
+     "camelot": "4B"
+    },
+    {
+     "pos": "B5",
+     "title": "Kletka",
+     "artist": "Молчат Дома",
+     "duration": "4:42",
+     "cue_in": "0:00*",
+     "cue_out": "4:22*",
+     "looked_up": "2026-10-22",
+     "bpm": "129",
+     "camelot": "10B"
+    }
+   ]
+  }
+ ]
+}
