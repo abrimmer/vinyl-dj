@@ -1,0 +1,31 @@
+# Discogs release IDs to include. Write ALL on its own line to include the whole collection.
+12806671  # Bauhaus - In The Flat Field
+72018  # Clan Of Xymox - Clan Of Xymox
+5994837  # The Chameleons - Script Of The Bridge
+10725053  # The Soft Moon - Deeper 
+9664068  # Drab Majesty - The Demonstration
+13875394  # Drab Majesty - Modern Mirror 
+14425375  # Pink Turns Blue - If Two Worlds Kiss
+544142  # Killing Joke - Night Time
+11512586  # She Past Away - Belirdi Gece
+15173452  # Lebanon Hanover - Tomb For Two 
+13718689  # Lebanon Hanover - Let Them Be Alien
+13661827  # She Past Away - Disko Anksiyete
+1453298  # Joy Division - Unknown Pleasures
+9018182  # The Cure - Pornography
+5315804  # Christian Death - Only Theatre Of Pain
+2815429  # Echo & The Bunnymen - Ocean Rain
+8593485  # New Order - Power, Corruption & Lies
+313897  # The Sisters Of Mercy - Vision Thing
+250345  # The Sisters Of Mercy - First And Last And Always
+5096910  # The Sisters Of Mercy - Floodland
+3177172  # The Cure - Seventeen Seconds
+5529916  # Depeche Mode - Violator
+11810704  # Boy Harsher - Lesser Man (Extended Version)
+916585  # Siouxsie & The Banshees - Kaleidoscope
+13957006  # Soft Kill - Savior
+11890431  # Red Lorry Yellow Lorry - Talk About The Weather
+14970948  # Молчат Дома = Молчат Дома - Этажи = Etazhi
+4493316  # Bauhaus - Bela Lugosi's Dead
+25827709  # Twin Tribes - Ceremony
+21551143  # The Cure - Disintegration
