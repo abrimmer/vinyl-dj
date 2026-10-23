@@ -26,16 +26,17 @@ jobs:
         env:
           DISCOGS_TOKEN: ${{ secrets.DISCOGS_TOKEN }}
           GETSONGBPM_KEY: ${{ secrets.GETSONGBPM_KEY }}
-          MAX_NEW_LOOKUPS: "2800"
+          MAX_NEW_LOOKUPS: "2500"
         run: python scripts/update.py
       - name: Save changes
+        if: always()   # keep whatever was gathered, even if the update hit a problem
         run: |
           git config user.name "vinyl-dj bot"
           git config user.email "actions@users.noreply.github.com"
           # Always save on top of the latest main (works for re-runs of older runs too)
-          cp data/collection.json /tmp/collection.json
+          cp data/collection.json /tmp/collection.json; cp data/last_run.txt /tmp/last_run.txt 2>/dev/null || true
           git fetch --depth=1 origin main
           git reset --hard origin/main
-          cp /tmp/collection.json data/collection.json
-          git add data/collection.json
-          git diff --cached --quiet || (git commit -m "Nightly collection update" && git push origin HEAD:main)
+          cp /tmp/collection.json data/collection.json; cp /tmp/last_run.txt data/last_run.txt 2>/dev/null || true
+          git add data/collection.json data/last_run.txt 2>/dev/null || git add data/collection.json
+          git diff --cached --quiet || (git commit -m "Collection update" && git push origin HEAD:main)

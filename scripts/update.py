@@ -73,6 +73,29 @@ def mmss(n):
     return f"{n // 60}:{n % 60:02d}"
 
 
+class StopLookups(Exception):
+    pass
+
+
+LOG = []
+
+
+def log(msg):
+    print(msg)
+    LOG.append(f"{datetime.now(timezone.utc).strftime('%H:%M:%S')} {msg}")
+
+
+def save(releases, note=""):
+    releases = sorted(releases, key=lambda r: (r["artist"].lower(), r.get("year") or 0))
+    os.makedirs(os.path.dirname(DATA), exist_ok=True)
+    with open(DATA, "w", encoding="utf-8") as fh:
+        json.dump({"updated": datetime.now(timezone.utc).isoformat(timespec="minutes"),
+                   "source": "Discogs + GetSongBPM.com", "releases": releases},
+                  fh, ensure_ascii=False, indent=1)
+    with open(os.path.join(ROOT, "data", "last_run.txt"), "w", encoding="utf-8") as fh:
+        fh.write(note + "\n" + "\n".join(LOG[-80:]) + "\n")
+
+
 class Api:
     def __init__(self, dtoken, gkey):
         self.d = requests.Session()
@@ -97,8 +120,8 @@ class Api:
         self.lookups += 1
         r = self.g.get(f"{GSB}{path}", params={"api_key": self.gkey, **params}, timeout=30)
         time.sleep(0.4)
-        if r.status_code == 401:
-            sys.exit("GetSongBPM key rejected (401). Check the GETSONGBPM_KEY secret.")
+        if r.status_code in (401, 429):
+            raise StopLookups(f"GetSongBPM said {r.status_code}: {r.text[:120]} (hourly limit or key problem)")
         try:
             return r.json()
         except ValueError:
@@ -176,6 +199,55 @@ def wanted_ids():
     return ids, everything
 
 
+def build_release(api, item, old, folders):
+    rid = item["id"]
+    b = item["basic_information"]
+    rel = old.get(rid) or {}
+    rel.update({
+        "id": rid,
+        "title": b.get("title"),
+        "artist": clean_artist(b["artists"][0]["name"]) if b.get("artists") else "",
+        "year": b.get("year") or None,
+        "genres": b.get("genres", []),
+        "styles": b.get("styles", []),
+        "label": (b.get("labels") or [{}])[0].get("name", ""),
+        "format": ", ".join(f.get("name", "") for f in b.get("formats", [])),
+        "cover": b.get("cover_image"),
+        "thumb": b.get("thumb"),
+        "folder": folders.get(item.get("folder_id"), ""),
+        "added": item.get("date_added"),
+        "url": f"https://www.discogs.com/release/{rid}",
+        "master_id": b.get("master_id") or None,
+    })
+    # Original release year (from the master release), fetched once
+    if "orig_year" not in rel:
+        mid = b.get("master_id")
+        if mid:
+            try:
+                rel["orig_year"] = api.discogs(f"/masters/{mid}").get("year") or rel["year"]
+            except requests.HTTPError:
+                rel["orig_year"] = rel["year"]
+        else:
+            rel["orig_year"] = rel["year"]
+    # 2. Tracklist (once per release)
+    if not rel.get("tracks"):
+        full = api.discogs(f"/releases/{rid}")
+        rel["tracks"] = []
+        for t in full.get("tracklist", []):
+            if t.get("type_", "track") != "track":
+                continue
+            n = secs(t.get("duration"))
+            rel["tracks"].append({
+                "pos": t.get("position", ""),
+                "title": t.get("title", ""),
+                "artist": clean_artist(t["artists"][0]["name"]) if t.get("artists") else rel["artist"],
+                "duration": t.get("duration", ""),
+                "cue_in": "0:00*",
+                "cue_out": (mmss(max(n - 20, 0)) + "*") if n else "",
+            })
+    return rel
+
+
 def main():
     dtoken, gkey = os.environ.get("DISCOGS_TOKEN"), os.environ.get("GETSONGBPM_KEY")
     if not dtoken or not gkey:
@@ -198,62 +270,30 @@ def main():
             break
         page += 1
     folders = {f["id"]: f["name"] for f in api.discogs(f"/users/{USERNAME}/collection/folders")["folders"]}
-    print(f"Collection: {len(coll)} items")
+    log(f"Collection: {len(coll)} items")
 
-    releases = []
+    releases, seen = [], set()
     for item in coll:
         rid = item["id"]
-        if not everything and rid not in ids:
+        if (not everything and rid not in ids) or rid in seen:
             continue
-        b = item["basic_information"]
-        rel = old.get(rid) or {}
-        rel.update({
-            "id": rid,
-            "title": b.get("title"),
-            "artist": clean_artist(b["artists"][0]["name"]) if b.get("artists") else "",
-            "year": b.get("year") or None,
-            "genres": b.get("genres", []),
-            "styles": b.get("styles", []),
-            "label": (b.get("labels") or [{}])[0].get("name", ""),
-            "format": ", ".join(f.get("name", "") for f in b.get("formats", [])),
-            "cover": b.get("cover_image"),
-            "thumb": b.get("thumb"),
-            "folder": folders.get(item.get("folder_id"), ""),
-            "added": item.get("date_added"),
-            "url": f"https://www.discogs.com/release/{rid}",
-            "master_id": b.get("master_id") or None,
-        })
-        # Original release year (from the master release), fetched once
-        if "orig_year" not in rel:
-            mid = b.get("master_id")
-            if mid:
-                try:
-                    rel["orig_year"] = api.discogs(f"/masters/{mid}").get("year") or rel["year"]
-                except requests.HTTPError:
-                    rel["orig_year"] = rel["year"]
-            else:
-                rel["orig_year"] = rel["year"]
-        # 2. Tracklist (once per release)
-        if not rel.get("tracks"):
-            full = api.discogs(f"/releases/{rid}")
-            rel["tracks"] = []
-            for t in full.get("tracklist", []):
-                if t.get("type_", "track") != "track":
-                    continue
-                n = secs(t.get("duration"))
-                rel["tracks"].append({
-                    "pos": t.get("position", ""),
-                    "title": t.get("title", ""),
-                    "artist": clean_artist(t["artists"][0]["name"]) if t.get("artists") else rel["artist"],
-                    "duration": t.get("duration", ""),
-                    "cue_in": "0:00*",
-                    "cue_out": (mmss(max(n - 20, 0)) + "*") if n else "",
-                })
-        releases.append(rel)
+        seen.add(rid)
+        try:
+            releases.append(build_release(api, item, old, folders))
+        except Exception as e:  # one bad record shouldn't stop the rest
+            log(f"Skipped release {rid}: {e}")
+            if rid in old:
+                releases.append(old[rid])
+    log(f"Records: {len(releases)}")
+    save(releases, "Records saved, starting BPM lookups")
 
     # 3. BPM + key (once per track, capped per run; the rest happens on the next run)
-    pending, masters = 0, {}
+    pending, masters, stop, last_save = 0, {}, False, 0
     for rel in releases:
+        if stop:
+            break
+        if api.lookups - last_save >= 300:  # save progress as we go
+            save(releases, "In progress"); last_save = api.lookups
         for t in rel["tracks"]:
             # Skip tracks already looked up; retry misses once each time the matching improves
             if "looked_up" in t and (t.get("bpm") or t.get("lookup_v", 1) >= LOOKUP_V):
@@ -261,12 +301,20 @@ def main():
             if api.lookups >= MAX_NEW_LOOKUPS or time.time() - STARTED > 85 * 60:  # save before the 2h job limit
                 pending += 1
                 continue
-            info = lookup(api, t["title"], t["artist"])
+            try:
+                info = lookup(api, t["title"], t["artist"])
+            except StopLookups as e:
+                log(str(e)); stop = True; break
+            except Exception as e:
+                log(f"Lookup error for {rel['artist']} - {t['title']}: {e}"); continue
             # Fallback: try the track title as it appears on the original album (Discogs master)
             if not info["found"] and rel.get("master_id"):
                 alt = master_title(api, masters, rel["master_id"], t)
                 if alt and norm(alt) != norm(t["title"]):
-                    alt_info = lookup(api, alt, t["artist"])
+                    try:
+                        alt_info = lookup(api, alt, t["artist"])
+                    except StopLookups as e:
+                        log(str(e)); stop = True; break
                     alt_info["tried"] = info["tried"] + alt_info["tried"]
                     info = alt_info
                     if info["found"]:
@@ -284,13 +332,9 @@ def main():
                 t["tried"] = info["tried"]  # shown on the site's "Missing data" page
             print(f"  {rel['artist']} - {t['title']}: {t.get('bpm') or '-'} {t.get('camelot') or ''}")
 
-    releases.sort(key=lambda r: (r["artist"].lower(), r.get("year") or 0))
-    os.makedirs(os.path.dirname(DATA), exist_ok=True)
-    with open(DATA, "w", encoding="utf-8") as fh:
-        json.dump({"updated": datetime.now(timezone.utc).isoformat(timespec="minutes"),
-                   "source": "Discogs + GetSongBPM.com", "releases": releases},
-                  fh, ensure_ascii=False, indent=1)
-    print(f"Saved {len(releases)} records. Lookups this run: {api.lookups}. Tracks still pending: {pending}.")
+    left = sum(1 for r in releases for t in r["tracks"] if not t.get("bpm") and t.get("lookup_v", 1) < LOOKUP_V)
+    log(f"Lookups this run: {api.lookups}. Tracks still to look up: {left}.")
+    save(releases, "Finished")
 
 
 if __name__ == "__main__":
