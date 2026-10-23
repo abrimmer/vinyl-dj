@@ -140,7 +140,7 @@
 <body>
 <header>
   <div class="bar">
-    <h1>Vinyl DJ</h1>
+    <h1><a href="#" id="home" style="color:inherit;text-decoration:none">Vinyl DJ</a></h1>
     <div class="tabs">
       <button data-v="records" class="on">Records</button>
       <button data-v="setlists">Setlists</button>
@@ -150,6 +150,10 @@
   </div>
   <div class="bar" style="margin-top:8px" id="filterBar">
     <input type="search" id="q" placeholder="Search artist, album, track">
+    <select id="sort" aria-label="Sort">
+      <option value="artist">Sort: Artist</option><option value="album">Sort: Album</option>
+      <option value="added">Sort: Recently added</option><option value="year">Sort: Year (first release)</option>
+    </select>
     <div class="seg" id="range" title="Your turntable pitch range">
       <button data-r="8">±8%</button><button data-r="16">±16%</button><button data-r="24">±24%</button>
     </div>
@@ -160,7 +164,7 @@
 <main id="view"></main>
 
 <div class="sheet" id="sheet">
-  <div class="sheet-top"><button class="btn" id="back">← Back</button><span class="muted" id="crumb"></span></div>
+  <div class="sheet-top"><button class="btn" id="back">← Back</button><span class="muted" id="crumb" style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span><button class="btn" id="home2">⌂ Records</button></div>
   <div class="wrap" id="sheetBody"></div>
 </div>
 <div class="toast" id="toast"></div>
@@ -286,6 +290,13 @@ function renderGrid() {
   const q = $("#q").value.trim().toLowerCase();
   const list = DATA.filter(r => styleOk(r) &&
     (!q || [r.artist, r.title, ...r.tracks.map(t => t.title)].join(" ").toLowerCase().includes(q)));
+  const by = $("#sort").value, A = x => x.artist.replace(/^the /i, "").toLowerCase(), Y = x => +(x.orig_year || x.year) || 9999;
+  list.sort({
+    artist: (a, b) => A(a).localeCompare(A(b)) || Y(a) - Y(b),
+    album: (a, b) => a.title.localeCompare(b.title),
+    added: (a, b) => String(b.added || "").localeCompare(String(a.added || "")),
+    year: (a, b) => Y(a) - Y(b) || A(a).localeCompare(A(b))
+  }[by]);
   $("#view").innerHTML = `<div class="count">${list.length} records${STYLES.size ? " · any of: " + esc([...STYLES].join(", ")) : ""}</div>
     <div class="grid">${list.map(r => `
     <button class="card" data-id="${r.id}">
@@ -307,7 +318,7 @@ function trackRow(t, i, opts = {}) {
       <div class="name">${esc(t.title)}</div>
       <div class="sub">${esc(t.duration || "")}${t.cue_in ? ` · IN ${esc(t.cue_in)} · OUT ${esc(t.cue_out)}` : ""}${t.manual ? ` · <span style="color:var(--warn)">manual</span>` : ""}${t.matched_as ? ` · matched as “${esc(t.matched_as)}”` : ""}</div>
       ${playLinks(t)}
-      <div class="acts"><button class="${missing ? "hl" : ""}" data-edit="${i}" data-box="${id}">✎ ${missing ? "Add BPM / key" : "Edit BPM / key / cues"}</button><button data-add="${i}">+ Setlist</button>${missing ? lookupLinks(t) : ""}</div>
+      <div class="acts"><button class="${missing ? "hl" : ""}" data-edit="${i}" data-box="${id}">✎ ${missing ? "Add BPM / key" : "Edit BPM / key / cues"}</button><button data-add="${i}">+ Add to setlist</button>${missing ? lookupLinks(t) : ""}</div>
       <div id="edit-${id}"></div>
     </div>
     <span class="right"><span class="bpm">${t.bpm ? esc(t.bpm) : "–"}</span>${camBadge(t.camelot)}</span>
@@ -403,7 +414,7 @@ function showMix(t, push = true) {
       ${r.cover ? `<img src="${esc(r.thumb || r.cover)}" alt="">` : ""}
       <div style="flex:1"><div class="name">${esc(t.title)}</div>
         <div class="sub">${esc(r.artist)} · ${esc(r.title)} · ${esc(t.pos)} · ${esc(t.duration || "")}</div>
-        ${playLinks(t)}<div class="acts"><button id="addThis">+ Setlist</button><button id="editThis">✎ Edit BPM / key / cues</button></div><div id="edit-mix"></div></div>
+        ${playLinks(t)}<div class="acts"><button id="addThis" class="btn primary small">+ Add to setlist</button><button id="editThis">✎ Edit BPM / key / cues</button></div><div id="edit-mix"></div></div>
       <div class="right"><span class="bpm">${t.bpm ? esc(t.bpm) : "–"}</span>${camBadge(t.camelot)}</div>
     </div>
     ${!usable(t) ? `<p class="help">No BPM/key for this track yet. Add it from the album page (Add BPM/key) and it'll match.</p>` : `
@@ -484,7 +495,6 @@ function showSetlist(s, push = true) {
       <button class="btn primary" id="fillEmpty">Fill empty slots</button>
       <button class="btn" id="refill">Re-shuffle unlocked</button>
       <button class="btn" id="addSlot">+ Slot</button>
-      <button class="btn" id="copyList">Copy list</button>
     </div>
     <p class="help">Pick a <b>first</b> track (and a <b>last</b> one if you like), then <b>Fill empty slots</b>. 🔒 locked tracks never get swapped.
       Tap a track to swap it. Swipe left (or ✕) to clear a slot. Pitch range: <b>±${RANGE}%</b> (change it on the Records tab).</p>`;
@@ -516,7 +526,6 @@ function showSetlist(s, push = true) {
     toast(!s.slots[0] ? "Pick a first track, then fill" : n ? `Filled ${n} slot${n > 1 ? "s" : ""}` : "No fitting tracks found. Try a wider pitch range"); };
   $("#refill").onclick = () => { s.slots = s.slots.map(x => x && x.lock ? x : null); const n = autoFill(s, true); saveSets(); showSetlist(s, false); toast(`Re-filled ${n}`); };
   $("#addSlot").onclick = () => { s.slots.push(null); saveSets(); showSetlist(s, false); };
-  $("#copyList").onclick = () => copyList(s);
   $("#delSet").onclick = e => {
     if (e.target.dataset.sure) { SETLISTS = SETLISTS.filter(x => x !== s); saveSets(); toast("Setlist deleted"); closeSheet(); render(); }
     else { e.target.dataset.sure = 1; e.target.textContent = "Tap again to delete for good"; }
@@ -708,6 +717,10 @@ function back() {
 }
 $("#back").onclick = back;
 $("#q").oninput = renderGrid;
+$("#sort").value = store.get("sort", "artist");
+$("#sort").onchange = e => { store.set("sort", e.target.value); renderGrid(); };
+const goHome = e => { e.preventDefault(); $("#q").value = ""; setView("records"); window.scrollTo(0, 0); };
+$("#home").onclick = goHome; $("#home2").onclick = goHome;
 document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => setView(b.dataset.v));
 function setRange(r) {
   RANGE = r; store.set("range", r);
