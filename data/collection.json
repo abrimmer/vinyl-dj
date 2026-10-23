@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T07:38+00:00",
+ "updated": "2026-10-23T13:33+00:00",
  "source": "Discogs + GetSongBPM.com",
  "releases": [
   {
@@ -30,9 +30,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B1",
@@ -41,9 +42,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B2",
@@ -52,11 +54,13 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     }
-   ]
+   ],
+   "orig_year": 1979
   },
   {
    "id": 12806671,
@@ -176,7 +180,8 @@
      "bpm": "96",
      "camelot": "9A"
     }
-   ]
+   ],
+   "orig_year": 1980
   },
   {
    "id": 11810704,
@@ -209,9 +214,10 @@
      "duration": "3:04",
      "cue_in": "0:00*",
      "cue_out": "2:44*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "A2",
@@ -220,9 +226,10 @@
      "duration": "4:21",
      "cue_in": "0:00*",
      "cue_out": "4:01*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "A3",
@@ -231,9 +238,10 @@
      "duration": "7:17",
      "cue_in": "0:00*",
      "cue_out": "6:57*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B1",
@@ -242,9 +250,10 @@
      "duration": "3:41",
      "cue_in": "0:00*",
      "cue_out": "3:21*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B2",
@@ -253,9 +262,10 @@
      "duration": "5:27",
      "cue_in": "0:00*",
      "cue_out": "5:07*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B3",
@@ -264,9 +274,10 @@
      "duration": "5:38",
      "cue_in": "0:00*",
      "cue_out": "5:18*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B4",
@@ -275,11 +286,13 @@
      "duration": "3:19",
      "cue_in": "0:00*",
      "cue_out": "2:59*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     }
-   ]
+   ],
+   "orig_year": 2014
   },
   {
    "id": 5315804,
@@ -308,9 +321,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "A2",
@@ -363,9 +377,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B2",
@@ -396,9 +411,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B5",
@@ -411,7 +427,8 @@
      "bpm": "80",
      "camelot": "5B"
     }
-   ]
+   ],
+   "orig_year": 1982
   },
   {
    "id": 72018,
@@ -521,7 +538,8 @@
      "bpm": "128",
      "camelot": "8A"
     }
-   ]
+   ],
+   "orig_year": 1985
   },
   {
    "id": 5529916,
@@ -641,7 +659,8 @@
      "bpm": "184",
      "camelot": "9B"
     }
-   ]
+   ],
+   "orig_year": 1990
   },
   {
    "id": 9664068,
@@ -764,7 +783,8 @@
      "bpm": "134",
      "camelot": "9B"
     }
-   ]
+   ],
+   "orig_year": 2017
   },
   {
    "id": 13875394,
@@ -876,7 +896,8 @@
      "bpm": "132",
      "camelot": "3B"
     }
-   ]
+   ],
+   "orig_year": 2019
   },
   {
    "id": 2815429,
@@ -938,9 +959,10 @@
      "duration": "3:12",
      "cue_in": "0:00*",
      "cue_out": "2:52*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "A5",
@@ -997,7 +1019,8 @@
      "bpm": "104",
      "camelot": "10B"
     }
-   ]
+   ],
+   "orig_year": 1984
   },
   {
    "id": 1453298,
@@ -1081,9 +1104,10 @@
      "duration": "3:40",
      "cue_in": "0:00*",
      "cue_out": "3:20*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B2",
@@ -1129,7 +1153,8 @@
      "bpm": "144",
      "camelot": "11B"
     }
-   ]
+   ],
+   "orig_year": 1979
   },
   {
    "id": 544142,
@@ -1240,7 +1265,8 @@
      "bpm": "151",
      "camelot": "5B"
     }
-   ]
+   ],
+   "orig_year": 1985
   },
   {
    "id": 13718689,
@@ -1374,7 +1400,8 @@
      "bpm": "139",
      "camelot": "8A"
     }
-   ]
+   ],
+   "orig_year": 2018
   },
   {
    "id": 15173452,
@@ -1460,9 +1487,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
-     "bpm": "",
-     "camelot": ""
+     "looked_up": "2026-10-23",
+     "bpm": "140",
+     "camelot": "4A",
+     "lookup_v": 2
     },
     {
      "pos": "B2",
@@ -1508,7 +1536,8 @@
      "bpm": "86",
      "camelot": "8A"
     }
-   ]
+   ],
+   "orig_year": 2013
   },
   {
    "id": 8593485,
@@ -1619,7 +1648,8 @@
      "bpm": "134",
      "camelot": "9B"
     }
-   ]
+   ],
+   "orig_year": 1983
   },
   {
    "id": 14425375,
@@ -1752,7 +1782,8 @@
      "bpm": "120",
      "camelot": "10A"
     }
-   ]
+   ],
+   "orig_year": 1987
   },
   {
    "id": 11890431,
@@ -1905,7 +1936,8 @@
      "bpm": "158",
      "camelot": "8B"
     }
-   ]
+   ],
+   "orig_year": 1985
   },
   {
    "id": 11512586,
@@ -1936,9 +1968,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "A2",
@@ -1947,9 +1980,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "A3",
@@ -1958,9 +1992,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "A4",
@@ -1969,9 +2004,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "A5",
@@ -1980,9 +2016,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B1",
@@ -1991,9 +2028,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B2",
@@ -2002,9 +2040,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B3",
@@ -2013,9 +2052,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B4",
@@ -2024,9 +2064,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B5",
@@ -2035,11 +2076,13 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     }
-   ]
+   ],
+   "orig_year": 2012
   },
   {
    "id": 13661827,
@@ -2172,7 +2215,8 @@
      "bpm": "119*",
      "camelot": "9B*"
     }
-   ]
+   ],
+   "orig_year": 2019
   },
   {
    "id": 916585,
@@ -2201,9 +2245,10 @@
      "duration": "3:51",
      "cue_in": "0:00*",
      "cue_out": "3:31*",
-     "looked_up": "2026-10-22",
-     "bpm": "",
-     "camelot": ""
+     "looked_up": "2026-10-23",
+     "bpm": "119",
+     "camelot": "9B",
+     "lookup_v": 2
     },
     {
      "pos": "A2",
@@ -2212,9 +2257,10 @@
      "duration": "3:41",
      "cue_in": "0:00*",
      "cue_out": "3:21*",
-     "looked_up": "2026-10-22",
-     "bpm": "",
-     "camelot": ""
+     "looked_up": "2026-10-23",
+     "bpm": "131",
+     "camelot": "11B",
+     "lookup_v": 2
     },
     {
      "pos": "A3",
@@ -2223,9 +2269,10 @@
      "duration": "3:19",
      "cue_in": "0:00*",
      "cue_out": "2:59*",
-     "looked_up": "2026-10-22",
-     "bpm": "",
-     "camelot": ""
+     "looked_up": "2026-10-23",
+     "bpm": "118",
+     "camelot": "3A",
+     "lookup_v": 2
     },
     {
      "pos": "A4",
@@ -2234,9 +2281,10 @@
      "duration": "5:32",
      "cue_in": "0:00*",
      "cue_out": "5:12*",
-     "looked_up": "2026-10-22",
-     "bpm": "",
-     "camelot": ""
+     "looked_up": "2026-10-23",
+     "bpm": "106",
+     "camelot": "9B",
+     "lookup_v": 2
     },
     {
      "pos": "A5",
@@ -2245,9 +2293,10 @@
      "duration": "1:52",
      "cue_in": "0:00*",
      "cue_out": "1:32*",
-     "looked_up": "2026-10-22",
-     "bpm": "",
-     "camelot": ""
+     "looked_up": "2026-10-23",
+     "bpm": "153",
+     "camelot": "3B",
+     "lookup_v": 2
     },
     {
      "pos": "A6",
@@ -2256,9 +2305,10 @@
      "duration": "3:03",
      "cue_in": "0:00*",
      "cue_out": "2:43*",
-     "looked_up": "2026-10-22",
-     "bpm": "",
-     "camelot": ""
+     "looked_up": "2026-10-23",
+     "bpm": "97",
+     "camelot": "3B",
+     "lookup_v": 2
     },
     {
      "pos": "B1",
@@ -2267,9 +2317,10 @@
      "duration": "3:00",
      "cue_in": "0:00*",
      "cue_out": "2:40*",
-     "looked_up": "2026-10-22",
-     "bpm": "",
-     "camelot": ""
+     "looked_up": "2026-10-23",
+     "bpm": "74",
+     "camelot": "6A",
+     "lookup_v": 2
     },
     {
      "pos": "B2",
@@ -2278,9 +2329,10 @@
      "duration": "4:14",
      "cue_in": "0:00*",
      "cue_out": "3:54*",
-     "looked_up": "2026-10-22",
-     "bpm": "",
-     "camelot": ""
+     "looked_up": "2026-10-23",
+     "bpm": "119",
+     "camelot": "6B",
+     "lookup_v": 2
     },
     {
      "pos": "B3",
@@ -2289,9 +2341,10 @@
      "duration": "3:21",
      "cue_in": "0:00*",
      "cue_out": "3:01*",
-     "looked_up": "2026-10-22",
-     "bpm": "",
-     "camelot": ""
+     "looked_up": "2026-10-23",
+     "bpm": "90",
+     "camelot": "3B",
+     "lookup_v": 2
     },
     {
      "pos": "B4",
@@ -2300,9 +2353,10 @@
      "duration": "4:35",
      "cue_in": "0:00*",
      "cue_out": "4:15*",
-     "looked_up": "2026-10-22",
-     "bpm": "",
-     "camelot": ""
+     "looked_up": "2026-10-23",
+     "bpm": "124",
+     "camelot": "7A",
+     "lookup_v": 2
     },
     {
      "pos": "B5",
@@ -2311,11 +2365,13 @@
      "duration": "3:50",
      "cue_in": "0:00*",
      "cue_out": "3:30*",
-     "looked_up": "2026-10-22",
-     "bpm": "",
-     "camelot": ""
+     "looked_up": "2026-10-23",
+     "bpm": "144",
+     "camelot": "11B",
+     "lookup_v": 2
     }
-   ]
+   ],
+   "orig_year": 1980
   },
   {
    "id": 13957006,
@@ -2422,9 +2478,10 @@
      "duration": "",
      "cue_in": "0:00*",
      "cue_out": "",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B4",
@@ -2448,7 +2505,8 @@
      "bpm": "113",
      "camelot": "9A"
     }
-   ]
+   ],
+   "orig_year": 2018
   },
   {
    "id": 5994837,
@@ -2602,7 +2660,8 @@
      "bpm": "104",
      "camelot": "11A"
     }
-   ]
+   ],
+   "orig_year": 1983
   },
   {
    "id": 3177172,
@@ -2734,7 +2793,8 @@
      "bpm": "111",
      "camelot": "8A"
     }
-   ]
+   ],
+   "orig_year": 1980
   },
   {
    "id": 9018182,
@@ -2844,7 +2904,8 @@
      "bpm": "123",
      "camelot": "6B"
     }
-   ]
+   ],
+   "orig_year": 1982
   },
   {
    "id": 21551143,
@@ -3000,7 +3061,8 @@
      "bpm": "95",
      "camelot": "9B"
     }
-   ]
+   ],
+   "orig_year": 1989
   },
   {
    "id": 250345,
@@ -3106,9 +3168,10 @@
      "duration": "4:07",
      "cue_in": "0:00*",
      "cue_out": "3:47*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B4",
@@ -3132,7 +3195,8 @@
      "bpm": "149",
      "camelot": "6A"
     }
-   ]
+   ],
+   "orig_year": 1985
   },
   {
    "id": 313897,
@@ -3243,7 +3307,8 @@
      "bpm": "100",
      "camelot": "11B"
     }
-   ]
+   ],
+   "orig_year": 1990
   },
   {
    "id": 5096910,
@@ -3353,7 +3418,8 @@
      "bpm": "150",
      "camelot": "8B"
     }
-   ]
+   ],
+   "orig_year": 1987
   },
   {
    "id": 10725053,
@@ -3497,7 +3563,8 @@
      "bpm": "149",
      "camelot": "4B"
     }
-   ]
+   ],
+   "orig_year": 2015
   },
   {
    "id": 25827709,
@@ -3528,9 +3595,10 @@
      "duration": "2:04",
      "cue_in": "0:00*",
      "cue_out": "1:44*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "A2",
@@ -3539,9 +3607,10 @@
      "duration": "4:18",
      "cue_in": "0:00*",
      "cue_out": "3:58*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "A3",
@@ -3550,9 +3619,10 @@
      "duration": "3:55",
      "cue_in": "0:00*",
      "cue_out": "3:35*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "A4",
@@ -3561,9 +3631,10 @@
      "duration": "3:33",
      "cue_in": "0:00*",
      "cue_out": "3:13*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "A5",
@@ -3572,9 +3643,10 @@
      "duration": "3:31",
      "cue_in": "0:00*",
      "cue_out": "3:11*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B1",
@@ -3583,9 +3655,10 @@
      "duration": "3:09",
      "cue_in": "0:00*",
      "cue_out": "2:49*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B2",
@@ -3594,9 +3667,10 @@
      "duration": "3:41",
      "cue_in": "0:00*",
      "cue_out": "3:21*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B3",
@@ -3605,9 +3679,10 @@
      "duration": "2:49",
      "cue_in": "0:00*",
      "cue_out": "2:29*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B4",
@@ -3616,9 +3691,10 @@
      "duration": "3:51",
      "cue_in": "0:00*",
      "cue_out": "3:31*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     },
     {
      "pos": "B5",
@@ -3627,11 +3703,13 @@
      "duration": "4:19",
      "cue_in": "0:00*",
      "cue_out": "3:59*",
-     "looked_up": "2026-10-22",
+     "looked_up": "2026-10-23",
      "bpm": "",
-     "camelot": ""
+     "camelot": "",
+     "lookup_v": 2
     }
-   ]
+   ],
+   "orig_year": 2019
   },
   {
    "id": 14970948,
@@ -3756,7 +3834,8 @@
      "bpm": "129",
      "camelot": "10B"
     }
-   ]
+   ],
+   "orig_year": 2018
   }
  ]
 }
