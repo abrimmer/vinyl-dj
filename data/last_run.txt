@@ -1,0 +1,6 @@
+Finished
+15:22:55 Collection: 636 items
+15:49:00 Records: 636
+16:04:22 Lookup error for Mueran Humanos - El Circulo: HTTPSConnectionPool(host='api.getsong.co', port=443): Read timed out. (read timeout=30)
+16:22:05 Lookup error for Castelli - Luna: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+16:23:49 Lookups this run: 2501. Tracks still to look up: 5881.
