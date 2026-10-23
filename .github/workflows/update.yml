@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - run: pip install requests
@@ -31,5 +31,10 @@ jobs:
         run: |
           git config user.name "vinyl-dj bot"
           git config user.email "actions@users.noreply.github.com"
+          # Always save on top of the latest main (works for re-runs of older runs too)
+          cp data/collection.json /tmp/collection.json
+          git fetch --depth=1 origin main
+          git reset --hard origin/main
+          cp /tmp/collection.json data/collection.json
           git add data/collection.json
-          git diff --cached --quiet || (git commit -m "Nightly collection update" && git pull --rebase && git push)
+          git diff --cached --quiet || (git commit -m "Nightly collection update" && git push origin HEAD:main)
