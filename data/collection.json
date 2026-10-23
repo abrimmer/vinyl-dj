@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-23T13:33+00:00",
+ "updated": "2026-10-23T13:52+00:00",
  "source": "Discogs + GetSongBPM.com",
  "releases": [
   {
@@ -33,7 +33,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Bela Lugosi's Dead artist:Bauhaus",
+       "found": []
+      },
+      {
+       "search": "song:Bela Lugosi's Dead artist:Bauhaus",
+       "found": []
+      },
+      {
+       "search": "Bela Lugosi's Dead",
+       "found": [
+        "Bela Lugosi's Dead - Nouvelle Vague",
+        "Bela Lugosi's Dead - Morticia",
+        "Bela Lugosi's Dead - XPQ-21"
+       ]
+      }
+     ]
     },
     {
      "pos": "B1",
@@ -45,7 +63,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Boys artist:Bauhaus",
+       "found": []
+      },
+      {
+       "search": "song:Boys artist:Bauhaus",
+       "found": []
+      },
+      {
+       "search": "Boys",
+       "found": [
+        "Boys - Britney Spears",
+        "Boys - The Beatles",
+        "Boys - Mary Jane Girls"
+       ]
+      }
+     ]
     },
     {
      "pos": "B2",
@@ -57,10 +93,44 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Dark Entries (Demo) artist:Bauhaus",
+       "found": []
+      },
+      {
+       "search": "song:Dark Entries artist:Bauhaus",
+       "found": []
+      },
+      {
+       "search": "Dark Entries",
+       "found": [
+        "Dark Entries - Invisible System",
+        "Dark Entries - Winter's Verge"
+       ]
+      },
+      {
+       "search": "song:Untitled artist:Bauhaus",
+       "found": []
+      },
+      {
+       "search": "song:Untitled artist:Bauhaus",
+       "found": []
+      },
+      {
+       "search": "Untitled",
+       "found": [
+        "Untitled - The Cure",
+        "Untitled - Social Distortion",
+        "Untitled - Collective Soul"
+       ]
+      }
+     ]
     }
    ],
-   "orig_year": 1979
+   "orig_year": 1979,
+   "master_id": 2199
   },
   {
    "id": 12806671,
@@ -181,7 +251,8 @@
      "camelot": "9A"
     }
    ],
-   "orig_year": 1980
+   "orig_year": 1980,
+   "master_id": 2439
   },
   {
    "id": 11810704,
@@ -217,7 +288,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Lust artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Lust artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Lust",
+       "found": [
+        "Lust - KMFDM",
+        "Lust - Tori Amos",
+        "Lust - Balligomingo"
+       ]
+      }
+     ]
     },
     {
      "pos": "A2",
@@ -229,7 +318,24 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Modulations artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Modulations artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Modulations",
+       "found": [
+        "Modulations - Predators",
+        "Modulations - Ten Madison"
+       ]
+      }
+     ]
     },
     {
      "pos": "A3",
@@ -241,7 +347,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Pain artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Pain artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Pain",
+       "found": [
+        "Pain - Elton John",
+        "Pain - Catherine Wheel",
+        "Pain - Solitude Aeturnus"
+       ]
+      }
+     ]
     },
     {
      "pos": "B1",
@@ -253,7 +377,41 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Run artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Run artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Run",
+       "found": [
+        "Run - Collective Soul",
+        "Run - New Order",
+        "Run - Silkk the Shocker"
+       ]
+      },
+      {
+       "search": "song:Crimea artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Crimea artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Crimea",
+       "found": [
+        "Crimeanization, Part 1 - Crimeanization",
+        "Crimeanization, Part 2 - Crimeanization",
+        "Crimea - Oi Va Voi"
+       ]
+      }
+     ]
     },
     {
      "pos": "B2",
@@ -265,7 +423,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Crimea artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Crimea artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Crimea",
+       "found": [
+        "Crimeanization, Part 1 - Crimeanization",
+        "Crimeanization, Part 2 - Crimeanization",
+        "Crimea - Oi Va Voi"
+       ]
+      }
+     ]
     },
     {
      "pos": "B3",
@@ -277,7 +453,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Love artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Love artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Love",
+       "found": [
+        "Love - The Smashing Pumpkins",
+        "Love - Skinny Puppy",
+        "Love - Kenny Loggins"
+       ]
+      }
+     ]
     },
     {
      "pos": "B4",
@@ -289,10 +483,29 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Spell artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Spell artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Spell",
+       "found": [
+        "Spell - Patti Smith",
+        "Spell - Jimi Tenor",
+        "Spell - Deon Estus"
+       ]
+      }
+     ]
     }
    ],
-   "orig_year": 2014
+   "orig_year": 2014,
+   "master_id": 909540
   },
   {
    "id": 5315804,
@@ -324,7 +537,21 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Cavity - First Communion artist:Christian Death",
+       "found": []
+      },
+      {
+       "search": "song:Cavity - First Communion artist:Christian Death",
+       "found": []
+      },
+      {
+       "search": "Cavity - First Communion",
+       "found": []
+      }
+     ]
     },
     {
      "pos": "A2",
@@ -380,7 +607,21 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Stairs - Uncertain Journey artist:Christian Death",
+       "found": []
+      },
+      {
+       "search": "song:Stairs - Uncertain Journey artist:Christian Death",
+       "found": []
+      },
+      {
+       "search": "Stairs - Uncertain Journey",
+       "found": []
+      }
+     ]
     },
     {
      "pos": "B2",
@@ -414,7 +655,21 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Resurrection - Sixth Communion artist:Christian Death",
+       "found": []
+      },
+      {
+       "search": "song:Resurrection - Sixth Communion artist:Christian Death",
+       "found": []
+      },
+      {
+       "search": "Resurrection - Sixth Communion",
+       "found": []
+      }
+     ]
     },
     {
      "pos": "B5",
@@ -428,7 +683,8 @@
      "camelot": "5B"
     }
    ],
-   "orig_year": 1982
+   "orig_year": 1982,
+   "master_id": 2053
   },
   {
    "id": 72018,
@@ -539,7 +795,8 @@
      "camelot": "8A"
     }
    ],
-   "orig_year": 1985
+   "orig_year": 1985,
+   "master_id": 30325
   },
   {
    "id": 5529916,
@@ -660,7 +917,8 @@
      "camelot": "9B"
     }
    ],
-   "orig_year": 1990
+   "orig_year": 1990,
+   "master_id": 18080
   },
   {
    "id": 9664068,
@@ -784,7 +1042,8 @@
      "camelot": "9B"
     }
    ],
-   "orig_year": 2017
+   "orig_year": 2017,
+   "master_id": 1118975
   },
   {
    "id": 13875394,
@@ -897,7 +1156,8 @@
      "camelot": "3B"
     }
    ],
-   "orig_year": 2019
+   "orig_year": 2019,
+   "master_id": 1572198
   },
   {
    "id": 2815429,
@@ -962,7 +1222,21 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:The Yo Yo Man artist:Echo & The Bunnymen",
+       "found": []
+      },
+      {
+       "search": "song:The Yo Yo Man artist:Echo",
+       "found": []
+      },
+      {
+       "search": "The Yo Yo Man",
+       "found": []
+      }
+     ]
     },
     {
      "pos": "A5",
@@ -1020,7 +1294,8 @@
      "camelot": "10B"
     }
    ],
-   "orig_year": 1984
+   "orig_year": 1984,
+   "master_id": 27874
   },
   {
    "id": 1453298,
@@ -1107,7 +1382,21 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:She’s Lost Control artist:Joy Division",
+       "found": []
+      },
+      {
+       "search": "song:Shes Lost Control artist:Joy Division",
+       "found": []
+      },
+      {
+       "search": "Shes Lost Control",
+       "found": []
+      }
+     ]
     },
     {
      "pos": "B2",
@@ -1154,7 +1443,8 @@
      "camelot": "11B"
     }
    ],
-   "orig_year": 1979
+   "orig_year": 1979,
+   "master_id": 4805
   },
   {
    "id": 544142,
@@ -1266,7 +1556,8 @@
      "camelot": "5B"
     }
    ],
-   "orig_year": 1985
+   "orig_year": 1985,
+   "master_id": 15664
   },
   {
    "id": 13718689,
@@ -1401,7 +1692,8 @@
      "camelot": "8A"
     }
    ],
-   "orig_year": 2018
+   "orig_year": 2018,
+   "master_id": 1343364
   },
   {
    "id": 15173452,
@@ -1537,7 +1829,8 @@
      "camelot": "8A"
     }
    ],
-   "orig_year": 2013
+   "orig_year": 2013,
+   "master_id": 603888
   },
   {
    "id": 8593485,
@@ -1649,7 +1942,8 @@
      "camelot": "9B"
     }
    ],
-   "orig_year": 1983
+   "orig_year": 1983,
+   "master_id": 4071
   },
   {
    "id": 14425375,
@@ -1783,7 +2077,8 @@
      "camelot": "10A"
     }
    ],
-   "orig_year": 1987
+   "orig_year": 1987,
+   "master_id": 89105
   },
   {
    "id": 11890431,
@@ -1937,7 +2232,8 @@
      "camelot": "8B"
     }
    ],
-   "orig_year": 1985
+   "orig_year": 1985,
+   "master_id": 38165
   },
   {
    "id": 11512586,
@@ -1969,9 +2265,10 @@
      "cue_in": "0:00*",
      "cue_out": "",
      "looked_up": "2026-10-23",
-     "bpm": "",
-     "camelot": "",
-     "lookup_v": 2
+     "bpm": "140*",
+     "camelot": "10B*",
+     "lookup_v": 3,
+     "matched_as": "Sanri"
     },
     {
      "pos": "A2",
@@ -1981,9 +2278,10 @@
      "cue_in": "0:00*",
      "cue_out": "",
      "looked_up": "2026-10-23",
-     "bpm": "",
-     "camelot": "",
-     "lookup_v": 2
+     "bpm": "140*",
+     "camelot": "8A*",
+     "lookup_v": 3,
+     "matched_as": "Rituel"
     },
     {
      "pos": "A3",
@@ -1993,9 +2291,10 @@
      "cue_in": "0:00*",
      "cue_out": "",
      "looked_up": "2026-10-23",
-     "bpm": "",
-     "camelot": "",
-     "lookup_v": 2
+     "bpm": "140*",
+     "camelot": "7A*",
+     "lookup_v": 3,
+     "matched_as": "Monoton"
     },
     {
      "pos": "A4",
@@ -2005,9 +2304,10 @@
      "cue_in": "0:00*",
      "cue_out": "",
      "looked_up": "2026-10-23",
-     "bpm": "",
-     "camelot": "",
-     "lookup_v": 2
+     "bpm": "144*",
+     "camelot": "8B*",
+     "lookup_v": 3,
+     "matched_as": "Kasvetli Kutlama"
     },
     {
      "pos": "A5",
@@ -2017,9 +2317,10 @@
      "cue_in": "0:00*",
      "cue_out": "",
      "looked_up": "2026-10-23",
-     "bpm": "",
-     "camelot": "",
-     "lookup_v": 2
+     "bpm": "139*",
+     "camelot": "8B*",
+     "lookup_v": 3,
+     "matched_as": "Insanlar"
     },
     {
      "pos": "B1",
@@ -2029,9 +2330,10 @@
      "cue_in": "0:00*",
      "cue_out": "",
      "looked_up": "2026-10-23",
-     "bpm": "",
-     "camelot": "",
-     "lookup_v": 2
+     "bpm": "139*",
+     "camelot": "8B*",
+     "lookup_v": 3,
+     "matched_as": "Belirdi Gece"
     },
     {
      "pos": "B2",
@@ -2041,9 +2343,10 @@
      "cue_in": "0:00*",
      "cue_out": "",
      "looked_up": "2026-10-23",
-     "bpm": "",
-     "camelot": "",
-     "lookup_v": 2
+     "bpm": "143*",
+     "camelot": "10A*",
+     "lookup_v": 3,
+     "matched_as": "Ruh"
     },
     {
      "pos": "B3",
@@ -2053,9 +2356,10 @@
      "cue_in": "0:00*",
      "cue_out": "",
      "looked_up": "2026-10-23",
-     "bpm": "",
-     "camelot": "",
-     "lookup_v": 2
+     "bpm": "165*",
+     "camelot": "8A*",
+     "lookup_v": 3,
+     "matched_as": "Kemir Beni"
     },
     {
      "pos": "B4",
@@ -2065,9 +2369,10 @@
      "cue_in": "0:00*",
      "cue_out": "",
      "looked_up": "2026-10-23",
-     "bpm": "",
-     "camelot": "",
-     "lookup_v": 2
+     "bpm": "180*",
+     "camelot": "9B*",
+     "lookup_v": 3,
+     "matched_as": "Bozbulanik"
     },
     {
      "pos": "B5",
@@ -2077,12 +2382,14 @@
      "cue_in": "0:00*",
      "cue_out": "",
      "looked_up": "2026-10-23",
-     "bpm": "",
-     "camelot": "",
-     "lookup_v": 2
+     "bpm": "94*",
+     "camelot": "9A*",
+     "lookup_v": 3,
+     "matched_as": "Ice Kapanis"
     }
    ],
-   "orig_year": 2012
+   "orig_year": 2012,
+   "master_id": 558041
   },
   {
    "id": 13661827,
@@ -2216,7 +2523,8 @@
      "camelot": "9B*"
     }
    ],
-   "orig_year": 2019
+   "orig_year": 2019,
+   "master_id": 1563867
   },
   {
    "id": 916585,
@@ -2371,7 +2679,8 @@
      "lookup_v": 2
     }
    ],
-   "orig_year": 1980
+   "orig_year": 1980,
+   "master_id": 42315
   },
   {
    "id": 13957006,
@@ -2481,7 +2790,23 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Cry Now Cry Later artist:Soft Kill",
+       "found": []
+      },
+      {
+       "search": "song:Cry Now Cry Later artist:Soft Kill",
+       "found": []
+      },
+      {
+       "search": "Cry Now Cry Later",
+       "found": [
+        "Cry Now Cry Later - Harlem"
+       ]
+      }
+     ]
     },
     {
      "pos": "B4",
@@ -2506,7 +2831,8 @@
      "camelot": "9A"
     }
    ],
-   "orig_year": 2018
+   "orig_year": 2018,
+   "master_id": 1359085
   },
   {
    "id": 5994837,
@@ -2661,7 +2987,8 @@
      "camelot": "11A"
     }
    ],
-   "orig_year": 1983
+   "orig_year": 1983,
+   "master_id": 10267
   },
   {
    "id": 3177172,
@@ -2794,7 +3121,8 @@
      "camelot": "8A"
     }
    ],
-   "orig_year": 1980
+   "orig_year": 1980,
+   "master_id": 20278
   },
   {
    "id": 9018182,
@@ -2905,7 +3233,8 @@
      "camelot": "6B"
     }
    ],
-   "orig_year": 1982
+   "orig_year": 1982,
+   "master_id": 20238
   },
   {
    "id": 21551143,
@@ -3062,7 +3391,8 @@
      "camelot": "9B"
     }
    ],
-   "orig_year": 1989
+   "orig_year": 1989,
+   "master_id": 31755
   },
   {
    "id": 250345,
@@ -3171,7 +3501,15 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Nine While Nine artist:The Sisters Of Mercy",
+       "found": [
+        "Nine While Nine - The Sisters of Mercy"
+       ]
+      }
+     ]
     },
     {
      "pos": "B4",
@@ -3196,7 +3534,8 @@
      "camelot": "6A"
     }
    ],
-   "orig_year": 1985
+   "orig_year": 1985,
+   "master_id": 2795
   },
   {
    "id": 313897,
@@ -3308,7 +3647,8 @@
      "camelot": "11B"
     }
    ],
-   "orig_year": 1990
+   "orig_year": 1990,
+   "master_id": 61848
   },
   {
    "id": 5096910,
@@ -3419,7 +3759,8 @@
      "camelot": "8B"
     }
    ],
-   "orig_year": 1987
+   "orig_year": 1987,
+   "master_id": 2836
   },
   {
    "id": 10725053,
@@ -3564,7 +3905,8 @@
      "camelot": "4B"
     }
    ],
-   "orig_year": 2015
+   "orig_year": 2015,
+   "master_id": 796235
   },
   {
    "id": 25827709,
@@ -3598,7 +3940,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Exilio  artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "song:Exilio artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "Exilio",
+       "found": [
+        "Exílio - Dead Fish",
+        "Exilio - Perrosky",
+        "Exilio - La Barca"
+       ]
+      }
+     ]
     },
     {
      "pos": "A2",
@@ -3610,7 +3970,21 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Heart And Feather artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "song:Heart And Feather artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "Heart And Feather",
+       "found": []
+      }
+     ]
     },
     {
      "pos": "A3",
@@ -3622,7 +3996,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:The River artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "song:The River artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "The River",
+       "found": [
+        "The River - Garth Brooks",
+        "The River - PJ Harvey",
+        "The River - Geoffrey Oryema"
+       ]
+      }
+     ]
     },
     {
      "pos": "A4",
@@ -3634,7 +4026,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Avalon artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "song:Avalon artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "Avalon",
+       "found": [
+        "Avalon - Roxy Music",
+        "Avalon - Woody Herman",
+        "Avalon - M People"
+       ]
+      }
+     ]
     },
     {
      "pos": "A5",
@@ -3646,7 +4056,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Obsidian  artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "song:Obsidian artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "Obsidian",
+       "found": [
+        "Obsidian - Meshuggah",
+        "Obsidian - Banco de Gaia",
+        "Obsidián - Daniel Landa"
+       ]
+      }
+     ]
     },
     {
      "pos": "B1",
@@ -3658,7 +4086,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Fantasmas artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "song:Fantasmas artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "Fantasmas",
+       "found": [
+        "Fantasmas - Olé Olé",
+        "Fantasmas - Fangoria",
+        "Fantasmas - Julio de la Rosa"
+       ]
+      }
+     ]
     },
     {
      "pos": "B2",
@@ -3670,7 +4116,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:VII  artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "song:VII artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "VII",
+       "found": [
+        "VII - Der Blutharsch",
+        "VII - Der Blutharsch",
+        "VII - Der Blutharsch"
+       ]
+      }
+     ]
     },
     {
      "pos": "B3",
@@ -3682,7 +4146,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Upir  artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "song:Upir artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "Upir",
+       "found": [
+        "Upíří Láska - Kreyson",
+        "Upír S Houslemi - XIII. století",
+        "Upir - Sarke"
+       ]
+      }
+     ]
     },
     {
      "pos": "B4",
@@ -3694,7 +4176,25 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Perdidos  artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "song:Perdidos artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "Perdidos",
+       "found": [
+        "Perdidos - Iván Ferreiro",
+        "Perdidos - Monchy y Alexandra",
+        "Perdidos - Suite Soprano"
+       ]
+      }
+     ]
     },
     {
      "pos": "B5",
@@ -3706,10 +4206,29 @@
      "looked_up": "2026-10-23",
      "bpm": "",
      "camelot": "",
-     "lookup_v": 2
+     "lookup_v": 3,
+     "tried": [
+      {
+       "search": "song:Shrine  artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "song:Shrine artist:Twin Tribes",
+       "found": []
+      },
+      {
+       "search": "Shrine",
+       "found": [
+        "Shrine - Giant Sand",
+        "Shrine - Muslimgauze",
+        "Shrine - Arve Henriksen"
+       ]
+      }
+     ]
     }
    ],
-   "orig_year": 2019
+   "orig_year": 2019,
+   "master_id": 1646153
   },
   {
    "id": 14970948,
@@ -3835,7 +4354,8 @@
      "camelot": "10B"
     }
    ],
-   "orig_year": 2018
+   "orig_year": 2018,
+   "master_id": 1419338
   }
  ]
 }
