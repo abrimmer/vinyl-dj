@@ -1,6 +1,8 @@
 Finished
-15:22:55 Collection: 636 items
-15:49:00 Records: 636
-16:04:22 Lookup error for Mueran Humanos - El Circulo: HTTPSConnectionPool(host='api.getsong.co', port=443): Read timed out. (read timeout=30)
-16:22:05 Lookup error for Castelli - Luna: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-16:23:49 Lookups this run: 2501. Tracks still to look up: 5881.
+19:14:12 Collection: 636 items
+19:14:12 Records: 636
+19:14:56 Lookup error for Yussef Kamaal - Yo Chavez: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+19:15:08 Lookup error for Various - Inside The Acorn: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+19:27:53 Lookup error for Billie Eilish - Listen Before I Go: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+19:39:27 Lookup error for Various - Francesca (Wild At Heart): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+19:43:52 Lookups this run: 2504. Tracks still to look up: 4644.
