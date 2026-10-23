@@ -1,4 +1,5 @@
 # Discogs release IDs to include. Write ALL on its own line to include the whole collection.
+ALL
 12806671  # Bauhaus - In The Flat Field
 72018  # Clan Of Xymox - Clan Of Xymox
 5994837  # The Chameleons - Script Of The Bridge

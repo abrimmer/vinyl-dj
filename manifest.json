@@ -1,6 +1,6 @@
 {
-  "name": "Vinyl DJ",
-  "short_name": "Vinyl DJ",
+  "name": "Setwright",
+  "short_name": "Setwright",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#0e0e10",

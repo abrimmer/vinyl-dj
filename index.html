@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Vinyl DJ</title>
+<title>Setwright</title>
 <meta name="theme-color" content="#0e0e10">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Vinyl DJ">
+<meta name="apple-mobile-web-app-title" content="Setwright">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-180.png">
@@ -140,7 +140,7 @@
 <body>
 <header>
   <div class="bar">
-    <h1><a href="#" id="home" style="color:inherit;text-decoration:none">Vinyl DJ</a></h1>
+    <h1><a href="#" id="home" style="color:inherit;text-decoration:none">Setwright</a></h1>
     <div class="tabs">
       <button data-v="records" class="on">Records</button>
       <button data-v="setlists">Setlists</button>
@@ -273,6 +273,10 @@ function setView(v) {
 }
 function render() { ({ records: renderGrid, setlists: renderSetlists, missing: renderMissing, guide: renderGuide })[VIEW](); }
 
+function allStyles() {
+  const count = {}; for (const r of DATA) for (const x of new Set(r.styles || [])) count[x] = (count[x] || 0) + 1;
+  return Object.keys(count).sort((a, b) => count[b] - count[a]);
+}
 function renderChips() {
   const count = {};
   for (const r of DATA) for (const s of new Set(r.styles || [])) count[s] = (count[s] || 0) + 1;
@@ -434,6 +438,18 @@ function showMix(t, push = true) {
 const saveSets = () => store.set("setlists", SETLISTS);
 const FAVOUR = { balanced: "Balanced", tempo: "Tempo (smallest pitch changes)", key: "Key (always harmonic)" };
 const favWord = f => FAVOUR[f].split(" ")[0].toLowerCase();
+const STYLE_MODES = { any: "Styles: any", within: "Styles: stay within…", drift: "Styles: smooth drift" };
+const stylesOf = t => t.rel.styles || [];
+function styleSim(a, b) { // share of styles in common (0–1)
+  const A = new Set(stylesOf(a)), B = stylesOf(b); if (!A.size || !B.length) return 0;
+  const inter = B.filter(x => A.has(x)).length; return inter / (A.size + B.length - inter);
+}
+const styleAllowed = (s, o) => s.styleMode !== "within" || !(s.styles || []).length || stylesOf(o).some(x => s.styles.includes(x));
+// Full cost of a step inside a setlist: tempo/key cost + style drift penalty
+function setCost(s, a, b) {
+  const c = stepCost(transition(a, b), s.favour); if (c >= 999) return 999;
+  return s.styleMode === "drift" ? c + (1 - styleSim(a, b)) * 8 : c;
+}
 function renderSetlists() {
   $("#view").innerHTML = `<div class="tools"><button class="btn primary" id="newSet">+ New setlist</button></div>
     ${SETLISTS.length ? "" : `<p class="help">No setlists yet. Create one, pick a first track (and maybe a last one), and let it fill the rest.</p>`}
@@ -441,7 +457,7 @@ function renderSetlists() {
       return `<div class="sl-card" data-i="${i}">
         <div class="covers">${ts.slice(0, 4).map(t => t.rel.thumb ? `<img src="${esc(t.rel.thumb)}" alt="">` : "").join("")}</div>
         <div style="flex:1;margin-left:${ts.length ? 10 : 0}px"><div class="name">${esc(s.name)}</div>
-          <div class="sub">${ts.length}/${s.slots.length} tracks · favour ${esc(favWord(s.favour))}</div></div>
+          <div class="sub">${ts.length}/${s.slots.length} tracks · favour ${esc(favWord(s.favour))}${s.styleMode === "within" && (s.styles || []).length ? " · " + esc(s.styles.join(", ")) : s.styleMode === "drift" ? " · style drift" : ""}</div></div>
         <span class="muted">›</span></div>`; }).join("")}`;
   $("#newSet").onclick = () => { STACK = []; newSetlist(); };
   $("#view").querySelectorAll(".sl-card").forEach(c => c.onclick = () => { STACK = []; showSetlist(SETLISTS[+c.dataset.i]); });
@@ -453,12 +469,13 @@ function newSetlist(firstTrack, push = true) {
     <label>Name<input type="text" name="nm" required value="Setlist ${SETLISTS.length + 1}"></label>
     <label>Number of tracks<input type="number" name="len" min="2" max="60" value="10"></label>
     <label>Favour<select name="favour">${Object.entries(FAVOUR).map(([k, v]) => `<option value="${k}">${v}</option>`).join("")}</select></label>
+    <label>Styles<select name="sm">${Object.entries(STYLE_MODES).map(([k, v]) => `<option value="${k}">${v.replace("Styles: ", "")}</option>`).join("")}</select></label>
     <label class="chk" style="margin:0"><input type="checkbox" name="one" checked> Max 1 track per record</label>
     ${firstTrack ? `<p class="help">Starts with <b>${esc(firstTrack.title)}</b>.</p>` : ""}
     <button class="btn primary" type="submit">Create</button></form>`;
   $("#nf").onsubmit = e => {
     e.preventDefault(); const f = e.target;
-    const s = { id: Date.now(), name: f.nm.value.trim() || "Setlist", favour: f.favour.value, one: f.one.checked,
+    const s = { id: Date.now(), name: f.nm.value.trim() || "Setlist", favour: f.favour.value, one: f.one.checked, styleMode: f.sm.value, styles: firstTrack ? stylesOf(firstTrack).slice() : [],
       slots: Array(Math.max(2, Math.min(60, +f.len.value || 10))).fill(null) };
     if (firstTrack) s.slots[0] = { k: tkey(firstTrack), lock: true };
     SETLISTS.push(s); saveSets(); if (VIEW === "setlists") renderSetlists();
@@ -490,7 +507,12 @@ function showSetlist(s, push = true) {
       <input type="text" id="slName" value="${esc(s.name)}" style="flex:1 1 180px;font-weight:600" aria-label="Setlist name">
       <select id="slFav">${Object.entries(FAVOUR).map(([k, v]) => `<option value="${k}" ${s.favour === k ? "selected" : ""}>Favour: ${v}</option>`).join("")}</select>
       <label class="chk" style="margin:0"><input type="checkbox" id="slOne" ${s.one ? "checked" : ""}> 1 per record</label>
+      <select id="slStyleMode">${Object.entries(STYLE_MODES).map(([k, v]) => `<option value="${k}" ${(s.styleMode || "any") === k ? "selected" : ""}>${v}</option>`).join("")}</select>
     </div>
+    ${s.styleMode === "within" ? `<div class="chips" id="slStyles" style="flex-wrap:wrap;padding-top:0">${allStyles().map(x =>
+      `<button class="chip ${(s.styles || []).includes(x) ? "on" : ""}" data-s="${esc(x)}">${esc(x)}</button>`).join("")}</div>
+      <p class="help" style="margin-top:4px">${(s.styles || []).length ? "Only records tagged with any of these styles are used." : "Tap the styles to keep this set within."}</p>` : ""}
+    ${s.styleMode === "drift" ? `<p class="help" style="margin-top:4px">Each next track should share styles with the one before, so the set slides gradually between your first and last track.</p>` : ""}
     <div class="tools">
       <button class="btn primary" id="fillEmpty">Fill empty slots</button>
       <button class="btn" id="refill">Re-shuffle unlocked</button>
@@ -522,6 +544,10 @@ function showSetlist(s, push = true) {
   $("#slName").onchange = e => { s.name = e.target.value.trim() || s.name; saveSets(); $("#crumb").textContent = s.name; };
   $("#slFav").onchange = e => { s.favour = e.target.value; saveSets(); };
   $("#slOne").onchange = e => { s.one = e.target.checked; saveSets(); };
+  $("#slStyleMode").onchange = e => { s.styleMode = e.target.value; saveSets(); showSetlist(s, false); };
+  $("#slStyles")?.addEventListener("click", e => { const c = e.target.closest(".chip"); if (!c) return;
+    s.styles = s.styles || []; const x = c.dataset.s; s.styles = s.styles.includes(x) ? s.styles.filter(y => y !== x) : [...s.styles, x];
+    saveSets(); showSetlist(s, false); });
   $("#fillEmpty").onclick = () => { const n = autoFill(s, false); saveSets(); showSetlist(s, false);
     toast(!s.slots[0] ? "Pick a first track, then fill" : n ? `Filled ${n} slot${n > 1 ? "s" : ""}` : "No fitting tracks found. Try a wider pitch range"); };
   $("#refill").onclick = () => { s.slots = s.slots.map(x => x && x.lock ? x : null); const n = autoFill(s, true); saveSets(); showSetlist(s, false); toast(`Re-filled ${n}`); };
@@ -566,9 +592,9 @@ function pickForSlot(s, i, push = true) {
   const used = usedSets(s, i);
   let list = [];
   if (usable(P || {}) || usable(N || {})) for (const o of TRACKS) {
-    if (!usable(o) || used.keys.has(tkey(o)) || (s.one && used.recs.has(o.rel.id))) continue;
+    if (!usable(o) || used.keys.has(tkey(o)) || (s.one && used.recs.has(o.rel.id)) || !styleAllowed(s, o)) continue;
     const a = P && usable(P) ? transition(P, o) : null, b = N && usable(N) ? transition(o, N) : null;
-    const sc = (a ? stepCost(a, s.favour) : 0) + (b ? stepCost(b, s.favour) : 0);
+    const sc = (a ? setCost(s, P, o) : 0) + (b ? setCost(s, o, N) : 0);
     if (sc < 999) list.push({ o, tr: a, b, score: sc });
   }
   list.sort((x, y) => x.score - y.score); list = list.slice(0, 30);
@@ -621,18 +647,19 @@ function autoFill(s, shuffle) {
   return filled;
 }
 function beam(s, start, end, steps, shuffle) {
-  const used = usedSets(s), W = 40, pool = TRACKS.filter(o => usable(o) && !used.keys.has(tkey(o)));
+  const used = usedSets(s), W = 40, pool = TRACKS.filter(o => usable(o) && !used.keys.has(tkey(o)) && styleAllowed(s, o));
   const endC = end && cam(end.camelot), endB = end && num(end.bpm);
   let beams = [{ path: [], last: start, cost: 0, h: 0, recs: new Set(used.recs) }];
   for (let d = 0; d < steps; d++) {
     const left = steps - d, next = [];
     for (const bm of beams) for (const o of pool) {
       if (bm.path.includes(o) || (s.one && bm.recs.has(o.rel.id))) continue;
-      const c = stepCost(transition(bm.last, o), s.favour); if (c >= 999) continue;
+      const c = setCost(s, bm.last, o); if (c >= 999) continue;
       let h = 0; // steer towards the last track
       if (end) {
         h = wheelDist(cam(o.camelot), endC) * 3 / left + Math.abs(Math.log(num(o.bpm) / endB)) * 100 / left;
-        if (left === 1) { const ce = stepCost(transition(o, end), s.favour); if (ce >= 999) continue; h += ce; }
+        if (left === 1) { const ce = setCost(s, o, end); if (ce >= 999) continue; h += ce; }
+        if (s.styleMode === "drift") h += (1 - styleSim(o, end)) * 6 / left;
       }
       next.push({ path: [...bm.path, o], last: o, cost: bm.cost + c + (shuffle ? Math.random() * 6 : 0), h, recs: new Set([...bm.recs, o.rel.id]) });
     }

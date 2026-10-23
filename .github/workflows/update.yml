@@ -1,8 +1,8 @@
-name: Nightly collection update
+name: Collection update
 
 on:
   schedule:
-    - cron: "17 2 * * *"   # every night, about 04:17 Malta time
+    - cron: "17 */3 * * *"  # every 3 hours (finishes the first big load in about a day; later runs are quick)
   workflow_dispatch:         # "Run workflow" button for a manual update
 
 permissions:
@@ -26,6 +26,7 @@ jobs:
         env:
           DISCOGS_TOKEN: ${{ secrets.DISCOGS_TOKEN }}
           GETSONGBPM_KEY: ${{ secrets.GETSONGBPM_KEY }}
+          MAX_NEW_LOOKUPS: "2800"
         run: python scripts/update.py
       - name: Save changes
         run: |

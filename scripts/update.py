@@ -20,6 +20,7 @@ UA = "VinylDJ/1.0 +https://github.com/abrimmer/vinyl-dj"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "collection.json")
 RECORDS = os.path.join(ROOT, "records.txt")
+STARTED = time.time()
 LOOKUP_V = 3  # bump when matching improves, so missing tracks get retried once
 MAX_NEW_LOOKUPS = int(os.environ.get("MAX_NEW_LOOKUPS", "1500"))  # stay well under GetSongBPM's 3000/hour
 
@@ -257,7 +258,7 @@ def main():
             # Skip tracks already looked up; retry misses once each time the matching improves
             if "looked_up" in t and (t.get("bpm") or t.get("lookup_v", 1) >= LOOKUP_V):
                 continue
-            if api.lookups >= MAX_NEW_LOOKUPS:
+            if api.lookups >= MAX_NEW_LOOKUPS or time.time() - STARTED > 85 * 60:  # save before the 2h job limit
                 pending += 1
                 continue
             info = lookup(api, t["title"], t["artist"])
