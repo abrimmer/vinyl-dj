@@ -83,6 +83,18 @@
   .links { display: flex; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
   .links a, .links button { font-size: 12px; text-decoration: none; border: 1px solid var(--line); border-radius: 6px;
     padding: 1px 7px; color: var(--muted); background: none; cursor: pointer; }
+  .play { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+  .play a { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; text-decoration: none;
+    border-radius: 999px; padding: 3px 10px 3px 8px; color: #fff; }
+  .play a.sp { background: #1DB954; color: #000; }
+  .play a.yt { background: #FF0000; }
+  .play a::before { content: "▶"; font-size: 9px; }
+  .acts { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+  .acts button, .acts a { font-size: 12px; border: 1px solid var(--line); border-radius: 8px; padding: 3px 9px;
+    background: var(--panel); color: var(--text); cursor: pointer; text-decoration: none; }
+  .acts button.hl { border-color: var(--warn); color: var(--warn); }
+  .guide h3 { margin-top: 22px; } .guide p, .guide li { color: var(--muted); font-size: 14px; } .guide b { color: var(--text); }
+  .guide .pill { margin: 0 4px 0 0; }
   .src { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px;
     display: flex; gap: 12px; align-items: center; }
   .src img, .res img, .slot img { width: 52px; height: 52px; border-radius: 6px; object-fit: cover; flex: none; }
@@ -133,6 +145,7 @@
       <button data-v="records" class="on">Records</button>
       <button data-v="setlists">Setlists</button>
       <button data-v="missing">Missing</button>
+      <button data-v="guide">Guide</button>
     </div>
   </div>
   <div class="bar" style="margin-top:8px" id="filterBar">
@@ -185,8 +198,8 @@ function keyRel(a, b) {
   if (!a || !b) return null;
   if (a.n === b.n && a.l === b.l) return { r: 0, t: "Same key" };
   const d = (b.n - a.n + 12) % 12;
-  if (a.l === b.l && (d === 1 || d === 11)) return { r: 1, t: d === 1 ? "+1 on wheel (lift)" : "−1 on wheel" };
-  if (a.n === b.n) return { r: 1, t: a.l === "A" ? "Minor → major" : "Major → minor" };
+  if (a.l === b.l && (d === 1 || d === 11)) return { r: 1, t: d === 1 ? "Key +1 (energy lift)" : "Key −1 (calmer)" };
+  if (a.n === b.n) return { r: 1, t: a.l === "A" ? "Minor → major (brighter)" : "Major → minor (darker)" };
   return null;
 }
 function wheelDist(a, b) { if (!a || !b) return 3; const d = Math.abs(a.n - b.n) % 12; return Math.min(d, 12 - d) + (a.l === b.l ? 0 : 1); }
@@ -209,13 +222,19 @@ function bridgeHtml(tr) {
     (tr.inRange ? "" : `<span class="pill bad">Outside ±${RANGE}%</span>`) +
     (tr.kr ? `<span class="pill ok">${tr.kr.t}</span>` : `<span class="pill bad">Key clash</span>`) +
     (tr.semis ? `<span class="pill warn">Plays as ${camStr(tr.plays)} (key ${tr.semis > 0 ? "up" : "down"} ${Math.abs(tr.semis)})</span>` : "") +
-    (tr.fit.f === 2 ? `<span class="pill">Half-time feel</span>` : tr.fit.f === 0.5 ? `<span class="pill">Double-time feel</span>` : "");
+    (tr.fit.f === 2 ? `<span class="pill">Half-time match</span>` : tr.fit.f === 0.5 ? `<span class="pill">Double-time match</span>` : "");
 }
 const tkey = t => `${t.rel.id}|${t.pos}`;
-function searchLinks(t) {
+function playLinks(t) {
   const q = encodeURIComponent(`${t.artist || t.rel.artist} ${t.title}`);
-  return `<a href="https://open.spotify.com/search/${q}" target="_blank" rel="noopener">Spotify</a>` +
-    `<a href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">YouTube</a>`;
+  return `<div class="play"><a class="sp" href="https://open.spotify.com/search/${q}" target="_blank" rel="noopener">Spotify</a>` +
+    `<a class="yt" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">YouTube</a></div>`;
+}
+// Places that usually have BPM + key when GetSongBPM doesn't
+function lookupLinks(t) {
+  const q = encodeURIComponent(`${t.artist || t.rel.artist} ${t.title}`);
+  return `<a href="https://tunebat.com/Search?q=${q}" target="_blank" rel="noopener">Look up on Tunebat ↗</a>` +
+    `<a href="https://duckduckgo.com/?q=${q}+bpm+key" target="_blank" rel="noopener">Web search ↗</a>`;
 }
 
 // ---------- data ----------
@@ -248,7 +267,7 @@ function setView(v) {
   $("#filterBar").style.display = v === "records" ? "" : "none"; $("#chips").style.display = v === "records" ? "" : "none";
   closeSheet(); render();
 }
-function render() { ({ records: renderGrid, setlists: renderSetlists, missing: renderMissing })[VIEW](); }
+function render() { ({ records: renderGrid, setlists: renderSetlists, missing: renderMissing, guide: renderGuide })[VIEW](); }
 
 function renderChips() {
   const count = {};
@@ -287,7 +306,8 @@ function trackRow(t, i, opts = {}) {
     <div class="main" data-t="${i}">
       <div class="name">${esc(t.title)}</div>
       <div class="sub">${esc(t.duration || "")}${t.cue_in ? ` · IN ${esc(t.cue_in)} · OUT ${esc(t.cue_out)}` : ""}${t.manual ? ` · <span style="color:var(--warn)">manual</span>` : ""}${t.matched_as ? ` · matched as “${esc(t.matched_as)}”` : ""}</div>
-      <div class="links">${searchLinks(t)}<button data-edit="${i}" data-box="${id}">${missing ? "Add BPM/key" : "Edit"}</button><button data-add="${i}">+ Setlist</button></div>
+      ${playLinks(t)}
+      <div class="acts"><button class="${missing ? "hl" : ""}" data-edit="${i}" data-box="${id}">✎ ${missing ? "Add BPM / key" : "Edit BPM / key / cues"}</button><button data-add="${i}">+ Setlist</button>${missing ? lookupLinks(t) : ""}</div>
       <div id="edit-${id}"></div>
     </div>
     <span class="right"><span class="bpm">${t.bpm ? esc(t.bpm) : "–"}</span>${camBadge(t.camelot)}</span>
@@ -317,7 +337,7 @@ function showAlbum(r, push = true) {
       </div>
     </div>
     ${missing ? `<p class="help" style="color:var(--warn)">${missing} track${missing > 1 ? "s have" : " has"} no BPM/key, so ${missing > 1 ? "they're" : "it's"} left out of matching.
-      Try ${r.master_id ? `<a href="https://www.discogs.com/master/${r.master_id}" target="_blank" rel="noopener">other versions of this album</a>, ` : ""}the Spotify link to check by ear, or tap <b>Add BPM/key</b> to enter your own (saved as a guess *).</p>` : ""}
+      GetSongBPM doesn't have ${missing > 1 ? "them" : "it"}. Tap <b>Look up on Tunebat</b> to find the numbers, then <b>✎ Add BPM / key</b> to enter them (saved as a guess *).</p>` : ""}
     <p class="help">Tap a track to see <b>what mixes with it</b>.</p>
     <div class="tracks">${r.tracks.map((t, i) => trackRow(t, i)).join("")}</div>`;
   wireTrackRows($("#sheetBody"), r.tracks);
@@ -338,7 +358,7 @@ function openEdit(t, box) {
     <div style="grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn primary small" type="submit">Save</button>
       ${EDITS[k] ? `<button class="btn small" type="button" data-reset>Reset to original</button>` : ""}
-      <span class="sub" style="align-self:center">Saved as a guess (*) on this device.</span>
+      <span class="sub" style="align-self:center">Saved as a guess (*) on this device. Needs both BPM and key to show up in matches.</span>
     </div></form>`;
   const f = box.querySelector("form");
   f.onsubmit = ev => {
@@ -383,7 +403,7 @@ function showMix(t, push = true) {
       ${r.cover ? `<img src="${esc(r.thumb || r.cover)}" alt="">` : ""}
       <div style="flex:1"><div class="name">${esc(t.title)}</div>
         <div class="sub">${esc(r.artist)} · ${esc(r.title)} · ${esc(t.pos)} · ${esc(t.duration || "")}</div>
-        <div class="links">${searchLinks(t)}<button id="addThis">+ Setlist</button></div></div>
+        ${playLinks(t)}<div class="acts"><button id="addThis">+ Setlist</button><button id="editThis">✎ Edit BPM / key / cues</button></div><div id="edit-mix"></div></div>
       <div class="right"><span class="bpm">${t.bpm ? esc(t.bpm) : "–"}</span>${camBadge(t.camelot)}</div>
     </div>
     ${!usable(t) ? `<p class="help">No BPM/key for this track yet. Add it from the album page (Add BPM/key) and it'll match.</p>` : `
@@ -394,6 +414,7 @@ function showMix(t, push = true) {
     ${res.map((x, i) => resultRow(x, i)).join("")}`}`;
   $("#tempoOnly")?.addEventListener("change", e => { store.set("tempoOnly", e.target.checked); showMix(t, false); });
   $("#addThis").onclick = () => addToSetlist(t);
+  $("#editThis").onclick = () => openEdit(t, $("#edit-mix"));
   $("#sheetBody").querySelectorAll(".res").forEach(d => d.onclick = () => showMix(res[+d.dataset.i].o));
   openSheet();
 }
@@ -619,12 +640,62 @@ function renderMissing() {
   const miss = DATA.map(r => ({ r, ts: r.tracks.filter(t => !usable(t)) })).filter(x => x.ts.length);
   const n = miss.reduce((a, x) => a + x.ts.length, 0);
   $("#view").innerHTML = `<p class="help"><b>${n} tracks</b> have no BPM or key, so they're left out of matching and setlists.
-    Below is what GetSongBPM returned when the nightly update searched. Tap <b>Add BPM/key</b> to enter your own (saved as a guess *).</p>
+    GetSongBPM simply doesn't have these songs (other editions won't help: it searches by song, not by release).
+    To fill a gap: tap <b>Look up on Tunebat</b> (it shows BPM and the Camelot key), then <b>✎ Add BPM / key</b> and type them in. They're saved as a guess (*).</p>
     ${miss.map(({ r, ts }, j) => `<h3>${esc(r.artist)} – ${esc(r.title)}</h3>
-      ${r.master_id ? `<a class="muted" href="https://www.discogs.com/master/${r.master_id}" target="_blank" rel="noopener">Other versions on Discogs ↗</a>` : ""}
-      <div class="tracks">${ts.map((t, i) => trackRow(t, i, { prefix: `m${j}-` }) + (t.tried ? `<div class="sub" style="padding:0 4px 10px 48px">${t.tried.map(x =>
-        `Searched “${esc(x.search)}” → ${x.found.length ? esc(x.found.join("; ")) : "nothing"}`).join("<br>")}</div>` : "")).join("")}</div>`).join("")}`;
+      <div class="tracks">${ts.map((t, i) => trackRow(t, i, { prefix: `m${j}-` }) + (t.tried ? `<details class="sub" style="padding:0 4px 10px 48px"><summary>What GetSongBPM found</summary>${t.tried.map(x =>
+        `Searched “${esc(x.search)}” → ${x.found.length ? esc(x.found.join("; ")) : "nothing"}`).join("<br>")}</details>` : "")).join("")}</div>`).join("")}`;
   miss.forEach(({ ts }, j) => wireTrackRows($("#view").querySelectorAll(".tracks")[j], ts));
+}
+
+// ---------- guide ----------
+function renderGuide() {
+  const P = (cls, t) => `<span class="pill ${cls}">${t}</span>`;
+  $("#view").innerHTML = `<div class="guide" style="max-width:720px">
+  <h3>The one instruction: the purple %</h3>
+  <p>${P("pitch", "Pitch +2.4%")} is the only tag that tells you to <b>do</b> something. Set the pitch slider on the <b>next</b> record to that value
+    so its tempo matches the one playing. ${P("pitch", "No pitch change")} means leave it at 0. Everything else is information.</p>
+
+  <h3>Key tags (do the two songs sound good together?)</h3>
+  <p>Keys use the <b>Camelot wheel</b>: a number (1–12) and a letter. <b>A</b> = minor (darker), <b>B</b> = major (brighter).
+    Neighbours on the wheel blend smoothly.</p>
+  <ul>
+    <li>${P("ok", "Same key")} Safest. Sounds seamless.</li>
+    <li>${P("ok", "Key +1 (energy lift)")} One step clockwise (e.g. 8A → 9A). Feels like a small lift. Great for building a set.</li>
+    <li>${P("ok", "Key −1 (calmer)")} One step back (9A → 8A). Smooth, slightly calmer.</li>
+    <li>${P("ok", "Minor → major (brighter)")} / ${P("ok", "Major → minor (darker)")} Same number, other letter (8A ↔ 8B). Changes the mood, still in tune.</li>
+    <li>${P("bad", "Key clash")} The keys don't sit well together. Fine for a quick cut, but it can sound off in a long blend.</li>
+  </ul>
+
+  <h3>Tempo tags</h3>
+  <ul>
+    <li>${P("", "Half-time match")} The next record is about half the speed (e.g. 70 vs 140 BPM). Its beats line up with every
+      <b>other</b> beat of the current one. It works, but feels like the energy drops.</li>
+    <li>${P("", "Double-time match")} The opposite: about twice the speed. Feels like it speeds up.</li>
+    <li>${P("bad", "Outside ±8%")} You'd need more pitch than your chosen range. Switch to ±16% at the top, or pick another track.</li>
+  </ul>
+
+  <h3>Pitch also changes the key</h3>
+  <p>On a turntable, speeding up also raises the key. Roughly <b>6% = one semitone</b>. Under about 3% nobody notices.</p>
+  <ul>
+    <li>${P("warn", "Plays as 4A (key up 1)")} After you set the pitch, the record will sound in this key, not its original one.
+      The key tags already take this into account.</li>
+  </ul>
+
+  <h3>Data tags</h3>
+  <ul>
+    <li><b>*</b> or ${P("warn", "Data unsure *")} The BPM/key match wasn't exact, it's an estimate, or you typed it in. Check by ear.</li>
+    <li><b>manual</b> You entered this yourself on this device.</li>
+    <li><b>IN / OUT</b> Cue times: where to drop the needle (IN) and when to start your cut to the next record (OUT). Estimates (*) until you edit them.</li>
+  </ul>
+
+  <h3>Pitch guidance for your decks</h3>
+  <ul>
+    <li>Use the <b>±8%</b> range on the AT-LP120X when you can: the slider is finer, so it's easier to be accurate.</li>
+    <li>To work it out yourself: <b>(BPM you want ÷ record's BPM − 1) × 100</b> = % to set. Example: 122 → 128 is about +5%.</li>
+    <li>For quick cuts, being within 1–2% is fine. Cut on the first beat of a new bar.</li>
+  </ul>
+  </div>`;
 }
 
 // ---------- sheet / nav ----------
