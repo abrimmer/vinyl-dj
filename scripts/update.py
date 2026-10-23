@@ -47,6 +47,14 @@ def norm(s):
     return re.sub(r"[^a-z0-9]", "", s)
 
 
+def plain(s):
+    """Drop accents and bracketed extras: 'Durdu Dünya (Extended)' -> 'Durdu Dunya'."""
+    import unicodedata
+    s = re.sub(r"\(.*?\)|\[.*?\]", "", s or "")
+    s = s.replace("ı", "i").replace("ş", "s").replace("ğ", "g")
+    return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().strip()
+
+
 def clean_artist(name):
     return re.sub(r"\s*\(\d+\)$", "", name or "").replace("*", "").strip()
 
@@ -97,16 +105,29 @@ class Api:
 
 def lookup(api, title, artist):
     """Return dict with bpm, camelot, exact (bool) — or found=False."""
-    res = api.gsb("/search/", type="both", lookup=f"song:{title} artist:{artist}", limit=5)
-    hits = res.get("search")
-    if not isinstance(hits, list) or not hits:
-        return {"found": False}
-    best, exact = hits[0], False
-    for h in hits:
-        if norm(h.get("title")) == norm(title) and \
-                norm(clean_artist((h.get("artist") or {}).get("name"))) == norm(artist):
-            best, exact = h, True
+    t_plain, a_plain = plain(title), plain(artist)
+    short_artist = re.sub(r"^the ", "", re.split(r" & | and ", a_plain, flags=re.I)[0], flags=re.I)
+    # Try several ways: full search, simplified names, then title only filtered by artist
+    attempts = [("both", f"song:{title} artist:{artist}"),
+                ("both", f"song:{t_plain} artist:{short_artist}"),
+                ("song", t_plain)]
+    best, exact = None, False
+    for kind, q in attempts:
+        hits = api.gsb("/search/", type=kind, lookup=q, limit=10).get("search")
+        if not isinstance(hits, list) or not hits:
+            continue
+        for h in hits:
+            ha = norm(plain(clean_artist((h.get("artist") or {}).get("name"))))
+            if norm(plain(h.get("title"))) == norm(t_plain) and \
+                    (ha == norm(a_plain) or norm(short_artist) in ha):
+                best, exact = h, True
+                break
+        if exact:
             break
+        if best is None and kind == "both":
+            best = hits[0]
+    if best is None:
+        return {"found": False}
     tempo, ok, ko = best.get("tempo"), best.get("open_key"), best.get("key_of")
     if not tempo or not (ok or ko):
         song = api.gsb("/song/", id=best.get("id")).get("song") or {}
@@ -177,6 +198,16 @@ def main():
             "added": item.get("date_added"),
             "url": f"https://www.discogs.com/release/{rid}",
         })
+        # Original release year (from the master release), fetched once
+        if "orig_year" not in rel:
+            mid = b.get("master_id")
+            if mid:
+                try:
+                    rel["orig_year"] = api.discogs(f"/masters/{mid}").get("year") or rel["year"]
+                except requests.HTTPError:
+                    rel["orig_year"] = rel["year"]
+            else:
+                rel["orig_year"] = rel["year"]
         # 2. Tracklist (once per release)
         if not rel.get("tracks"):
             full = api.discogs(f"/releases/{rid}")
@@ -199,13 +230,15 @@ def main():
     pending = 0
     for rel in releases:
         for t in rel["tracks"]:
-            if "looked_up" in t:
+            # Skip tracks already looked up, but retry misses once with the improved matching (v2)
+            if "looked_up" in t and (t.get("bpm") or t.get("lookup_v") == 2):
                 continue
             if api.lookups >= MAX_NEW_LOOKUPS:
                 pending += 1
                 continue
             info = lookup(api, t["title"], t["artist"])
             t["looked_up"] = datetime.now(timezone.utc).date().isoformat()
+            t["lookup_v"] = 2
             if info["found"]:
                 star = "" if info["exact"] else "*"
                 t["bpm"] = f"{info['bpm']}{star}"
