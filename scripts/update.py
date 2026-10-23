@@ -20,6 +20,7 @@ UA = "VinylDJ/1.0 +https://github.com/abrimmer/vinyl-dj"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "collection.json")
 RECORDS = os.path.join(ROOT, "records.txt")
+LOOKUP_V = 3  # bump when matching improves, so missing tracks get retried once
 MAX_NEW_LOOKUPS = int(os.environ.get("MAX_NEW_LOOKUPS", "1500"))  # stay well under GetSongBPM's 3000/hour
 
 MINOR = {"Ab": 1, "G#": 1, "Eb": 2, "D#": 2, "Bb": 3, "A#": 3, "F": 4, "C": 5, "G": 6,
@@ -111,11 +112,14 @@ def lookup(api, title, artist):
     attempts = [("both", f"song:{title} artist:{artist}"),
                 ("both", f"song:{t_plain} artist:{short_artist}"),
                 ("song", t_plain)]
-    best, exact = None, False
+    best, exact, tried = None, False, []
     for kind, q in attempts:
         hits = api.gsb("/search/", type=kind, lookup=q, limit=10).get("search")
         if not isinstance(hits, list) or not hits:
+            tried.append({"search": q, "found": []})
             continue
+        tried.append({"search": q, "found": [f"{h.get('title')} - {(h.get('artist') or {}).get('name')}"
+                                             for h in hits[:3]]})
         for h in hits:
             ha = norm(plain(clean_artist((h.get("artist") or {}).get("name"))))
             if norm(plain(h.get("title"))) == norm(t_plain) and \
@@ -127,7 +131,7 @@ def lookup(api, title, artist):
         if best is None and kind == "both":
             best = hits[0]
     if best is None:
-        return {"found": False}
+        return {"found": False, "tried": tried}
     tempo, ok, ko = best.get("tempo"), best.get("open_key"), best.get("key_of")
     if not tempo or not (ok or ko):
         song = api.gsb("/song/", id=best.get("id")).get("song") or {}
@@ -137,7 +141,26 @@ def lookup(api, title, artist):
     except (TypeError, ValueError):
         bpm = None
     return {"found": bool(bpm), "bpm": bpm, "camelot": camelot(ok, ko), "exact": exact,
-            "gsb_title": best.get("title")}
+            "gsb_title": best.get("title"), "tried": tried}
+
+
+def master_title(api, cache, mid, track):
+    """Title of the matching track on the original album: same title minus extras, or same position."""
+    if mid not in cache:
+        try:
+            cache[mid] = [x for x in api.discogs(f"/masters/{mid}").get("tracklist", [])
+                          if x.get("type_", "track") == "track"]
+        except requests.HTTPError:
+            cache[mid] = []
+    mine = norm(plain(track["title"]))
+    for x in cache[mid]:
+        theirs = norm(plain(x.get("title")))
+        if theirs and (theirs in mine or mine in theirs):
+            return plain(x.get("title"))
+    for x in cache[mid]:
+        if x.get("position") == track.get("pos"):
+            return plain(x.get("title"))
+    return None
 
 
 def wanted_ids():
@@ -197,6 +220,7 @@ def main():
             "folder": folders.get(item.get("folder_id"), ""),
             "added": item.get("date_added"),
             "url": f"https://www.discogs.com/release/{rid}",
+            "master_id": b.get("master_id") or None,
         })
         # Original release year (from the master release), fetched once
         if "orig_year" not in rel:
@@ -227,24 +251,36 @@ def main():
         releases.append(rel)
 
     # 3. BPM + key (once per track, capped per run; the rest happens on the next run)
-    pending = 0
+    pending, masters = 0, {}
     for rel in releases:
         for t in rel["tracks"]:
-            # Skip tracks already looked up, but retry misses once with the improved matching (v2)
-            if "looked_up" in t and (t.get("bpm") or t.get("lookup_v") == 2):
+            # Skip tracks already looked up; retry misses once each time the matching improves
+            if "looked_up" in t and (t.get("bpm") or t.get("lookup_v", 1) >= LOOKUP_V):
                 continue
             if api.lookups >= MAX_NEW_LOOKUPS:
                 pending += 1
                 continue
             info = lookup(api, t["title"], t["artist"])
+            # Fallback: try the track title as it appears on the original album (Discogs master)
+            if not info["found"] and rel.get("master_id"):
+                alt = master_title(api, masters, rel["master_id"], t)
+                if alt and norm(alt) != norm(t["title"]):
+                    alt_info = lookup(api, alt, t["artist"])
+                    alt_info["tried"] = info["tried"] + alt_info["tried"]
+                    info = alt_info
+                    if info["found"]:
+                        info["exact"] = False
+                        t["matched_as"] = alt
             t["looked_up"] = datetime.now(timezone.utc).date().isoformat()
-            t["lookup_v"] = 2
+            t["lookup_v"] = LOOKUP_V
             if info["found"]:
                 star = "" if info["exact"] else "*"
                 t["bpm"] = f"{info['bpm']}{star}"
                 t["camelot"] = f"{info['camelot']}{star}" if info["camelot"] else ""
+                t.pop("tried", None)
             else:
                 t["bpm"], t["camelot"] = "", ""
+                t["tried"] = info["tried"]  # shown on the site's "Missing data" page
             print(f"  {rel['artist']} - {t['title']}: {t.get('bpm') or '-'} {t.get('camelot') or ''}")
 
     releases.sort(key=lambda r: (r["artist"].lower(), r.get("year") or 0))

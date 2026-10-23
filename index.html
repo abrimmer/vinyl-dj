@@ -13,24 +13,34 @@
 <link rel="apple-touch-icon" href="icon-180.png">
 <style>
   :root {
-    --bg: #0e0e10; --panel: #17171a; --line: #2a2a2f; --text: #ececf0; --muted: #8b8b95;
-    --accent: #c7a6ff; --warn: #ffb86b; --ok: #7ee2a8;
+    --bg: #0e0e10; --panel: #17171a; --panel2: #1f1f23; --line: #2a2a2f; --text: #ececf0; --muted: #8b8b95;
+    --accent: #c7a6ff; --warn: #ffb86b; --bad: #ff7b7b; --ok: #7ee2a8;
   }
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; background: var(--bg); color: var(--text);
     font: 15px/1.4 -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
   button, select, input { font: inherit; color: inherit; }
   a { color: var(--accent); }
-  header { position: sticky; top: 0; z-index: 5; background: rgba(14,14,16,.92); backdrop-filter: blur(10px);
+  header { position: sticky; top: 0; z-index: 5; background: rgba(14,14,16,.94); backdrop-filter: blur(10px);
     padding: calc(10px + env(safe-area-inset-top)) 16px 10px; border-bottom: 1px solid var(--line); }
   .bar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; max-width: 1200px; margin: 0 auto; }
   h1 { font-size: 17px; margin: 0 8px 0 0; letter-spacing: .04em; text-transform: uppercase; }
-  input[type=search], select { background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
-    padding: 8px 10px; min-width: 0; }
+  .tabs { display: flex; gap: 4px; margin-left: auto; }
+  .tabs button { background: none; border: 1px solid transparent; border-radius: 10px; padding: 6px 10px;
+    color: var(--muted); cursor: pointer; }
+  .tabs button.on { border-color: var(--line); background: var(--panel); color: var(--text); }
+  input[type=search], input[type=text], input[type=number], select { background: var(--panel); border: 1px solid var(--line);
+    border-radius: 10px; padding: 8px 10px; min-width: 0; }
   input[type=search] { flex: 1 1 160px; }
   .seg { display: flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
   .seg button { background: var(--panel); border: 0; padding: 8px 10px; cursor: pointer; color: var(--muted); }
   .seg button.on { background: var(--accent); color: #111; font-weight: 600; }
+  .chips { display: flex; gap: 6px; overflow-x: auto; padding: 10px 0 2px; max-width: 1200px; margin: 0 auto;
+    scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: none; border: 1px solid var(--line); background: none; border-radius: 999px; padding: 4px 10px;
+    font-size: 13px; color: var(--muted); cursor: pointer; }
+  .chip.on { background: var(--accent); border-color: var(--accent); color: #111; font-weight: 600; }
   main { max-width: 1200px; margin: 0 auto; padding: 16px; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
   .card { background: none; border: 0; padding: 0; text-align: left; cursor: pointer; }
@@ -39,36 +49,43 @@
   .card .t { margin-top: 6px; font-weight: 600; font-size: 14px; }
   .card .a, .muted { color: var(--muted); font-size: 13px; }
   .count { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
-  /* sheet */
+  .btn { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 7px 12px; cursor: pointer; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #111; font-weight: 600; }
+  .btn.danger { border-color: var(--bad); color: var(--bad); }
+  .btn.small { padding: 3px 8px; font-size: 12px; border-radius: 8px; }
+  .icon { background: none; border: 0; color: var(--muted); cursor: pointer; padding: 4px 6px; font-size: 16px; }
+  .icon.on { color: var(--accent); }
   .sheet { position: fixed; inset: 0; z-index: 10; background: var(--bg); overflow-y: auto; display: none;
     padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
   .sheet.open { display: block; }
   .sheet-top { position: sticky; top: 0; background: rgba(14,14,16,.95); backdrop-filter: blur(10px);
     padding: calc(10px + env(safe-area-inset-top)) 16px 10px; border-bottom: 1px solid var(--line);
     display: flex; gap: 10px; align-items: center; z-index: 2; }
-  .back { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 6px 12px; cursor: pointer; }
   .wrap { max-width: 900px; margin: 0 auto; padding: 16px; }
   .album-head { display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap; }
   .album-head img { width: 160px; height: 160px; border-radius: 8px; object-fit: cover; }
   .album-head h2 { margin: 0 0 4px; font-size: 22px; }
+  h3 { margin: 18px 0 8px; font-size: 16px; }
   .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
   .tag { border: 1px solid var(--line); border-radius: 999px; padding: 2px 8px; font-size: 12px; color: var(--muted); }
-  .tracks { margin-top: 20px; border-top: 1px solid var(--line); }
+  .tracks { margin-top: 16px; border-top: 1px solid var(--line); }
   .row { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: center;
-    padding: 10px 4px; border-bottom: 1px solid var(--line); cursor: pointer; background: none; border-left: 0;
-    border-right: 0; border-top: 0; width: 100%; text-align: left; }
-  .row:hover { background: var(--panel); }
+    padding: 10px 4px; border-bottom: 1px solid var(--line); }
+  .row .main { cursor: pointer; }
   .pos { color: var(--muted); font-variant-numeric: tabular-nums; }
   .name { font-weight: 500; }
   .sub { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
   .right { display: flex; gap: 8px; align-items: center; font-variant-numeric: tabular-nums; }
-  .bpm { min-width: 52px; text-align: right; }
+  .bpm { min-width: 44px; text-align: right; }
   .cam { display: inline-block; min-width: 38px; text-align: center; border-radius: 6px; padding: 2px 6px;
     font-weight: 700; font-size: 13px; color: #111; }
   .cam.none { background: var(--line); color: var(--muted); }
+  .links { display: flex; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
+  .links a, .links button { font-size: 12px; text-decoration: none; border: 1px solid var(--line); border-radius: 6px;
+    padding: 1px 7px; color: var(--muted); background: none; cursor: pointer; }
   .src { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px;
     display: flex; gap: 12px; align-items: center; }
-  .src img, .res img { width: 52px; height: 52px; border-radius: 6px; object-fit: cover; }
+  .src img, .res img, .slot img { width: 52px; height: 52px; border-radius: 6px; object-fit: cover; flex: none; }
   .res { display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 10px 4px;
     border-bottom: 1px solid var(--line); cursor: pointer; }
   .res:hover { background: var(--panel); }
@@ -76,10 +93,35 @@
     border: 1px solid var(--line); }
   .pill.pitch { border-color: var(--accent); color: var(--accent); }
   .pill.warn { border-color: var(--warn); color: var(--warn); }
+  .pill.bad { border-color: var(--bad); color: var(--bad); }
   .pill.ok { border-color: var(--ok); color: var(--ok); }
   .help { color: var(--muted); font-size: 13px; margin: 14px 0; }
   .help b { color: var(--text); }
   label.chk { display: flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px; margin: 12px 0; }
+  .sl-card { display: flex; align-items: center; gap: 12px; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px; padding: 12px; margin-bottom: 10px; cursor: pointer; }
+  .sl-card .covers { display: flex; }
+  .sl-card .covers img { width: 36px; height: 36px; border-radius: 4px; margin-right: -10px; border: 2px solid var(--panel); object-fit: cover; }
+  .form { display: grid; gap: 10px; max-width: 420px; }
+  .form label { display: grid; gap: 4px; color: var(--muted); font-size: 13px; }
+  .tools { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; align-items: center; }
+  .slot { position: relative; overflow: hidden; border-radius: 12px; }
+  .slot-del { position: absolute; inset: 0; background: var(--bad); color: #111; display: flex; align-items: center;
+    justify-content: flex-end; padding-right: 18px; font-weight: 700; opacity: 0; }
+  .slot-inner { position: relative; display: flex; gap: 10px; align-items: center; background: var(--panel);
+    border: 1px solid var(--line); border-radius: 12px; padding: 10px; transition: transform .15s; touch-action: pan-y; }
+  .slot-inner.locked { border-color: var(--accent); }
+  .slot-inner.empty { background: var(--bg); border-style: dashed; color: var(--muted); cursor: pointer; justify-content: center; min-height: 56px; }
+  .slot-n { width: 22px; text-align: center; color: var(--muted); font-variant-numeric: tabular-nums; flex: none; }
+  .slot-body { flex: 1; min-width: 0; cursor: pointer; }
+  .slot-body .name, .slot-body .sub { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .slot-acts { display: flex; flex-direction: column; align-items: center; }
+  .bridge { margin: 2px 0 2px 32px; padding: 4px 0 4px 14px; border-left: 2px dotted var(--line); font-size: 12px; min-height: 10px; }
+  .edit-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 8px 0 4px; }
+  .edit-form label { display: grid; gap: 3px; font-size: 12px; color: var(--muted); }
+  .toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translateX(-50%);
+    background: var(--panel2); border: 1px solid var(--line); padding: 8px 14px; border-radius: 10px; z-index: 50;
+    display: none; font-size: 14px; max-width: 90vw; }
   footer { color: var(--muted); font-size: 12px; text-align: center; padding: 24px 16px 40px; }
 </style>
 </head>
@@ -87,48 +129,58 @@
 <header>
   <div class="bar">
     <h1>Vinyl DJ</h1>
+    <div class="tabs">
+      <button data-v="records" class="on">Records</button>
+      <button data-v="setlists">Setlists</button>
+      <button data-v="missing">Missing</button>
+    </div>
+  </div>
+  <div class="bar" style="margin-top:8px" id="filterBar">
     <input type="search" id="q" placeholder="Search artist, album, track">
-    <select id="style" aria-label="Style"><option value="">All styles</option></select>
     <div class="seg" id="range" title="Your turntable pitch range">
       <button data-r="8">±8%</button><button data-r="16">±16%</button><button data-r="24">±24%</button>
     </div>
   </div>
+  <div class="chips" id="chips"></div>
 </header>
 
-<main>
-  <div class="count" id="count">Loading…</div>
-  <div class="grid" id="grid"></div>
-</main>
+<main id="view"></main>
 
 <div class="sheet" id="sheet">
-  <div class="sheet-top"><button class="back" id="back">← Back</button><span class="muted" id="crumb"></span></div>
+  <div class="sheet-top"><button class="btn" id="back">← Back</button><span class="muted" id="crumb"></span></div>
   <div class="wrap" id="sheetBody"></div>
 </div>
+<div class="toast" id="toast"></div>
 
 <footer>
   BPM and key data by <a href="https://getsongbpm.com" target="_blank" rel="noopener">GetSongBPM.com</a> ·
   Collection from <a href="https://www.discogs.com/user/abrimmer/collection" target="_blank" rel="noopener">Discogs</a> ·
-  <span id="updated"></span><br>* = unsure / estimated
+  <span id="updated"></span><br>* = unsure / estimated · manual entries and setlists are saved on this device
 </footer>
 
 <script>
+"use strict";
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-let DATA = [], TRACKS = [], RANGE = 8, STACK = [];
-try { RANGE = +localStorage.getItem("range") || 8; } catch (e) {}
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+let DATA = [], TRACKS = [], BYKEY = {}, BASE = {}, VIEW = "records", STACK = [];
+let RANGE = store.get("range", 8), STYLES = new Set(store.get("styles", []));
+let EDITS = store.get("edits", {}), SETLISTS = store.get("setlists", []);
 
-// ---------- helpers ----------
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.style.display = "block"; clearTimeout(toast.h); toast.h = setTimeout(() => t.style.display = "none", 2200); }
+
+// ---------- music helpers ----------
 const num = v => { const n = parseFloat(String(v ?? "").replace("*", "")); return isNaN(n) ? null : n; };
 const unsure = v => String(v ?? "").includes("*");
 function cam(v) { const m = String(v ?? "").match(/(\d{1,2})([AB])/); return m ? { n: +m[1], l: m[2] } : null; }
-function camColor(c) { // 12 hues around the wheel; minor (A) slightly darker
-  const h = ((c.n - 1) * 30 + 120) % 360; return `hsl(${h} ${c.l === "A" ? 60 : 75}% ${c.l === "A" ? 68 : 78}%)`;
-}
-function camBadge(v) {
-  const c = cam(v);
-  return c ? `<span class="cam" style="background:${camColor(c)}">${esc(v)}</span>` : `<span class="cam none">?</span>`;
-}
-// How two Camelot keys relate (null = not a safe mix)
+const camStr = c => c ? c.n + c.l : "";
+function camColor(c) { const h = ((c.n - 1) * 30 + 120) % 360; return `hsl(${h} ${c.l === "A" ? 60 : 75}% ${c.l === "A" ? 68 : 78}%)`; }
+function camBadge(v) { const c = cam(v); return c ? `<span class="cam" style="background:${camColor(c)}">${esc(v)}</span>` : `<span class="cam none">?</span>`; }
+// Pitching a record up/down also moves its key: 1 semitone = +7 on the Camelot wheel
+function shiftCam(c, semis) { return c && semis ? { n: ((c.n - 1 + 7 * semis) % 12 + 12) % 12 + 1, l: c.l } : c; }
 function keyRel(a, b) {
   if (!a || !b) return null;
   if (a.n === b.n && a.l === b.l) return { r: 0, t: "Same key" };
@@ -137,16 +189,34 @@ function keyRel(a, b) {
   if (a.n === b.n) return { r: 1, t: a.l === "A" ? "Minor → major" : "Major → minor" };
   return null;
 }
-// Best pitch to make track b match track a's tempo (also tries half / double time)
+function wheelDist(a, b) { if (!a || !b) return 3; const d = Math.abs(a.n - b.n) % 12; return Math.min(d, 12 - d) + (a.l === b.l ? 0 : 1); }
 function tempoFit(aBpm, bBpm) {
   let best = null;
-  for (const f of [1, 2, 0.5]) {
-    const p = aBpm / (bBpm * f) - 1;
-    if (!best || Math.abs(p) < Math.abs(best.p)) best = { p, f };
-  }
+  for (const f of [1, 2, 0.5]) { const p = aBpm / (bBpm * f) - 1; if (!best || Math.abs(p) < Math.abs(best.p)) best = { p, f }; }
   return best;
 }
-const pct = p => (p >= 0 ? "+" : "−") + Math.abs(p * 100).toFixed(1) + "%";
+const pct = p => Math.abs(p) < 0.0005 ? "No pitch change" : "Pitch " + (p >= 0 ? "+" : "−") + Math.abs(p * 100).toFixed(1) + "%";
+// Everything about moving from track a to track b
+function transition(a, b) {
+  const A = num(a.bpm), B = num(b.bpm); if (!A || !B) return null;
+  const fit = tempoFit(A, B), semis = Math.round(12 * Math.log2(1 + fit.p));
+  const ac = cam(a.camelot), bc = cam(b.camelot), plays = shiftCam(bc, semis);
+  return { fit, semis, plays, inRange: Math.abs(fit.p) <= RANGE / 100, kr: keyRel(ac, plays) };
+}
+function bridgeHtml(tr) {
+  if (!tr) return `<span class="pill warn">No BPM data: can't work out this bridge</span>`;
+  return `<span class="pill pitch">${pct(tr.fit.p)}</span>` +
+    (tr.inRange ? "" : `<span class="pill bad">Outside ±${RANGE}%</span>`) +
+    (tr.kr ? `<span class="pill ok">${tr.kr.t}</span>` : `<span class="pill bad">Key clash</span>`) +
+    (tr.semis ? `<span class="pill warn">Plays as ${camStr(tr.plays)} (key ${tr.semis > 0 ? "up" : "down"} ${Math.abs(tr.semis)})</span>` : "") +
+    (tr.fit.f === 2 ? `<span class="pill">Half-time feel</span>` : tr.fit.f === 0.5 ? `<span class="pill">Double-time feel</span>` : "");
+}
+const tkey = t => `${t.rel.id}|${t.pos}`;
+function searchLinks(t) {
+  const q = encodeURIComponent(`${t.artist || t.rel.artist} ${t.title}`);
+  return `<a href="https://open.spotify.com/search/${q}" target="_blank" rel="noopener">Spotify</a>` +
+    `<a href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">YouTube</a>`;
+}
 
 // ---------- data ----------
 async function load() {
@@ -156,131 +226,426 @@ async function load() {
   ]);
   DATA = c.releases || [];
   for (const r of DATA) for (const t of r.tracks) {
-    Object.assign(t, e[`${r.id}|${t.pos}`] || {});   // your edits win
-    t.rel = r;
-    TRACKS.push(t);
+    t.rel = r; const k = tkey(t);
+    Object.assign(t, e[k] || {});
+    BASE[k] = { bpm: t.bpm, camelot: t.camelot, cue_in: t.cue_in, cue_out: t.cue_out };
+    TRACKS.push(t); BYKEY[k] = t;
   }
+  applyEdits();
   $("#updated").textContent = c.updated ? "Updated " + new Date(c.updated).toLocaleDateString() : "";
-  const styles = [...new Set(DATA.flatMap(r => r.styles || []))].sort();
-  $("#style").insertAdjacentHTML("beforeend", styles.map(s => `<option>${esc(s)}</option>`).join(""));
-  renderGrid();
+  renderChips(); render();
 }
+function applyEdits() {
+  for (const t of TRACKS) { const k = tkey(t); Object.assign(t, BASE[k]); t.manual = false;
+    if (EDITS[k]) { Object.assign(t, EDITS[k]); t.manual = true; } }
+}
+const usable = t => num(t.bpm) && cam(t.camelot);
+const styleOk = r => !STYLES.size || (r.styles || []).some(s => STYLES.has(s));
 
-// ---------- grid ----------
+// ---------- top level views ----------
+function setView(v) {
+  VIEW = v; document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("on", b.dataset.v === v));
+  $("#filterBar").style.display = v === "records" ? "" : "none"; $("#chips").style.display = v === "records" ? "" : "none";
+  closeSheet(); render();
+}
+function render() { ({ records: renderGrid, setlists: renderSetlists, missing: renderMissing })[VIEW](); }
+
+function renderChips() {
+  const count = {};
+  for (const r of DATA) for (const s of new Set(r.styles || [])) count[s] = (count[s] || 0) + 1;
+  const all = Object.keys(count).sort((a, b) => count[b] - count[a]);
+  $("#chips").innerHTML = (STYLES.size ? `<button class="chip" data-s="">✕ Clear</button>` : "") +
+    all.map(s => `<button class="chip ${STYLES.has(s) ? "on" : ""}" data-s="${esc(s)}">${esc(s)} <span style="opacity:.6">${count[s]}</span></button>`).join("");
+}
+$("#chips").onclick = e => {
+  const c = e.target.closest(".chip"); if (!c) return;
+  const s = c.dataset.s; if (!s) STYLES.clear(); else STYLES.has(s) ? STYLES.delete(s) : STYLES.add(s);
+  store.set("styles", [...STYLES]); renderChips(); renderGrid();
+};
+
 function renderGrid() {
-  const q = $("#q").value.trim().toLowerCase(), st = $("#style").value;
-  const list = DATA.filter(r => (!st || (r.styles || []).includes(st)) &&
+  const q = $("#q").value.trim().toLowerCase();
+  const list = DATA.filter(r => styleOk(r) &&
     (!q || [r.artist, r.title, ...r.tracks.map(t => t.title)].join(" ").toLowerCase().includes(q)));
-  $("#count").textContent = `${list.length} records`;
-  $("#grid").innerHTML = list.map(r => `
+  $("#view").innerHTML = `<div class="count">${list.length} records${STYLES.size ? " · any of: " + esc([...STYLES].join(", ")) : ""}</div>
+    <div class="grid">${list.map(r => `
     <button class="card" data-id="${r.id}">
       ${r.cover ? `<img loading="lazy" src="${esc(r.cover)}" alt="">` : `<div class="cover-ph"></div>`}
       <div class="t">${esc(r.title)}</div>
-      <div class="a">${esc(r.artist)} · ${esc(r.orig_year || r.year || "")}</div>
-    </button>`).join("");
+      <div class="a">${esc(r.artist)}${r.orig_year || r.year ? " · " + esc(r.orig_year || r.year) : ""}</div>
+    </button>`).join("")}</div>`;
 }
+$("#view").addEventListener("click", e => {
+  const c = e.target.closest(".card"); if (c) { STACK = []; showAlbum(DATA.find(r => r.id == c.dataset.id)); }
+});
 
 // ---------- album ----------
+function trackRow(t, i, opts = {}) {
+  const missing = !usable(t), id = (opts.prefix || "") + i;
+  return `<div class="row">
+    <span class="pos">${esc(t.pos)}</span>
+    <div class="main" data-t="${i}">
+      <div class="name">${esc(t.title)}</div>
+      <div class="sub">${esc(t.duration || "")}${t.cue_in ? ` · IN ${esc(t.cue_in)} · OUT ${esc(t.cue_out)}` : ""}${t.manual ? ` · <span style="color:var(--warn)">manual</span>` : ""}${t.matched_as ? ` · matched as “${esc(t.matched_as)}”` : ""}</div>
+      <div class="links">${searchLinks(t)}<button data-edit="${i}" data-box="${id}">${missing ? "Add BPM/key" : "Edit"}</button><button data-add="${i}">+ Setlist</button></div>
+      <div id="edit-${id}"></div>
+    </div>
+    <span class="right"><span class="bpm">${t.bpm ? esc(t.bpm) : "–"}</span>${camBadge(t.camelot)}</span>
+  </div>`;
+}
+function wireTrackRows(root, tracks) {
+  root.querySelectorAll(".main").forEach(m => m.onclick = e => {
+    if (e.target.closest("a,button,input,select,form")) return; showMix(tracks[+m.dataset.t]);
+  });
+  root.querySelectorAll("[data-edit]").forEach(b => b.onclick = () => openEdit(tracks[+b.dataset.edit], $("#edit-" + b.dataset.box)));
+  root.querySelectorAll("[data-add]").forEach(b => b.onclick = () => addToSetlist(tracks[+b.dataset.add]));
+}
 function showAlbum(r, push = true) {
   if (push) STACK.push(() => showAlbum(r, false));
   $("#crumb").textContent = r.artist;
-  const reissue = r.year && r.orig_year && r.year !== r.orig_year ? ` (this pressing ${r.year})` : "";
+  const yr = r.orig_year || r.year, reissue = r.year && r.orig_year && r.year !== r.orig_year ? ` (this pressing ${r.year})` : "";
+  const missing = r.tracks.filter(t => !usable(t)).length;
   $("#sheetBody").innerHTML = `
     <div class="album-head">
       ${r.cover ? `<img src="${esc(r.cover)}" alt="">` : ""}
       <div>
         <div class="muted">${esc(r.artist)}</div>
         <h2>${esc(r.title)}</h2>
-        <div class="muted">${esc([String(r.orig_year || r.year || "") + reissue, r.label, r.format].filter(Boolean).join(" · "))}</div>
+        <div class="muted">${esc([yr ? yr + reissue : "", r.label, r.format].filter(Boolean).join(" · "))}</div>
         <div class="tags">${[...(r.genres || []), ...(r.styles || [])].map(s => `<span class="tag">${esc(s)}</span>`).join("")}</div>
         <div style="margin-top:8px"><a href="${esc(r.url)}" target="_blank" rel="noopener">View on Discogs ↗</a></div>
       </div>
     </div>
+    ${missing ? `<p class="help" style="color:var(--warn)">${missing} track${missing > 1 ? "s have" : " has"} no BPM/key, so ${missing > 1 ? "they're" : "it's"} left out of matching.
+      Try ${r.master_id ? `<a href="https://www.discogs.com/master/${r.master_id}" target="_blank" rel="noopener">other versions of this album</a>, ` : ""}the Spotify link to check by ear, or tap <b>Add BPM/key</b> to enter your own (saved as a guess *).</p>` : ""}
     <p class="help">Tap a track to see <b>what mixes with it</b>.</p>
-    <div class="tracks">${r.tracks.map((t, i) => `
-      <button class="row" data-t="${i}">
-        <span class="pos">${esc(t.pos)}</span>
-        <span><div class="name">${esc(t.title)}</div>
-          <div class="sub">${esc(t.duration || "")}${t.cue_in ? ` · IN ${esc(t.cue_in)} · OUT ${esc(t.cue_out)}` : ""}</div></span>
-        <span class="right"><span class="bpm">${t.bpm ? esc(t.bpm) : "–"}</span>${camBadge(t.camelot)}</span>
-      </button>`).join("")}</div>`;
-  $("#sheetBody").querySelectorAll(".row").forEach(b => b.onclick = () => showMix(r.tracks[+b.dataset.t]));
+    <div class="tracks">${r.tracks.map((t, i) => trackRow(t, i)).join("")}</div>`;
+  wireTrackRows($("#sheetBody"), r.tracks);
   openSheet();
 }
 
+// ---------- manual BPM / key / cue entry ----------
+function openEdit(t, box) {
+  if (box.innerHTML) { box.innerHTML = ""; return; }
+  const c = cam(t.camelot), k = tkey(t);
+  const opts = [""].concat([...Array(12)].flatMap((_, i) => [`${i + 1}A`, `${i + 1}B`]))
+    .map(v => `<option ${c && camStr(c) === v ? "selected" : ""}>${v}</option>`).join("");
+  box.innerHTML = `<form class="edit-form">
+    <label>BPM<input type="number" name="bpm" min="40" max="220" step="0.1" value="${num(t.bpm) ?? ""}"></label>
+    <label>Camelot key<select name="cam">${opts}</select></label>
+    <label>Cue IN<input type="text" name="cin" placeholder="0:00" value="${esc(String(t.cue_in || "").replace("*", ""))}"></label>
+    <label>Cue OUT<input type="text" name="cout" placeholder="3:40" value="${esc(String(t.cue_out || "").replace("*", ""))}"></label>
+    <div style="grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn primary small" type="submit">Save</button>
+      ${EDITS[k] ? `<button class="btn small" type="button" data-reset>Reset to original</button>` : ""}
+      <span class="sub" style="align-self:center">Saved as a guess (*) on this device.</span>
+    </div></form>`;
+  const f = box.querySelector("form");
+  f.onsubmit = ev => {
+    ev.preventDefault();
+    const ed = { bpm: f.bpm.value ? Math.round(+f.bpm.value * 10) / 10 + "*" : "", camelot: f.cam.value ? f.cam.value + "*" : "" };
+    if (f.cin.value.trim()) ed.cue_in = f.cin.value.trim().replace("*", "") + "*";
+    if (f.cout.value.trim()) ed.cue_out = f.cout.value.trim().replace("*", "") + "*";
+    EDITS[k] = ed; store.set("edits", EDITS); applyEdits(); toast("Saved"); refreshSheet();
+  };
+  const reset = box.querySelector("[data-reset]");
+  if (reset) reset.onclick = () => { delete EDITS[k]; store.set("edits", EDITS); applyEdits(); toast("Reset"); refreshSheet(); };
+}
+
 // ---------- what mixes with this ----------
+function resultRow(x, i, extra = "") {
+  const o = x.o;
+  return `<div class="res" data-i="${i}">
+    ${o.rel.cover ? `<img loading="lazy" src="${esc(o.rel.thumb || o.rel.cover)}" alt="">` : `<div></div>`}
+    <div>
+      <div style="display:flex;justify-content:space-between;gap:8px">
+        <div><div class="name">${esc(o.title)}</div><div class="sub">${esc(o.rel.artist)} · ${esc(o.rel.title)} · ${esc(o.pos)}</div></div>
+        <div class="right"><span class="bpm">${esc(o.bpm || "–")}</span>${camBadge(o.camelot)}</div>
+      </div>
+      ${x.tr ? bridgeHtml(x.tr) : ""}${extra}
+      ${unsure(o.bpm) ? `<span class="pill warn">Data unsure *</span>` : ""}
+    </div></div>`;
+}
 function showMix(t, push = true) {
   if (push) STACK.push(() => showMix(t, false));
   $("#crumb").textContent = "Mixes with " + t.title;
-  const a = num(t.bpm), ac = cam(t.camelot), lim = RANGE / 100;
-  const tempoOnly = $("#tempoOnly")?.checked || false;
+  const tempoOnly = store.get("tempoOnly", false);
   let res = [];
-  if (a) for (const o of TRACKS) {
-    if (o === t) continue;
-    const b = num(o.bpm); if (!b) continue;
-    const fit = tempoFit(a, b); if (Math.abs(fit.p) > lim) continue;
-    const kr = keyRel(ac, cam(o.camelot));
-    if (!kr && !tempoOnly) continue;
-    res.push({ o, fit, kr, score: (kr ? kr.r : 3) * 10 + Math.abs(fit.p) * 100 });
+  if (usable(t)) for (const o of TRACKS) {
+    if (o === t || !usable(o)) continue;
+    const tr = transition(t, o); if (!tr.inRange || (!tr.kr && !tempoOnly)) continue;
+    res.push({ o, tr, score: (tr.kr ? tr.kr.r : 3) * 10 + Math.abs(tr.fit.p) * 100 });
   }
-  res.sort((x, y) => x.score - y.score);
-  res = res.slice(0, 25);
+  res = res.sort((x, y) => x.score - y.score).slice(0, 25);
   const r = t.rel;
   $("#sheetBody").innerHTML = `
     <div class="src">
       ${r.cover ? `<img src="${esc(r.thumb || r.cover)}" alt="">` : ""}
       <div style="flex:1"><div class="name">${esc(t.title)}</div>
-        <div class="sub">${esc(r.artist)} · ${esc(r.title)} · ${esc(t.pos)} · ${esc(t.duration || "")}</div></div>
+        <div class="sub">${esc(r.artist)} · ${esc(r.title)} · ${esc(t.pos)} · ${esc(t.duration || "")}</div>
+        <div class="links">${searchLinks(t)}<button id="addThis">+ Setlist</button></div></div>
       <div class="right"><span class="bpm">${t.bpm ? esc(t.bpm) : "–"}</span>${camBadge(t.camelot)}</div>
     </div>
-    ${!a ? `<p class="help">No BPM for this track yet, so I can't match it. It'll be editable in a later version.</p>` : `
-    <p class="help">Tracks that fit <b>after</b> this one, using your <b>±${RANGE}%</b> pitch range.
-      The <b>purple %</b> is where to set the pitch slider on the <b>next</b> record so it matches this tempo.
-      Tap a result to keep building the chain.</p>
+    ${!usable(t) ? `<p class="help">No BPM/key for this track yet. Add it from the album page (Add BPM/key) and it'll match.</p>` : `
+    <p class="help">Tracks that fit <b>after</b> this one with your <b>±${RANGE}%</b> pitch range. The <b>purple %</b> is where to set the
+      pitch slider on the <b>next</b> record. “Plays as” = the key it sounds in after that pitch change. Tap a result to keep going.</p>
     <label class="chk"><input type="checkbox" id="tempoOnly" ${tempoOnly ? "checked" : ""}> Also show tempo-only matches (key may clash)</label>
-    ${res.length ? "" : `<p class="help">Nothing fits within ±${RANGE}%. Try a wider pitch range at the top.</p>`}
-    ${res.map((x, i) => {
-      const o = x.o, semis = Math.round(12 * Math.log2(1 + x.fit.p));
-      return `<div class="res" data-i="${i}">
-        ${o.rel.cover ? `<img loading="lazy" src="${esc(o.rel.thumb || o.rel.cover)}" alt="">` : `<div></div>`}
-        <div>
-          <div style="display:flex;justify-content:space-between;gap:8px">
-            <div><div class="name">${esc(o.title)}</div><div class="sub">${esc(o.rel.artist)} · ${esc(o.rel.title)} · ${esc(o.pos)}</div></div>
-            <div class="right"><span class="bpm">${esc(o.bpm)}</span>${camBadge(o.camelot)}</div>
-          </div>
-          <span class="pill pitch">${Math.abs(x.fit.p) < 0.0005 ? "No pitch change" : "Pitch " + pct(x.fit.p)}</span>
-          ${x.kr ? `<span class="pill ok">${x.kr.t}</span>` : `<span class="pill warn">Key may clash</span>`}
-          ${x.fit.f === 2 ? `<span class="pill">Half-time feel</span>` : x.fit.f === 0.5 ? `<span class="pill">Double-time feel</span>` : ""}
-          ${semis ? `<span class="pill warn">Pitch shifts key ${semis > 0 ? "up" : "down"} ~${Math.abs(semis)} semitone</span>` : ""}
-          ${o.rel === r ? `<span class="pill">Same record</span>` : ""}
-          ${unsure(o.bpm) ? `<span class="pill warn">Data unsure *</span>` : ""}
-        </div></div>`;
-    }).join("")}`}`;
-  $("#tempoOnly")?.addEventListener("change", () => showMix(t, false));
+    ${res.length ? "" : `<p class="help">Nothing fits within ±${RANGE}%. Try a wider pitch range.</p>`}
+    ${res.map((x, i) => resultRow(x, i)).join("")}`}`;
+  $("#tempoOnly")?.addEventListener("change", e => { store.set("tempoOnly", e.target.checked); showMix(t, false); });
+  $("#addThis").onclick = () => addToSetlist(t);
   $("#sheetBody").querySelectorAll(".res").forEach(d => d.onclick = () => showMix(res[+d.dataset.i].o));
   openSheet();
 }
 
-function openSheet() { $("#sheet").classList.add("open"); $("#sheet").scrollTop = 0; document.body.style.overflow = "hidden"; }
-function back() {
-  STACK.pop();
-  const prev = STACK[STACK.length - 1];
-  if (prev) prev(); else { $("#sheet").classList.remove("open"); document.body.style.overflow = ""; }
+// ---------- setlists ----------
+const saveSets = () => store.set("setlists", SETLISTS);
+const FAVOUR = { balanced: "Balanced", tempo: "Tempo (smallest pitch changes)", key: "Key (always harmonic)" };
+const favWord = f => FAVOUR[f].split(" ")[0].toLowerCase();
+function renderSetlists() {
+  $("#view").innerHTML = `<div class="tools"><button class="btn primary" id="newSet">+ New setlist</button></div>
+    ${SETLISTS.length ? "" : `<p class="help">No setlists yet. Create one, pick a first track (and maybe a last one), and let it fill the rest.</p>`}
+    ${SETLISTS.map((s, i) => { const ts = s.slots.filter(Boolean).map(x => BYKEY[x.k]).filter(Boolean);
+      return `<div class="sl-card" data-i="${i}">
+        <div class="covers">${ts.slice(0, 4).map(t => t.rel.thumb ? `<img src="${esc(t.rel.thumb)}" alt="">` : "").join("")}</div>
+        <div style="flex:1;margin-left:${ts.length ? 10 : 0}px"><div class="name">${esc(s.name)}</div>
+          <div class="sub">${ts.length}/${s.slots.length} tracks · favour ${esc(favWord(s.favour))}</div></div>
+        <span class="muted">›</span></div>`; }).join("")}`;
+  $("#newSet").onclick = () => { STACK = []; newSetlist(); };
+  $("#view").querySelectorAll(".sl-card").forEach(c => c.onclick = () => { STACK = []; showSetlist(SETLISTS[+c.dataset.i]); });
+}
+function newSetlist(firstTrack, push = true) {
+  if (push) STACK.push(() => newSetlist(firstTrack, false));
+  $("#crumb").textContent = "New setlist";
+  $("#sheetBody").innerHTML = `<h3>New setlist</h3><form class="form" id="nf">
+    <label>Name<input type="text" name="nm" required value="Setlist ${SETLISTS.length + 1}"></label>
+    <label>Number of tracks<input type="number" name="len" min="2" max="60" value="10"></label>
+    <label>Favour<select name="favour">${Object.entries(FAVOUR).map(([k, v]) => `<option value="${k}">${v}</option>`).join("")}</select></label>
+    <label class="chk" style="margin:0"><input type="checkbox" name="one" checked> Max 1 track per record</label>
+    ${firstTrack ? `<p class="help">Starts with <b>${esc(firstTrack.title)}</b>.</p>` : ""}
+    <button class="btn primary" type="submit">Create</button></form>`;
+  $("#nf").onsubmit = e => {
+    e.preventDefault(); const f = e.target;
+    const s = { id: Date.now(), name: f.nm.value.trim() || "Setlist", favour: f.favour.value, one: f.one.checked,
+      slots: Array(Math.max(2, Math.min(60, +f.len.value || 10))).fill(null) };
+    if (firstTrack) s.slots[0] = { k: tkey(firstTrack), lock: true };
+    SETLISTS.push(s); saveSets(); if (VIEW === "setlists") renderSetlists();
+    STACK = []; showSetlist(s);
+  };
+  openSheet();
+}
+function addToSetlist(t) {
+  STACK.push(() => addToSetlist(t));
+  $("#crumb").textContent = "Add to setlist";
+  $("#sheetBody").innerHTML = `<h3>Add “${esc(t.title)}” to…</h3>
+    ${SETLISTS.map((s, i) => `<div class="sl-card" data-i="${i}"><div style="flex:1"><div class="name">${esc(s.name)}</div>
+      <div class="sub">${s.slots.filter(Boolean).length}/${s.slots.length} tracks · goes into the first empty slot, locked</div></div><span class="muted">+</span></div>`).join("")}
+    <button class="btn primary" id="nsl">+ New setlist starting with this track</button>`;
+  $("#nsl").onclick = () => newSetlist(t);
+  $("#sheetBody").querySelectorAll(".sl-card").forEach(c => c.onclick = () => {
+    const s = SETLISTS[+c.dataset.i]; let i = s.slots.findIndex(x => !x);
+    if (i < 0) { s.slots.push(null); i = s.slots.length - 1; }
+    s.slots[i] = { k: tkey(t), lock: true }; saveSets(); toast(`Added to ${s.name} at #${i + 1}`); back();
+  });
+  openSheet();
 }
 
-// ---------- events ----------
-$("#q").oninput = renderGrid;
-$("#style").onchange = renderGrid;
+function showSetlist(s, push = true) {
+  if (push) STACK.push(() => showSetlist(s, false));
+  $("#crumb").textContent = s.name;
+  const T = s.slots.map(x => x && BYKEY[x.k]);
+  let html = `<div class="tools" style="margin-top:0">
+      <input type="text" id="slName" value="${esc(s.name)}" style="flex:1 1 180px;font-weight:600" aria-label="Setlist name">
+      <select id="slFav">${Object.entries(FAVOUR).map(([k, v]) => `<option value="${k}" ${s.favour === k ? "selected" : ""}>Favour: ${v}</option>`).join("")}</select>
+      <label class="chk" style="margin:0"><input type="checkbox" id="slOne" ${s.one ? "checked" : ""}> 1 per record</label>
+    </div>
+    <div class="tools">
+      <button class="btn primary" id="fillEmpty">Fill empty slots</button>
+      <button class="btn" id="refill">Re-shuffle unlocked</button>
+      <button class="btn" id="addSlot">+ Slot</button>
+      <button class="btn" id="copyList">Copy list</button>
+    </div>
+    <p class="help">Pick a <b>first</b> track (and a <b>last</b> one if you like), then <b>Fill empty slots</b>. 🔒 locked tracks never get swapped.
+      Tap a track to swap it. Swipe left (or ✕) to clear a slot. Pitch range: <b>±${RANGE}%</b> (change it on the Records tab).</p>`;
+  T.forEach((t, i) => {
+    if (i > 0) html += `<div class="bridge">${T[i - 1] && t ? bridgeHtml(transition(T[i - 1], t)) : ""}</div>`;
+    const x = s.slots[i];
+    html += `<div class="slot" data-i="${i}">` + (t ? `<div class="slot-del">Clear</div>
+      <div class="slot-inner ${x.lock ? "locked" : ""}">
+        <span class="slot-n">${i + 1}</span>
+        ${t.rel.thumb ? `<img src="${esc(t.rel.thumb)}" alt="">` : ""}
+        <div class="slot-body" data-pick="${i}"><div class="name">${esc(t.title)}</div>
+          <div class="sub">${esc(t.rel.artist)} · ${esc(t.rel.title)} · ${esc(t.pos)} · ${esc(t.duration || "")}</div>
+          <div class="right" style="margin-top:4px"><span class="sub">${esc(t.bpm || "–")} BPM</span>${camBadge(t.camelot)}${t.cue_in ? `<span class="sub">IN ${esc(t.cue_in)}</span>` : ""}</div></div>
+        <div class="slot-acts">
+          <button class="icon ${x.lock ? "on" : ""}" data-lock="${i}" title="${x.lock ? "Locked" : "Unlocked"}">${x.lock ? "🔒" : "🔓"}</button>
+          <button class="icon" data-up="${i}" title="Move up">↑</button>
+          <button class="icon" data-down="${i}" title="Move down">↓</button>
+          <button class="icon" data-clear="${i}" title="Clear">✕</button>
+        </div>
+      </div>` : `<div class="slot-inner empty" data-pick="${i}"><span class="slot-n">${i + 1}</span>&nbsp;${i === 0 ? "+ Pick first track" : i === T.length - 1 ? "+ Pick last track (optional)" : "+ Pick a track"}</div>`) + `</div>`;
+  });
+  html += `<div class="tools" style="margin-top:24px"><button class="btn danger" id="delSet">Delete setlist</button></div>`;
+  $("#sheetBody").innerHTML = html;
+  const B = $("#sheetBody");
+  $("#slName").onchange = e => { s.name = e.target.value.trim() || s.name; saveSets(); $("#crumb").textContent = s.name; };
+  $("#slFav").onchange = e => { s.favour = e.target.value; saveSets(); };
+  $("#slOne").onchange = e => { s.one = e.target.checked; saveSets(); };
+  $("#fillEmpty").onclick = () => { const n = autoFill(s, false); saveSets(); showSetlist(s, false);
+    toast(!s.slots[0] ? "Pick a first track, then fill" : n ? `Filled ${n} slot${n > 1 ? "s" : ""}` : "No fitting tracks found. Try a wider pitch range"); };
+  $("#refill").onclick = () => { s.slots = s.slots.map(x => x && x.lock ? x : null); const n = autoFill(s, true); saveSets(); showSetlist(s, false); toast(`Re-filled ${n}`); };
+  $("#addSlot").onclick = () => { s.slots.push(null); saveSets(); showSetlist(s, false); };
+  $("#copyList").onclick = () => copyList(s);
+  $("#delSet").onclick = e => {
+    if (e.target.dataset.sure) { SETLISTS = SETLISTS.filter(x => x !== s); saveSets(); toast("Setlist deleted"); closeSheet(); render(); }
+    else { e.target.dataset.sure = 1; e.target.textContent = "Tap again to delete for good"; }
+  };
+  B.querySelectorAll("[data-pick]").forEach(el => el.onclick = () => pickForSlot(s, +el.dataset.pick));
+  B.querySelectorAll("[data-lock]").forEach(el => el.onclick = () => { const x = s.slots[+el.dataset.lock]; x.lock = !x.lock; saveSets(); showSetlist(s, false); });
+  B.querySelectorAll("[data-up]").forEach(el => el.onclick = () => moveSlot(s, +el.dataset.up, -1));
+  B.querySelectorAll("[data-down]").forEach(el => el.onclick = () => moveSlot(s, +el.dataset.down, 1));
+  B.querySelectorAll("[data-clear]").forEach(el => el.onclick = () => clearSlot(s, +el.dataset.clear));
+  B.querySelectorAll(".slot").forEach(el => swipe(el, () => clearSlot(s, +el.dataset.i)));
+  openSheet();
+}
+function clearSlot(s, i) { s.slots[i] = null; saveSets(); showSetlist(s, false); }
+function moveSlot(s, i, d) { const j = i + d; if (j < 0 || j >= s.slots.length) return; [s.slots[i], s.slots[j]] = [s.slots[j], s.slots[i]]; saveSets(); showSetlist(s, false); }
+function swipe(el, done) {
+  const inner = el.querySelector(".slot-inner:not(.empty)"), del = el.querySelector(".slot-del"); if (!inner) return;
+  let x0 = null, y0 = 0, dx = 0;
+  inner.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; dx = 0; inner.style.transition = "none"; }, { passive: true });
+  inner.addEventListener("touchmove", e => { if (x0 === null) return; const ddx = e.touches[0].clientX - x0;
+    if (Math.abs(e.touches[0].clientY - y0) > Math.abs(ddx)) return; dx = Math.min(0, ddx); inner.style.transform = `translateX(${dx}px)`; del.style.opacity = dx < 0 ? 1 : 0; }, { passive: true });
+  inner.addEventListener("touchend", () => { inner.style.transition = ""; if (dx < -90) done(); else { inner.style.transform = ""; del.style.opacity = 0; } x0 = null; });
+}
+function copyList(s) {
+  const text = s.slots.map(x => x && BYKEY[x.k]).filter(Boolean).map(t => `${t.artist || t.rel.artist} - ${t.title}`).join("\n");
+  if (!text) return toast("Setlist is empty");
+  const ok = () => toast("Copied. Paste into tunemymusic.com to make a Spotify/YouTube playlist");
+  const fallback = () => { const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); ok(); } catch (e) { toast("Couldn't copy"); } ta.remove(); };
+  navigator.clipboard ? navigator.clipboard.writeText(text).then(ok, fallback) : fallback();
+}
+
+// Pick / swap a track for one slot: suggestions fit the tracks before and after it
+function pickForSlot(s, i, push = true) {
+  if (push) STACK.push(() => pickForSlot(s, i, false));
+  $("#crumb").textContent = `${s.name} · slot ${i + 1}`;
+  const prev = s.slots.slice(0, i).reverse().find(Boolean), next = s.slots.slice(i + 1).find(Boolean);
+  const P = prev && BYKEY[prev.k], N = next && BYKEY[next.k];
+  const used = usedSets(s, i);
+  let list = [];
+  if (usable(P || {}) || usable(N || {})) for (const o of TRACKS) {
+    if (!usable(o) || used.keys.has(tkey(o)) || (s.one && used.recs.has(o.rel.id))) continue;
+    const a = P && usable(P) ? transition(P, o) : null, b = N && usable(N) ? transition(o, N) : null;
+    const sc = (a ? stepCost(a, s.favour) : 0) + (b ? stepCost(b, s.favour) : 0);
+    if (sc < 999) list.push({ o, tr: a, b, score: sc });
+  }
+  list.sort((x, y) => x.score - y.score); list = list.slice(0, 30);
+  const cur = s.slots[i] && BYKEY[s.slots[i].k];
+  $("#sheetBody").innerHTML = `
+    ${cur ? `<div class="src"><div style="flex:1"><div class="sub">Currently in slot ${i + 1}</div><div class="name">${esc(cur.title)}</div><div class="sub">${esc(cur.rel.artist)}</div></div>${camBadge(cur.camelot)}</div>` : ""}
+    <p class="help">${P || N ? `Best fits ${P ? `after <b>${esc(P.title)}</b>` : ""}${P && N ? " and " : ""}${N ? `before <b>${esc(N.title)}</b>` : ""}, favouring <b>${esc(favWord(s.favour))}</b>. Or search any track.` : "Search for a track to start with."}</p>
+    <input type="search" id="pq" placeholder="Search all tracks" style="width:100%">
+    <div id="plist"></div>`;
+  const draw = q => {
+    const items = q ? TRACKS.filter(o => `${o.title} ${o.rel.artist} ${o.rel.title}`.toLowerCase().includes(q)).slice(0, 40)
+      .map(o => ({ o, tr: P && usable(P) && usable(o) ? transition(P, o) : null })) : list;
+    $("#plist").innerHTML = items.length ? items.map((x, j) => resultRow(x, j, x.b ? `<div class="sub" style="margin-top:4px">then → ${esc(N.title)}:</div>${bridgeHtml(x.b)}` : "")).join("")
+      : `<p class="help">${q ? "No tracks found." : P || N ? `Nothing fits within ±${RANGE}% here. Try a wider pitch range on the Records tab, or search.` : ""}</p>`;
+    $("#plist").querySelectorAll(".res").forEach(d => d.onclick = () => {
+      s.slots[i] = { k: tkey(items[+d.dataset.i].o), lock: true }; saveSets(); back();
+    });
+  };
+  $("#pq").oninput = e => draw(e.target.value.trim().toLowerCase());
+  draw("");
+  openSheet();
+}
+function usedSets(s, skip = -1) {
+  const keys = new Set(), recs = new Set();
+  s.slots.forEach((x, j) => { if (x && j !== skip && BYKEY[x.k]) { keys.add(x.k); recs.add(BYKEY[x.k].rel.id); } });
+  return { keys, recs };
+}
+// Cost of one transition. Lower = smoother. 999 = not allowed.
+function stepCost(tr, favour) {
+  if (!tr || !tr.inRange) return 999;
+  const p = Math.abs(tr.fit.p) * 100, k = tr.kr ? tr.kr.r : null, ff = tr.fit.f === 1 ? 0 : 2;
+  if (favour === "key") return k === null ? 999 : k * 3 + p * 0.4 + ff;
+  if (favour === "tempo") return p * 2 + (k === null ? 6 : k) + ff;
+  return p + (k === null ? 12 : k * 2) + ff; // balanced
+}
+// Fill empty slots between filled ones (filled slots act as fixed waypoints)
+function autoFill(s, shuffle) {
+  const idx = s.slots.map((x, i) => x && BYKEY[x.k] && usable(BYKEY[x.k]) ? i : -1).filter(i => i >= 0);
+  if (!idx.length || idx[0] !== 0) return 0;
+  let filled = 0;
+  for (let j = 0; j < idx.length; j++) {
+    const a = idx[j], b = j + 1 < idx.length ? idx[j + 1] : null, end = b ?? s.slots.length;
+    let k = a + 1; // fill the run of empty slots right after this filled one
+    while (k < end && !s.slots[k]) k++;
+    const run = k - a - 1; if (!run) continue;
+    const target = k < s.slots.length && s.slots[k] ? BYKEY[s.slots[k].k] : null;
+    const path = beam(s, BYKEY[s.slots[a].k], target && usable(target) ? target : null, run, shuffle);
+    path.forEach((t, m) => { if (t) { s.slots[a + 1 + m] = { k: tkey(t), lock: false }; filled++; } });
+  }
+  return filled;
+}
+function beam(s, start, end, steps, shuffle) {
+  const used = usedSets(s), W = 40, pool = TRACKS.filter(o => usable(o) && !used.keys.has(tkey(o)));
+  const endC = end && cam(end.camelot), endB = end && num(end.bpm);
+  let beams = [{ path: [], last: start, cost: 0, h: 0, recs: new Set(used.recs) }];
+  for (let d = 0; d < steps; d++) {
+    const left = steps - d, next = [];
+    for (const bm of beams) for (const o of pool) {
+      if (bm.path.includes(o) || (s.one && bm.recs.has(o.rel.id))) continue;
+      const c = stepCost(transition(bm.last, o), s.favour); if (c >= 999) continue;
+      let h = 0; // steer towards the last track
+      if (end) {
+        h = wheelDist(cam(o.camelot), endC) * 3 / left + Math.abs(Math.log(num(o.bpm) / endB)) * 100 / left;
+        if (left === 1) { const ce = stepCost(transition(o, end), s.favour); if (ce >= 999) continue; h += ce; }
+      }
+      next.push({ path: [...bm.path, o], last: o, cost: bm.cost + c + (shuffle ? Math.random() * 6 : 0), h, recs: new Set([...bm.recs, o.rel.id]) });
+    }
+    if (!next.length) break;
+    next.sort((x, y) => (x.cost + x.h) - (y.cost + y.h));
+    beams = next.slice(0, W);
+  }
+  const best = beams[0].path;
+  return [...best, ...Array(steps - best.length).fill(null)];
+}
+
+// ---------- missing data ----------
+function renderMissing() {
+  const miss = DATA.map(r => ({ r, ts: r.tracks.filter(t => !usable(t)) })).filter(x => x.ts.length);
+  const n = miss.reduce((a, x) => a + x.ts.length, 0);
+  $("#view").innerHTML = `<p class="help"><b>${n} tracks</b> have no BPM or key, so they're left out of matching and setlists.
+    Below is what GetSongBPM returned when the nightly update searched. Tap <b>Add BPM/key</b> to enter your own (saved as a guess *).</p>
+    ${miss.map(({ r, ts }, j) => `<h3>${esc(r.artist)} – ${esc(r.title)}</h3>
+      ${r.master_id ? `<a class="muted" href="https://www.discogs.com/master/${r.master_id}" target="_blank" rel="noopener">Other versions on Discogs ↗</a>` : ""}
+      <div class="tracks">${ts.map((t, i) => trackRow(t, i, { prefix: `m${j}-` }) + (t.tried ? `<div class="sub" style="padding:0 4px 10px 48px">${t.tried.map(x =>
+        `Searched “${esc(x.search)}” → ${x.found.length ? esc(x.found.join("; ")) : "nothing"}`).join("<br>")}</div>` : "")).join("")}</div>`).join("")}`;
+  miss.forEach(({ ts }, j) => wireTrackRows($("#view").querySelectorAll(".tracks")[j], ts));
+}
+
+// ---------- sheet / nav ----------
+function openSheet() { $("#sheet").classList.add("open"); $("#sheet").scrollTop = 0; document.body.style.overflow = "hidden"; }
+function closeSheet() { STACK = []; $("#sheet").classList.remove("open"); document.body.style.overflow = ""; }
+function refreshSheet() { if ($("#sheet").classList.contains("open")) { const cur = STACK[STACK.length - 1]; cur && cur(); } else render(); }
+function back() {
+  STACK.pop(); const prev = STACK[STACK.length - 1];
+  if (prev) prev(); else { closeSheet(); render(); }
+}
 $("#back").onclick = back;
-$("#grid").onclick = e => { const c = e.target.closest(".card"); if (c) { STACK = []; showAlbum(DATA.find(r => r.id == c.dataset.id)); } };
+$("#q").oninput = renderGrid;
+document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => setView(b.dataset.v));
 function setRange(r) {
-  RANGE = r; try { localStorage.setItem("range", r); } catch (e) {}
+  RANGE = r; store.set("range", r);
   document.querySelectorAll("#range button").forEach(b => b.classList.toggle("on", +b.dataset.r === r));
-  const cur = STACK[STACK.length - 1]; if (cur && $("#sheet").classList.contains("open")) cur();
+  if (DATA.length) refreshSheet();
 }
 document.querySelectorAll("#range button").forEach(b => b.onclick = () => setRange(+b.dataset.r));
 setRange(RANGE);
-load().catch(err => { $("#count").textContent = "Couldn't load the data: " + err.message; });
+load().catch(err => { $("#view").innerHTML = `<p class="help">Couldn't load the data: ${esc(err.message)}</p>`; });
 </script>
 </body>
 </html>
