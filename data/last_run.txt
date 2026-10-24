@@ -1,4 +1,4 @@
 Finished
-09:50:50 Collection: 636 items
-09:50:50 Records: 636
-10:21:15 Lookups this run: 2503. Tracks still to look up: 2910.
+10:51:43 Collection: 636 items
+10:51:43 Records: 636
+11:23:06 Lookups this run: 2500. Tracks still to look up: 2028.
