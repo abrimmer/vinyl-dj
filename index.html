@@ -278,10 +278,12 @@ async function load() {
   }
   applyEdits(); applyStyleEdits();
   $("#updated").textContent = c.updated ? "Updated " + new Date(c.updated).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }) : "";
-  const done = TRACKS.filter(t => t.bpm || ((t.lookup_v || 1) >= 4 && (t.fb_v || 0) >= 1)).length, pc = Math.floor(done / TRACKS.length * 100);
+  // Baseline = tracks GetSongBPM didn't have; progress = how many of those the other sources have checked
+  const miss = TRACKS.filter(t => !BASE[tkey(t)].bpm || t.source), done = miss.filter(t => (t.fb_v || 0) >= 1).length;
+  const found = miss.filter(t => t.source).length, pc = miss.length ? Math.floor(done / miss.length * 100) : 100;
   if (pc < 100) document.querySelector("main").insertAdjacentHTML("beforebegin",
     `<div style="max-width:1200px;margin:12px auto 0;padding:0 16px"><div class="help" style="margin:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px">
-      <b>Still checking for BPM and keys: ${pc}% done</b> (${done.toLocaleString()} of ${TRACKS.length.toLocaleString()} tracks checked).
+      <b>Checking other databases for missing tracks: ${pc}% done</b> (${done.toLocaleString()} of ${miss.length.toLocaleString()} missing tracks checked, ${found.toLocaleString()} found so far).
       Last data update: <b>${esc($("#updated").textContent.replace("Updated ", ""))}</b>. It updates by itself about once an hour. This note disappears when it's finished.
       <div style="height:4px;background:var(--line);border-radius:4px;margin-top:8px"><div style="height:4px;width:${pc}%;background:var(--accent);border-radius:4px"></div></div></div></div>`);
   renderChips(); render();
