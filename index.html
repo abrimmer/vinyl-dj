@@ -249,6 +249,12 @@ function playLinks(t) {
     `<a class="yt" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">YouTube</a>` +
     `<a class="web" href="https://open.spotify.com/search/${q}" target="_blank" rel="noopener" title="Open Spotify in the browser">web</a></div>`;
 }
+function albumPlay(r) {
+  const q = encodeURIComponent(`${r.artist} ${r.title}`.replace(/ = .*?(?= |$)/g, ""));
+  return `<div class="play" style="margin-top:10px"><a class="sp" href="spotify:search:${q}">Listen on Spotify</a>` +
+    `<a class="yt" href="https://www.youtube.com/results?search_query=${q}+full+album" target="_blank" rel="noopener">Listen on YouTube</a>` +
+    `<a class="web" href="https://open.spotify.com/search/${q}/albums" target="_blank" rel="noopener" title="Open Spotify in the browser">web</a></div>`;
+}
 // Places that usually have BPM + key when GetSongBPM doesn't
 function lookupLinks(t) {
   const q = encodeURIComponent(`${t.artist || t.rel.artist} ${t.title}`);
@@ -365,7 +371,7 @@ function trackRow(t, i, opts = {}) {
     <span class="pos">${esc(t.pos)}</span>
     <div class="main" data-t="${i}">
       <div class="name">${esc(t.title)}</div>
-      <div class="sub">${esc(t.duration || "")}${t.cue_in ? ` · IN ${esc(t.cue_in)} · OUT ${esc(t.cue_out)}` : ""}${t.manual ? ` · <span style="color:var(--warn)">manual</span>` : ""}${t.matched_as ? ` · matched as “${esc(t.matched_as)}”` : ""}</div>
+      <div class="sub">${[t.duration && esc(t.duration), t.cue_in && "IN " + esc(t.cue_in), t.cue_out && "OUT " + esc(t.cue_out)].filter(Boolean).join(" · ")}${t.manual ? ` · <span style="color:var(--warn)">manual</span>` : ""}${t.matched_as ? ` · matched as “${esc(t.matched_as)}”` : ""}</div>
       ${playLinks(t)}
       <div class="acts"><button class="${missing ? "hl" : ""}" data-edit="${i}" data-box="${id}">✎ ${missing ? "Add BPM / key" : "Edit BPM / key / cues"}</button><button data-add="${i}">+ Add to setlist</button>${missing ? lookupLinks(t) : ""}</div>
       <div id="edit-${id}"></div>
@@ -395,6 +401,7 @@ function showAlbum(r, push = true) {
         <div class="tags">${(r.genres || []).map(s => `<span class="tag">${esc(s)}</span>`).join("")}${(r.styles || []).map(s => `<span class="tag" style="color:var(--text)">${esc(s)}</span>`).join("")}
           <button class="btn small" id="editStyles">✎ Edit styles</button></div>
         <div id="styleEditor"></div>
+        ${albumPlay(r)}
         <div style="margin-top:8px"><a href="${esc(r.url)}" target="_blank" rel="noopener">View on Discogs ↗</a></div>
       </div>
     </div>

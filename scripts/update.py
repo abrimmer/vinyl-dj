@@ -21,7 +21,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "collection.json")
 RECORDS = os.path.join(ROOT, "records.txt")
 STARTED = time.time()
-LOOKUP_V = 3  # bump when matching improves, so missing tracks get retried once
+LOOKUP_V = 4  # bump when matching improves, so missing tracks get retried once
 MAX_NEW_LOOKUPS = int(os.environ.get("MAX_NEW_LOOKUPS", "1500"))  # stay well under GetSongBPM's 3000/hour
 
 MINOR = {"Ab": 1, "G#": 1, "Eb": 2, "D#": 2, "Bb": 3, "A#": 3, "F": 4, "C": 5, "G": 6,
@@ -46,15 +46,16 @@ def camelot(open_key="", key_of=""):
 
 def norm(s):
     s = re.sub(r"\(.*?\)|\[.*?\]", "", s or "").lower()
-    return re.sub(r"[^a-z0-9]", "", s)
+    return re.sub(r"[\W_]", "", s)  # keeps letters of any script (e.g. Cyrillic)
 
 
 def plain(s):
-    """Drop accents and bracketed extras: 'Durdu Dünya (Extended)' -> 'Durdu Dunya'."""
+    """Drop accents and bracketed extras: 'Durdu Dünya (Extended)' -> 'Durdu Dunya'. Other scripts are kept."""
     import unicodedata
     s = re.sub(r"\(.*?\)|\[.*?\]", "", s or "")
-    s = s.replace("ı", "i").replace("ş", "s").replace("ğ", "g")
-    return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().strip()
+    s = s.replace("ı", "i")
+    s = unicodedata.normalize("NFKD", s)
+    return "".join(c for c in s if not unicodedata.combining(c)).strip()
 
 
 def clean_artist(name):
@@ -144,6 +145,11 @@ def lookup(api, title, artist):
     attempts = [("both", f"song:{title} artist:{artist}"),
                 ("both", f"song:{t_plain} artist:{short_artist}"),
                 ("song", t_plain)]
+    # "Закладка = The Stash": try each side of the "=" (original script / English)
+    if " = " in title or " = " in artist:
+        for tv in [x.strip() for x in title.split(" = ")]:
+            for av in [x.strip() for x in artist.split(" = ")]:
+                attempts.insert(-1, ("both", f"song:{plain(tv) or tv} artist:{plain(av) or av}"))
     best, exact, tried = None, False, []
     for kind, q in attempts:
         hits = api.gsb("/search/", type=kind, lookup=q, limit=10).get("search")
@@ -154,8 +160,10 @@ def lookup(api, title, artist):
                                              for h in hits[:3]]})
         for h in hits:
             ha = norm(plain(clean_artist((h.get("artist") or {}).get("name"))))
-            if norm(plain(h.get("title"))) == norm(t_plain) and \
-                    (ha == norm(a_plain) or norm(short_artist) in ha):
+            titles = {norm(plain(x)) for x in [title, *title.split(" = ")]} | {norm(t_plain)}
+            if norm(plain(h.get("title"))) in titles and \
+                    ha and (ha == norm(a_plain) or (norm(short_artist) and norm(short_artist) in ha)
+                            or any(norm(plain(x)) == ha for x in artist.split(" = "))):
                 best, exact = h, True
                 break
         if exact:
