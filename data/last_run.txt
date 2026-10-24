@@ -1,8 +1,4 @@
 Finished
-19:14:12 Collection: 636 items
-19:14:12 Records: 636
-19:14:56 Lookup error for Yussef Kamaal - Yo Chavez: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-19:15:08 Lookup error for Various - Inside The Acorn: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-19:27:53 Lookup error for Billie Eilish - Listen Before I Go: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-19:39:27 Lookup error for Various - Francesca (Wild At Heart): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-19:43:52 Lookups this run: 2504. Tracks still to look up: 4644.
+23:51:53 Collection: 636 items
+23:51:53 Records: 636
+00:21:58 Lookups this run: 2500. Tracks still to look up: 3550.
