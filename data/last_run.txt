@@ -1,5 +1,5 @@
 Finished
-20:54:12 Collection: 636 items
-20:54:12 Records: 636
-20:54:13 Fallback checks this run: 0
-20:54:13 Lookups this run: 0. Tracks still to look up: 0.
+23:18:55 Collection: 636 items
+23:18:55 Records: 636
+23:18:55 Fallback checks this run: 0
+23:18:55 Lookups this run: 0. Tracks still to look up: 0.
