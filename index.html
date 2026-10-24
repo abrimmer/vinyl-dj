@@ -278,10 +278,10 @@ async function load() {
   }
   applyEdits(); applyStyleEdits();
   $("#updated").textContent = c.updated ? "Updated " + new Date(c.updated).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }) : "";
-  const done = TRACKS.filter(t => (t.lookup_v || 1) >= 3 || t.bpm).length, pc = Math.floor(done / TRACKS.length * 100);
+  const done = TRACKS.filter(t => t.bpm || ((t.lookup_v || 1) >= 4 && (t.fb_v || 0) >= 1)).length, pc = Math.floor(done / TRACKS.length * 100);
   if (pc < 100) document.querySelector("main").insertAdjacentHTML("beforebegin",
     `<div style="max-width:1200px;margin:12px auto 0;padding:0 16px"><div class="help" style="margin:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px">
-      <b>Still loading BPM and keys: ${pc}% done</b> (${done.toLocaleString()} of ${TRACKS.length.toLocaleString()} tracks checked).
+      <b>Still checking for BPM and keys: ${pc}% done</b> (${done.toLocaleString()} of ${TRACKS.length.toLocaleString()} tracks checked).
       Last data update: <b>${esc($("#updated").textContent.replace("Updated ", ""))}</b>. It updates by itself about once an hour. This note disappears when it's finished.
       <div style="height:4px;background:var(--line);border-radius:4px;margin-top:8px"><div style="height:4px;width:${pc}%;background:var(--accent);border-radius:4px"></div></div></div></div>`);
   renderChips(); render();
@@ -371,7 +371,7 @@ function trackRow(t, i, opts = {}) {
     <span class="pos">${esc(t.pos)}</span>
     <div class="main" data-t="${i}">
       <div class="name">${esc(t.title)}</div>
-      <div class="sub">${[t.duration && esc(t.duration), t.cue_in && "IN " + esc(t.cue_in), t.cue_out && "OUT " + esc(t.cue_out)].filter(Boolean).join(" · ")}${t.manual ? ` · <span style="color:var(--warn)">manual</span>` : ""}${t.matched_as ? ` · matched as “${esc(t.matched_as)}”` : ""}</div>
+      <div class="sub">${[t.duration && esc(t.duration), t.cue_in && "IN " + esc(t.cue_in), t.cue_out && "OUT " + esc(t.cue_out), t.source && !t.manual && "data via " + esc(t.source)].filter(Boolean).join(" · ")}${t.manual ? ` · <span style="color:var(--warn)">manual</span>` : ""}${t.matched_as ? ` · matched as “${esc(t.matched_as)}”` : ""}</div>
       ${playLinks(t)}
       <div class="acts"><button class="${missing ? "hl" : ""}" data-edit="${i}" data-box="${id}">✎ ${missing ? "Add BPM / key" : "Edit BPM / key / cues"}</button><button data-add="${i}">+ Add to setlist</button>${missing ? lookupLinks(t) : ""}</div>
       <div id="edit-${id}"></div>

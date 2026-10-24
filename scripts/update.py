@@ -21,7 +21,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "collection.json")
 RECORDS = os.path.join(ROOT, "records.txt")
 STARTED = time.time()
-LOOKUP_V = 4  # bump when matching improves, so missing tracks get retried once
+LOOKUP_V = 4
+FB_V = 1  # bump when the fallback sources change, so misses get retried  # bump when matching improves, so missing tracks get retried once
 MAX_NEW_LOOKUPS = int(os.environ.get("MAX_NEW_LOOKUPS", "1500"))  # stay well under GetSongBPM's 3000/hour
 
 MINOR = {"Ab": 1, "G#": 1, "Eb": 2, "D#": 2, "Bb": 3, "A#": 3, "F": 4, "C": 5, "G": 6,
@@ -203,6 +204,78 @@ def master_title(api, cache, mid, track):
     return None
 
 
+# ---------- fallbacks for tracks GetSongBPM doesn't know ----------
+FB_UA = "Setwright/1.0 ( https://github.com/abrimmer/vinyl-dj )"
+
+
+class Fallback:
+    """MusicBrainz -> AcousticBrainz (BPM + key, measured from audio), then Deezer (BPM only)."""
+    def __init__(self):
+        self.s = requests.Session()
+        self.s.headers.update({"User-Agent": FB_UA, "Accept": "application/json"})
+        self.last_mb = 0
+
+    def get(self, url, **params):
+        for _ in range(3):
+            try:
+                r = self.s.get(url, params=params, timeout=30)
+            except requests.RequestException:
+                time.sleep(5); continue
+            if r.status_code in (429, 503):
+                time.sleep(int(r.headers.get("X-RateLimit-Reset-In", 0) or 5) + 1); continue
+            try:
+                return r.json() if r.ok else {}
+            except ValueError:
+                return {}
+        return {}
+
+    def mb_ids(self, title, artist):
+        ids = []
+        q_esc = lambda x: x.replace("\\", "").replace('"', "")
+        for tv in dict.fromkeys([title, *[x.strip() for x in title.split(" = ")]]):
+            for av in dict.fromkeys([artist, *[x.strip() for x in artist.split(" = ")]]):
+                wait = 1.1 - (time.time() - self.last_mb)
+                if wait > 0:
+                    time.sleep(wait)  # MusicBrainz allows 1 request per second
+                self.last_mb = time.time()
+                res = self.get("https://musicbrainz.org/ws/2/recording",
+                               query=f'recording:"{q_esc(tv)}" AND artist:"{q_esc(av)}"', fmt="json", limit=10)
+                ids += [r["id"] for r in res.get("recordings", []) if int(r.get("score", 0)) >= 85]
+                if ids:
+                    return list(dict.fromkeys(ids))[:25]
+        return []
+
+    def acousticbrainz(self, ids):
+        if not ids:
+            return None
+        res = self.get("https://acousticbrainz.org/api/v1/low-level", recording_ids=";".join(ids),
+                       features="rhythm.bpm;tonal.key_key;tonal.key_scale")
+        time.sleep(1)
+        for mbid in ids:  # keep MusicBrainz's ranking
+            for doc in (res.get(mbid) or {}).values():
+                bpm = ((doc or {}).get("rhythm") or {}).get("bpm")
+                if bpm:
+                    tonal = doc.get("tonal") or {}
+                    k = tonal.get("key_key") or ""
+                    key_of = (k + ("m" if tonal.get("key_scale") == "minor" else "")) if k else ""
+                    return {"bpm": round(float(bpm)), "camelot": camelot("", key_of)}
+        return None
+
+    def deezer(self, title, artist):
+        for tv in dict.fromkeys([title, *[x.strip() for x in title.split(" = ")]]):
+            res = self.get("https://api.deezer.com/search", q=f'artist:"{artist}" track:"{plain(tv)}"', limit=5)
+            time.sleep(0.2)
+            for hit in res.get("data", []) or []:
+                ha = norm(plain((hit.get("artist") or {}).get("name")))
+                if ha and (ha == norm(plain(artist)) or any(norm(plain(x)) == ha for x in artist.split(" = "))):
+                    tr = self.get(f"https://api.deezer.com/track/{hit['id']}")
+                    time.sleep(0.2)
+                    if tr.get("bpm") and float(tr["bpm"]) > 0:
+                        return {"bpm": round(float(tr["bpm"])), "camelot": ""}
+                    break
+        return None
+
+
 def wanted_ids():
     ids, everything = set(), False
     with open(RECORDS, encoding="utf-8") as fh:
@@ -348,7 +421,39 @@ def main():
                 t["tried"] = info["tried"]  # shown on the site's "Missing data" page
             print(f"  {rel['artist']} - {t['title']}: {t.get('bpm') or '-'} {t.get('camelot') or ''}")
 
-    left = sum(1 for r in releases for t in r["tracks"] if not t.get("bpm") and t.get("lookup_v", 1) < LOOKUP_V)
+    # 4. Fallbacks for tracks GetSongBPM didn't have (once per track, within the time budget)
+    if not stop:
+        fb, done = Fallback(), 0
+        try:
+            for rel in releases:
+                for t in rel["tracks"]:
+                    if t.get("bpm") or t.get("fb_v") == FB_V or t.get("lookup_v", 1) < LOOKUP_V:
+                        continue
+                    if time.time() - STARTED > 85 * 60:
+                        raise StopLookups("Time budget used; fallbacks continue next run")
+                    found, src = None, ""
+                    ab = fb.acousticbrainz(fb.mb_ids(t["title"], t["artist"]))
+                    if ab:
+                        found, src = ab, "AcousticBrainz"
+                    else:
+                        dz = fb.deezer(t["title"], t["artist"])
+                        if dz:
+                            found, src = dz, "Deezer"
+                    t["fb_v"] = FB_V
+                    if found:
+                        t["bpm"] = f"{found['bpm']}*"
+                        t["camelot"] = f"{found['camelot']}*" if found["camelot"] else ""
+                        t["source"] = src
+                        t.pop("tried", None)
+                    done += 1
+                    if done % 150 == 0:
+                        save(releases, "In progress (fallbacks)")
+        except StopLookups as e:
+            log(str(e))
+        log(f"Fallback checks this run: {done}")
+
+    left = sum(1 for r in releases for t in r["tracks"] if not t.get("bpm") and
+               (t.get("lookup_v", 1) < LOOKUP_V or t.get("fb_v") != FB_V))
     log(f"Lookups this run: {api.lookups}. Tracks still to look up: {left}.")
     save(releases, "Finished")
     if os.environ.get("GITHUB_OUTPUT"):  # tells the workflow whether to start another run
