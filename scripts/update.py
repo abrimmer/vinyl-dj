@@ -458,7 +458,7 @@ def main():
     save(releases, "Finished")
     if os.environ.get("GITHUB_OUTPUT"):  # tells the workflow whether to start another run
         with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
-            fh.write(f"remaining={left}\n")
+            fh.write(f"remaining={left}\ngsb_used={api.lookups}\n")
 
 
 if __name__ == "__main__":

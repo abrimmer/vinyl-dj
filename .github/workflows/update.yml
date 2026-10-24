@@ -49,5 +49,6 @@ jobs:
         run: |
           # GitHub often skips scheduled runs, so chain the next run ourselves.
           # Wait so we stay under GetSongBPM's 3,000 lookups per hour.
-          sleep 1800
+          # (only needed if this run used GetSongBPM; the fallback sources have their own pacing)
+          if [ "${{ steps.update.outputs.gsb_used }}" != "0" ]; then sleep 1800; fi
           gh workflow run update.yml --ref main
