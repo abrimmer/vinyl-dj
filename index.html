@@ -43,7 +43,17 @@
   .chip.on { background: var(--accent); border-color: var(--accent); color: #111; font-weight: 600; }
   main { max-width: 1200px; margin: 0 auto; padding: 16px; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
-  .card { background: none; border: 0; padding: 0; text-align: left; cursor: pointer; }
+  .card { background: none; border: 0; padding: 0; text-align: left; cursor: pointer;
+    display: flex; flex-direction: column; justify-content: flex-start; align-self: start; }
+  .sep { grid-column: 1 / -1; color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+    border-bottom: 1px solid var(--line); padding: 10px 0 4px; margin-top: 4px; }
+  .sep:first-child { margin-top: 0; padding-top: 0; }
+  .play a.web { background: none; border: 1px solid var(--line); color: var(--muted); font-weight: 400; }
+  .play a.web::before { content: ""; }
+  .tabs .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--muted); margin-right: 4px; vertical-align: 1px; }
+  .stylebox { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 8px; }
+  .stylebox .tag button { background: none; border: 0; color: var(--muted); cursor: pointer; padding: 0 0 0 4px; }
+  kbd { border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; font-size: 12px; }
   .card img, .cover-ph { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block;
     background: var(--panel); }
   .card .t { margin-top: 6px; font-weight: 600; font-size: 14px; }
@@ -146,6 +156,7 @@
       <button data-v="setlists">Setlists</button>
       <button data-v="missing">Missing</button>
       <button data-v="guide">Guide</button>
+      <button data-v="sync" title="Save your edits and setlists to GitHub so every device sees them"><span class="dot" id="syncDot"></span>Sync</button>
     </div>
   </div>
   <div class="bar" style="margin-top:8px" id="filterBar">
@@ -153,6 +164,7 @@
     <select id="sort" aria-label="Sort">
       <option value="artist">Sort: Artist</option><option value="album">Sort: Album</option>
       <option value="added">Sort: Recently added</option><option value="year">Sort: Year (first release)</option>
+      <option value="genre">Sort: Genre</option><option value="random">Sort: Random</option>
     </select>
     <div class="seg" id="range" title="Your turntable pitch range">
       <button data-r="8">±8%</button><button data-r="16">±16%</button><button data-r="24">±24%</button>
@@ -185,7 +197,8 @@ const store = {
 };
 let DATA = [], TRACKS = [], BYKEY = {}, BASE = {}, VIEW = "records", STACK = [];
 let RANGE = store.get("range", 8), STYLES = new Set(store.get("styles", []));
-let EDITS = store.get("edits", {}), SETLISTS = store.get("setlists", []);
+let EDITS = store.get("edits", {}), SETLISTS = store.get("setlists", []), STYLE_EDITS = store.get("styleEdits", {});
+let DELETED = new Set(store.get("deletedSets", [])), FWD = [];
 
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.style.display = "block"; clearTimeout(toast.h); toast.h = setTimeout(() => t.style.display = "none", 2200); }
 
@@ -231,8 +244,10 @@ function bridgeHtml(tr) {
 const tkey = t => `${t.rel.id}|${t.pos}`;
 function playLinks(t) {
   const q = encodeURIComponent(`${t.artist || t.rel.artist} ${t.title}`);
-  return `<div class="play"><a class="sp" href="https://open.spotify.com/search/${q}" target="_blank" rel="noopener">Spotify</a>` +
-    `<a class="yt" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">YouTube</a></div>`;
+  // spotify: links open the Spotify app directly; "web" is the fallback if the app isn't installed
+  return `<div class="play"><a class="sp" href="spotify:search:${q}">Spotify</a>` +
+    `<a class="yt" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">YouTube</a>` +
+    `<a class="web" href="https://open.spotify.com/search/${q}" target="_blank" rel="noopener" title="Open Spotify in the browser">web</a></div>`;
 }
 // Places that usually have BPM + key when GetSongBPM doesn't
 function lookupLinks(t) {
@@ -248,13 +263,14 @@ async function load() {
     fetch("data/edits.json", { cache: "no-store" }).then(r => r.ok ? r.json() : {}).catch(() => ({}))
   ]);
   DATA = c.releases || [];
+  for (const r of DATA) r.discogsStyles = (r.styles || []).slice();
   for (const r of DATA) for (const t of r.tracks) {
     t.rel = r; const k = tkey(t);
     Object.assign(t, e[k] || {});
     BASE[k] = { bpm: t.bpm, camelot: t.camelot, cue_in: t.cue_in, cue_out: t.cue_out };
     TRACKS.push(t); BYKEY[k] = t;
   }
-  applyEdits();
+  applyEdits(); applyStyleEdits();
   $("#updated").textContent = c.updated ? "Updated " + new Date(c.updated).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }) : "";
   const done = TRACKS.filter(t => (t.lookup_v || 1) >= 3 || t.bpm).length, pc = Math.floor(done / TRACKS.length * 100);
   if (pc < 100) document.querySelector("main").insertAdjacentHTML("beforebegin",
@@ -263,7 +279,9 @@ async function load() {
       Last data update: <b>${esc($("#updated").textContent.replace("Updated ", ""))}</b>. It updates by itself about once an hour. This note disappears when it's finished.
       <div style="height:4px;background:var(--line);border-radius:4px;margin-top:8px"><div style="height:4px;width:${pc}%;background:var(--accent);border-radius:4px"></div></div></div></div>`);
   renderChips(); render();
+  syncStart();
 }
+function applyStyleEdits() { for (const r of DATA) r.styles = STYLE_EDITS[r.id] ? STYLE_EDITS[r.id].slice() : r.discogsStyles.slice(); }
 function applyEdits() {
   for (const t of TRACKS) { const k = tkey(t); Object.assign(t, BASE[k]); t.manual = false;
     if (EDITS[k]) { Object.assign(t, EDITS[k]); t.manual = true; } }
@@ -277,7 +295,7 @@ function setView(v) {
   $("#filterBar").style.display = v === "records" ? "" : "none"; $("#chips").style.display = v === "records" ? "" : "none";
   closeSheet(); render();
 }
-function render() { ({ records: renderGrid, setlists: renderSetlists, missing: renderMissing, guide: renderGuide })[VIEW](); }
+function render() { ({ records: renderGrid, setlists: renderSetlists, missing: renderMissing, guide: renderGuide, sync: renderSync })[VIEW](); }
 
 function allStyles() {
   const count = {}; for (const r of DATA) for (const x of new Set(r.styles || [])) count[x] = (count[x] || 0) + 1;
@@ -301,19 +319,40 @@ function renderGrid() {
   const list = DATA.filter(r => styleOk(r) &&
     (!q || [r.artist, r.title, ...r.tracks.map(t => t.title)].join(" ").toLowerCase().includes(q)));
   const by = $("#sort").value, A = x => x.artist.replace(/^the /i, "").toLowerCase(), Y = x => +(x.orig_year || x.year) || 9999;
-  list.sort({
-    artist: (a, b) => A(a).localeCompare(A(b)) || Y(a) - Y(b),
-    album: (a, b) => a.title.localeCompare(b.title),
-    added: (a, b) => String(b.added || "").localeCompare(String(a.added || "")),
-    year: (a, b) => Y(a) - Y(b) || A(a).localeCompare(A(b))
-  }[by]);
-  $("#view").innerHTML = `<div class="count">${list.length} records · data updated ${esc($("#updated").textContent.replace("Updated ", ""))}${STYLES.size ? " · any of: " + esc([...STYLES].join(", ")) : ""}</div>
-    <div class="grid">${list.map(r => `
+  // Each entry = a record plus the heading it sits under
+  let rows;
+  if (by === "genre") {
+    rows = list.flatMap(r => (r.styles.length ? r.styles.slice(0, 3) : ["No style"]).filter(g => !STYLES.size || STYLES.has(g) || !r.styles.some(x => STYLES.has(x))).map(g => ({ r, g })));
+    rows.sort((a, b) => a.g.localeCompare(b.g) || A(a.r).localeCompare(A(b.r)));
+  } else if (by === "random") {
+    if (!renderGrid.order || renderGrid.order.size !== DATA.length) { renderGrid.order = new Map(DATA.map(r => [r.id, Math.random()])); }
+    rows = list.map(r => ({ r, g: "" })).sort((a, b) => renderGrid.order.get(a.r.id) - renderGrid.order.get(b.r.id));
+  } else {
+    list.sort({
+      artist: (a, b) => A(a).localeCompare(A(b)) || Y(a) - Y(b),
+      album: (a, b) => a.title.localeCompare(b.title),
+      added: (a, b) => String(b.added || "").localeCompare(String(a.added || "")),
+      year: (a, b) => Y(a) - Y(b) || A(a).localeCompare(A(b))
+    }[by]);
+    const first = x => { const ch = x.normalize("NFD").replace(/[^A-Za-z0-9]/g, "").charAt(0).toUpperCase(); return /[A-Z]/.test(ch) ? ch : "#"; };
+    const head = {
+      artist: r => first(r.artist.replace(/^the /i, "")),
+      album: r => first(r.title),
+      added: r => r.added ? new Date(r.added).toLocaleDateString([], { month: "long", year: "numeric" }) : "Unknown",
+      year: r => Y(r) === 9999 ? "Unknown year" : Math.floor(Y(r) / 10) * 10 + "s"
+    }[by];
+    rows = list.map(r => ({ r, g: head(r) }));
+  }
+  let last = null;
+  $("#view").innerHTML = `<div class="count">${list.length} records${by === "genre" ? " (shown under up to 3 styles each)" : ""} · data updated ${esc($("#updated").textContent.replace("Updated ", ""))}${STYLES.size ? " · any of: " + esc([...STYLES].join(", ")) : ""}
+    ${by === "random" ? ` · <a href="#" id="reshuffle">Shuffle again</a>` : ""}</div>
+    <div class="grid">${rows.map(({ r, g }) => (g && g !== last ? `<div class="sep">${esc(last = g)}</div>` : "") + `
     <button class="card" data-id="${r.id}">
       ${r.cover ? `<img loading="lazy" src="${esc(r.cover)}" alt="">` : `<div class="cover-ph"></div>`}
       <div class="t">${esc(r.title)}</div>
       <div class="a">${esc(r.artist)}${r.orig_year || r.year ? " · " + esc(r.orig_year || r.year) : ""}</div>
     </button>`).join("")}</div>`;
+  $("#reshuffle")?.addEventListener("click", e => { e.preventDefault(); renderGrid.order = null; renderGrid(); });
 }
 $("#view").addEventListener("click", e => {
   const c = e.target.closest(".card"); if (c) { STACK = []; showAlbum(DATA.find(r => r.id == c.dataset.id)); }
@@ -342,7 +381,7 @@ function wireTrackRows(root, tracks) {
   root.querySelectorAll("[data-add]").forEach(b => b.onclick = () => addToSetlist(tracks[+b.dataset.add]));
 }
 function showAlbum(r, push = true) {
-  if (push) STACK.push(() => showAlbum(r, false));
+  if (push) pushView(() => showAlbum(r, false));
   $("#crumb").textContent = r.artist;
   const yr = r.orig_year || r.year, reissue = r.year && r.orig_year && r.year !== r.orig_year ? ` (this pressing ${r.year})` : "";
   const missing = r.tracks.filter(t => !usable(t)).length;
@@ -353,7 +392,9 @@ function showAlbum(r, push = true) {
         <div class="muted">${esc(r.artist)}</div>
         <h2>${esc(r.title)}</h2>
         <div class="muted">${esc([yr ? yr + reissue : "", r.label, r.format].filter(Boolean).join(" · "))}</div>
-        <div class="tags">${[...(r.genres || []), ...(r.styles || [])].map(s => `<span class="tag">${esc(s)}</span>`).join("")}</div>
+        <div class="tags">${(r.genres || []).map(s => `<span class="tag">${esc(s)}</span>`).join("")}${(r.styles || []).map(s => `<span class="tag" style="color:var(--text)">${esc(s)}</span>`).join("")}
+          <button class="btn small" id="editStyles">✎ Edit styles</button></div>
+        <div id="styleEditor"></div>
         <div style="margin-top:8px"><a href="${esc(r.url)}" target="_blank" rel="noopener">View on Discogs ↗</a></div>
       </div>
     </div>
@@ -362,7 +403,25 @@ function showAlbum(r, push = true) {
     <p class="help">Tap a track to see <b>what mixes with it</b>.</p>
     <div class="tracks">${r.tracks.map((t, i) => trackRow(t, i)).join("")}</div>`;
   wireTrackRows($("#sheetBody"), r.tracks);
+  $("#editStyles").onclick = () => styleEditor(r);
   openSheet();
+}
+function styleEditor(r) {
+  const box = $("#styleEditor"); if (box.innerHTML) { box.innerHTML = ""; return; }
+  const draw = () => {
+    box.innerHTML = `<div class="stylebox">${r.styles.map((x, i) => `<span class="tag" style="color:var(--text)">${esc(x)}<button data-rm="${i}" title="Remove">✕</button></span>`).join("")}
+      <input type="text" id="newStyle" list="styleList" placeholder="Add a style" style="width:150px;padding:4px 8px">
+      <datalist id="styleList">${allStyles().map(x => `<option>${esc(x)}</option>`).join("")}</datalist>
+      <button class="btn small" id="addStyle">Add</button>
+      ${STYLE_EDITS[r.id] ? `<button class="btn small" id="resetStyles">Reset to Discogs</button>` : ""}</div>
+      <p class="help" style="margin:6px 0 0">Changes only affect Setwright. Discogs styles can't be changed from here. “Reset to Discogs” brings back the originals.</p>`;
+    const save = list => { STYLE_EDITS[r.id] = list; markChange("styles", r.id); applyStyleEdits(); renderChips(); draw(); };
+    box.querySelectorAll("[data-rm]").forEach(b => b.onclick = () => save(r.styles.filter((_, i) => i !== +b.dataset.rm)));
+    const add = () => { const v = $("#newStyle").value.trim(); if (v && !r.styles.includes(v)) save([...r.styles, v]); };
+    $("#addStyle").onclick = add; $("#newStyle").onkeydown = e => { if (e.key === "Enter") add(); };
+    const rs = $("#resetStyles"); if (rs) rs.onclick = () => { delete STYLE_EDITS[r.id]; markChange("styles", r.id); applyStyleEdits(); renderChips(); toast("Back to Discogs styles"); draw(); };
+  };
+  draw();
 }
 
 // ---------- manual BPM / key / cue entry ----------
@@ -387,10 +446,10 @@ function openEdit(t, box) {
     const ed = { bpm: f.bpm.value ? Math.round(+f.bpm.value * 10) / 10 + "*" : "", camelot: f.cam.value ? f.cam.value + "*" : "" };
     if (f.cin.value.trim()) ed.cue_in = f.cin.value.trim().replace("*", "") + "*";
     if (f.cout.value.trim()) ed.cue_out = f.cout.value.trim().replace("*", "") + "*";
-    EDITS[k] = ed; store.set("edits", EDITS); applyEdits(); toast("Saved"); refreshSheet();
+    EDITS[k] = ed; markChange("edits", k); applyEdits(); toast("Saved"); refreshSheet();
   };
   const reset = box.querySelector("[data-reset]");
-  if (reset) reset.onclick = () => { delete EDITS[k]; store.set("edits", EDITS); applyEdits(); toast("Reset"); refreshSheet(); };
+  if (reset) reset.onclick = () => { delete EDITS[k]; markChange("edits", k); applyEdits(); toast("Reset"); refreshSheet(); };
 }
 
 // ---------- what mixes with this ----------
@@ -408,7 +467,7 @@ function resultRow(x, i, extra = "") {
     </div></div>`;
 }
 function showMix(t, push = true) {
-  if (push) STACK.push(() => showMix(t, false));
+  if (push) pushView(() => showMix(t, false));
   $("#crumb").textContent = "Mixes with " + t.title;
   const tempoOnly = store.get("tempoOnly", false);
   let res = [];
@@ -441,7 +500,7 @@ function showMix(t, push = true) {
 }
 
 // ---------- setlists ----------
-const saveSets = () => store.set("setlists", SETLISTS);
+const saveSets = s => { if (s) s.updated = Date.now(); markChange("sets", s && s.id); };
 const FAVOUR = { balanced: "Balanced", tempo: "Tempo (smallest pitch changes)", key: "Key (always harmonic)" };
 const favWord = f => FAVOUR[f].split(" ")[0].toLowerCase();
 const STYLE_MODES = { any: "Styles: any", within: "Styles: stay within…", drift: "Styles: smooth drift" };
@@ -469,7 +528,7 @@ function renderSetlists() {
   $("#view").querySelectorAll(".sl-card").forEach(c => c.onclick = () => { STACK = []; showSetlist(SETLISTS[+c.dataset.i]); });
 }
 function newSetlist(firstTrack, push = true) {
-  if (push) STACK.push(() => newSetlist(firstTrack, false));
+  if (push) pushView(() => newSetlist(firstTrack, false));
   $("#crumb").textContent = "New setlist";
   $("#sheetBody").innerHTML = `<h3>New setlist</h3><form class="form" id="nf">
     <label>Name<input type="text" name="nm" required value="Setlist ${SETLISTS.length + 1}"></label>
@@ -484,13 +543,13 @@ function newSetlist(firstTrack, push = true) {
     const s = { id: Date.now(), name: f.nm.value.trim() || "Setlist", favour: f.favour.value, one: f.one.checked, styleMode: f.sm.value, styles: firstTrack ? stylesOf(firstTrack).slice() : [],
       slots: Array(Math.max(2, Math.min(60, +f.len.value || 10))).fill(null) };
     if (firstTrack) s.slots[0] = { k: tkey(firstTrack), lock: true };
-    SETLISTS.push(s); saveSets(); if (VIEW === "setlists") renderSetlists();
+    SETLISTS.push(s); saveSets(s); if (VIEW === "setlists") renderSetlists();
     STACK = []; showSetlist(s);
   };
   openSheet();
 }
 function addToSetlist(t) {
-  STACK.push(() => addToSetlist(t));
+  pushView(() => addToSetlist(t));
   $("#crumb").textContent = "Add to setlist";
   $("#sheetBody").innerHTML = `<h3>Add “${esc(t.title)}” to…</h3>
     ${SETLISTS.map((s, i) => `<div class="sl-card" data-i="${i}"><div style="flex:1"><div class="name">${esc(s.name)}</div>
@@ -500,13 +559,13 @@ function addToSetlist(t) {
   $("#sheetBody").querySelectorAll(".sl-card").forEach(c => c.onclick = () => {
     const s = SETLISTS[+c.dataset.i]; let i = s.slots.findIndex(x => !x);
     if (i < 0) { s.slots.push(null); i = s.slots.length - 1; }
-    s.slots[i] = { k: tkey(t), lock: true }; saveSets(); toast(`Added to ${s.name} at #${i + 1}`); back();
+    s.slots[i] = { k: tkey(t), lock: true }; saveSets(s); toast(`Added to ${s.name} at #${i + 1}`); back();
   });
   openSheet();
 }
 
 function showSetlist(s, push = true) {
-  if (push) STACK.push(() => showSetlist(s, false));
+  if (push) pushView(() => showSetlist(s, false));
   $("#crumb").textContent = s.name;
   const T = s.slots.map(x => x && BYKEY[x.k]);
   let html = `<div class="tools" style="margin-top:0">
@@ -547,31 +606,31 @@ function showSetlist(s, push = true) {
   html += `<div class="tools" style="margin-top:24px"><button class="btn danger" id="delSet">Delete setlist</button></div>`;
   $("#sheetBody").innerHTML = html;
   const B = $("#sheetBody");
-  $("#slName").onchange = e => { s.name = e.target.value.trim() || s.name; saveSets(); $("#crumb").textContent = s.name; };
-  $("#slFav").onchange = e => { s.favour = e.target.value; saveSets(); };
-  $("#slOne").onchange = e => { s.one = e.target.checked; saveSets(); };
-  $("#slStyleMode").onchange = e => { s.styleMode = e.target.value; saveSets(); showSetlist(s, false); };
+  $("#slName").onchange = e => { s.name = e.target.value.trim() || s.name; saveSets(s); $("#crumb").textContent = s.name; };
+  $("#slFav").onchange = e => { s.favour = e.target.value; saveSets(s); };
+  $("#slOne").onchange = e => { s.one = e.target.checked; saveSets(s); };
+  $("#slStyleMode").onchange = e => { s.styleMode = e.target.value; saveSets(s); showSetlist(s, false); };
   $("#slStyles")?.addEventListener("click", e => { const c = e.target.closest(".chip"); if (!c) return;
     s.styles = s.styles || []; const x = c.dataset.s; s.styles = s.styles.includes(x) ? s.styles.filter(y => y !== x) : [...s.styles, x];
-    saveSets(); showSetlist(s, false); });
-  $("#fillEmpty").onclick = () => { const n = autoFill(s, false); saveSets(); showSetlist(s, false);
+    saveSets(s); showSetlist(s, false); });
+  $("#fillEmpty").onclick = () => { const n = autoFill(s, false); saveSets(s); showSetlist(s, false);
     toast(!s.slots[0] ? "Pick a first track, then fill" : n ? `Filled ${n} slot${n > 1 ? "s" : ""}` : "No fitting tracks found. Try a wider pitch range"); };
-  $("#refill").onclick = () => { s.slots = s.slots.map(x => x && x.lock ? x : null); const n = autoFill(s, true); saveSets(); showSetlist(s, false); toast(`Re-filled ${n}`); };
-  $("#addSlot").onclick = () => { s.slots.push(null); saveSets(); showSetlist(s, false); };
+  $("#refill").onclick = () => { s.slots = s.slots.map(x => x && x.lock ? x : null); const n = autoFill(s, true); saveSets(s); showSetlist(s, false); toast(`Re-filled ${n}`); };
+  $("#addSlot").onclick = () => { s.slots.push(null); saveSets(s); showSetlist(s, false); };
   $("#delSet").onclick = e => {
-    if (e.target.dataset.sure) { SETLISTS = SETLISTS.filter(x => x !== s); saveSets(); toast("Setlist deleted"); closeSheet(); render(); }
+    if (e.target.dataset.sure) { SETLISTS = SETLISTS.filter(x => x !== s); DELETED.add(s.id); markChange("deleted", s.id); toast("Setlist deleted"); closeSheet(); render(); }
     else { e.target.dataset.sure = 1; e.target.textContent = "Tap again to delete for good"; }
   };
   B.querySelectorAll("[data-pick]").forEach(el => el.onclick = () => pickForSlot(s, +el.dataset.pick));
-  B.querySelectorAll("[data-lock]").forEach(el => el.onclick = () => { const x = s.slots[+el.dataset.lock]; x.lock = !x.lock; saveSets(); showSetlist(s, false); });
+  B.querySelectorAll("[data-lock]").forEach(el => el.onclick = () => { const x = s.slots[+el.dataset.lock]; x.lock = !x.lock; saveSets(s); showSetlist(s, false); });
   B.querySelectorAll("[data-up]").forEach(el => el.onclick = () => moveSlot(s, +el.dataset.up, -1));
   B.querySelectorAll("[data-down]").forEach(el => el.onclick = () => moveSlot(s, +el.dataset.down, 1));
   B.querySelectorAll("[data-clear]").forEach(el => el.onclick = () => clearSlot(s, +el.dataset.clear));
   B.querySelectorAll(".slot").forEach(el => swipe(el, () => clearSlot(s, +el.dataset.i)));
   openSheet();
 }
-function clearSlot(s, i) { s.slots[i] = null; saveSets(); showSetlist(s, false); }
-function moveSlot(s, i, d) { const j = i + d; if (j < 0 || j >= s.slots.length) return; [s.slots[i], s.slots[j]] = [s.slots[j], s.slots[i]]; saveSets(); showSetlist(s, false); }
+function clearSlot(s, i) { s.slots[i] = null; saveSets(s); showSetlist(s, false); }
+function moveSlot(s, i, d) { const j = i + d; if (j < 0 || j >= s.slots.length) return; [s.slots[i], s.slots[j]] = [s.slots[j], s.slots[i]]; saveSets(s); showSetlist(s, false); }
 function swipe(el, done) {
   const inner = el.querySelector(".slot-inner:not(.empty)"), del = el.querySelector(".slot-del"); if (!inner) return;
   let x0 = null, y0 = 0, dx = 0;
@@ -591,7 +650,7 @@ function copyList(s) {
 
 // Pick / swap a track for one slot: suggestions fit the tracks before and after it
 function pickForSlot(s, i, push = true) {
-  if (push) STACK.push(() => pickForSlot(s, i, false));
+  if (push) pushView(() => pickForSlot(s, i, false));
   $("#crumb").textContent = `${s.name} · slot ${i + 1}`;
   const prev = s.slots.slice(0, i).reverse().find(Boolean), next = s.slots.slice(i + 1).find(Boolean);
   const P = prev && BYKEY[prev.k], N = next && BYKEY[next.k];
@@ -616,7 +675,7 @@ function pickForSlot(s, i, push = true) {
     $("#plist").innerHTML = items.length ? items.map((x, j) => resultRow(x, j, x.b ? `<div class="sub" style="margin-top:4px">then → ${esc(N.title)}:</div>${bridgeHtml(x.b)}` : "")).join("")
       : `<p class="help">${q ? "No tracks found." : P || N ? `Nothing fits within ±${RANGE}% here. Try a wider pitch range on the Records tab, or search.` : ""}</p>`;
     $("#plist").querySelectorAll(".res").forEach(d => d.onclick = () => {
-      s.slots[i] = { k: tkey(items[+d.dataset.i].o), lock: true }; saveSets(); back();
+      s.slots[i] = { k: tkey(items[+d.dataset.i].o), lock: true }; saveSets(s); back();
     });
   };
   $("#pq").oninput = e => draw(e.target.value.trim().toLowerCase());
@@ -740,19 +799,153 @@ function renderGuide() {
   </div>`;
 }
 
+// ---------- sync: edits, styles and setlists saved to GitHub (data/user.json) ----------
+const REPO = "abrimmer/vinyl-dj", UPATH = "data/user.json";
+let TOKEN = store.get("ghToken", ""), SYNC = { state: "off", msg: "" }, PENDING = store.get("pending", { edits: [], styles: [], sets: [], deleted: [] });
+let syncTimer = null, syncing = false, again = false;
+const b64enc = str => { const b = new TextEncoder().encode(str); let out = ""; for (let i = 0; i < b.length; i += 0x8000) out += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000)); return btoa(out); };
+const b64dec = b64 => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\s/g, "")), c => c.charCodeAt(0)));
+const hasPending = () => Object.values(PENDING).some(a => a.length);
+function saveLocal() {
+  store.set("edits", EDITS); store.set("styleEdits", STYLE_EDITS); store.set("setlists", SETLISTS);
+  store.set("deletedSets", [...DELETED]); store.set("pending", PENDING);
+}
+function markChange(kind, key) {
+  if (key !== undefined && key !== null && !PENDING[kind].includes(key)) PENDING[kind].push(key);
+  saveLocal();
+  if (TOKEN) { setSync("pending", "Saving soon…"); clearTimeout(syncTimer); syncTimer = setTimeout(syncNow, 1500); }
+  else setSync("off", "Saved on this device only");
+}
+function setSync(state, msg) {
+  SYNC = { state, msg };
+  const col = { ok: "var(--ok)", pending: "var(--warn)", error: "var(--bad)", off: "var(--muted)" }[state];
+  $("#syncDot").style.background = col; $("#syncDot").parentElement.title = msg;
+  if (VIEW === "sync" && !$("#sheet").classList.contains("open")) renderSync();
+}
+const emptyUser = () => ({ edits: {}, styles: {}, setlists: [], deleted: [] });
+async function ghGet() {
+  const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${UPATH}?ref=main&_=${Date.now()}`,
+    { headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" }, cache: "no-store" });
+  if (r.status === 404) return { data: emptyUser(), sha: null };
+  if (r.status === 401 || r.status === 403) throw new Error("GitHub didn't accept the access code (it may have expired). Connect again.");
+  if (!r.ok) throw new Error(`GitHub error ${r.status}`);
+  const j = await r.json(); return { data: { ...emptyUser(), ...JSON.parse(b64dec(j.content)) }, sha: j.sha };
+}
+async function ghPut(data, sha) {
+  const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${UPATH}`, {
+    method: "PUT", headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" },
+    body: JSON.stringify({ message: "Setwright: save edits and setlists", branch: "main", content: b64enc(JSON.stringify(data, null, 1)), ...(sha ? { sha } : {}) })
+  });
+  if (r.status === 409 || r.status === 422) return false; // someone else saved first: re-read and merge
+  if (!r.ok) throw new Error(`GitHub error ${r.status} while saving`);
+  return true;
+}
+// Remote wins, except for the things this device changed since the last sync
+function merge(remote) {
+  const out = { edits: { ...remote.edits }, styles: { ...remote.styles }, deleted: [...new Set([...(remote.deleted || []), ...DELETED])] };
+  for (const k of PENDING.edits) { if (EDITS[k]) out.edits[k] = EDITS[k]; else delete out.edits[k]; }
+  for (const k of PENDING.styles) { if (STYLE_EDITS[k]) out.styles[k] = STYLE_EDITS[k]; else delete out.styles[k]; }
+  const map = new Map((remote.setlists || []).map(x => [x.id, x]));
+  for (const x of SETLISTS) if (PENDING.sets.includes(x.id) || !map.has(x.id)) map.set(x.id, x);
+  out.setlists = [...map.values()].filter(x => !out.deleted.includes(x.id));
+  return out;
+}
+function adopt(d) {
+  EDITS = d.edits || {}; STYLE_EDITS = d.styles || {}; DELETED = new Set(d.deleted || []);
+  const ids = new Set(); SETLISTS = (d.setlists || []).filter(x => !DELETED.has(x.id) && !ids.has(x.id) && ids.add(x.id));
+  applyEdits(); applyStyleEdits(); renderChips(); saveLocal();
+  if ($("#sheet").classList.contains("open")) { const cur = STACK[STACK.length - 1]; cur && cur(); } else render();
+}
+async function syncNow() {
+  if (!TOKEN) return;
+  if (syncing) { again = true; return; }
+  syncing = true; setSync("pending", "Syncing…");
+  try {
+    for (let tries = 0; tries < 3; tries++) {
+      const { data, sha } = await ghGet();
+      if (!hasPending()) { adopt(data); break; }
+      const merged = merge(data);
+      if (await ghPut(merged, sha)) { PENDING = { edits: [], styles: [], sets: [], deleted: [] }; adopt(merged); break; }
+    }
+    setSync("ok", "Synced " + new Date().toLocaleTimeString([], { timeStyle: "short" }));
+  } catch (e) { setSync("error", e.message); }
+  syncing = false; if (again) { again = false; syncNow(); }
+}
+async function syncStart() {
+  if (TOKEN) return syncNow();
+  // Not connected: still show what's saved on GitHub (read-only), unless this device has unsynced changes
+  try {
+    const r = await fetch(UPATH, { cache: "no-store" });
+    if (r.ok && !hasPending()) adopt({ ...emptyUser(), ...(await r.json()) });
+  } catch (e) {}
+  setSync("off", hasPending() ? "Changes saved on this device only. Connect to sync." : "Not connected (read-only)");
+}
+window.addEventListener("focus", () => { if (TOKEN && !syncing && !hasPending()) syncNow(); });
+function renderSync() {
+  const st = { ok: "✅ Connected and synced", pending: "⏳ Syncing…", error: "⚠️ Problem", off: "Not connected on this device" }[SYNC.state];
+  $("#view").innerHTML = `<div class="guide" style="max-width:720px">
+    <h3>Sync across your computers</h3>
+    <p><b>${st}</b>${SYNC.msg ? ` · ${esc(SYNC.msg)}` : ""}</p>
+    <p>Your BPM/key/cue edits, style edits and setlists are saved to your GitHub repository, so every device sees the same thing.
+      Each device needs a one-time <b>access code</b>. Devices without one can still <b>see</b> everything, but can't save changes.</p>
+    ${TOKEN ? `<div class="tools"><button class="btn primary" id="syncBtn">Sync now</button><button class="btn danger" id="discBtn">Disconnect this device</button></div>` : `
+    <h3>Connect this device</h3>
+    <ol>
+      <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → New fine-grained token ↗</a></li>
+      <li><b>Token name:</b> Setwright · <b>Expiration:</b> the longest offered (you'll redo this step when it expires)</li>
+      <li><b>Repository access:</b> Only select repositories → <b>vinyl-dj</b></li>
+      <li><b>Permissions → Repository permissions → Contents:</b> Read and write</li>
+      <li>Click <b>Generate token</b>, copy it, and paste it here:</li>
+    </ol>
+    <div class="tools"><input type="password" id="tok" placeholder="github_pat_…" style="flex:1 1 260px"><button class="btn primary" id="connBtn">Connect</button></div>
+    <p class="help">The code is stored only in this browser. Treat it like a password and don't share it.</p>`}
+    <h3>Keyboard shortcuts (desktop)</h3>
+    <p><kbd>[</kbd> back · <kbd>]</kbd> forward · <kbd>L</kbd> records list. Your browser's back/forward buttons work too.</p>
+  </div>`;
+  $("#syncBtn")?.addEventListener("click", syncNow);
+  $("#discBtn")?.addEventListener("click", () => { TOKEN = ""; store.set("ghToken", ""); setSync("off", "Disconnected"); renderSync(); });
+  $("#connBtn")?.addEventListener("click", async () => {
+    const v = $("#tok").value.trim(); if (!v) return;
+    TOKEN = v;
+    try { await ghGet(); store.set("ghToken", v);
+      // first connection: send everything on this device up, merged with what's already there
+      PENDING = { edits: Object.keys(EDITS), styles: Object.keys(STYLE_EDITS), sets: SETLISTS.map(x => x.id), deleted: [...DELETED] };
+      await syncNow(); toast("Connected"); }
+    catch (e) { TOKEN = ""; toast(e.message); }
+    renderSync();
+  });
+}
+
 // ---------- sheet / nav ----------
 function openSheet() { $("#sheet").classList.add("open"); $("#sheet").scrollTop = 0; document.body.style.overflow = "hidden"; }
-function closeSheet() { STACK = []; $("#sheet").classList.remove("open"); document.body.style.overflow = ""; }
+function closeSheet() { const n = STACK.length; STACK = []; FWD = []; $("#sheet").classList.remove("open"); document.body.style.overflow = "";
+  if (n) try { history.replaceState({ d: 0 }, ""); } catch (e) {} }
 function refreshSheet() { if ($("#sheet").classList.contains("open")) { const cur = STACK[STACK.length - 1]; cur && cur(); } else render(); }
-function back() {
-  STACK.pop(); const prev = STACK[STACK.length - 1];
-  if (prev) prev(); else { closeSheet(); render(); }
+// Screens stack up as you go deeper; the browser's back/forward (and [ ]) move through them.
+function pushView(fn) { STACK.push(fn); FWD = []; try { history.pushState({ d: STACK.length }, ""); } catch (e) {} }
+function doBack() {
+  const cur = STACK.pop(); if (cur) FWD.push(cur);
+  const prev = STACK[STACK.length - 1];
+  if (prev) prev(); else { $("#sheet").classList.remove("open"); document.body.style.overflow = ""; render(); }
 }
+function doForward() { const fn = FWD.pop(); if (fn) { STACK.push(fn); fn(); } }
+function back() { if (STACK.length) history.back(); }
+window.addEventListener("popstate", e => {
+  const d = (e.state && e.state.d) || 0;
+  while (STACK.length > d) doBack();
+  while (STACK.length < d && FWD.length) doForward();
+});
+document.addEventListener("keydown", e => {
+  if (e.target.closest("input, textarea, select") || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.key === "[") { e.preventDefault(); history.back(); }
+  else if (e.key === "]") { e.preventDefault(); history.forward(); }
+  else if (e.key === "l" || e.key === "L") { e.preventDefault(); goHome(); }
+});
 $("#back").onclick = back;
 $("#q").oninput = renderGrid;
 $("#sort").value = store.get("sort", "artist");
 $("#sort").onchange = e => { store.set("sort", e.target.value); renderGrid(); };
-const goHome = e => { e.preventDefault(); $("#q").value = ""; setView("records"); window.scrollTo(0, 0); };
+function goHome(e) { e && e.preventDefault(); $("#q").value = ""; setView("records"); window.scrollTo(0, 0); }
 $("#home").onclick = goHome; $("#home2").onclick = goHome;
 document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => setView(b.dataset.v));
 function setRange(r) {
