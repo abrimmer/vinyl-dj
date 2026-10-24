@@ -260,7 +260,7 @@ async function load() {
   if (pc < 100) document.querySelector("main").insertAdjacentHTML("beforebegin",
     `<div style="max-width:1200px;margin:12px auto 0;padding:0 16px"><div class="help" style="margin:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px">
       <b>Still loading BPM and keys: ${pc}% done</b> (${done.toLocaleString()} of ${TRACKS.length.toLocaleString()} tracks checked).
-      It updates by itself about once an hour. This note disappears when it's finished.
+      Last data update: <b>${esc($("#updated").textContent.replace("Updated ", ""))}</b>. It updates by itself about once an hour. This note disappears when it's finished.
       <div style="height:4px;background:var(--line);border-radius:4px;margin-top:8px"><div style="height:4px;width:${pc}%;background:var(--accent);border-radius:4px"></div></div></div></div>`);
   renderChips(); render();
 }
@@ -307,7 +307,7 @@ function renderGrid() {
     added: (a, b) => String(b.added || "").localeCompare(String(a.added || "")),
     year: (a, b) => Y(a) - Y(b) || A(a).localeCompare(A(b))
   }[by]);
-  $("#view").innerHTML = `<div class="count">${list.length} records${STYLES.size ? " · any of: " + esc([...STYLES].join(", ")) : ""}</div>
+  $("#view").innerHTML = `<div class="count">${list.length} records · data updated ${esc($("#updated").textContent.replace("Updated ", ""))}${STYLES.size ? " · any of: " + esc([...STYLES].join(", ")) : ""}</div>
     <div class="grid">${list.map(r => `
     <button class="card" data-id="${r.id}">
       ${r.cover ? `<img loading="lazy" src="${esc(r.cover)}" alt="">` : `<div class="cover-ph"></div>`}

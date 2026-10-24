@@ -343,6 +343,9 @@ def main():
     left = sum(1 for r in releases for t in r["tracks"] if not t.get("bpm") and t.get("lookup_v", 1) < LOOKUP_V)
     log(f"Lookups this run: {api.lookups}. Tracks still to look up: {left}.")
     save(releases, "Finished")
+    if os.environ.get("GITHUB_OUTPUT"):  # tells the workflow whether to start another run
+        with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+            fh.write(f"remaining={left}\n")
 
 
 if __name__ == "__main__":

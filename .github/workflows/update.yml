@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: update
@@ -23,6 +24,7 @@ jobs:
           python-version: "3.12"
       - run: pip install requests
       - name: Update data from Discogs + GetSongBPM
+        id: update
         env:
           DISCOGS_TOKEN: ${{ secrets.DISCOGS_TOKEN }}
           GETSONGBPM_KEY: ${{ secrets.GETSONGBPM_KEY }}
@@ -40,3 +42,12 @@ jobs:
           cp /tmp/collection.json data/collection.json; cp /tmp/last_run.txt data/last_run.txt 2>/dev/null || true
           git add data/collection.json data/last_run.txt 2>/dev/null || git add data/collection.json
           git diff --cached --quiet || (git commit -m "Collection update" && git push origin HEAD:main)
+      - name: Keep going until everything is looked up
+        if: steps.update.outputs.remaining != '' && steps.update.outputs.remaining != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # GitHub often skips scheduled runs, so chain the next run ourselves.
+          # Wait so we stay under GetSongBPM's 3,000 lookups per hour.
+          sleep 1800
+          gh workflow run update.yml --ref main
