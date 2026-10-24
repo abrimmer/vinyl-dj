@@ -88,8 +88,16 @@ def log(msg):
 def save(releases, note=""):
     releases = sorted(releases, key=lambda r: (r["artist"].lower(), r.get("year") or 0))
     os.makedirs(os.path.dirname(DATA), exist_ok=True)
+    stamp = datetime.now(timezone.utc).isoformat(timespec="minutes")
+    try:  # keep the old timestamp when nothing changed, so quiet runs don't create a commit
+        with open(DATA, encoding="utf-8") as fh:
+            prev = json.load(fh)
+        if prev.get("releases") == json.loads(json.dumps(releases, ensure_ascii=False)):
+            stamp = prev.get("updated", stamp)
+    except (OSError, ValueError):
+        pass
     with open(DATA, "w", encoding="utf-8") as fh:
-        json.dump({"updated": datetime.now(timezone.utc).isoformat(timespec="minutes"),
+        json.dump({"updated": stamp,
                    "source": "Discogs + GetSongBPM.com", "releases": releases},
                   fh, ensure_ascii=False, indent=1)
     with open(os.path.join(ROOT, "data", "last_run.txt"), "w", encoding="utf-8") as fh:

@@ -2,7 +2,7 @@ name: Collection update
 
 on:
   schedule:
-    - cron: "17 */3 * * *"  # every 3 hours (finishes the first big load in about a day; later runs are quick)
+    - cron: "17 * * * *"  # hourly; quiet runs (nothing new) finish in a few minutes and change nothing
   workflow_dispatch:         # "Run workflow" button for a manual update
 
 permissions:

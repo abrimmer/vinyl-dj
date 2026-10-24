@@ -255,7 +255,13 @@ async function load() {
     TRACKS.push(t); BYKEY[k] = t;
   }
   applyEdits();
-  $("#updated").textContent = c.updated ? "Updated " + new Date(c.updated).toLocaleDateString() : "";
+  $("#updated").textContent = c.updated ? "Updated " + new Date(c.updated).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }) : "";
+  const done = TRACKS.filter(t => (t.lookup_v || 1) >= 3 || t.bpm).length, pc = Math.floor(done / TRACKS.length * 100);
+  if (pc < 100) document.querySelector("main").insertAdjacentHTML("beforebegin",
+    `<div style="max-width:1200px;margin:12px auto 0;padding:0 16px"><div class="help" style="margin:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px">
+      <b>Still loading BPM and keys: ${pc}% done</b> (${done.toLocaleString()} of ${TRACKS.length.toLocaleString()} tracks checked).
+      It updates by itself about once an hour. This note disappears when it's finished.
+      <div style="height:4px;background:var(--line);border-radius:4px;margin-top:8px"><div style="height:4px;width:${pc}%;background:var(--accent);border-radius:4px"></div></div></div></div>`);
   renderChips(); render();
 }
 function applyEdits() {
