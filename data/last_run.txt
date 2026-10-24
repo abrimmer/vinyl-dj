@@ -1,6 +1,5 @@
 Finished
-16:37:13 Collection: 636 items
-16:37:13 Records: 636
-18:02:25 Time budget used; fallbacks continue next run
-18:02:25 Fallback checks this run: 767
-18:02:25 Lookups this run: 0. Tracks still to look up: 738.
+18:02:55 Collection: 636 items
+18:02:55 Records: 636
+19:09:13 Fallback checks this run: 738
+19:09:13 Lookups this run: 0. Tracks still to look up: 0.
