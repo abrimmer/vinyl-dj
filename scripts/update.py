@@ -23,7 +23,8 @@ RECORDS = os.path.join(ROOT, "records.txt")
 STARTED = time.time()
 LOOKUP_V = 4
 FB_V = 1
-DZ_V = 1  # bump when the fallback sources change, so misses get retried  # bump when matching improves, so missing tracks get retried once
+DZ_V = 1
+RB_V = 1  # bump when the fallback sources change, so misses get retried  # bump when matching improves, so missing tracks get retried once
 MAX_NEW_LOOKUPS = int(os.environ.get("MAX_NEW_LOOKUPS", "1500"))  # stay well under GetSongBPM's 3000/hour
 
 MINOR = {"Ab": 1, "G#": 1, "Eb": 2, "D#": 2, "Bb": 3, "A#": 3, "F": 4, "C": 5, "G": 6,
@@ -287,6 +288,69 @@ class Fallback:
         return None
 
 
+PITCH = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+
+
+class Recco:
+    """Spotify search (to get a track ID) -> ReccoBeats audio features (tempo, key, mode)."""
+    def __init__(self, cid, secret):
+        self.s = requests.Session(); self.s.headers.update({"User-Agent": FB_UA})
+        r = self.s.post("https://accounts.spotify.com/api/token", data={"grant_type": "client_credentials"},
+                        auth=(cid, secret), timeout=30)
+        r.raise_for_status()
+        self.token, self.logged = r.json()["access_token"], 0
+
+    def spotify_id(self, title, artist):
+        for tv in dict.fromkeys([title, *[x.strip() for x in title.split(" = ")]]):
+            for av in dict.fromkeys([artist, *[x.strip() for x in artist.split(" = ")]]):
+                for _ in range(3):
+                    r = self.s.get("https://api.spotify.com/v1/search", timeout=30,
+                                   headers={"Authorization": f"Bearer {self.token}"},
+                                   params={"q": f'track:"{tv}" artist:"{av}"', "type": "track", "limit": 5})
+                    if r.status_code == 429:
+                        time.sleep(int(r.headers.get("Retry-After", 5)) + 1); continue
+                    break
+                time.sleep(0.15)
+                if not r.ok:
+                    if self.logged < 5:
+                        self.logged += 1; log(f"Spotify search {r.status_code}: {r.text[:200]}")
+                    continue
+                mine = [norm(plain(x)) for x in [artist, *artist.split(" = ")]]
+                for it in r.json().get("tracks", {}).get("items", []):
+                    names = [norm(plain(a.get("name"))) for a in it.get("artists", [])]
+                    if any(m and (m == n or m in n or n in m) for m in mine for n in names if n):
+                        return it["id"]
+        return None
+
+    def features(self, ids):
+        """Return {spotify_id: (bpm, camelot)} for up to 40 ids."""
+        out = {}
+        r = self.s.get("https://api.reccobeats.com/v1/audio-features", params={"ids": ",".join(ids)}, timeout=30)
+        time.sleep(0.5)
+        try:
+            j = r.json()
+        except ValueError:
+            j = {}
+        items = j.get("content") or j.get("audio_features") or (j if isinstance(j, list) else [])
+        if self.logged < 8:
+            self.logged += 1; log(f"ReccoBeats {r.status_code}: {str(j)[:300]}")
+        for i, it in enumerate(items or []):
+            if not it:
+                continue
+            sid = next((x for x in ids if x in str(it.get("href", "")) or x == it.get("id")), None)
+            if sid is None and len(items) == len(ids):
+                sid = ids[i]
+            tempo = it.get("tempo")
+            if not sid or not tempo:
+                continue
+            key, mode = it.get("key"), it.get("mode")
+            cam = ""
+            if isinstance(key, int) and 0 <= key < 12:
+                cam = camelot("", PITCH[key] + ("m" if mode == 0 else ""))
+            out[sid] = (round(float(tempo)), cam)
+        return out
+
+
 def wanted_ids():
     ids, everything = set(), False
     with open(RECORDS, encoding="utf-8") as fh:
@@ -475,8 +539,46 @@ def main():
             log(str(e))
         log(f"Deezer checks this run: {dz_done}, found: {dz_found}")
 
+    # 5. ReccoBeats via Spotify IDs: fills tracks still missing, and adds keys to BPM-only (Deezer) tracks
+    cid, csec = os.environ.get("SPOTIFY_CLIENT_ID"), os.environ.get("SPOTIFY_CLIENT_SECRET")
+    if not stop and cid and csec:
+        rb_done = rb_found = 0
+        try:
+            rc = Recco(cid, csec)
+            todo = [t for rel in releases for t in rel["tracks"]
+                    if (not t.get("bpm") or not t.get("camelot")) and t.get("rb_v") != RB_V and t.get("fb_v") == FB_V]
+            for i in range(0, len(todo), 40):
+                if time.time() - STARTED > 85 * 60:
+                    raise StopLookups("Time budget used; ReccoBeats checks continue next run")
+                batch, ids = todo[i:i + 40], {}
+                for t in batch:
+                    sid = rc.spotify_id(t["title"], t["artist"])
+                    if sid:
+                        ids[sid] = t; t["spotify_id"] = sid
+                feats = rc.features(list(ids)) if ids else {}
+                for sid, (bpm, cam) in feats.items():
+                    t = ids[sid]
+                    if not t.get("bpm"):
+                        t["bpm"], t["source"] = f"{bpm}*", "ReccoBeats"
+                    if cam and not t.get("camelot"):
+                        t["camelot"] = f"{cam}*"
+                        if t.get("source") != "ReccoBeats":
+                            t["source"] = (t.get("source") or "GetSongBPM") + " + ReccoBeats key"
+                    rb_found += 1
+                for t in batch:
+                    t["rb_v"] = RB_V; rb_done += 1
+                save(releases, "In progress (ReccoBeats)")
+        except StopLookups as e:
+            log(str(e))
+        except Exception as e:
+            log(f"ReccoBeats/Spotify problem: {e}")
+        log(f"ReccoBeats checks this run: {rb_done}, found: {rb_found}")
+
     left = sum(1 for r in releases for t in r["tracks"] if not t.get("bpm") and
                (t.get("lookup_v", 1) < LOOKUP_V or t.get("fb_v") != FB_V or t.get("dz_v") != DZ_V))
+    if cid and csec:
+        left += sum(1 for r in releases for t in r["tracks"]
+                    if (not t.get("bpm") or not t.get("camelot")) and t.get("rb_v") != RB_V and t.get("fb_v") == FB_V)
     log(f"Lookups this run: {api.lookups}. Tracks still to look up: {left}.")
     save(releases, "Finished")
     if os.environ.get("GITHUB_OUTPUT"):  # tells the workflow whether to start another run

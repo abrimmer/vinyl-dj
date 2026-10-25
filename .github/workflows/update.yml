@@ -28,6 +28,8 @@ jobs:
         env:
           DISCOGS_TOKEN: ${{ secrets.DISCOGS_TOKEN }}
           GETSONGBPM_KEY: ${{ secrets.GETSONGBPM_KEY }}
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
           MAX_NEW_LOOKUPS: "2500"
         run: python scripts/update.py
       - name: Save changes
