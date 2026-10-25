@@ -18,7 +18,7 @@
    "name": "Clash Tester",
    "favour": "balanced",
    "one": true,
-   "styleMode": "any",
+   "styleMode": "within",
    "styles": [
     "Punk",
     "New Wave"
@@ -41,7 +41,7 @@
     null,
     null
    ],
-   "updated": 1792909719664
+   "updated": 1792909726329
   }
  ]
 }
