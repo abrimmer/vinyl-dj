@@ -317,6 +317,16 @@ function styleDist(t, o) {
   const A = t.rel.styles || [], B = o.rel.styles || []; if (!A.length || !B.length) return 3;
   let best = 9; for (const a of A) for (const b of B) { const d = styleStep(a, b); if (d < best) best = d; } return best;
 }
+// The style move between two tracks, e.g. "Goth Rock → New Wave · 1 step"
+function styleMove(t, o) {
+  const A = t.rel.styles || [], B = o.rel.styles || [];
+  if (!A.length || !B.length) return "";
+  const a = A[0], b = B[0]; // each record's main style
+  if (a === b) return `<span class="pill">Style: ${esc(a)}</span>`;
+  const d = Math.min(styleStep(a, b), styleDist(t, o) || 1);
+  const cls = d <= 1 ? "ok" : d === 2 ? "warn" : "bad";
+  return `<span class="pill ${cls}">${esc(a)} → ${esc(b)} · ${d > 3 ? "big leap" : d + (d === 1 ? " step" : " steps")}</span>`;
+}
 function closeStyles(r) {
   const out = new Set();
   for (const x of r.styles || []) for (const [k, v] of STYLE_STEP) if (v === 1 && k.startsWith(x + "|")) out.add(k.split("|")[1]);
@@ -533,7 +543,7 @@ function showMix(t, push = true) {
       pitch slider on the <b>next</b> record. “Plays as” = the key it sounds in after that pitch change. Tap a result to keep going.</p>
     ${rulesHtml(MR, "mixRules", false)}
     ${res.length ? "" : `<p class="help">Nothing fits these rules. Loosen tempo, key or style steps.</p>`}
-    ${res.map((x, i) => resultRow(x, i)).join("")}`}`;
+    ${res.map((x, i) => resultRow(x, i, styleMove(t, x.o))).join("")}`}`;
   if ($("#mixRules")) wireRules("mixRules", MR, R => { store.set("mixRules", { tempo: R.tempo, keySteps: R.keySteps, styleSteps: R.styleSteps }); showMix(t, false); });
   $("#addThis").onclick = () => addToSetlist(t);
   $("#editThis").onclick = () => openEdit(t, $("#edit-mix"));
@@ -652,7 +662,7 @@ function showSetlist(s, push = true) {
     <p class="help">Pick a <b>first</b> track (and a <b>last</b> one if you like), then <b>Fill empty slots</b>. 🔒 locked tracks never get swapped.
       Tap a track to swap it. Swipe left (or ✕) to clear a slot. Pitch range: <b>±${RANGE}%</b> (change it on the Records tab).</p>`;
   T.forEach((t, i) => {
-    if (i > 0) html += `<div class="bridge">${T[i - 1] && t ? bridgeHtml(transition(T[i - 1], t)) : ""}</div>`;
+    if (i > 0) html += `<div class="bridge">${T[i - 1] && t ? bridgeHtml(transition(T[i - 1], t)) + styleMove(T[i - 1], t) : ""}</div>`;
     const x = s.slots[i];
     html += `<div class="slot" data-i="${i}">` + (t ? `<div class="slot-del">Clear</div>
       <div class="slot-inner ${x.lock ? "locked" : ""}">
