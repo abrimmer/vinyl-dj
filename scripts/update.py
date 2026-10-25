@@ -25,7 +25,8 @@ LOOKUP_V = 4
 FB_V = 1
 DZ_V = 1
 RB_V = 1
-RB_PAUSED = [False]  # bump when the fallback sources change, so misses get retried  # bump when matching improves, so missing tracks get retried once
+RB_PAUSED = [False]
+META = {}  # bump when the fallback sources change, so misses get retried  # bump when matching improves, so missing tracks get retried once
 MAX_NEW_LOOKUPS = int(os.environ.get("MAX_NEW_LOOKUPS", "1500"))  # stay well under GetSongBPM's 3000/hour
 
 MINOR = {"Ab": 1, "G#": 1, "Eb": 2, "D#": 2, "Bb": 3, "A#": 3, "F": 4, "C": 5, "G": 6,
@@ -102,7 +103,7 @@ def save(releases, note=""):
     except (OSError, ValueError):
         pass
     with open(DATA, "w", encoding="utf-8") as fh:
-        json.dump({"updated": stamp,
+        json.dump({"updated": stamp, "spotify_resume_at": META.get("spotify_resume_at", 0),
                    "source": "Discogs + GetSongBPM.com", "releases": releases},
                   fh, ensure_ascii=False, indent=1)
     with open(os.path.join(ROOT, "data", "last_run.txt"), "w", encoding="utf-8") as fh:
@@ -310,11 +311,12 @@ class Recco:
                                    params={"q": f'track:"{tv}" artist:"{av}"', "type": "track", "limit": 5})
                     if r.status_code == 429:
                         wait = int(r.headers.get("Retry-After", 5) or 5)
-                        if wait > 60:  # Spotify sometimes asks for very long pauses: stop and try next run
+                        if wait > 60:  # Spotify sometimes asks for very long pauses: stop until then
+                            META["spotify_resume_at"] = time.time() + wait + 300
                             raise StopLookups(f"Spotify asked to pause for {wait // 60} minutes; continuing next run")
                         time.sleep(wait + 1); continue
                     break
-                time.sleep(0.5)
+                time.sleep(1.0)
                 if not r.ok:
                     if self.logged < 5:
                         self.logged += 1; log(f"Spotify search {r.status_code}: {r.text[:200]}")
@@ -428,7 +430,9 @@ def main():
     old = {}
     if os.path.exists(DATA):
         with open(DATA, encoding="utf-8") as fh:
-            old = {r["id"]: r for r in json.load(fh).get("releases", [])}
+            prev = json.load(fh)
+            old = {r["id"]: r for r in prev.get("releases", [])}
+            META["spotify_resume_at"] = prev.get("spotify_resume_at", 0)
 
     ids, everything = wanted_ids()
 
@@ -548,7 +552,10 @@ def main():
 
     # 5. ReccoBeats via Spotify IDs: fills tracks still missing, and adds keys to BPM-only (Deezer) tracks
     cid, csec = os.environ.get("SPOTIFY_CLIENT_ID"), os.environ.get("SPOTIFY_CLIENT_SECRET")
-    if not stop and cid and csec:
+    spotify_ok = time.time() > META.get("spotify_resume_at", 0)
+    if not spotify_ok:
+        log("Spotify pause still active; skipping ReccoBeats this run")
+    if not stop and cid and csec and spotify_ok:
         rb_done = rb_found = 0
         try:
             rc = Recco(cid, csec)
@@ -585,7 +592,7 @@ def main():
 
     left = sum(1 for r in releases for t in r["tracks"] if not t.get("bpm") and
                (t.get("lookup_v", 1) < LOOKUP_V or t.get("fb_v") != FB_V or t.get("dz_v") != DZ_V))
-    if cid and csec:
+    if cid and csec and time.time() > META.get("spotify_resume_at", 0):
         left += sum(1 for r in releases for t in r["tracks"]
                     if (not t.get("bpm") or not t.get("camelot")) and t.get("rb_v") != RB_V and t.get("fb_v") == FB_V)
     log(f"Lookups this run: {api.lookups}. Tracks still to look up: {left}.")
