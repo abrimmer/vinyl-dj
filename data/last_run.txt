@@ -1,5 +1,14 @@
 Finished
-04:48:35 Collection: 636 items
-04:48:35 Records: 636
-04:48:35 Fallback checks this run: 0
-04:48:35 Lookups this run: 0. Tracks still to look up: 0.
+06:13:18 Collection: 636 items
+06:13:18 Records: 636
+06:13:18 Fallback checks this run: 0
+06:13:19 Deezer check 'Bohren & Der Club Of Gore - Sag Mir, Wie Lang': {'data': [], 'total': 0}
+06:13:20 Deezer check 'Islam Chipsy - Day1': {'data': [], 'total': 0}
+06:13:20 Deezer check 'Islam Chipsy - El daynasour': {'data': [], 'total': 0}
+06:13:21 Deezer check 'Islam Chipsy - Fast Track': {'data': [], 'total': 0}
+06:13:21 Deezer check 'Islam Chipsy - El Zantor': {'data': [], 'total': 0}
+06:13:24 Deezer track 97940288 bpm=0 error=None
+06:13:27 Deezer track 2585629762 bpm=0 error=None
+06:13:29 Deezer track 2121247267 bpm=0 error=None
+06:38:52 Deezer checks this run: 1710, found: 102
+06:38:52 Lookups this run: 0. Tracks still to look up: 0.
