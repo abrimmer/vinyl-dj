@@ -10,42 +10,10 @@
  "styles": {},
  "deleted": [
   1792765458975,
-  1792778627155
+  1792778627155,
+  1792909654491
  ],
  "setlists": [
-  {
-   "id": 1792909654491,
-   "name": "Clash Tester",
-   "favour": "balanced",
-   "one": true,
-   "styleMode": "within",
-   "styles": [
-    "Punk",
-    "New Wave"
-   ],
-   "slots": [
-    {
-     "k": "10665700|A1",
-     "lock": true
-    },
-    {
-     "k": "10382943|A4",
-     "lock": true
-    },
-    {
-     "k": "3653591|B5",
-     "lock": true
-    },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-   ],
-   "updated": 1792917981641
-  },
   {
    "id": 1792920031240,
    "name": "Setlist 2",
