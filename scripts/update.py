@@ -22,7 +22,8 @@ DATA = os.path.join(ROOT, "data", "collection.json")
 RECORDS = os.path.join(ROOT, "records.txt")
 STARTED = time.time()
 LOOKUP_V = 4
-FB_V = 1  # bump when the fallback sources change, so misses get retried  # bump when matching improves, so missing tracks get retried once
+FB_V = 1
+DZ_V = 1  # bump when the fallback sources change, so misses get retried  # bump when matching improves, so missing tracks get retried once
 MAX_NEW_LOOKUPS = int(os.environ.get("MAX_NEW_LOOKUPS", "1500"))  # stay well under GetSongBPM's 3000/hour
 
 MINOR = {"Ab": 1, "G#": 1, "Eb": 2, "D#": 2, "Bb": 3, "A#": 3, "F": 4, "C": 5, "G": 6,
@@ -214,6 +215,7 @@ class Fallback:
         self.s = requests.Session()
         self.s.headers.update({"User-Agent": FB_UA, "Accept": "application/json"})
         self.last_mb = 0
+        self.dz_logged = 0
 
     def get(self, url, **params):
         for _ in range(3):
@@ -263,13 +265,22 @@ class Fallback:
 
     def deezer(self, title, artist):
         for tv in dict.fromkeys([title, *[x.strip() for x in title.split(" = ")]]):
-            res = self.get("https://api.deezer.com/search", q=f'artist:"{artist}" track:"{plain(tv)}"', limit=5)
+            res = self.get("https://api.deezer.com/search", q=f'artist:"{artist.split(" = ")[0]}" track:"{tv}"', limit=5)
+            if not res.get("data"):  # fall back to a plain text search
+                res = self.get("https://api.deezer.com/search", q=f'{artist.split(" = ")[0]} {tv}', limit=5)
             time.sleep(0.2)
+            if self.dz_logged < 5:
+                self.dz_logged += 1
+                log(f"Deezer check '{artist} - {tv}': {str(res)[:300]}")
             for hit in res.get("data", []) or []:
                 ha = norm(plain((hit.get("artist") or {}).get("name")))
-                if ha and (ha == norm(plain(artist)) or any(norm(plain(x)) == ha for x in artist.split(" = "))):
+                mine = [norm(plain(x)) for x in [artist, *artist.split(" = ")]]
+                if ha and any(m and (m == ha or m in ha or ha in m) for m in mine):
                     tr = self.get(f"https://api.deezer.com/track/{hit['id']}")
                     time.sleep(0.2)
+                    if self.dz_logged < 8:
+                        self.dz_logged += 1
+                        log(f"Deezer track {hit['id']} bpm={tr.get('bpm')} error={tr.get('error')}")
                     if tr.get("bpm") and float(tr["bpm"]) > 0:
                         return {"bpm": round(float(tr["bpm"])), "camelot": ""}
                     break
@@ -435,10 +446,6 @@ def main():
                     ab = fb.acousticbrainz(fb.mb_ids(t["title"], t["artist"]))
                     if ab:
                         found, src = ab, "AcousticBrainz"
-                    else:
-                        dz = fb.deezer(t["title"], t["artist"])
-                        if dz:
-                            found, src = dz, "Deezer"
                     t["fb_v"] = FB_V
                     if found:
                         t["bpm"] = f"{found['bpm']}*"
@@ -451,9 +458,25 @@ def main():
         except StopLookups as e:
             log(str(e))
         log(f"Fallback checks this run: {done}")
+        # Deezer pass (BPM only) for anything still missing
+        dz_done = dz_found = 0
+        try:
+            for rel in releases:
+                for t in rel["tracks"]:
+                    if t.get("bpm") or t.get("dz_v") == DZ_V or t.get("fb_v") != FB_V:
+                        continue
+                    if time.time() - STARTED > 85 * 60:
+                        raise StopLookups("Time budget used; Deezer checks continue next run")
+                    dz = fb.deezer(t["title"], t["artist"])
+                    t["dz_v"] = DZ_V; dz_done += 1
+                    if dz:
+                        t["bpm"], t["camelot"], t["source"] = f"{dz['bpm']}*", "", "Deezer"; dz_found += 1
+        except StopLookups as e:
+            log(str(e))
+        log(f"Deezer checks this run: {dz_done}, found: {dz_found}")
 
     left = sum(1 for r in releases for t in r["tracks"] if not t.get("bpm") and
-               (t.get("lookup_v", 1) < LOOKUP_V or t.get("fb_v") != FB_V))
+               (t.get("lookup_v", 1) < LOOKUP_V or t.get("fb_v") != FB_V or t.get("dz_v") != DZ_V))
     log(f"Lookups this run: {api.lookups}. Tracks still to look up: {left}.")
     save(releases, "Finished")
     if os.environ.get("GITHUB_OUTPUT"):  # tells the workflow whether to start another run
