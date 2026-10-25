@@ -24,7 +24,8 @@ STARTED = time.time()
 LOOKUP_V = 4
 FB_V = 1
 DZ_V = 1
-RB_V = 1  # bump when the fallback sources change, so misses get retried  # bump when matching improves, so missing tracks get retried once
+RB_V = 1
+RB_PAUSED = [False]  # bump when the fallback sources change, so misses get retried  # bump when matching improves, so missing tracks get retried once
 MAX_NEW_LOOKUPS = int(os.environ.get("MAX_NEW_LOOKUPS", "1500"))  # stay well under GetSongBPM's 3000/hour
 
 MINOR = {"Ab": 1, "G#": 1, "Eb": 2, "D#": 2, "Bb": 3, "A#": 3, "F": 4, "C": 5, "G": 6,
@@ -308,9 +309,12 @@ class Recco:
                                    headers={"Authorization": f"Bearer {self.token}"},
                                    params={"q": f'track:"{tv}" artist:"{av}"', "type": "track", "limit": 5})
                     if r.status_code == 429:
-                        time.sleep(int(r.headers.get("Retry-After", 5)) + 1); continue
+                        wait = int(r.headers.get("Retry-After", 5) or 5)
+                        if wait > 60:  # Spotify sometimes asks for very long pauses: stop and try next run
+                            raise StopLookups(f"Spotify asked to pause for {wait // 60} minutes; continuing next run")
+                        time.sleep(wait + 1); continue
                     break
-                time.sleep(0.15)
+                time.sleep(0.5)
                 if not r.ok:
                     if self.logged < 5:
                         self.logged += 1; log(f"Spotify search {r.status_code}: {r.text[:200]}")
@@ -325,7 +329,10 @@ class Recco:
     def features(self, ids):
         """Return {spotify_id: (bpm, camelot)} for up to 40 ids."""
         out = {}
-        r = self.s.get("https://api.reccobeats.com/v1/audio-features", params={"ids": ",".join(ids)}, timeout=30)
+        try:
+            r = self.s.get("https://api.reccobeats.com/v1/audio-features", params={"ids": ",".join(ids)}, timeout=30)
+        except requests.RequestException as e:
+            log(f"ReccoBeats unreachable: {e}"); return out
         time.sleep(0.5)
         try:
             j = r.json()
@@ -552,6 +559,8 @@ def main():
                     raise StopLookups("Time budget used; ReccoBeats checks continue next run")
                 batch, ids = todo[i:i + 40], {}
                 for t in batch:
+                    if time.time() - STARTED > 85 * 60:
+                        raise StopLookups("Time budget used; ReccoBeats checks continue next run")
                     sid = rc.spotify_id(t["title"], t["artist"])
                     if sid:
                         ids[sid] = t; t["spotify_id"] = sid
@@ -569,7 +578,7 @@ def main():
                     t["rb_v"] = RB_V; rb_done += 1
                 save(releases, "In progress (ReccoBeats)")
         except StopLookups as e:
-            log(str(e))
+            log(str(e)); RB_PAUSED[0] = "Spotify" in str(e)
         except Exception as e:
             log(f"ReccoBeats/Spotify problem: {e}")
         log(f"ReccoBeats checks this run: {rb_done}, found: {rb_found}")
@@ -583,7 +592,7 @@ def main():
     save(releases, "Finished")
     if os.environ.get("GITHUB_OUTPUT"):  # tells the workflow whether to start another run
         with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
-            fh.write(f"remaining={left}\ngsb_used={api.lookups}\n")
+            fh.write(f"remaining={left}\ngsb_used={api.lookups}\npaused={int(RB_PAUSED[0])}\n")
 
 
 if __name__ == "__main__":
