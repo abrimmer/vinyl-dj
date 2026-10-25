@@ -11,46 +11,8 @@
  "deleted": [
   1792765458975,
   1792778627155,
-  1792909654491
+  1792909654491,
+  1792920031240
  ],
- "setlists": [
-  {
-   "id": 1792920031240,
-   "name": "Setlist 2",
-   "one": true,
-   "rules": {
-    "tempo": 8,
-    "keySteps": 1,
-    "styleSteps": 2,
-    "route": "tight"
-   },
-   "styleMode": "any",
-   "styles": [
-    "Spoken Word",
-    "Experimental"
-   ],
-   "slots": [
-    {
-     "k": "22583561|1",
-     "lock": true
-    },
-    {
-     "k": "26806592|A3",
-     "lock": true
-    },
-    {
-     "k": "14437827|C1",
-     "lock": true
-    },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-   ],
-   "updated": 1792920047694
-  }
- ]
+ "setlists": []
 }
