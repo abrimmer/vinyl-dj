@@ -12,5 +12,33 @@
   1792765458975,
   1792778627155
  ],
- "setlists": []
+ "setlists": [
+  {
+   "id": 1792909654491,
+   "name": "Clash Tester",
+   "favour": "balanced",
+   "one": true,
+   "styleMode": "any",
+   "styles": [
+    "Punk",
+    "New Wave"
+   ],
+   "slots": [
+    {
+     "k": "10665700|A1",
+     "lock": true
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "updated": 1792909654491
+  }
+ ]
 }
