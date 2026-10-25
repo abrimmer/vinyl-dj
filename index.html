@@ -58,6 +58,8 @@
   .rules label { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
   .rules b { color: var(--text); }
   input[type=range] { width: 100%; accent-color: var(--accent); }
+  .st { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: 1px; }
+  .st.full { background: var(--ok); } .st.part { background: var(--warn); } .st.none { background: var(--bad); }
   kbd { border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; font-size: 12px; }
   .card img, .cover-ph { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block;
     background: var(--panel); }
@@ -327,6 +329,13 @@ function styleMove(t, o) {
   const cls = d <= 1 ? "ok" : d === 2 ? "warn" : "bad";
   return `<span class="pill ${cls}">${esc(a)} → ${esc(b)} · ${d > 3 ? "big leap" : d + (d === 1 ? " step" : " steps")}</span>`;
 }
+// Data status of a record: full = every track has BPM + key, part = some, none = none
+function dataStatus(r) {
+  const n = r.tracks.filter(usable).length;
+  return n === r.tracks.length ? "full" : n ? "part" : "none";
+}
+const STATUS_TEXT = { full: "All tracks have BPM + key", part: "Some tracks are missing BPM or key", none: "No BPM/key data yet" };
+const statusDot = r => { const st = dataStatus(r); return `<span class="st ${st}" title="${STATUS_TEXT[st]}"></span>`; };
 function closeStyles(r) {
   const out = new Set();
   for (const x of r.styles || []) for (const [k, v] of STYLE_STEP) if (v === 1 && k.startsWith(x + "|")) out.add(k.split("|")[1]);
@@ -399,7 +408,7 @@ function renderGrid() {
     <div class="grid">${rows.map(({ r, g }) => (g && g !== last ? `<div class="sep">${esc(last = g)}</div>` : "") + `
     <button class="card" data-id="${r.id}">
       ${r.cover ? `<img loading="lazy" src="${esc(r.cover)}" alt="">` : `<div class="cover-ph"></div>`}
-      <div class="t">${esc(r.title)}</div>
+      <div class="t">${statusDot(r)}${esc(r.title)}</div>
       <div class="a">${esc(r.artist)}${r.orig_year || r.year ? " · " + esc(r.orig_year || r.year) : ""}</div>
     </button>`).join("")}</div>`;
   $("#reshuffle")?.addEventListener("click", e => { e.preventDefault(); renderGrid.order = null; renderGrid(); });
@@ -441,6 +450,7 @@ function showAlbum(r, push = true) {
       <div>
         <div class="muted">${esc(r.artist)}</div>
         <h2>${esc(r.title)}</h2>
+        <div class="sub" style="margin-bottom:4px">${statusDot(r)}${STATUS_TEXT[dataStatus(r)]} (${r.tracks.filter(usable).length} of ${r.tracks.length} tracks)</div>
         <div class="muted">${esc([yr ? yr + reissue : "", r.label, r.format].filter(Boolean).join(" · "))}</div>
         <div class="tags">${(r.genres || []).map(s => `<span class="tag">${esc(s)}</span>`).join("")}${(r.styles || []).map(s => `<span class="tag" style="color:var(--text)">${esc(s)}</span>`).join("")}
           <button class="btn small" id="editStyles">✎ Edit styles</button></div>
@@ -862,6 +872,7 @@ function renderGuide() {
 
   <h3>Data tags</h3>
   <ul>
+    <li><span class="st full"></span>all tracks have BPM + key · <span class="st part"></span>some missing · <span class="st none"></span>no data yet (dot next to each record's name).</li>
     <li><b>*</b> or ${P("warn", "Data unsure *")} The BPM/key match wasn't exact, it's an estimate, or you typed it in. Check by ear.</li>
     <li><b>manual</b> You entered this yourself on this device.</li>
     <li><b>IN / OUT</b> Cue times: where to drop the needle (IN) and when to start your cut to the next record (OUT). Estimates (*) until you edit them.</li>
