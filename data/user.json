@@ -2,41 +2,8 @@
  "edits": {},
  "styles": {},
  "deleted": [
-  1792765458975
+  1792765458975,
+  1792778627155
  ],
- "setlists": [
-  {
-   "id": 1792778627155,
-   "name": "Setlist 2",
-   "favour": "balanced",
-   "one": true,
-   "styleMode": "any",
-   "styles": [
-    "Post-Punk",
-    "Darkwave",
-    "New Wave"
-   ],
-   "slots": [
-    {
-     "k": "17204797|A1",
-     "lock": true
-    },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    {
-     "k": "13981537|CD-15",
-     "lock": true
-    },
-    {
-     "k": "15892415|A2",
-     "lock": true
-    }
-   ]
-  }
- ]
+ "setlists": []
 }
