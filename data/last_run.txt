@@ -1,21 +1,8 @@
-In progress (ReccoBeats)
-06:39:16 Collection: 636 items
-06:39:16 Records: 636
-06:39:16 Fallback checks this run: 0
-06:39:17 Deezer check 'Bohren & Der Club Of Gore - Sag Mir, Wie Lang': {'data': [], 'total': 0}
-06:39:18 Deezer check 'Islam Chipsy - Day1': {'data': [], 'total': 0}
-06:39:18 Deezer check 'Islam Chipsy - El daynasour': {'data': [], 'total': 0}
-06:39:19 Deezer check 'Islam Chipsy - Fast Track': {'data': [], 'total': 0}
-06:39:19 Deezer check 'Islam Chipsy - El Zantor': {'data': [], 'total': 0}
-06:39:21 Deezer track 97940288 bpm=0 error=None
-06:39:24 Deezer track 2585629762 bpm=0 error=None
-06:39:27 Deezer track 2121247267 bpm=0 error=None
-07:04:19 Deezer checks this run: 1710, found: 102
-07:04:36 ReccoBeats 200: {'content': [{'id': '6854956b-36a5-40dc-ba4b-f0ec1de8adf3', 'href': 'https://open.spotify.com/track/65TYPiteC2R71WH3bz36wa', 'isrc': 'JPCO07188300', 'acousticness': 0.0391, 'danceability': 0.507, 'energy': 0.752, 'instrumentalness': 0.889, 'key': 2, 'liveness': 0.0686, 'loudness': -9.51, 'mode': 0, 
-07:04:52 ReccoBeats 200: {'content': [{'id': '074a02cd-9542-4643-89f9-b2246c9200ae', 'href': 'https://open.spotify.com/track/0TlBuH1azntROo6SCNe3Kb', 'isrc': 'GBAFL1900403', 'acousticness': 0.00974, 'danceability': 0.448, 'energy': 0.713, 'instrumentalness': 0.000832, 'key': 7, 'liveness': 0.113, 'loudness': -7.34, 'mode': 
-07:05:08 ReccoBeats 200: {'content': [{'id': 'f97ea3b7-486b-44d4-aa72-397e0c958cb5', 'href': 'https://open.spotify.com/track/60GM1mA58L7SYD1bLQXBho', 'isrc': 'GBWWP2106837', 'acousticness': 0.71, 'danceability': 0.535, 'energy': 0.649, 'instrumentalness': 0.000236, 'key': 1, 'liveness': 0.0973, 'loudness': -7.638, 'mode': 1
-07:05:24 ReccoBeats 200: {'content': [{'id': 'd4f45527-43d3-4b34-adc0-b83a970b87f7', 'href': 'https://open.spotify.com/track/5oNvTnbgAgBg6qyMkL6YOm', 'isrc': 'ITFRN1800227', 'acousticness': 0.0115, 'danceability': 0.725, 'energy': 0.732, 'instrumentalness': 0.234, 'key': 5, 'liveness': 0.106, 'loudness': -8.271, 'mode': 0, 
-07:05:39 ReccoBeats 200: {'content': [{'id': '5bdea0b1-6e40-452a-bc1d-a76d7393d3e1', 'href': 'https://open.spotify.com/track/5nEkWBNfUA87RY6ZSx2aR3', 'isrc': 'USSUB2466602', 'acousticness': 0.00224, 'danceability': 0.664, 'energy': 0.872, 'instrumentalness': 0.00893, 'key': 5, 'liveness': 0.165, 'loudness': -5.34, 'mode': 1
-07:05:57 ReccoBeats 200: {'content': [{'id': '86942d5d-cc1f-4cdf-9eae-42bdc4e6363b', 'href': 'https://open.spotify.com/track/7eJ0YBSiw7lwhpzdxR5H9T', 'isrc': 'JPCO07807440', 'acousticness': 0.301, 'danceability': 0.645, 'energy': 0.937, 'instrumentalness': 0.881, 'key': 5, 'liveness': 0.199, 'loudness': -10.71, 'mode': 0, '
-07:06:13 ReccoBeats 200: {'content': [{'id': '8f4cc82a-6d0f-4fd4-99b9-b21ee46463d2', 'href': 'https://open.spotify.com/track/28wERzXJWMb4Qx1bf9EXyW', 'isrc': 'UKDBV2000006', 'acousticness': 0.282, 'danceability': 0.51, 'energy': 0.456, 'instrumentalness': 0.0979, 'key': 2, 'liveness': 0.164, 'loudness': -12.643, 'mode': 1, 
-07:06:31 ReccoBeats 200: {'content': [{'id': 'f02e59e3-c3dd-45e4-8f7d-a40a6226a26a', 'href': 'https://open.spotify.com/track/6GolNZHvYbJ74BiHBG5I9a', 'isrc': 'FR0Q12301618', 'acousticness': 0.227, 'danceability': 0.684, 'energy': 0.67, 'instrumentalness': 0.505, 'key': 7, 'liveness': 0.327, 'loudness': -8.025, 'mode': 1, 's
+Finished
+08:39:48 Collection: 636 items
+08:39:48 Records: 636
+08:39:48 Fallback checks this run: 0
+08:39:48 Deezer checks this run: 0, found: 0
+08:39:48 Spotify asked to pause for 1344 minutes; continuing next run
+08:39:48 ReccoBeats checks this run: 0, found: 0
+08:39:48 Lookups this run: 0. Tracks still to look up: 1073.
