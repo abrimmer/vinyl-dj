@@ -53,6 +53,11 @@
   .tabs .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--muted); margin-right: 4px; vertical-align: 1px; }
   .stylebox { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 8px; }
   .stylebox .tag button { background: none; border: 0; color: var(--muted); cursor: pointer; padding: 0 0 0 4px; }
+  .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; background: var(--panel);
+    border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin: 10px 0; }
+  .rules label { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
+  .rules b { color: var(--text); }
+  input[type=range] { width: 100%; accent-color: var(--accent); }
   kbd { border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; font-size: 12px; }
   .card img, .cover-ph { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block;
     background: var(--panel); }
@@ -289,7 +294,34 @@ async function load() {
   renderChips(); render();
   syncStart();
 }
-function applyStyleEdits() { for (const r of DATA) r.styles = STYLE_EDITS[r.id] ? STYLE_EDITS[r.id].slice() : r.discogsStyles.slice(); }
+function applyStyleEdits() { for (const r of DATA) r.styles = STYLE_EDITS[r.id] ? STYLE_EDITS[r.id].slice() : r.discogsStyles.slice(); buildStyleSteps(); }
+// Style closeness, learned from your collection: styles that often share records are close.
+// 1 step = same scene, 2 = neighbouring scenes, 3 = some link. Pairs seen on fewer than 2 records don't count.
+let STYLE_STEP = new Map();
+function buildStyleSteps() {
+  const n = {}, co = {};
+  for (const r of DATA) {
+    const st = [...new Set(r.styles || [])];
+    st.forEach(x => n[x] = (n[x] || 0) + 1);
+    for (let i = 0; i < st.length; i++) for (let j = 0; j < st.length; j++) if (i !== j) { const k = st[i] + "|" + st[j]; co[k] = (co[k] || 0) + 1; }
+  }
+  STYLE_STEP = new Map();
+  for (const k in co) {
+    if (co[k] < 2) continue;
+    const [a, b] = k.split("|"), sim = co[k] / Math.sqrt(n[a] * n[b]);
+    STYLE_STEP.set(k, sim >= 0.2 ? 1 : sim >= 0.1 ? 2 : 3);
+  }
+}
+const styleStep = (a, b) => a === b ? 0 : (STYLE_STEP.get(a + "|" + b) ?? 9);
+function styleDist(t, o) {
+  const A = t.rel.styles || [], B = o.rel.styles || []; if (!A.length || !B.length) return 3;
+  let best = 9; for (const a of A) for (const b of B) { const d = styleStep(a, b); if (d < best) best = d; } return best;
+}
+function closeStyles(r) {
+  const out = new Set();
+  for (const x of r.styles || []) for (const [k, v] of STYLE_STEP) if (v === 1 && k.startsWith(x + "|")) out.add(k.split("|")[1]);
+  (r.styles || []).forEach(x => out.delete(x)); return [...out].slice(0, 8);
+}
 function applyEdits() {
   for (const t of TRACKS) { const k = tkey(t); Object.assign(t, BASE[k]); t.manual = false;
     if (EDITS[k]) { Object.assign(t, EDITS[k]); t.manual = true; } }
@@ -403,6 +435,7 @@ function showAlbum(r, push = true) {
         <div class="tags">${(r.genres || []).map(s => `<span class="tag">${esc(s)}</span>`).join("")}${(r.styles || []).map(s => `<span class="tag" style="color:var(--text)">${esc(s)}</span>`).join("")}
           <button class="btn small" id="editStyles">✎ Edit styles</button></div>
         <div id="styleEditor"></div>
+        ${closeStyles(r).length ? `<div class="sub" style="margin-top:6px">Close styles (1 step): ${esc(closeStyles(r).join(", "))}</div>` : ""}
         ${albumPlay(r)}
         <div style="margin-top:8px"><a href="${esc(r.url)}" target="_blank" rel="noopener">View on Discogs ↗</a></div>
       </div>
@@ -478,12 +511,12 @@ function resultRow(x, i, extra = "") {
 function showMix(t, push = true) {
   if (push) pushView(() => showMix(t, false));
   $("#crumb").textContent = "Mixes with " + t.title;
-  const tempoOnly = store.get("tempoOnly", false);
+  const MR = { ...DEFAULT_RULES(), ...store.get("mixRules", {}), route: "evolve" };
   let res = [];
   if (usable(t)) for (const o of TRACKS) {
     if (o === t || !usable(o)) continue;
-    const tr = transition(t, o); if (!tr.inRange || (!tr.kr && !tempoOnly)) continue;
-    res.push({ o, tr, score: (tr.kr ? tr.kr.r : 3) * 10 + Math.abs(tr.fit.p) * 100 });
+    const c = ruleCost(MR, t, o, null); if (c >= 999) continue;
+    res.push({ o, tr: transition(t, o), score: c });
   }
   res = res.sort((x, y) => x.score - y.score).slice(0, 25);
   const r = t.rel;
@@ -498,10 +531,10 @@ function showMix(t, push = true) {
     ${!usable(t) ? `<p class="help">No BPM/key for this track yet. Add it from the album page (Add BPM/key) and it'll match.</p>` : `
     <p class="help">Tracks that fit <b>after</b> this one with your <b>±${RANGE}%</b> pitch range. The <b>purple %</b> is where to set the
       pitch slider on the <b>next</b> record. “Plays as” = the key it sounds in after that pitch change. Tap a result to keep going.</p>
-    <label class="chk"><input type="checkbox" id="tempoOnly" ${tempoOnly ? "checked" : ""}> Also show tempo-only matches (key may clash)</label>
-    ${res.length ? "" : `<p class="help">Nothing fits within ±${RANGE}%. Try a wider pitch range.</p>`}
+    ${rulesHtml(MR, "mixRules", false)}
+    ${res.length ? "" : `<p class="help">Nothing fits these rules. Loosen tempo, key or style steps.</p>`}
     ${res.map((x, i) => resultRow(x, i)).join("")}`}`;
-  $("#tempoOnly")?.addEventListener("change", e => { store.set("tempoOnly", e.target.checked); showMix(t, false); });
+  if ($("#mixRules")) wireRules("mixRules", MR, R => { store.set("mixRules", { tempo: R.tempo, keySteps: R.keySteps, styleSteps: R.styleSteps }); showMix(t, false); });
   $("#addThis").onclick = () => addToSetlist(t);
   $("#editThis").onclick = () => openEdit(t, $("#edit-mix"));
   $("#sheetBody").querySelectorAll(".res").forEach(d => d.onclick = () => showMix(res[+d.dataset.i].o));
@@ -510,19 +543,44 @@ function showMix(t, push = true) {
 
 // ---------- setlists ----------
 const saveSets = s => { if (s) s.updated = Date.now(); markChange("sets", s && s.id); };
-const FAVOUR = { balanced: "Balanced", tempo: "Tempo (smallest pitch changes)", key: "Key (always harmonic)" };
-const favWord = f => FAVOUR[f].split(" ")[0].toLowerCase();
-const STYLE_MODES = { any: "Styles: any", within: "Styles: stay within…", drift: "Styles: smooth drift" };
 const stylesOf = t => t.rel.styles || [];
-function styleSim(a, b) { // share of styles in common (0–1)
-  const A = new Set(stylesOf(a)), B = stylesOf(b); if (!A.size || !B.length) return 0;
-  const inter = B.filter(x => A.has(x)).length; return inter / (A.size + B.length - inter);
-}
 const styleAllowed = (s, o) => s.styleMode !== "within" || !(s.styles || []).length || stylesOf(o).some(x => s.styles.includes(x));
-// Full cost of a step inside a setlist: tempo/key cost + style drift penalty
-function setCost(s, a, b) {
-  const c = stepCost(transition(a, b), s.favour); if (c >= 999) return 999;
-  return s.styleMode === "drift" ? c + (1 - styleSim(a, b)) * 8 : c;
+const DEFAULT_RULES = () => ({ tempo: RANGE, keySteps: 1, styleSteps: 2, route: "tight" });
+const rulesOf = s => ({ ...DEFAULT_RULES(), ...(s.rules || {}) });
+const anchorOf = s => s.slots[0] && BYKEY[s.slots[0].k];
+// Cost of going from track a to track b under the rules. Lower = smoother. 999 = not allowed.
+function ruleCost(R, a, b, anchor) {
+  const tr = transition(a, b); if (!tr) return 999;
+  const p = Math.abs(tr.fit.p) * 100; if (p > Math.min(R.tempo, RANGE) + 1e-9) return 999;
+  const ks = tr.plays && cam(a.camelot) ? wheelDist(cam(a.camelot), tr.plays) : 9;
+  if (R.keySteps !== "any" && ks > R.keySteps) return 999;
+  let sd = 0;
+  if (R.styleSteps !== "any") {
+    sd = styleDist(a, b); if (sd > R.styleSteps) return 999;
+    if (R.route === "tight" && anchor && anchor !== b && styleDist(anchor, b) > R.styleSteps) return 999;
+  }
+  return p + Math.min(ks, 4) * 3 + sd * 2 + (tr.fit.f === 1 ? 0 : 2);
+}
+const setCost = (s, a, b) => ruleCost(rulesOf(s), a, b, anchorOf(s));
+function rulesSummary(R) {
+  return `±${Math.min(R.tempo, RANGE)}% · key ${R.keySteps} · style ${R.styleSteps}${R.styleSteps === "any" ? "" : " · " + (R.route === "tight" ? "tight" : "evolve")}`;
+}
+function rulesHtml(R, id, withRoute = true) {
+  const o = (v, cur, label) => `<option value="${v}" ${String(cur) === String(v) ? "selected" : ""}>${label}</option>`;
+  return `<div class="rules" id="${id}">
+    <label>Tempo: up to <b>±<span data-tv>${Math.min(R.tempo, RANGE)}</span>%</b> pitch
+      <input type="range" min="1" max="${RANGE}" step="1" value="${Math.min(R.tempo, RANGE)}" data-r="tempo"></label>
+    <label>Key steps <select data-r="keySteps">${o(0, R.keySteps, "0 · same key only")}${o(1, R.keySteps, "1 · neighbours (±1, minor/major)")}${o(2, R.keySteps, "2 · bolder changes")}${o("any", R.keySteps, "Any · ignore key")}</select></label>
+    <label>Style steps <select data-r="styleSteps">${o(1, R.styleSteps, "1 · same scene")}${o(2, R.styleSteps, "2 · neighbouring scenes")}${o(3, R.styleSteps, "3 · anything connected")}${o("any", R.styleSteps, "Any · ignore style")}</select></label>
+    ${withRoute ? `<label>Style route <select data-r="route">${o("tight", R.route, "Tight · stays near your first track")}${o("evolve", R.route, "Evolve · style can change step by step")}</select></label>` : ""}
+  </div>`;
+}
+function wireRules(id, R, onChange) {
+  const box = $("#" + id);
+  box.querySelectorAll("[data-r]").forEach(el => {
+    if (el.type === "range") el.addEventListener("input", () => { box.querySelector("[data-tv]").textContent = el.value; });
+    el.addEventListener("change", () => { const v = el.value; R[el.dataset.r] = isNaN(+v) ? v : +v; onChange(R); });
+  });
 }
 function renderSetlists() {
   $("#view").innerHTML = `<div class="tools"><button class="btn primary" id="newSet">+ New setlist</button></div>
@@ -531,7 +589,7 @@ function renderSetlists() {
       return `<div class="sl-card" data-i="${i}">
         <div class="covers">${ts.slice(0, 4).map(t => t.rel.thumb ? `<img src="${esc(t.rel.thumb)}" alt="">` : "").join("")}</div>
         <div style="flex:1;margin-left:${ts.length ? 10 : 0}px"><div class="name">${esc(s.name)}</div>
-          <div class="sub">${ts.length}/${s.slots.length} tracks · favour ${esc(favWord(s.favour))}${s.styleMode === "within" && (s.styles || []).length ? " · " + esc(s.styles.join(", ")) : s.styleMode === "drift" ? " · style drift" : ""}</div></div>
+          <div class="sub">${ts.length}/${s.slots.length} tracks · ${esc(rulesSummary(rulesOf(s)))}${s.styleMode === "within" && (s.styles || []).length ? " · only " + esc(s.styles.join(", ")) : ""}</div></div>
         <span class="muted">›</span></div>`; }).join("")}`;
   $("#newSet").onclick = () => { STACK = []; newSetlist(); };
   $("#view").querySelectorAll(".sl-card").forEach(c => c.onclick = () => { STACK = []; showSetlist(SETLISTS[+c.dataset.i]); });
@@ -542,14 +600,14 @@ function newSetlist(firstTrack, push = true) {
   $("#sheetBody").innerHTML = `<h3>New setlist</h3><form class="form" id="nf">
     <label>Name<input type="text" name="nm" required value="Setlist ${SETLISTS.length + 1}"></label>
     <label>Number of tracks<input type="number" name="len" min="2" max="60" value="10"></label>
-    <label>Favour<select name="favour">${Object.entries(FAVOUR).map(([k, v]) => `<option value="${k}">${v}</option>`).join("")}</select></label>
-    <label>Styles<select name="sm">${Object.entries(STYLE_MODES).map(([k, v]) => `<option value="${k}">${v.replace("Styles: ", "")}</option>`).join("")}</select></label>
+    ${rulesHtml(DEFAULT_RULES(), "nfRules")}
     <label class="chk" style="margin:0"><input type="checkbox" name="one" checked> Max 1 track per record</label>
     ${firstTrack ? `<p class="help">Starts with <b>${esc(firstTrack.title)}</b>.</p>` : ""}
     <button class="btn primary" type="submit">Create</button></form>`;
+  const NF_RULES = DEFAULT_RULES(); wireRules("nfRules", NF_RULES, () => {});
   $("#nf").onsubmit = e => {
     e.preventDefault(); const f = e.target;
-    const s = { id: Date.now(), name: f.nm.value.trim() || "Setlist", favour: f.favour.value, one: f.one.checked, styleMode: f.sm.value, styles: firstTrack ? stylesOf(firstTrack).slice() : [],
+    const s = { id: Date.now(), name: f.nm.value.trim() || "Setlist", one: f.one.checked, rules: NF_RULES, styleMode: "any", styles: firstTrack ? stylesOf(firstTrack).slice() : [],
       slots: Array(Math.max(2, Math.min(60, +f.len.value || 10))).fill(null) };
     if (firstTrack) s.slots[0] = { k: tkey(firstTrack), lock: true };
     SETLISTS.push(s); saveSets(s); if (VIEW === "setlists") renderSetlists();
@@ -579,14 +637,13 @@ function showSetlist(s, push = true) {
   const T = s.slots.map(x => x && BYKEY[x.k]);
   let html = `<div class="tools" style="margin-top:0">
       <input type="text" id="slName" value="${esc(s.name)}" style="flex:1 1 180px;font-weight:600" aria-label="Setlist name">
-      <select id="slFav">${Object.entries(FAVOUR).map(([k, v]) => `<option value="${k}" ${s.favour === k ? "selected" : ""}>Favour: ${v}</option>`).join("")}</select>
       <label class="chk" style="margin:0"><input type="checkbox" id="slOne" ${s.one ? "checked" : ""}> 1 per record</label>
-      <select id="slStyleMode">${Object.entries(STYLE_MODES).map(([k, v]) => `<option value="${k}" ${(s.styleMode || "any") === k ? "selected" : ""}>${v}</option>`).join("")}</select>
+      <label class="chk" style="margin:0"><input type="checkbox" id="slWithin" ${s.styleMode === "within" ? "checked" : ""}> Only these styles…</label>
     </div>
+    ${rulesHtml(rulesOf(s), "slRules")}
     ${s.styleMode === "within" ? `<div class="chips" id="slStyles" style="flex-wrap:wrap;padding-top:0">${allStyles().map(x =>
       `<button class="chip ${(s.styles || []).includes(x) ? "on" : ""}" data-s="${esc(x)}">${esc(x)}</button>`).join("")}</div>
       <p class="help" style="margin-top:4px">${(s.styles || []).length ? "Only records tagged with any of these styles are used." : "Tap the styles to keep this set within."}</p>` : ""}
-    ${s.styleMode === "drift" ? `<p class="help" style="margin-top:4px">Each next track should share styles with the one before, so the set slides gradually between your first and last track.</p>` : ""}
     <div class="tools">
       <button class="btn primary" id="fillEmpty">Fill empty slots</button>
       <button class="btn" id="refill">Re-shuffle unlocked</button>
@@ -616,9 +673,9 @@ function showSetlist(s, push = true) {
   $("#sheetBody").innerHTML = html;
   const B = $("#sheetBody");
   $("#slName").onchange = e => { s.name = e.target.value.trim() || s.name; saveSets(s); $("#crumb").textContent = s.name; };
-  $("#slFav").onchange = e => { s.favour = e.target.value; saveSets(s); };
+  wireRules("slRules", rulesOf(s), R => { s.rules = { ...R }; saveSets(s); showSetlist(s, false); });
   $("#slOne").onchange = e => { s.one = e.target.checked; saveSets(s); };
-  $("#slStyleMode").onchange = e => { s.styleMode = e.target.value; saveSets(s); showSetlist(s, false); };
+  $("#slWithin").onchange = e => { s.styleMode = e.target.checked ? "within" : "any"; saveSets(s); showSetlist(s, false); };
   $("#slStyles")?.addEventListener("click", e => { const c = e.target.closest(".chip"); if (!c) return;
     s.styles = s.styles || []; const x = c.dataset.s; s.styles = s.styles.includes(x) ? s.styles.filter(y => y !== x) : [...s.styles, x];
     saveSets(s); showSetlist(s, false); });
@@ -675,7 +732,7 @@ function pickForSlot(s, i, push = true) {
   const cur = s.slots[i] && BYKEY[s.slots[i].k];
   $("#sheetBody").innerHTML = `
     ${cur ? `<div class="src"><div style="flex:1"><div class="sub">Currently in slot ${i + 1}</div><div class="name">${esc(cur.title)}</div><div class="sub">${esc(cur.rel.artist)}</div></div>${camBadge(cur.camelot)}</div>` : ""}
-    <p class="help">${P || N ? `Best fits ${P ? `after <b>${esc(P.title)}</b>` : ""}${P && N ? " and " : ""}${N ? `before <b>${esc(N.title)}</b>` : ""}, favouring <b>${esc(favWord(s.favour))}</b>. Or search any track.` : "Search for a track to start with."}</p>
+    <p class="help">${P || N ? `Best fits ${P ? `after <b>${esc(P.title)}</b>` : ""}${P && N ? " and " : ""}${N ? `before <b>${esc(N.title)}</b>` : ""}, using this setlist's rules (<b>${esc(rulesSummary(rulesOf(s)))}</b>). Or search any track.` : "Search for a track to start with."}</p>
     <input type="search" id="pq" placeholder="Search all tracks" style="width:100%">
     <div id="plist"></div>`;
   const draw = q => {
@@ -695,14 +752,6 @@ function usedSets(s, skip = -1) {
   const keys = new Set(), recs = new Set();
   s.slots.forEach((x, j) => { if (x && j !== skip && BYKEY[x.k]) { keys.add(x.k); recs.add(BYKEY[x.k].rel.id); } });
   return { keys, recs };
-}
-// Cost of one transition. Lower = smoother. 999 = not allowed.
-function stepCost(tr, favour) {
-  if (!tr || !tr.inRange) return 999;
-  const p = Math.abs(tr.fit.p) * 100, k = tr.kr ? tr.kr.r : null, ff = tr.fit.f === 1 ? 0 : 2;
-  if (favour === "key") return k === null ? 999 : k * 3 + p * 0.4 + ff;
-  if (favour === "tempo") return p * 2 + (k === null ? 6 : k) + ff;
-  return p + (k === null ? 12 : k * 2) + ff; // balanced
 }
 // Fill empty slots between filled ones (filled slots act as fixed waypoints)
 function autoFill(s, shuffle) {
@@ -733,7 +782,7 @@ function beam(s, start, end, steps, shuffle) {
       if (end) {
         h = wheelDist(cam(o.camelot), endC) * 3 / left + Math.abs(Math.log(num(o.bpm) / endB)) * 100 / left;
         if (left === 1) { const ce = setCost(s, o, end); if (ce >= 999) continue; h += ce; }
-        if (s.styleMode === "drift") h += (1 - styleSim(o, end)) * 6 / left;
+        const R = rulesOf(s); if (R.route === "evolve" && R.styleSteps !== "any") h += styleDist(o, end) * 3 / left;
       }
       next.push({ path: [...bm.path, o], last: o, cost: bm.cost + c + (shuffle ? Math.random() * 6 : 0), h, recs: new Set([...bm.recs, o.rel.id]) });
     }
@@ -783,6 +832,15 @@ function renderGuide() {
       <b>other</b> beat of the current one. It works, but feels like the energy drops.</li>
     <li>${P("", "Double-time match")} The opposite: about twice the speed. Feels like it speeds up.</li>
     <li>${P("bad", "Outside ±8%")} You'd need more pitch than your chosen range. Switch to ±16% at the top, or pick another track.</li>
+  </ul>
+
+  <h3>Setlist rules (steps)</h3>
+  <ul>
+    <li><b>Tempo:</b> the most pitch change allowed between two records.</li>
+    <li><b>Key steps:</b> 0 = same key only · 1 = ±1 on the wheel or minor/major swap · 2 = bolder changes · Any = ignore key.</li>
+    <li><b>Style steps:</b> how far a track may move from the one before. 1 = same scene (e.g. Goth Rock → Post-Punk, Darkwave),
+      2 = neighbouring scenes, 3 = anything connected. Closeness is learned from your own collection: styles that share records are close.</li>
+    <li><b>Tight</b> keeps every track near your <b>first</b> track. <b>Evolve</b> lets the style change step by step over the set, and heads towards your <b>last</b> track if you set one.</li>
   </ul>
 
   <h3>Pitch also changes the key</h3>
