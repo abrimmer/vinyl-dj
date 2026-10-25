@@ -1,61 +1,10 @@
 {
  "edits": {},
  "styles": {},
- "deleted": [],
+ "deleted": [
+  1792765458975
+ ],
  "setlists": [
-  {
-   "id": 1792765458975,
-   "name": "Test List 01",
-   "favour": "balanced",
-   "one": true,
-   "styleMode": "any",
-   "styles": [
-    "New Wave",
-    "Post-Punk"
-   ],
-   "slots": [
-    {
-     "k": "3177172|B2",
-     "lock": true
-    },
-    {
-     "k": "11512586|B3",
-     "lock": false
-    },
-    {
-     "k": "250345|B5",
-     "lock": false
-    },
-    {
-     "k": "1453298|B5",
-     "lock": false
-    },
-    {
-     "k": "916585|B5",
-     "lock": false
-    },
-    {
-     "k": "544142|B4",
-     "lock": false
-    },
-    {
-     "k": "10725053|B5",
-     "lock": false
-    },
-    {
-     "k": "13875394|C6",
-     "lock": false
-    },
-    {
-     "k": "13718689|B2",
-     "lock": false
-    },
-    {
-     "k": "14425375|A3",
-     "lock": true
-    }
-   ]
-  },
   {
    "id": 1792778627155,
    "name": "Setlist 2",
