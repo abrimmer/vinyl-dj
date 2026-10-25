@@ -1,5 +1,6 @@
 {
  "updated": "2026-10-25T07:08+00:00",
+ "spotify_resume_at": 1792998953.0249648,
  "source": "Discogs + GetSongBPM.com",
  "releases": [
   {
@@ -140911,6 +140912,5 @@
     }
    ]
   }
- ],
- "spotify_resume_at": 1792998953.0249648
+ ]
 }
