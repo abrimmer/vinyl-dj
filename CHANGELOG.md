@@ -17,3 +17,4 @@ kept separately and is never rolled back by a revert.
 | 0.09 | 25 Oct 2026 | `e2df814` | Rules: tempo slider, key steps, style steps, Tight / Evolve |
 | 0.10 | 25 Oct 2026 | `1e83c8a` | Style moves shown between tracks |
 | 0.11 | 25 Oct 2026 | `06b4363` | Data-status dots, version numbers in the app |
+| 0.12 | 26 Oct 2026 | (this version) | Swipe cards for filling slots, song previews (Apple Music / Deezer / Spotify player), Spotify playlist export |

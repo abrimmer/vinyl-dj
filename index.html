@@ -60,6 +60,27 @@
   input[type=range] { width: 100%; accent-color: var(--accent); }
   .st { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: 1px; }
   .st.full { background: var(--ok); } .st.part { background: var(--warn); } .st.none { background: var(--bad); }
+  .play button.pv, button.pv { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700;
+    border-radius: 999px; padding: 3px 10px; border: 1px solid var(--accent); background: none; color: var(--accent); cursor: pointer; }
+  button.pv.on { background: var(--accent); color: #111; }
+  .player { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 40;
+    width: min(560px, 94vw); background: var(--panel2); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px;
+    display: none; box-shadow: 0 8px 30px rgba(0,0,0,.5); }
+  .player.open { display: block; }
+  .player .row1 { display: flex; gap: 10px; align-items: center; }
+  .player .ttl { flex: 1; min-width: 0; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .player iframe { width: 100%; height: 80px; border: 0; border-radius: 10px; margin-top: 8px; }
+  .player progress { width: 100%; height: 3px; margin-top: 8px; accent-color: var(--accent); }
+  .carousel { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 2px 14px;
+    -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+  .ccard { flex: 0 0 min(78vw, 300px); scroll-snap-align: center; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+  .ccard img.cv, .ccard .cv { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--panel2); display: block; }
+  .ccard .cb { padding: 12px; display: grid; gap: 6px; }
+  .ccard .rank { font-size: 11px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+  .lockbtn { width: 100%; padding: 10px; border-radius: 12px; border: 1px solid var(--accent); background: var(--accent);
+    color: #111; font-weight: 700; cursor: pointer; margin-top: 4px; }
+  .lockctx { font-size: 11px; color: var(--muted); text-align: center; line-height: 1.5; }
   kbd { border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; font-size: 12px; }
   .card img, .cover-ph { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block;
     background: var(--panel); }
@@ -187,11 +208,12 @@
   <div class="wrap" id="sheetBody"></div>
 </div>
 <div class="toast" id="toast"></div>
+<div class="player" id="player"></div>
 
 <footer>
   BPM and key data by <a href="https://getsongbpm.com" target="_blank" rel="noopener">GetSongBPM.com</a> ·
   Collection from <a href="https://www.discogs.com/user/abrimmer/collection" target="_blank" rel="noopener">Discogs</a> ·
-  <span id="updated"></span> · Setwright v0.11<br>* = unsure / estimated · manual entries and setlists are saved on this device
+  <span id="updated"></span> · Setwright v0.12<br>* = unsure / estimated · manual entries and setlists are saved on this device
 </footer>
 
 <script>
@@ -249,10 +271,10 @@ function bridgeHtml(tr) {
     (tr.fit.f === 2 ? `<span class="pill">Half-time match</span>` : tr.fit.f === 0.5 ? `<span class="pill">Double-time match</span>` : "");
 }
 const tkey = t => `${t.rel.id}|${t.pos}`;
-function playLinks(t) {
+function playLinks(t, withPreview = true) {
   const q = encodeURIComponent(`${t.artist || t.rel.artist} ${t.title}`);
   // spotify: links open the Spotify app directly; "web" is the fallback if the app isn't installed
-  return `<div class="play"><a class="sp" href="spotify:search:${q}">Spotify</a>` +
+  return `<div class="play">${withPreview ? pvBtn(t) : ""}<a class="sp" href="spotify:search:${q}">Spotify</a>` +
     `<a class="yt" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">YouTube</a>` +
     `<a class="web" href="https://open.spotify.com/search/${q}" target="_blank" rel="noopener" title="Open Spotify in the browser">web</a></div>`;
 }
@@ -262,6 +284,71 @@ function albumPlay(r) {
     `<a class="yt" href="https://www.youtube.com/results?search_query=${q}+full+album" target="_blank" rel="noopener">Listen on YouTube</a>` +
     `<a class="web" href="https://open.spotify.com/search/${q}/albums" target="_blank" rel="noopener" title="Open Spotify in the browser">web</a></div>`;
 }
+// ---------- previews: iTunes 30-sec clips, then Deezer, then Spotify's embedded player ----------
+const PREV = {};
+const loose = x => String(x || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\p{L}\p{N}]/gu, "");
+function jsonp(url, param = "callback") {
+  return new Promise((res, rej) => {
+    const cb = "sw_cb_" + Math.random().toString(36).slice(2), sc = document.createElement("script");
+    const done = () => { clearTimeout(timer); delete window[cb]; sc.remove(); };
+    const timer = setTimeout(() => { done(); rej(new Error("timeout")); }, 8000);
+    window[cb] = d => { done(); res(d); };
+    sc.onerror = () => { done(); rej(new Error("load")); };
+    sc.src = url + (url.includes("?") ? "&" : "?") + param + "=" + cb;
+    document.head.appendChild(sc);
+  });
+}
+async function findPreview(t) {
+  const k = tkey(t); if (k in PREV) return PREV[k];
+  const artists = (t.artist || t.rel.artist).split(" = "), titles = t.title.split(" = ");
+  const artistOk = n => artists.some(a => loose(a) && (loose(n).includes(loose(a)) || loose(a).includes(loose(n))));
+  const titleOk = n => titles.some(x => loose(n).startsWith(loose(x).slice(0, 12)));
+  for (const title of titles) {
+    try {
+      const j = await jsonp(`https://itunes.apple.com/search?entity=song&limit=15&term=${encodeURIComponent(artists[0] + " " + title)}`);
+      const hit = (j.results || []).find(x => x.previewUrl && artistOk(x.artistName) && titleOk(x.trackName));
+      if (hit) return PREV[k] = { kind: "audio", url: hit.previewUrl, link: hit.trackViewUrl, via: "Apple Music" };
+    } catch (e) {}
+    try {
+      const j = await jsonp(`https://api.deezer.com/search?output=jsonp&limit=10&q=${encodeURIComponent(`artist:"${artists[0]}" track:"${title}"`)}`);
+      const hit = (j.data || []).find(x => x.preview && artistOk(x.artist && x.artist.name) && titleOk(x.title));
+      if (hit) return PREV[k] = { kind: "audio", url: hit.preview, link: hit.link, via: "Deezer" };
+    } catch (e) {}
+  }
+  if (t.spotify_id) return PREV[k] = { kind: "spotify", id: t.spotify_id };
+  return PREV[k] = null;
+}
+const AUDIO = new Audio(); let NOW = null;
+const pvBtn = t => `<button class="pv${NOW === tkey(t) && !AUDIO.paused ? " on" : ""}" data-pv="${esc(tkey(t))}">▶ Preview</button>`;
+function markButtons() { document.querySelectorAll("[data-pv]").forEach(b => { const on = b.dataset.pv === NOW && !AUDIO.paused; b.classList.toggle("on", on); b.textContent = on ? "❚❚ Pause" : "▶ Preview"; }); }
+function closePlayer() { AUDIO.pause(); NOW = null; $("#player").classList.remove("open"); $("#player").innerHTML = ""; markButtons(); }
+async function playPreview(t) {
+  const k = tkey(t), P = $("#player");
+  if (NOW === k && P.classList.contains("open") && AUDIO.src) { AUDIO.paused ? AUDIO.play() : AUDIO.pause(); return; }
+  AUDIO.pause(); NOW = k;
+  const head = `<div class="row1"><div class="ttl"><b>${esc(t.title)}</b> · ${esc(t.artist || t.rel.artist)}</div><button class="icon" id="pClose" title="Close">✕</button></div>`;
+  P.innerHTML = head + `<div class="sub" style="margin-top:6px">Finding a preview…</div>`; P.classList.add("open");
+  $("#pClose").onclick = closePlayer;
+  const pv = await findPreview(t); if (NOW !== k) return;
+  if (pv && pv.kind === "audio") {
+    AUDIO.src = pv.url; AUDIO.play().catch(() => {});
+    P.innerHTML = head + `<progress id="pBar" max="1" value="0"></progress><div class="sub">30-second preview · <a href="${esc(pv.link)}" target="_blank" rel="noopener">Listen on ${pv.via} ↗</a></div>`;
+  } else if (pv && pv.kind === "spotify") {
+    AUDIO.removeAttribute("src");
+    P.innerHTML = head + `<iframe src="https://open.spotify.com/embed/track/${esc(pv.id)}?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media" loading="lazy"></iframe>`;
+  } else {
+    AUDIO.removeAttribute("src");
+    P.innerHTML = head + `<div class="sub" style="margin-top:6px">No preview found for this one. Try:</div>${playLinks(t, false)}`;
+  }
+  $("#pClose").onclick = closePlayer; markButtons();
+}
+AUDIO.addEventListener("timeupdate", () => { const b = $("#pBar"); if (b && AUDIO.duration) b.value = AUDIO.currentTime / AUDIO.duration; });
+["play", "pause", "ended"].forEach(ev => AUDIO.addEventListener(ev, markButtons));
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-pv]"); if (!b) return;
+  e.preventDefault(); e.stopPropagation(); const t = BYKEY[b.dataset.pv]; if (t) playPreview(t);
+}, true);
+
 // Places that usually have BPM + key when GetSongBPM doesn't
 function lookupLinks(t) {
   const q = encodeURIComponent(`${t.artist || t.rel.artist} ${t.title}`);
@@ -294,7 +381,7 @@ async function load() {
       Last data update: <b>${esc($("#updated").textContent.replace("Updated ", ""))}</b>. It updates by itself about once an hour. This note disappears when it's finished.
       <div style="height:4px;background:var(--line);border-radius:4px;margin-top:8px"><div style="height:4px;width:${pc}%;background:var(--accent);border-radius:4px"></div></div></div></div>`);
   renderChips(); render();
-  syncStart();
+  syncStart(); spHandleRedirect();
 }
 function applyStyleEdits() { for (const r of DATA) r.styles = STYLE_EDITS[r.id] ? STYLE_EDITS[r.id].slice() : r.discogsStyles.slice(); buildStyleSteps(); }
 // Style closeness, learned from your collection: styles that often share records are close.
@@ -522,7 +609,7 @@ function resultRow(x, i, extra = "") {
     <div>
       <div style="display:flex;justify-content:space-between;gap:8px">
         <div><div class="name">${esc(o.title)}</div><div class="sub">${esc(o.rel.artist)} · ${esc(o.rel.title)} · ${esc(o.pos)}</div></div>
-        <div class="right"><span class="bpm">${esc(o.bpm || "–")}</span>${camBadge(o.camelot)}</div>
+        <div class="right">${pvBtn(o)}<span class="bpm">${esc(o.bpm || "–")}</span>${camBadge(o.camelot)}</div>
       </div>
       ${x.tr ? bridgeHtml(x.tr) : ""}${extra}
       ${unsure(o.bpm) ? `<span class="pill warn">Data unsure *</span>` : ""}
@@ -668,7 +755,10 @@ function showSetlist(s, push = true) {
       <button class="btn primary" id="fillEmpty">Fill empty slots</button>
       <button class="btn" id="refill">Re-shuffle unlocked</button>
       <button class="btn" id="addSlot">+ Slot</button>
+      <button class="btn" id="spExport" style="border-color:#1DB954;color:#1DB954">${s.spotifyUrl ? "Export to Spotify again" : "Export to Spotify"}</button>
+      ${s.spotifyUrl ? `<a class="btn" href="${esc(s.spotifyUrl)}" target="_blank" rel="noopener">Open playlist ↗</a>` : ""}
     </div>
+    ${(s.spotifyMissing || []).length ? `<p class="help" style="margin-top:0">Not on Spotify: ${esc(s.spotifyMissing.join(", "))}</p>` : ""}
     <p class="help">Pick a <b>first</b> track (and a <b>last</b> one if you like), then <b>Fill empty slots</b>. 🔒 locked tracks never get swapped.
       Tap a track to swap it. Swipe left (or ✕) to clear a slot. Pitch range: <b>±${RANGE}%</b> (change it on the Records tab).</p>`;
   T.forEach((t, i) => {
@@ -680,7 +770,7 @@ function showSetlist(s, push = true) {
         ${t.rel.thumb ? `<img src="${esc(t.rel.thumb)}" alt="">` : ""}
         <div class="slot-body" data-pick="${i}"><div class="name">${esc(t.title)}</div>
           <div class="sub">${esc(t.rel.artist)} · ${esc(t.rel.title)} · ${esc(t.pos)} · ${esc(t.duration || "")}</div>
-          <div class="right" style="margin-top:4px"><span class="sub">${esc(t.bpm || "–")} BPM</span>${camBadge(t.camelot)}${t.cue_in ? `<span class="sub">IN ${esc(t.cue_in)}</span>` : ""}</div></div>
+          <div class="right" style="margin-top:4px">${pvBtn(t)}<span class="sub">${esc(t.bpm || "–")} BPM</span>${camBadge(t.camelot)}${t.cue_in ? `<span class="sub">IN ${esc(t.cue_in)}</span>` : ""}</div></div>
         <div class="slot-acts">
           <button class="icon ${x.lock ? "on" : ""}" data-lock="${i}" title="${x.lock ? "Locked" : "Unlocked"}">${x.lock ? "🔒" : "🔓"}</button>
           <button class="icon" data-up="${i}" title="Move up">↑</button>
@@ -703,6 +793,7 @@ function showSetlist(s, push = true) {
     toast(!s.slots[0] ? "Pick a first track, then fill" : n ? `Filled ${n} slot${n > 1 ? "s" : ""}` : "No fitting tracks found. Try a wider pitch range"); };
   $("#refill").onclick = () => { s.slots = s.slots.map(x => x && x.lock ? x : null); const n = autoFill(s, true); saveSets(s); showSetlist(s, false); toast(`Re-filled ${n}`); };
   $("#addSlot").onclick = () => { s.slots.push(null); saveSets(s); showSetlist(s, false); };
+  $("#spExport").onclick = () => exportSpotify(s);
   $("#delSet").onclick = e => {
     if (e.target.dataset.sure) { SETLISTS = SETLISTS.filter(x => x !== s); DELETED.add(s.id); markChange("deleted", s.id); toast("Setlist deleted"); closeSheet(); render(); }
     else { e.target.dataset.sure = 1; e.target.textContent = "Tap again to delete for good"; }
@@ -752,14 +843,28 @@ function pickForSlot(s, i, push = true) {
   const cur = s.slots[i] && BYKEY[s.slots[i].k];
   $("#sheetBody").innerHTML = `
     ${cur ? `<div class="src"><div style="flex:1"><div class="sub">Currently in slot ${i + 1}</div><div class="name">${esc(cur.title)}</div><div class="sub">${esc(cur.rel.artist)}</div></div>${camBadge(cur.camelot)}</div>` : ""}
-    <p class="help">${P || N ? `Best fits ${P ? `after <b>${esc(P.title)}</b>` : ""}${P && N ? " and " : ""}${N ? `before <b>${esc(N.title)}</b>` : ""}, using this setlist's rules (<b>${esc(rulesSummary(rulesOf(s)))}</b>). Or search any track.` : "Search for a track to start with."}</p>
-    <input type="search" id="pq" placeholder="Search all tracks" style="width:100%">
+    <p class="help">${P || N ? `Swipe through the best fits ${P ? `after <b>${esc(P.title)}</b>` : ""}${P && N ? " and " : ""}${N ? `before <b>${esc(N.title)}</b>` : ""}, closest first
+      (<b>${esc(rulesSummary(rulesOf(s)))}</b>). Tap 🔒 to lock one in and move to the next open slot.` : "Search for a track to start with."}</p>
+    ${list.length ? `<div class="carousel" id="cards" tabindex="0">${list.map((x, j) => cardHtml(s, i, x, j, list.length, P, N)).join("")}</div>` : ""}
+    <input type="search" id="pq" placeholder="Or search all tracks" style="width:100%">
     <div id="plist"></div>`;
+  const lockIn = o => {
+    s.slots[i] = { k: tkey(o), lock: true }; saveSets(s);
+    let j = s.slots.findIndex((x, n) => !x && n > i); if (j < 0) j = s.slots.findIndex(x => !x);
+    if (j >= 0) { toast(`Locked into #${i + 1} · next: slot ${j + 1}`); STACK[STACK.length - 1] = () => pickForSlot(s, j, false); pickForSlot(s, j, false); }
+    else { toast(`Locked into #${i + 1} · setlist complete`); back(); }
+  };
+  $("#sheetBody").querySelectorAll("[data-lockin]").forEach(b => b.onclick = () => lockIn(list[+b.dataset.lockin].o));
+  const cards = $("#cards");
+  if (cards) cards.onkeydown = e => {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); cards.scrollBy({ left: (e.key === "ArrowRight" ? 1 : -1) * cards.firstElementChild.offsetWidth, behavior: "smooth" }); }
+  };
   const draw = q => {
     const items = q ? TRACKS.filter(o => `${o.title} ${o.rel.artist} ${o.rel.title}`.toLowerCase().includes(q)).slice(0, 40)
       .map(o => ({ o, tr: P && usable(P) && usable(o) ? transition(P, o) : null })) : list;
+    if (!q && list.length) { $("#plist").innerHTML = ""; return; }
     $("#plist").innerHTML = items.length ? items.map((x, j) => resultRow(x, j, x.b ? `<div class="sub" style="margin-top:4px">then → ${esc(N.title)}:</div>${bridgeHtml(x.b)}` : "")).join("")
-      : `<p class="help">${q ? "No tracks found." : P || N ? `Nothing fits within ±${RANGE}% here. Try a wider pitch range on the Records tab, or search.` : ""}</p>`;
+      : `<p class="help">${q ? "No tracks found." : P || N ? `Nothing fits these rules here. Loosen the setlist's tempo, key or style steps, or search.` : ""}</p>`;
     $("#plist").querySelectorAll(".res").forEach(d => d.onclick = () => {
       s.slots[i] = { k: tkey(items[+d.dataset.i].o), lock: true }; saveSets(s); back();
     });
@@ -767,6 +872,22 @@ function pickForSlot(s, i, push = true) {
   $("#pq").oninput = e => draw(e.target.value.trim().toLowerCase());
   draw("");
   openSheet();
+}
+function cardHtml(s, i, x, j, total, P, N) {
+  const o = x.o, r = o.rel;
+  const before = P ? `after: ${esc(P.title)}` : "after: open slot", after = N ? `before: ${esc(N.title)}` : "before: open slot";
+  return `<div class="ccard">
+    ${r.cover ? `<img class="cv" loading="lazy" src="${esc(r.cover)}" alt="">` : `<div class="cv"></div>`}
+    <div class="cb">
+      <div class="rank">${j === 0 ? "Closest match" : `Match ${j + 1} of ${total}`}</div>
+      <div class="name" style="font-size:16px">${esc(o.title)}</div>
+      <div class="sub">${esc(r.artist)} · ${esc(r.title)} · ${esc(o.pos)}${o.duration ? " · " + esc(o.duration) : ""}</div>
+      <div class="right">${pvBtn(o)}<span class="bpm" style="min-width:0">${esc(o.bpm)} BPM</span>${camBadge(o.camelot)}</div>
+      <div>${P && x.tr ? bridgeHtml(x.tr) + styleMove(P, o) : ""}</div>
+      ${N && x.b ? `<div class="sub">then → ${esc(N.title)}:</div><div>${bridgeHtml(x.b) + styleMove(o, N)}</div>` : ""}
+      <button class="lockbtn" data-lockin="${j}">🔒 Lock into slot ${i + 1}</button>
+      <div class="lockctx">${before}<br>${after}</div>
+    </div></div>`;
 }
 function usedSets(s, skip = -1) {
   const keys = new Set(), recs = new Set();
@@ -825,6 +946,80 @@ function renderMissing() {
       <div class="tracks">${ts.map((t, i) => trackRow(t, i, { prefix: `m${j}-` }) + (t.tried ? `<details class="sub" style="padding:0 4px 10px 48px"><summary>What GetSongBPM found</summary>${t.tried.map(x =>
         `Searched “${esc(x.search)}” → ${x.found.length ? esc(x.found.join("; ")) : "nothing"}`).join("<br>")}</details>` : "")).join("")}</div>`).join("")}`;
   miss.forEach(({ ts }, j) => wireTrackRows($("#view").querySelectorAll(".tracks")[j], ts));
+}
+
+// ---------- Spotify playlist export ----------
+const SP_REDIRECT = location.origin + location.pathname.replace(/index\.html$/, "");
+let SP_CFG = null;
+const spCfg = async () => SP_CFG || (SP_CFG = await fetch("data/config.json", { cache: "no-store" }).then(r => r.ok ? r.json() : {}).catch(() => ({})));
+const b64url = buf => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+async function spLogin(setId) {
+  const cfg = await spCfg(); if (!cfg.spotifyClientId) return toast("Spotify isn't connected to Setwright yet");
+  const verifier = b64url(crypto.getRandomValues(new Uint8Array(48)));
+  const challenge = b64url(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(verifier)));
+  store.set("spPkce", { verifier, setId });
+  location.href = "https://accounts.spotify.com/authorize?" + new URLSearchParams({ client_id: cfg.spotifyClientId, response_type: "code",
+    redirect_uri: SP_REDIRECT, code_challenge_method: "S256", code_challenge: challenge, scope: "playlist-modify-private playlist-modify-public" });
+}
+async function spTokenRequest(params) {
+  const cfg = await spCfg();
+  const r = await fetch("https://accounts.spotify.com/api/token", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ client_id: cfg.spotifyClientId, ...params }) });
+  const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error("Spotify sign-in failed: " + (j.error_description || r.status));
+  const old = store.get("spTok", {}) || {};
+  store.set("spTok", { access: j.access_token, refresh: j.refresh_token || old.refresh, exp: Date.now() + (j.expires_in - 60) * 1000 });
+}
+async function spHandleRedirect() {
+  const q = new URLSearchParams(location.search), code = q.get("code"), err = q.get("error");
+  if (!code && !err) return;
+  history.replaceState(null, "", SP_REDIRECT);
+  const p = store.get("spPkce", null); store.set("spPkce", null);
+  if (err || !p) return toast("Spotify sign-in was cancelled");
+  try { await spTokenRequest({ grant_type: "authorization_code", code, redirect_uri: SP_REDIRECT, code_verifier: p.verifier }); }
+  catch (e) { return toast(e.message); }
+  const s = SETLISTS.find(x => x.id === p.setId); if (s) { setView("setlists"); showSetlist(s); exportSpotify(s); }
+}
+async function spToken() {
+  const t = store.get("spTok", null); if (!t || !t.access) return null;
+  if (Date.now() < t.exp) return t.access;
+  try { await spTokenRequest({ grant_type: "refresh_token", refresh_token: t.refresh }); return store.get("spTok").access; }
+  catch (e) { store.set("spTok", null); return null; }
+}
+async function spApi(path, opts = {}) {
+  const r = await fetch("https://api.spotify.com/v1" + path, { ...opts, headers: { Authorization: "Bearer " + await spToken(), "Content-Type": "application/json" } });
+  if (r.status === 429) throw new Error("Spotify is pausing requests from Setwright right now. Try again later.");
+  if (r.status === 403) throw new Error("Spotify refused (403). In your Spotify developer app, add your account under User Management.");
+  if (!r.ok) throw new Error(`Spotify error ${r.status}`);
+  return r.status === 204 || r.status === 201 && r.headers.get("content-length") === "0" ? {} : r.json();
+}
+async function exportSpotify(s) {
+  if (!await spToken()) return spLogin(s.id);
+  const ts = s.slots.filter(Boolean).map(x => BYKEY[x.k]).filter(Boolean); if (!ts.length) return toast("This setlist is empty");
+  toast("Creating your Spotify playlist…");
+  try {
+    const uris = [], missing = [];
+    for (const t of ts) {
+      let id = t.spotify_id;
+      if (!id) {
+        const artist = (t.artist || t.rel.artist).split(" = ")[0];
+        for (const title of t.title.split(" = ")) {
+          const res = await spApi(`/search?type=track&limit=5&q=${encodeURIComponent(`track:"${title}" artist:"${artist}"`)}`);
+          const hit = ((res.tracks || {}).items || []).find(it => it.artists.some(a => loose(a.name) && (loose(a.name).includes(loose(artist)) || loose(artist).includes(loose(a.name)))));
+          if (hit) { id = hit.id; break; }
+        }
+      }
+      id ? uris.push("spotify:track:" + id) : missing.push(t.title);
+    }
+    if (!uris.length) return toast("None of these tracks were found on Spotify");
+    const me = await spApi("/me");
+    const pl = await spApi(`/users/${encodeURIComponent(me.id)}/playlists`, { method: "POST",
+      body: JSON.stringify({ name: `${s.name} · Setwright`, public: false, description: "Made with Setwright from a vinyl collection" }) });
+    for (let i = 0; i < uris.length; i += 100)
+      await spApi(`/playlists/${pl.id}/tracks`, { method: "POST", body: JSON.stringify({ uris: uris.slice(i, i + 100) }) });
+    s.spotifyUrl = pl.external_urls && pl.external_urls.spotify; s.spotifyMissing = missing; saveSets(s);
+    toast(`Playlist created: ${uris.length} tracks${missing.length ? `, ${missing.length} not on Spotify` : ""}`);
+    if (STACK.length) showSetlist(s, false);
+  } catch (e) { toast(e.message); }
 }
 
 // ---------- guide ----------

@@ -34,6 +34,8 @@ jobs:
         run: python scripts/update.py
       - name: Save changes
         if: always()   # keep whatever was gathered, even if the update hit a problem
+        env:
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
         run: |
           git config user.name "vinyl-dj bot"
           git config user.email "actions@users.noreply.github.com"
@@ -42,6 +44,8 @@ jobs:
           git fetch --depth=1 origin main
           git reset --hard origin/main
           cp /tmp/collection.json data/collection.json; cp /tmp/last_run.txt data/last_run.txt 2>/dev/null || true
+          # The Spotify Client ID is public by design (the site needs it for "Sign in with Spotify"); the secret is never written out
+          if [ -n "$SPOTIFY_CLIENT_ID" ]; then printf '{"spotifyClientId": "%s"}\n' "$SPOTIFY_CLIENT_ID" > data/config.json; git add data/config.json; fi
           git add data/collection.json data/last_run.txt 2>/dev/null || git add data/collection.json
           git diff --cached --quiet || (git commit -m "Collection update" && git push origin HEAD:main)
       - name: Keep going until everything is looked up
