@@ -1,7 +1,7 @@
 Finished
-06:17:57 Collection: 636 items
-06:17:57 Records: 636
-06:17:58 Fallback checks this run: 0
-06:17:58 Deezer checks this run: 0, found: 0
-06:17:58 Spotify pause still active; skipping ReccoBeats this run
-06:17:58 Lookups this run: 0. Tracks still to look up: 0.
+06:19:12 Collection: 636 items
+06:19:12 Records: 636
+06:19:12 Fallback checks this run: 0
+06:19:12 Deezer checks this run: 0, found: 0
+06:19:12 Spotify pause still active; skipping ReccoBeats this run
+06:19:12 Lookups this run: 0. Tracks still to look up: 0.
