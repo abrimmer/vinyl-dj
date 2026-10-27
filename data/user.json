@@ -167,9 +167,12 @@
     null,
     null,
     null,
-    null
+    {
+     "k": "11557309|A6",
+     "lock": true
+    }
    ],
-   "updated": 1793099779363
+   "updated": 1793099786496
   }
  ]
 }
