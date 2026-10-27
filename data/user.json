@@ -88,7 +88,10 @@
    "styleMode": "any",
    "styles": [],
    "slots": [
-    null,
+    {
+     "k": "313897|A1",
+     "lock": true
+    },
     null,
     null,
     null,
@@ -99,7 +102,7 @@
     null,
     null
    ],
-   "updated": 1793086639399
+   "updated": 1793086653058
   }
  ]
 }
