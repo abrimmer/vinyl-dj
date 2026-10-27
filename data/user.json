@@ -74,6 +74,32 @@
     null
    ],
    "updated": 1792995517156
+  },
+  {
+   "id": 1793086639399,
+   "name": "Setlist 3",
+   "one": true,
+   "rules": {
+    "tempo": 8,
+    "keySteps": 1,
+    "styleSteps": 2,
+    "route": "tight"
+   },
+   "styleMode": "any",
+   "styles": [],
+   "slots": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "updated": 1793086639399
   }
  ]
 }
