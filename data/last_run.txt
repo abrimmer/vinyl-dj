@@ -1,16 +1,7 @@
 Finished
-18:46:19 Collection: 636 items
-18:46:19 Records: 636
-18:46:20 Fallback checks this run: 0
-18:46:20 Deezer checks this run: 0, found: 0
-18:47:09 ReccoBeats 200: {'content': [{'id': '464d9871-b5c1-456b-a6ce-de1aeeedab5a', 'href': 'https://open.spotify.com/track/2JrozyGS7r75L39rt3xoGx', 'isrc': 'GBCVZ2200224', 'acousticness': 0.000267, 'danceability': 0.468, 'energy': 0.984, 'instrumentalness': 0.0123, 'key': 5, 'liveness': 0.136, 'loudness': -4.083, 'mode': 
-18:48:00 ReccoBeats 200: {'content': [{'id': '1d21a68d-f338-454b-b0d7-32ca9571662d', 'href': 'https://open.spotify.com/track/7oyJdRgeNXDxTR3rQLmBMj', 'isrc': 'ITI029100111', 'acousticness': 0.337, 'danceability': 0.663, 'energy': 0.662, 'instrumentalness': 0.219, 'key': 2, 'liveness': 0.0648, 'loudness': -11.763, 'mode': 0,
-18:48:56 ReccoBeats 200: {'content': [{'id': '36edb98d-8916-4c42-bac1-699363ee81b4', 'href': 'https://open.spotify.com/track/3TkaPb6uWaKtInUDjGhI9z', 'isrc': 'FR33T2164601', 'acousticness': 0.94, 'danceability': 0.541, 'energy': 0.0833, 'instrumentalness': 0.0, 'key': 9, 'liveness': 0.267, 'loudness': -24.914, 'mode': 1, 's
-18:49:46 ReccoBeats 200: {'content': [{'id': 'cedc843d-aac2-4430-ae94-5800639d5a47', 'href': 'https://open.spotify.com/track/2Jn0wHQ2lEif2gLRsyfaf2', 'isrc': 'US2S70465001', 'acousticness': 0.55, 'danceability': 0.41, 'energy': 0.817, 'instrumentalness': 0.008, 'key': 6, 'liveness': 0.422, 'loudness': -9.217, 'mode': 1, 'sp
-18:50:40 ReccoBeats 200: {'content': [{'id': 'fd119257-5e64-4229-9bf8-eca626022379', 'href': 'https://open.spotify.com/track/1APrKVAuOsotWulrz0GyAz', 'isrc': 'US2S70465010', 'acousticness': 0.00823, 'danceability': 0.32, 'energy': 0.687, 'instrumentalness': 0.0393, 'key': 4, 'liveness': 0.166, 'loudness': -11.245, 'mode': 1
-18:51:32 ReccoBeats 200: {'content': [{'id': '06098f01-f207-4838-9ba4-42287999bf40', 'href': 'https://open.spotify.com/track/5g8IVPV9HlhiSRcnfr7qSu', 'isrc': 'FRZ051900183', 'acousticness': 0.0638, 'danceability': 0.7, 'energy': 0.729, 'instrumentalness': 0.00888, 'key': 2, 'liveness': 0.251, 'loudness': -6.66, 'mode': 0, '
-18:52:23 ReccoBeats unreachable: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-18:53:14 ReccoBeats 200: {'content': [{'id': '08d3b668-acc4-4ef9-8e14-2dff83f95234', 'href': 'https://open.spotify.com/track/0u7Lfl74KOI2z92wel0mS4', 'isrc': 'TCAGA2244290', 'acousticness': 0.216, 'danceability': 0.127, 'energy': 0.453, 'instrumentalness': 0.476, 'key': 8, 'liveness': 0.151, 'loudness': -7.745, 'mode': 1, '
-18:54:04 ReccoBeats 200: {'content': [{'id': '1629dd5b-75bd-4e82-9917-9e3ca723f01c', 'href': 'https://open.spotify.com/track/5V3y4BsWqpS7mk4I8CHSgt', 'isrc': 'USUM70504984', 'acousticness': 0.261, 'danceability': 0.504, 'energy': 0.782, 'instrumentalness': 0.0062, 'key': 5, 'liveness': 0.362, 'loudness': -6.947, 'mode': 1, 
-18:55:39 ReccoBeats checks this run: 433, found: 225
-18:55:39 Lookups this run: 0. Tracks still to look up: 0.
+22:59:43 Collection: 636 items
+22:59:43 Records: 636
+22:59:43 Fallback checks this run: 0
+22:59:43 Deezer checks this run: 0, found: 0
+22:59:43 ReccoBeats checks this run: 0, found: 0
+22:59:43 Lookups this run: 0. Tracks still to look up: 0.
