@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T14:34+00:00",
+ "updated": "2026-10-27T18:55+00:00",
  "spotify_resume_at": 1793111104.9769309,
  "source": "Discogs + GetSongBPM.com",
  "releases": [
@@ -1879,8 +1879,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "110*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Psalm 68 artist:Alan Vega",
@@ -1900,7 +1900,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0OA4euLuZb5LohXRD76tvl",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -1911,8 +1914,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "106*",
+     "camelot": "3A*",
      "tried": [
       {
        "search": "song:Breathe artist:Alan Vega",
@@ -1932,7 +1935,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6XaY481VmhnHorUZtlb9Xx",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -3722,7 +3728,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6Js5Lv2AKGaW55kn1C9Wzo",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -3907,7 +3915,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2UqILem2vrLt2KLy980niE",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -14112,8 +14122,8 @@
      "cue_out": "2:47*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "176*",
+     "camelot": "10B*",
      "tried": [
       {
        "search": "song:Tired Eyes Tired Feet artist:Bragolin",
@@ -14129,7 +14139,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4wS045wyTl0jq3Gx7JaYe7",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -16876,7 +16889,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1HgACojDLORjF4nNk8eZKy",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -16924,7 +16939,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3lsTeELAp7h2mg1yRcDifW",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -16968,7 +16985,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2LIV61dBFYiDwQtYGyg7na",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -17008,7 +17027,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6gkC1LzgG8mbsu9944WAAK",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -17048,7 +17069,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5daojrkwx7n4Hf7dLENKQz",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -17096,7 +17119,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1IbMLX1YANpYntEG7fSw6w",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -17124,7 +17149,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5g6Mcasj2hm0LPHqWiL9Mh",
+     "rb_v": 1
     },
     {
      "pos": "C1",
@@ -17152,7 +17179,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4sq88isbEPOCkI1OaHtqsp",
+     "rb_v": 1
     },
     {
      "pos": "C2",
@@ -17196,7 +17225,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1tpZ9ewy4ktshvr1D4SJPr",
+     "rb_v": 1
     },
     {
      "pos": "C3",
@@ -17240,7 +17271,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5L6HX6W12B0sPpc1Fw7JRi",
+     "rb_v": 1
     },
     {
      "pos": "C4 ",
@@ -17284,7 +17317,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2R4cw9cKITdHPjrCVRtJCE",
+     "rb_v": 1
     },
     {
      "pos": "D1",
@@ -17324,7 +17359,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "D2",
@@ -17355,7 +17391,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4wFGjX1e95rLsHkt7sgoPw",
+     "rb_v": 1
     },
     {
      "pos": "D3",
@@ -17387,7 +17425,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "06Vcv865B727fEhjVfwwRb",
+     "rb_v": 1
     },
     {
      "pos": "D4",
@@ -17415,7 +17455,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "57n3SASPeNTRORCtR6zUc8",
+     "rb_v": 1
     }
    ]
   },
@@ -20331,7 +20373,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "058aQnD46zUC4dRToe483s",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -20375,7 +20419,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1uCR7AajuJaDvbvqfG6kpl",
+     "rb_v": 1
     },
     {
      "pos": "C1",
@@ -21238,7 +21284,8 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -21564,7 +21611,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7kn2j4lQaWJamecvH1wvGz",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -23758,8 +23807,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "96*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Incantation For The Different artist:Crippled Black Phoenix",
@@ -23775,7 +23824,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3TkaPb6uWaKtInUDjGhI9z",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -23786,8 +23838,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "90*",
+     "camelot": "9A*",
      "tried": [
       {
        "search": "song:Wyches And Basterdz artist:Crippled Black Phoenix",
@@ -23803,7 +23855,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2LjrbnaEZBtpBivc4Nffq6",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -23814,8 +23869,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "105*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Ghostland artist:Crippled Black Phoenix",
@@ -23835,7 +23890,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4vE9Lojch1LHALthvbs7nv",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -23846,8 +23904,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "135*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:The Reckoning artist:Crippled Black Phoenix",
@@ -23867,7 +23925,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "51iO88wDfiXUlgJhmxUdrS",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -23878,8 +23939,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "160*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:Bonefire artist:Crippled Black Phoenix",
@@ -23898,7 +23959,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0ZQMIom3C9rqF34oNXEmA9",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "C1",
@@ -23909,8 +23973,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "110*",
+     "camelot": "7A*",
      "tried": [
       {
        "search": "song:Rose Of Jericho artist:Crippled Black Phoenix",
@@ -23930,7 +23994,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5XJ6LH9BUM3sTLDWpJytly",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "D1",
@@ -23941,8 +24008,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "112*",
+     "camelot": "6A*",
      "tried": [
       {
        "search": "song:Blackout '77 artist:Crippled Black Phoenix",
@@ -23958,7 +24025,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "54ZyaBsQ1lVdG2ELTzfmAl",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "D2",
@@ -23969,8 +24039,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "140*",
+     "camelot": "9A*",
      "tried": [
       {
        "search": "song:Down The Rabbit Hole artist:Crippled Black Phoenix",
@@ -23990,7 +24060,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5Dg1XN3u1nTqUN3xMUgFWy",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "E1",
@@ -24001,8 +24074,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "100*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Everything Is Beautiful But Us artist:Crippled Black Phoenix",
@@ -24018,7 +24091,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4JTON3sxzWQQ8N4AEuaIpj",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "E2",
@@ -24029,8 +24105,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "115*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:The Pilgrim artist:Crippled Black Phoenix",
@@ -24050,7 +24126,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5npDEXjSOGrapSPi0ocgAi",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "E3",
@@ -24061,8 +24140,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "140*",
+     "camelot": "9A*",
      "tried": [
       {
        "search": "song:I'm Ok, Just Not Alright artist:Crippled Black Phoenix",
@@ -24078,7 +24157,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2FfusJ3peZcSoygmE0JLhe",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "F1",
@@ -24089,8 +24171,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "87*",
+     "camelot": "5A*",
      "tried": [
       {
        "search": "song:The Scene Is A False Prophet artist:Crippled Black Phoenix",
@@ -24106,7 +24188,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4x6Lb91SuN2v3jQPDMpZrY",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -27368,8 +27453,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "168*",
+     "camelot": "8A*",
      "tried": [
       {
        "search": "song:Shadowdancer artist:Darkways",
@@ -27389,7 +27474,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6dyEzDXjwb2MhsBCY62SgR",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -27400,8 +27488,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "140*",
+     "camelot": "2B*",
      "tried": [
       {
        "search": "song:Dark&Light artist:Darkways",
@@ -27419,7 +27507,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3ywRZJpjHrMFjiDvZWLKoE",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -27430,8 +27521,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "160*",
+     "camelot": "1B*",
      "tried": [
       {
        "search": "song:I Like The Night artist:Darkways",
@@ -27449,7 +27540,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7nvh88E3SIizKGN5Mh4A66",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -27460,8 +27554,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "82*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:Inexistence artist:Darkways",
@@ -27481,7 +27575,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "27q0sBT4AnmiZH6ZgLhRZu",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -27492,8 +27589,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "99*",
+     "camelot": "10B*",
      "tried": [
       {
        "search": "song:Neon Lights artist:Darkways",
@@ -27513,7 +27610,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3yML2utVYniVUAIMWOYECJ",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -27524,8 +27624,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "160*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Madness artist:Darkways",
@@ -27545,7 +27645,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7HuDbPQx1N2v7Q74DDCizy",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -27556,8 +27659,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "75*",
+     "camelot": "7A*",
      "tried": [
       {
        "search": "song:Resonance artist:Darkways",
@@ -27577,7 +27680,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "59pw0HrGbnkTwsARsbQpD2",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -27588,8 +27694,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "75*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Lies artist:Darkways",
@@ -27609,7 +27715,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2bnKat9E30adsUf7vLafK4",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -27620,8 +27729,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "142*",
+     "camelot": "1B*",
      "tried": [
       {
        "search": "song:Young Again artist:Darkways",
@@ -27641,7 +27750,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1PWEfIhdaICiSZFHpNVtkR",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -27652,8 +27764,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "130*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:More Than Dreams artist:Darkways",
@@ -27669,7 +27781,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5xNfthDixgedwUPSB6OROY",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -32329,7 +32444,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -34310,8 +34426,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "179*",
+     "camelot": "5A*",
      "tried": [
       {
        "search": "song:Æon Flux Open 1991 artist:Drew Neumann",
@@ -34327,7 +34443,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4Bbchts5Dh8oSvpGHRw2ob",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -34338,8 +34457,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "78*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Æon Flux First Episode 1991 artist:Drew Neumann",
@@ -34367,7 +34486,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1AejquxRPH0bzy2At1zga9",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -34378,8 +34500,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "177*",
+     "camelot": "4B*",
      "tried": [
       {
        "search": "song:Rooms Of Blood artist:Drew Neumann",
@@ -34395,7 +34517,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0u7Lfl74KOI2z92wel0mS4",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -34406,8 +34531,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "96*",
+     "camelot": "3A*",
      "tried": [
       {
        "search": "song:Ultimate AF artist:Drew Neumann",
@@ -34423,7 +34548,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5PQdIpNi0cLOOHMkcxnhE0",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -34434,8 +34562,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "107*",
+     "camelot": "4B*",
      "tried": [
       {
        "search": "song:Elevator Episode artist:Drew Neumann",
@@ -34451,7 +34579,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5OhLYSUKbP1u9Ai3UrGTPF",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A6",
@@ -34462,8 +34593,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "121*",
+     "camelot": "4B*",
      "tried": [
       {
        "search": "song:The End artist:Drew Neumann",
@@ -34483,7 +34614,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "46Hf6qWSZXtIAKO1rTSEK3",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B7",
@@ -34494,8 +34628,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "155*",
+     "camelot": "1B*",
      "tried": [
       {
        "search": "song:Gravity artist:Drew Neumann",
@@ -34515,7 +34649,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6DuMeeaJXmANt5xQwBmMs4",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B8",
@@ -34526,8 +34663,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "179*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Errors Of The Night artist:Drew Neumann",
@@ -34543,7 +34680,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "226XMCaNWnMjd9OMu9QORi",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B9",
@@ -34554,8 +34694,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "87*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Alien Leisure artist:Drew Neumann",
@@ -34571,7 +34711,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4euafeMSzReNVxQwuKzi7o",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B10",
@@ -34582,8 +34725,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "174*",
+     "camelot": "12B*",
      "tried": [
       {
        "search": "song:Fluxy Bolero (Tide) artist:Drew Neumann",
@@ -34599,7 +34742,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0rgdQLrXupgjkTsBBDDPIM",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B11",
@@ -34610,8 +34756,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "150*",
+     "camelot": "5A*",
      "tried": [
       {
        "search": "song:Heroes (War) artist:Drew Neumann",
@@ -34631,7 +34777,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3uHNNI0mUyOLEBqUhK0JaB",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "C12",
@@ -34642,8 +34791,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "114*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Paradise (Utopia Or Deuteranopia) artist:Drew Neumann",
@@ -34663,7 +34812,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "44gVz5MotAeisll5TAdRw1",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "D13",
@@ -34691,7 +34843,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "E14",
@@ -34702,8 +34855,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "120*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Phobia Suite (Thanatophobia) artist:Drew Neumann",
@@ -34719,7 +34872,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1Gf4qVnfq2a50wyNpZFzhm",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "F15",
@@ -34730,8 +34886,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "89*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:Clones (A Last Time For Everything) artist:Drew Neumann",
@@ -34751,7 +34907,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "442Y3uRHL91lDAnjz4395V",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "G16",
@@ -34762,8 +34921,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "136*",
+     "camelot": "10B*",
      "tried": [
       {
        "search": "song:Demigods (Demiurge) artist:Drew Neumann",
@@ -34779,7 +34938,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3GJEgvxfJ44NAgJIki3xtL",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "H17",
@@ -34790,8 +34952,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "176*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Memory Lapse (Reraizure) artist:Drew Neumann",
@@ -34811,7 +34973,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0xDixlDeRVlckUnJlsEZgc",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "I18",
@@ -34822,8 +34987,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "114*",
+     "camelot": "6B*",
      "tried": [
       {
        "search": "song:Chronos Multiverse (Chronophasia) artist:Drew Neumann",
@@ -34839,7 +35004,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3WsoedkHVuiMgwmLm22Z1M",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "J19",
@@ -34867,7 +35035,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "K20",
@@ -34878,8 +35047,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "78*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Choice (The Purge) artist:Drew Neumann",
@@ -34899,7 +35068,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "51553xzr9WkRi5PGEIrjeU",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "L21",
@@ -34910,8 +35082,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "113*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Time Pretzel Paradox (End Sinister) artist:Drew Neumann",
@@ -34927,7 +35099,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1jM0aK8vONB4FC3myMfIBx",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "L22",
@@ -34938,8 +35113,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "151*",
+     "camelot": "4B*",
      "tried": [
       {
        "search": "song:Æon Declassified (MTV Promo) artist:Drew Neumann",
@@ -34955,7 +35130,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7B0xjOF5k9eeN8uflADF7z",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "L23",
@@ -34966,8 +35144,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "157*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Æon Flux Title 1995 artist:Drew Neumann",
@@ -34983,7 +35161,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6fBW81tOasNxXwS1vjZZP0",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "L24",
@@ -34994,8 +35175,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "165*",
+     "camelot": "3A*",
      "tried": [
       {
        "search": "song:Æon Flux Credits 1995 artist:Drew Neumann",
@@ -35011,7 +35192,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "56SJXuCmEG11ngvAezpU51",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "L25",
@@ -35022,8 +35206,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "120*",
+     "camelot": "1B*",
      "tried": [
       {
        "search": "song:Monican Jam artist:Drew Neumann",
@@ -35039,7 +35223,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4LlwO2ShWSp7seE3QlWbgd",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -35092,7 +35279,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -35124,7 +35312,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -35152,7 +35341,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -35192,7 +35382,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -35220,7 +35411,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -35252,7 +35444,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -35280,7 +35473,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -35308,7 +35502,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -35336,7 +35531,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -35368,7 +35564,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     }
    ]
   },
@@ -40259,8 +40456,8 @@
      "cue_out": "6:52*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "99*",
+     "camelot": "2A*",
      "tried": [
       {
        "search": "song:Humanity (Part 2) artist:Ennio Morricone",
@@ -40280,7 +40477,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2UucrpQAWbJSpApvn6BZ2j",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -40333,8 +40533,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "76*",
+     "camelot": "4B*",
      "tried": [
       {
        "search": "song:Burn It artist:John Carpenter",
@@ -40354,7 +40554,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2iQtk0WxPVJFBa1kaiWyUE",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "D1",
@@ -40365,8 +40568,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "129*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:To Mac’s Shack artist:John Carpenter",
@@ -40382,7 +40585,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2MmQdFn3T1GM6gplTECeZW",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "D2",
@@ -40393,8 +40599,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "73*",
+     "camelot": "6B*",
      "tried": [
       {
        "search": "song:Fuchs artist:John Carpenter",
@@ -40414,7 +40620,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0KSvHNj9rMYFBoYOqRPCNp",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -41115,7 +41324,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5ev7afLQohNJolQtXP6zps",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -41202,7 +41413,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4c9KJozNTjO6WEEp7ifQkN",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -41233,7 +41446,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5w6oY1qfLglwdU4XCtowhM",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -41276,7 +41491,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1fQV8U07MQuxKfDep7j1HE",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -41308,7 +41525,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5VCQTVTbshMf4Ia9suOZCB",
+     "rb_v": 1
     },
     {
      "pos": "B6",
@@ -41336,7 +41555,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5bCqem9TkpC2prlsE3iqo6",
+     "rb_v": 1
     }
    ]
   },
@@ -42030,7 +42251,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7xUbjr8i2r2AQ4qPktJJbx",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -46341,8 +46564,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "152*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Blues artist:Geordie Greep",
@@ -46363,7 +46586,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "7Dd6g7T930jxR3NcQnJjwp"
+     "spotify_id": "7Dd6g7T930jxR3NcQnJjwp",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -46374,8 +46599,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "102*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Terra artist:Geordie Greep",
@@ -46396,7 +46621,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "70zqspCXLvLHsBh1Pl7Izc"
+     "spotify_id": "70zqspCXLvLHsBh1Pl7Izc",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -46407,8 +46634,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "144*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Holy, Holy artist:Geordie Greep",
@@ -46429,7 +46656,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "4AiTTqrljm1r8zKr68cxPk"
+     "spotify_id": "4AiTTqrljm1r8zKr68cxPk",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -46440,8 +46669,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "145*",
+     "camelot": "7B*",
      "tried": [
       {
        "search": "song:The New Sound artist:Geordie Greep",
@@ -46462,7 +46691,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "2gGHan1D8nlvv27lQU2GjL"
+     "spotify_id": "2gGHan1D8nlvv27lQU2GjL",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -46473,8 +46704,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "137*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Walk Up artist:Geordie Greep",
@@ -46495,7 +46726,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "2JPxJKwubP4y0gUjvWIflh"
+     "spotify_id": "2JPxJKwubP4y0gUjvWIflh",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B6",
@@ -46506,8 +46739,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "103*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:Through A War artist:Geordie Greep",
@@ -46524,7 +46757,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "1qlcWoHG7rPqTQ0ezmi9uh"
+     "spotify_id": "1qlcWoHG7rPqTQ0ezmi9uh",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B7",
@@ -46535,8 +46770,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "142*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Bongo Season artist:Geordie Greep",
@@ -46553,7 +46788,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "27W5hKflQqBkWtqJXTTovO"
+     "spotify_id": "27W5hKflQqBkWtqJXTTovO",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "C8",
@@ -46564,8 +46801,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "93*",
+     "camelot": "1B*",
      "tried": [
       {
        "search": "song:Motorbike artist:Geordie Greep",
@@ -46586,7 +46823,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "70SiFAEhhDtd5HFYSxE3gd"
+     "spotify_id": "70SiFAEhhDtd5HFYSxE3gd",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "C9",
@@ -46597,8 +46836,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "131*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:As If Waltz artist:Geordie Greep",
@@ -46615,7 +46854,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "54dGvoaMKDeR3vpYepBHqS"
+     "spotify_id": "54dGvoaMKDeR3vpYepBHqS",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "D10",
@@ -46626,8 +46867,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "83*",
+     "camelot": "12B*",
      "tried": [
       {
        "search": "song:The Magician artist:Geordie Greep",
@@ -46648,7 +46889,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "0Bmip7yBDtbDEQLJZm2WbN"
+     "spotify_id": "0Bmip7yBDtbDEQLJZm2WbN",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "D11",
@@ -46659,8 +46902,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "76*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:If You Are But A Dream artist:Geordie Greep",
@@ -46681,7 +46924,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "0RovlH0ooRNhUaK73HRVut"
+     "spotify_id": "0RovlH0ooRNhUaK73HRVut",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "E",
@@ -46713,7 +46958,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "F",
@@ -46741,7 +46987,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     }
    ]
   },
@@ -47859,7 +48106,8 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer",
+     "rb_v": 1
     },
     {
      "pos": "C12",
@@ -47887,7 +48135,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "D13",
@@ -47927,7 +48176,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7uFAh3nBz7dGr91hUsGTWo",
+     "rb_v": 1
     },
     {
      "pos": "D15",
@@ -47969,7 +48220,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "D17",
@@ -53186,7 +53438,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -53254,7 +53507,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -53351,7 +53605,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4l2ffJao5GLjQOJ2zK6KUm",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -53381,7 +53637,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0vf5m8HAO3EGlBd6fNTsor",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -53413,7 +53671,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1wgMV7bZ8LnA1FNaLj9Ddh",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -53441,7 +53701,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3UFfCDzUYGBvlP85IacQHV",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -53473,7 +53735,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "72gLCzmvrMJDr8D8LyJjBh",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -53505,7 +53769,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3qESSDQ24170jJcTA82nRR",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -53537,7 +53803,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4495uhRAN97ufX8SyCznmv",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -53565,7 +53833,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1VMKtbgAb0ujLFSEFHUWuf",
+     "rb_v": 1
     }
    ]
   },
@@ -53999,7 +54269,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -54027,7 +54298,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -54059,7 +54331,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -54091,7 +54364,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -54102,8 +54376,8 @@
      "cue_out": "5:34*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "148*",
+     "camelot": "7A*",
      "tried": [
       {
        "search": "song:Romance artist:Hiroshi Suzuki",
@@ -54123,7 +54397,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1eoL2MmJ4u61ktIs8wawiQ",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -55216,8 +55493,8 @@
      "cue_out": "5:22*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "146*",
+     "camelot": "4A*",
      "tried": [
       {
        "search": "song:The Organ Grinder's Swing artist:Ichiro Masuda",
@@ -55235,7 +55512,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0RUbbID7WQoKTflcS0M7so",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -55246,8 +55526,8 @@
      "cue_out": "5:44*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "98*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Sister Sadie artist:Ichiro Masuda",
@@ -55267,7 +55547,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7gSz6nf5Esqn5KdSZvYUUi",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -55278,8 +55561,8 @@
      "cue_out": "4:39*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "174*",
+     "camelot": "6B*",
      "tried": [
       {
        "search": "song:My Way artist:Ichiro Masuda",
@@ -55299,7 +55582,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1w2xf9calmRNKb0IEA2l5R",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -55310,8 +55596,8 @@
      "cue_out": "3:04*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "114*",
+     "camelot": "4B*",
      "tried": [
       {
        "search": "song:Blue Bossa artist:Ichiro Masuda",
@@ -55331,7 +55617,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0meGVEn7Tv6iRDvKCJ5dOf",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -55342,8 +55631,8 @@
      "cue_out": "3:24*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "95*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Our Delight artist:Ichiro Masuda",
@@ -55363,7 +55652,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7Ir0RFVSChAFc6HGbNNSIr",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -55374,8 +55666,8 @@
      "cue_out": "5:16*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "83*",
+     "camelot": "6A*",
      "tried": [
       {
        "search": "song:It Don't Mean A Thing artist:Ichiro Masuda",
@@ -55395,7 +55687,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5eOqsqwbQCzzaUxLj4qmQt",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -55406,8 +55701,8 @@
      "cue_out": "4:40*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "102*",
+     "camelot": "4A*",
      "tried": [
       {
        "search": "song:Sonar artist:Ichiro Masuda",
@@ -55427,7 +55722,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1XyJCf9S7GjnFk8OgVbp5T",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -55438,8 +55736,8 @@
      "cue_out": "4:16*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "140*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:St. Thomas artist:Ichiro Masuda",
@@ -55459,7 +55757,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3DIXVDmAXxahwY5vifojRh",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -58807,7 +59108,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     }
    ]
   },
@@ -60284,7 +60586,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -60421,7 +60724,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3uLdmlFjGPCcjKSzoYXZIk",
+     "rb_v": 1
     },
     {
      "pos": "B6",
@@ -60804,7 +61109,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -60876,7 +61182,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B7",
@@ -60918,7 +61225,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B9",
@@ -60946,7 +61254,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5lugXZd6TaPyaLxVGpIIh2",
+     "rb_v": 1
     },
     {
      "pos": "B10",
@@ -61030,7 +61340,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "C15",
@@ -61072,7 +61383,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "C17",
@@ -61114,7 +61426,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "C19",
@@ -61170,7 +61483,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "C22",
@@ -61224,7 +61538,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0oCAsbtH64mqAlT9h2GyMK",
+     "rb_v": 1
     },
     {
      "pos": "D24",
@@ -61284,7 +61600,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3FECN8MlitZBg3O7T8Pmvl",
+     "rb_v": 1
     },
     {
      "pos": "D27",
@@ -61312,7 +61630,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "D28",
@@ -61340,7 +61659,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     }
    ]
   },
@@ -65676,8 +65996,8 @@
      "cue_out": "1:10*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "87*",
+     "camelot": "11A*",
      "tried": [
       {
        "search": "song:Entergalactic Theme artist:Kid Cudi",
@@ -65693,7 +66013,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7xENAAODeE2hKzdWFI6YaB",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -65704,8 +66027,8 @@
      "cue_out": "3:36*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "152*",
+     "camelot": "4A*",
      "tried": [
       {
        "search": "song:New Mode artist:Kid Cudi",
@@ -65725,7 +66048,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "42pKWuJst0oAuUbTvkNqr6",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -65736,8 +66062,8 @@
      "cue_out": "2:32*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "155*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Do What I Want artist:Kid Cudi",
@@ -65757,7 +66083,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5OIz27S6SQOJtweneBd6QP",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -65768,8 +66097,8 @@
      "cue_out": "2:06*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "115*",
+     "camelot": "1A*",
      "tried": [
       {
        "search": "song:Angel artist:Kid Cudi",
@@ -65789,7 +66118,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1T8YUlqrG15Tjetxhos6eJ",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -65800,8 +66132,8 @@
      "cue_out": "2:22*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "90*",
+     "camelot": "4A*",
      "tried": [
       {
        "search": "song:Ignite The Love artist:Kid Cudi",
@@ -65817,7 +66149,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7CY88rDZ8oKYAlmYoSyxwR",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A6",
@@ -65828,8 +66163,8 @@
      "cue_out": "3:18*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "121*",
+     "camelot": "5A*",
      "tried": [
       {
        "search": "song:In Love artist:Kid Cudi",
@@ -65849,7 +66184,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2aerPJ594vJMo0lK0hHGRO",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A7",
@@ -65860,8 +66198,8 @@
      "cue_out": "3:28*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "78*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Willing To Trust artist:Kid Cudi",
@@ -65877,7 +66215,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1OFQT3lHGbnn3x9jPtagXk",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -65888,8 +66229,8 @@
      "cue_out": "2:32*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "170*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Can't Believe It artist:Kid Cudi",
@@ -65909,7 +66250,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1r3qUIDhMvoTct7cxPnbdN",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -65920,8 +66264,8 @@
      "cue_out": "1:53*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "81*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:Livin' My Truth artist:Kid Cudi",
@@ -65937,7 +66281,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "37Qn9foJ2E2S24guZSyvyg",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -65948,8 +66295,8 @@
      "cue_out": "3:20*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "142*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Maybe So artist:Kid Cudi",
@@ -65969,7 +66316,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2K5cJfIJ5nak7BPfnM6VHP",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -65980,8 +66330,8 @@
      "cue_out": "2:36*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "121*",
+     "camelot": "8A*",
      "tried": [
       {
        "search": "song:Can't Shake Her artist:Kid Cudi",
@@ -65997,7 +66347,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4AmISPiQJMPLN4KootjCUu",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -66008,8 +66361,8 @@
      "cue_out": "3:15*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "76*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:She's Lookin' For Me artist:Kid Cudi",
@@ -66025,7 +66378,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1WWCpeMyByhHYM2K9atukB",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B6",
@@ -66036,8 +66392,8 @@
      "cue_out": "1:51*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "150*",
+     "camelot": "7A*",
      "tried": [
       {
        "search": "song:My Drug artist:Kid Cudi",
@@ -66057,7 +66413,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6MQuFi8gzoJAYwxkYvnbb1",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B7",
@@ -66068,8 +66427,8 @@
      "cue_out": "2:36*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "171*",
+     "camelot": "6A*",
      "tried": [
       {
        "search": "song:Somewhere To Fly artist:Kid Cudi",
@@ -66087,7 +66446,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1irXetrpIyLUtvkNw2F2tu",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B8",
@@ -66098,8 +66460,8 @@
      "cue_out": "3:11*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "135*",
+     "camelot": "1A*",
      "tried": [
       {
        "search": "song:Burrow  artist:Kid Cudi",
@@ -66119,7 +66481,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "79QdtrBWO8lCVaZCYMIxvn",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -71816,8 +72181,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "95*",
+     "camelot": "10B*",
      "tried": [
       {
        "search": "song:Hammer artist:Lorde",
@@ -71837,7 +72202,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "01U0X0ToQhK0AgvNUdyXQe",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -71848,8 +72216,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "127*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:What Was That artist:Lorde",
@@ -71869,7 +72237,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7hGCCQkdyF1MX6uk339uBS",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -71880,8 +72251,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "140*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Shapeshifter artist:Lorde",
@@ -71901,7 +72272,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0vtgMfyOVM2Y97DcVVJw3m",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -71912,8 +72286,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "177*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Man Of The Year artist:Lorde",
@@ -71933,7 +72307,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1gvOEwQbIEjkpLdcZwtBoB",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -71944,8 +72321,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "135*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Favourite Daughter  artist:Lorde",
@@ -71963,7 +72340,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6FRKxwDHTDGr1lqQ0SEprH",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -71974,8 +72354,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "128*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Current Affairs artist:Lorde",
@@ -71995,7 +72375,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1cQQB9z7fNQQ2VzSkslt7Y",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -72006,8 +72389,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "187*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Clearblue artist:Lorde",
@@ -72027,7 +72410,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5IOucMoMeoBw64mEQ68MjE",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -72038,8 +72424,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "140*",
+     "camelot": "2B*",
      "tried": [
       {
        "search": "song:GRWM artist:Lorde",
@@ -72055,7 +72441,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6nYlU9iIBRwEnCdXudBJl4",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -72066,8 +72455,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "65*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Broken Glass artist:Lorde",
@@ -72087,7 +72476,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6xCKXznjcHv2hZWDA0pRIe",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -72098,8 +72490,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "147*",
+     "camelot": "4B*",
      "tried": [
       {
        "search": "song:If She Could See Me Now artist:Lorde",
@@ -72119,7 +72511,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "75GHF6q3DHtjNDVISy62rk",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B6",
@@ -72130,8 +72525,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "80*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:David artist:Lorde",
@@ -72151,7 +72546,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6ghDayhHeBXAP4OOnnrFW9",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -72343,8 +72741,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "168*",
+     "camelot": "12B*",
      "tried": [
       {
        "search": "song:Tu Sei Il Mattino artist:Lucio Corsi",
@@ -72360,7 +72758,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1oyzSZbxeJWYfPFwMzn2Y2",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -72371,8 +72772,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "95*",
+     "camelot": "6B*",
      "tried": [
       {
        "search": "song:Sigarette artist:Lucio Corsi",
@@ -72392,7 +72793,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6rnQ5HHy4OrjSsM0xlEI4u",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -72403,8 +72807,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "79*",
+     "camelot": "12B*",
      "tried": [
       {
        "search": "song:Volevo Essere Un Duro artist:Lucio Corsi",
@@ -72420,7 +72824,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5sFbAYktReH4AJbATsGAw8",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -72431,8 +72838,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "90*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Francis Delacroix artist:Lucio Corsi",
@@ -72448,7 +72855,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4OVqwo0kYISjQqYExKlSz3",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -72459,8 +72869,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "106*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Let There Be Rocko artist:Lucio Corsi",
@@ -72476,7 +72886,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6IwpxTQGnP0blZFh27ytSf",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -72487,8 +72900,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "134*",
+     "camelot": "10B*",
      "tried": [
       {
        "search": "song:Il Re Del Rave artist:Lucio Corsi",
@@ -72504,7 +72917,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "05w59UGEFES4sfnHAWa9i7",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -72515,8 +72931,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "135*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Situazione Complicata artist:Lucio Corsi",
@@ -72532,7 +72948,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2f3TSWcQlu8sRr5ymkVRFl",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -72543,8 +72962,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "74*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Questa Vita artist:Lucio Corsi",
@@ -72564,7 +72983,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5N9xqmDryi4qcWMU8y698b",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -72575,8 +72997,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "78*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Nel Cuore Della Notte artist:Lucio Corsi",
@@ -72594,7 +73016,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3SIt4kCvIgB34kwX4p2QMl",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -73153,7 +73578,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "C1",
@@ -74705,7 +75131,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3iyJPBtWnucN4b5CoC9Zhv",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -75558,8 +75986,8 @@
      "cue_out": "1:35*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "102*",
+     "camelot": "2B*",
      "tried": [
       {
        "search": "song:The Illest Villains artist:MF Doom",
@@ -75577,7 +76005,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2Jn0wHQ2lEif2gLRsyfaf2",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "2A",
@@ -75588,8 +76019,8 @@
      "cue_out": "1:38*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "96*",
+     "camelot": "8A*",
      "tried": [
       {
        "search": "song:Accordion artist:MF Doom",
@@ -75609,7 +76040,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "67vrmPygrZ9giGqHUSReAT",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "3A",
@@ -75620,8 +76054,8 @@
      "cue_out": "1:51*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "88*",
+     "camelot": "2B*",
      "tried": [
       {
        "search": "song:Meat Grinder artist:MF Doom",
@@ -75641,7 +76075,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4WM1hvYr2NC6bQnQXcj3sH",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "4A",
@@ -75652,8 +76089,8 @@
      "cue_out": "0:48*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "85*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Bistro artist:MF Doom",
@@ -75673,7 +76110,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4kSYZCV2qlTpCPu0NnMoSR",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "5A",
@@ -75684,8 +76124,8 @@
      "cue_out": "2:15*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "201*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:Raid artist:MF Doom",
@@ -75705,7 +76145,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3KQh7ppbDxVjdJBtjvP5BU",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "1B",
@@ -75716,8 +76159,8 @@
      "cue_out": "3:34*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "96*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:America's Most Blunted artist:MF Doom",
@@ -75735,7 +76178,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1QmVaiJKcXUMMBfd1fonI0",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "2B",
@@ -75746,8 +76192,8 @@
      "cue_out": "1:01*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "95*",
+     "camelot": "7A*",
      "tried": [
       {
        "search": "song:Sickfit (Inst.) artist:MF Doom",
@@ -75765,7 +76211,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4NpMpsiq6LX8eikg9Gcvsj",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "3B",
@@ -75776,8 +76225,8 @@
      "cue_out": "2:31*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "94*",
+     "camelot": "9A*",
      "tried": [
       {
        "search": "song:Rainbows artist:MF Doom",
@@ -75797,7 +76246,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "63qqAXlMFDKO9gkIMiq3KH",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "4B",
@@ -75808,8 +76260,8 @@
      "cue_out": "1:13*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "90*",
+     "camelot": "6A*",
      "tried": [
       {
        "search": "song:Curls artist:MF Doom",
@@ -75829,7 +76281,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0V3nTTKA24XKCayp8igU4l",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "5B",
@@ -75840,8 +76295,8 @@
      "cue_out": "0:32*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "88*",
+     "camelot": "12B*",
      "tried": [
       {
        "search": "song:Do Not Fire! (Inst.) artist:MF Doom",
@@ -75859,7 +76314,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1APrKVAuOsotWulrz0GyAz",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "6B",
@@ -75870,8 +76328,8 @@
      "cue_out": "2:21*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "93*",
+     "camelot": "4B*",
      "tried": [
       {
        "search": "song:Money Folder artist:MF Doom",
@@ -75890,7 +76348,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7N1Z5IAGMEWXZcxfpFt87k",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "1C",
@@ -75922,7 +76383,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "2C",
@@ -75933,8 +76395,8 @@
      "cue_out": "2:16*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "97*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Shadows Of Tomorrow artist:MF Doom",
@@ -75953,7 +76415,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2DGrID7i8pkoqR2gHxnEHC",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "3C",
@@ -75964,8 +76429,8 @@
      "cue_out": "1:10*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "183*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Operation Lifesaver AKA Mint Test artist:MF Doom",
@@ -75983,7 +76448,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "44lxKKHQuGj9Y99hnmtOTK",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "4C",
@@ -75994,8 +76462,8 @@
      "cue_out": "2:05*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "92*",
+     "camelot": "10B*",
      "tried": [
       {
        "search": "song:Figaro artist:MF Doom",
@@ -76015,7 +76483,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7oFiFPltiQTBqVutyiSwvE",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "5C",
@@ -76026,8 +76497,8 @@
      "cue_out": "1:01*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "96*",
+     "camelot": "3A*",
      "tried": [
       {
        "search": "song:Hardcore Hustle artist:MF Doom",
@@ -76046,7 +76517,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "43u5j2bJ6E9nZV3PbPAoAe",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "6C",
@@ -76057,8 +76531,8 @@
      "cue_out": "1:03*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "90*",
+     "camelot": "9A*",
      "tried": [
       {
        "search": "song:Strange Ways artist:MF Doom",
@@ -76078,7 +76552,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1JLvr8qmZ6hQM7H6MsIqHV",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "1D",
@@ -76101,8 +76578,8 @@
      "cue_out": "1:35*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "90*",
+     "camelot": "4B*",
      "tried": [
       {
        "search": "song:Fancy Clown artist:MF Doom",
@@ -76121,7 +76598,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1YgDGKyKhFlimPw3mLavPG",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "3D",
@@ -76146,8 +76626,8 @@
      "cue_out": "0:32*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "175*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Supervillain Theme (Inst.) artist:MF Doom",
@@ -76166,7 +76646,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2m10twwgw9NxzvlQkwCOIO",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "5D",
@@ -76191,8 +76674,8 @@
      "cue_out": "1:56*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "86*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:Great Day artist:MF Doom",
@@ -76212,7 +76695,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2teH8BAM9q2oSmBre5hiQM",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "7D",
@@ -76223,8 +76709,8 @@
      "cue_out": "3:40*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "142*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Rhinestone Cowboy artist:MF Doom",
@@ -76244,7 +76730,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1IM5em8ceA9Ukorn9xf19w",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -76277,8 +76766,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "128*",
+     "camelot": "2B*",
      "tried": [
       {
        "search": "song:Stromboli artist:Michael Azzopardi",
@@ -76298,7 +76787,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5xfD9HKQvlrv3Wupj2OjXG",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -76309,8 +76801,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "120*",
+     "camelot": "12A*",
      "tried": [
       {
        "search": "song:Motoċiklista artist:Michael Azzopardi",
@@ -76326,7 +76818,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6dm6LkMWV59V79hq6LXz7v",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -76337,8 +76832,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "148*",
+     "camelot": "8A*",
      "tried": [
       {
        "search": "song:Mewġa Żgħira artist:Michael Azzopardi",
@@ -76354,7 +76849,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1tynLwQeiYiwTgdWiUJrlv",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -76365,8 +76863,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "150*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Xatt Ix-Xorti artist:Michael Azzopardi",
@@ -76382,7 +76880,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "25flVCvDAuQNe2DhK27QHN",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -76393,8 +76894,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "118*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Vaganza artist:Michael Azzopardi",
@@ -76414,7 +76915,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5gSi64I22gUNc1lwGVp99i",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -76425,8 +76929,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "172*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Il-Ballu artist:Michael Azzopardi",
@@ -76442,7 +76946,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0r1gkFZUeknuQiPn8Q5vrp",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -76453,8 +76960,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "95*",
+     "camelot": "11A*",
      "tried": [
       {
        "search": "song:OK artist:Michael Azzopardi",
@@ -76470,7 +76977,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "45sbRjNlxAd7T1SYOZdB3V",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -76481,8 +76991,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "122*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Forsi Nagħmlu Baby artist:Michael Azzopardi",
@@ -76498,7 +77008,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5taZWbjO9fEqHquJNcH1nX",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -76509,8 +77022,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "176*",
+     "camelot": "2B*",
      "tried": [
       {
        "search": "song:Fwawar artist:Michael Azzopardi",
@@ -76526,7 +77039,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2GaoqiRCTf3EgwC4DgcSv8",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -76783,7 +77299,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer",
+     "spotify_id": "6kAg8FCndlSgVWWm0mrngy",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -76828,7 +77346,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer",
+     "spotify_id": "187EUpV70OeUMCGwz1GaT7",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -76883,7 +77403,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer",
+     "spotify_id": "1eEfgfgUITIVJGfGRjcaHe",
+     "rb_v": 1
     },
     {
      "pos": "A7",
@@ -76954,7 +77476,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer",
+     "spotify_id": "7rR1QRYxx4JBaMtAyLrhrq",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -77047,7 +77571,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4hhkbfcXNZlFYSJlNWn049",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -77079,7 +77605,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3tILOQgPNCmiVAxs8aGh1c",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -77111,7 +77639,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4o2KpiB7boWiXdHqhxDPo3",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -77143,7 +77673,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3TDz9yFjHSRU2kDxFRfa7z",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -77175,7 +77707,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0V9RuqsEkuPK2uSJyV7qya",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -77207,7 +77741,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0NjJFtVT0viX0FgcQoYQ1d",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -77239,7 +77775,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "13vfMxcG26oHM17JX5SzC0",
+     "rb_v": 1
     }
    ]
   },
@@ -88664,8 +89202,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "180*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Пыль = Dust artist:Ploho",
@@ -88689,7 +89227,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5EnLB5cL4cfhbtlzKELcIi",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -89394,7 +89935,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5zYQqZpG8zCnL6Z8LtdV5a",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -89532,7 +90075,7 @@
      "looked_up": "2026-10-24",
      "lookup_v": 4,
      "bpm": "146*",
-     "camelot": "",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:L. A. artist:Psychic TV",
@@ -89553,7 +90096,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer + ReccoBeats key",
+     "spotify_id": "6MacqqdQXqo2InUCkVg10L",
+     "rb_v": 1
     },
     {
      "pos": "A6",
@@ -89821,7 +90366,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5tftwPF9QRwAut3CVIutmI",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -89853,7 +90400,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4kiBht0BZR3geeC2QLv1Kq",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -89884,7 +90433,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6arXJ8aMjCFCLUYz6dM0ZM",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -89912,7 +90463,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3ou6XCZWocbsJO8ROlbzhC",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -89944,7 +90497,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1bfpOlhNYwwisUpDlLGWSG",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -89974,7 +90529,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0x3VkNBKGLigNNds7xRP8r",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -90006,7 +90563,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2YOf9N1XZdEF62eaDTV158",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -90038,7 +90597,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3GHgLrDYTUZdEXKwglp7pB",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -90069,7 +90630,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3nOjblMWKTGcGu7wAYqo13",
+     "rb_v": 1
     }
    ]
   },
@@ -92438,7 +93001,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3zc7vonYA9CdWsSmFYS4wQ",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -92470,7 +93035,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6V589w3VjczbgVhXpMDrho",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -92502,7 +93069,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6rbx4VwWtXJZcKn4tfAAu1",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -92534,7 +93103,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2rWLhhZnTnCa6IgMeBFGFA",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -92562,7 +93133,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2Yjgz8gC8j5rEMGg0caBNg",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -92594,7 +93167,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6KsAVsTNiMlT9h6hASjWZC",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -92624,7 +93199,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "79bCla5uKT9EdSrGt5D1sV",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -92656,7 +93233,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1NK5BiYBle9FxV1a2jJeGn",
+     "rb_v": 1
     },
     {
      "pos": "C1",
@@ -92688,7 +93267,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "38KvSQlHVWND2XZtsQShye",
+     "rb_v": 1
     },
     {
      "pos": "C2",
@@ -92716,7 +93297,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4GQqpfparOLbbemfJ5lJ2H",
+     "rb_v": 1
     },
     {
      "pos": "C3",
@@ -92744,7 +93327,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "C4",
@@ -92772,7 +93356,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "D1",
@@ -92804,7 +93389,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7xBMpXUWcT888Trt1hHEoZ",
+     "rb_v": 1
     },
     {
      "pos": "D2",
@@ -92836,7 +93423,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0fGqmmntfYKTkCm07iLLU7",
+     "rb_v": 1
     },
     {
      "pos": "D3",
@@ -92864,7 +93453,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1Nq9IBwL47LHROxTfsQZn1",
+     "rb_v": 1
     }
    ]
   },
@@ -94410,7 +95001,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7ekSJz0V4gXbrPndFAhLye",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -94442,7 +95035,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0HW2RKF80cPR9mnN5T5Rum",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -94474,7 +95069,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1bGPJ66UMPTulpKuJJlrK2",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -94506,7 +95103,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5qMLVcANtTt6HB8XaVd6lM",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -94538,7 +95137,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4Pjs6JmmSq4v9FuZFnWIng",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -94570,7 +95171,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6QuLNEv4D16ECKDysb4Ltn",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -94602,7 +95205,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5Ihx6oOsUBYF0Zp6zUC7fk",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -94634,7 +95239,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4Jp3XfqAHGzwuRdP7qOPgy",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -94666,7 +95273,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5Wui6ed7mrft89DjGnffJ9",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -94698,7 +95307,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7MCGBbLKg9BS7lQS1S5SN5",
+     "rb_v": 1
     }
    ]
   },
@@ -97504,7 +98115,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3hUuJWtB0XWT3hhNn2IzQz",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -97532,7 +98145,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0gxFrneuj6JFER9QNJwjFA",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -97563,7 +98178,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7aBnQ4NrLbC6f2ivU0oHBD",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -97591,7 +98208,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -97619,7 +98237,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6BIwAoj6geI1ajafd21z3p",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -97647,7 +98267,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2w7bne5vATDafZHiVZpQpq",
+     "rb_v": 1
     }
    ]
   },
@@ -97683,8 +98305,8 @@
      "cue_out": "5:17*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "100*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Never Deep  artist:Shad Shadows",
@@ -97700,7 +98322,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "672DgCyovZDbpc7nurqtVl",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -97711,8 +98336,8 @@
      "cue_out": "3:49*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "110*",
+     "camelot": "11A*",
      "tried": [
       {
        "search": "song:Crystal Jungle artist:Shad Shadows",
@@ -97730,7 +98355,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4RpT3Mc0669xSCotWoj7HU",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -97741,8 +98369,8 @@
      "cue_out": "3:46*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "130*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:The Net artist:Shad Shadows",
@@ -97762,7 +98390,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1YIzUXz072KYxL6XSJYB7o",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -97773,8 +98404,8 @@
      "cue_out": "4:20*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "140*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:Destroy  artist:Shad Shadows",
@@ -97794,7 +98425,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6isBu3zpcLIKiFgvLEKH3g",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -97805,8 +98439,8 @@
      "cue_out": "3:44*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "120*",
+     "camelot": "1B*",
      "tried": [
       {
        "search": "song:Alessandra artist:Shad Shadows",
@@ -97826,7 +98460,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "52X504OyVNj8Yz27zynz3G",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -97837,8 +98474,8 @@
      "cue_out": "3:38*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "138*",
+     "camelot": "8A*",
      "tried": [
       {
        "search": "song:Her Face / His Face  artist:Shad Shadows",
@@ -97854,7 +98491,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5Z1VpGF4JxpKkRChkgXdSB",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -97865,8 +98505,8 @@
      "cue_out": "3:28*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "145*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Make Me Real artist:Shad Shadows",
@@ -97886,7 +98526,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1tIcKcQZJI9rsAMr5WRSlO",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -97897,8 +98540,8 @@
      "cue_out": "3:33*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "135*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Universe artist:Shad Shadows",
@@ -97918,7 +98561,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7xWL88deXV1RK219hnqXoX",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -97929,8 +98575,8 @@
      "cue_out": "3:29*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "128*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Tv Star  artist:Shad Shadows",
@@ -97950,7 +98596,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2N8dIRmbw8OkRgT3mT6ZD4",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -97961,8 +98610,8 @@
      "cue_out": "4:47*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "128*",
+     "camelot": "3A*",
      "tried": [
       {
        "search": "song:Vision artist:Shad Shadows",
@@ -97982,7 +98631,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4hjdnJ41VYBmz3CWlNZir2",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -98203,8 +98855,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "171*",
+     "camelot": "9A*",
      "tried": [
       {
        "search": "song:Crystl artist:Shdws",
@@ -98220,7 +98872,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5GMxlNfpPJifxqNRHugvqh",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -98231,8 +98886,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "109*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Night Eyes Bright Sky artist:Shdws",
@@ -98248,7 +98903,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "58YvgC1rcaWLU1qqDKOWWv",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -98259,8 +98917,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "120*",
+     "camelot": "5A*",
      "tried": [
       {
        "search": "song:Lessons artist:Shdws",
@@ -98280,7 +98938,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2fRyBWfNQ6bSAiKbn7UGxy",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -98311,7 +98972,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -98322,8 +98984,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "110*",
+     "camelot": "1B*",
      "tried": [
       {
        "search": "song:Swinging Blades artist:Shdws",
@@ -98341,7 +99003,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1cU7cnb4RMajvemcMMKUXI",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -98352,8 +99017,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "128*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Drvgs artist:Shdws",
@@ -98369,7 +99034,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6kO3Ihh7YaYuYdQIDnuSSu",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -98380,8 +99048,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "120*",
+     "camelot": "6B*",
      "tried": [
       {
        "search": "song:Sleep artist:Shdws",
@@ -98401,7 +99069,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4s4PTOQXy6e67ql06NRHUT",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -98412,8 +99083,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "120*",
+     "camelot": "4B*",
      "tried": [
       {
        "search": "song:The Promise artist:Shdws",
@@ -98433,7 +99104,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "349QuvOxSoGNYZBLxhtVDl",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -98444,8 +99118,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "150*",
+     "camelot": "7B*",
      "tried": [
       {
        "search": "song:Wald II artist:Shdws",
@@ -98461,7 +99135,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7hPVUJ3nnYvM6QuyRa16Hm",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -98472,8 +99149,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "81*",
+     "camelot": "6B*",
      "tried": [
       {
        "search": "song:Numb artist:Shdws",
@@ -98493,7 +99170,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5fSxnuqifOsLNaalUcerYY",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -100077,8 +100757,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "139*",
+     "camelot": "4A*",
      "tried": [
       {
        "search": "song:Cherry Blue Intention artist:Special Interest",
@@ -100095,7 +100775,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "2JrozyGS7r75L39rt3xoGx"
+     "spotify_id": "2JrozyGS7r75L39rt3xoGx",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -100106,8 +100788,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "123*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:(Herman's) House artist:Special Interest",
@@ -100128,7 +100810,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "49RbYzhdGmGOJSBbrM9JdI"
+     "spotify_id": "49RbYzhdGmGOJSBbrM9JdI",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -100139,8 +100823,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "155*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:Foul artist:Special Interest",
@@ -100161,7 +100845,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "27YME9ZCAEKJc7tUQubCqW"
+     "spotify_id": "27YME9ZCAEKJc7tUQubCqW",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -100172,8 +100858,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "120*",
+     "camelot": "3A*",
      "tried": [
       {
        "search": "song:Midnight Legend artist:Special Interest",
@@ -100190,7 +100876,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "4oFtkpHHuqH2pXpELHReHW"
+     "spotify_id": "4oFtkpHHuqH2pXpELHReHW",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -100201,8 +100889,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "140*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Love Scene artist:Special Interest",
@@ -100223,7 +100911,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "0yd3rQQ8oKzTricFw3ZbIp"
+     "spotify_id": "0yd3rQQ8oKzTricFw3ZbIp",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A6",
@@ -100234,8 +100924,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "130*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Kurdish Radio artist:Special Interest",
@@ -100252,7 +100942,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "3C3i0vY0J9anJODQeUYCvY"
+     "spotify_id": "3C3i0vY0J9anJODQeUYCvY",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -100263,8 +100955,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "98*",
+     "camelot": "3A*",
      "tried": [
       {
        "search": "song:My Displeasure artist:Special Interest",
@@ -100281,7 +100973,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "7ENCW7wQMpCo5MJ7s3ENdg"
+     "spotify_id": "7ENCW7wQMpCo5MJ7s3ENdg",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -100292,8 +100986,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "175*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Impulse Control artist:Special Interest",
@@ -100314,7 +101008,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "6SPcb9TRt4xFHUPNHQyb2K"
+     "spotify_id": "6SPcb9TRt4xFHUPNHQyb2K",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -100325,8 +101021,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "93*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Concerning Peace artist:Special Interest",
@@ -100343,7 +101039,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "3lmMCXxpjCEehCRPMwrSUx"
+     "spotify_id": "3lmMCXxpjCEehCRPMwrSUx",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -100354,8 +101052,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "75*",
+     "camelot": "7B*",
      "tried": [
       {
        "search": "song:Interlude artist:Special Interest",
@@ -100376,7 +101074,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "59DDjGGuwQmXNL0SaVn2Ds"
+     "spotify_id": "59DDjGGuwQmXNL0SaVn2Ds",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -100387,8 +101087,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "125*",
+     "camelot": "3A*",
      "tried": [
       {
        "search": "song:LA Blues artist:Special Interest",
@@ -100408,7 +101108,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "5ibB8mf6I1UiShQiCmIDvQ"
+     "spotify_id": "5ibB8mf6I1UiShQiCmIDvQ",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -101251,8 +101953,8 @@
      "cue_out": "2:29*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "110*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:Bought & Sold artist:Swamp Money",
@@ -101272,7 +101974,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2vFh2Gj9UG0Nn10bm54XVz",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -101304,7 +102009,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4rU0ywMJUR6UBrgoVQQrhT",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -101315,8 +102022,8 @@
      "cue_out": "2:54*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "90*",
+     "camelot": "2B*",
      "tried": [
       {
        "search": "song:Alone Or Lonely artist:Swamp Money",
@@ -101332,7 +102039,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6W71iFOLA9CNdvnbJv98h5",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -101343,8 +102053,8 @@
      "cue_out": "2:34*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "108*",
+     "camelot": "6A*",
      "tried": [
       {
        "search": "song:Nocturnal Hum artist:Swamp Money",
@@ -101363,7 +102073,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2nfnxNa0oPxN0bmx5WcfOd",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -101374,8 +102087,8 @@
      "cue_out": "2:01*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "99*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Pangaea artist:Swamp Money",
@@ -101395,7 +102108,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3kDYspOL1HHSX0C8ShuYHK",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A6",
@@ -101406,8 +102122,8 @@
      "cue_out": "2:44*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "90*",
+     "camelot": "7A*",
      "tried": [
       {
        "search": "song:Pack Up & Leave artist:Swamp Money",
@@ -101423,7 +102139,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5d4twAuJIdTk5b6naX1puu",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -101434,8 +102153,8 @@
      "cue_out": "2:08*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "170*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:Barry Grey artist:Swamp Money",
@@ -101451,7 +102170,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "799pr1TwjAADaUZCzRViPQ",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -101462,8 +102184,8 @@
      "cue_out": "3:37*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "80*",
+     "camelot": "4A*",
      "tried": [
       {
        "search": "song:Slow Ground artist:Swamp Money",
@@ -101482,7 +102204,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6wSGPzUscpoRQ2IP4oT9Hk",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -101493,8 +102218,8 @@
      "cue_out": "2:19*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "115*",
+     "camelot": "12A*",
      "tried": [
       {
        "search": "song:Chez Manu artist:Swamp Money",
@@ -101510,7 +102235,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3T9xHJd6O7A6dAX9gDM4rP",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -101521,8 +102249,8 @@
      "cue_out": "1:55*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "120*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:Rapid Pineapple artist:Swamp Money",
@@ -101538,7 +102266,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2HPfxXJp9qvSW27ybbZWSW",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -101549,8 +102280,8 @@
      "cue_out": "2:34*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "95*",
+     "camelot": "12A*",
      "tried": [
       {
        "search": "song:Feathers artist:Swamp Money",
@@ -101570,7 +102301,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3bIC4UGTX75VmFkknvcw9K",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B6",
@@ -101581,8 +102315,8 @@
      "cue_out": "1:49*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "105*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:6x8 artist:Swamp Money",
@@ -101600,7 +102334,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3H0DhSnzbmsSaiRBPwy6Pg",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -109625,7 +110362,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer",
+     "spotify_id": "1esrPCrpjJhubSqRtNz5Yw",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -113351,7 +114090,8 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "6DnAv660lDmzuqz4m1oZ1f"
+     "spotify_id": "6DnAv660lDmzuqz4m1oZ1f",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -113384,7 +114124,8 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "6pkRvqRKLKymiqBUf14X0c"
+     "spotify_id": "6pkRvqRKLKymiqBUf14X0c",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -113417,7 +114158,8 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "3FGr22l8X27nVNOPTFAFSG"
+     "spotify_id": "3FGr22l8X27nVNOPTFAFSG",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -113460,7 +114202,8 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "1IaOvUAM0uh0AqG1TYdiTJ"
+     "spotify_id": "1IaOvUAM0uh0AqG1TYdiTJ",
+     "rb_v": 1
     },
     {
      "pos": "B6",
@@ -113489,7 +114232,8 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "spotify_id": "6GroX1cLwYF0Eb5ZZwJxrX"
+     "spotify_id": "6GroX1cLwYF0Eb5ZZwJxrX",
+     "rb_v": 1
     }
    ]
   },
@@ -115651,8 +116395,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "67*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Sad Song artist:The Soft Moon",
@@ -115672,7 +116416,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2zRNay4vw4FGi12rP4CoLV",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -115683,8 +116430,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "194*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Answers artist:The Soft Moon",
@@ -115704,7 +116451,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0phbuKaUyWzuNBQWSdXwwR",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -115715,8 +116465,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "126*",
+     "camelot": "8A*",
      "tried": [
       {
        "search": "song:Become The Lies artist:The Soft Moon",
@@ -115732,7 +116482,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "11OqSiLneDZHlRjbSO3dGm",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -115743,8 +116496,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "120*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Face Is Gone artist:The Soft Moon",
@@ -115760,7 +116513,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3nyRCnIVyv3LyGCESLMnrp",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -115771,8 +116527,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "168*",
+     "camelot": "2A*",
      "tried": [
       {
        "search": "song:Monster artist:The Soft Moon",
@@ -115792,7 +116548,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1dhZLIeE2tKSMedeHh8RGU",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -115803,8 +116562,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "118*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:The Pit artist:The Soft Moon",
@@ -115824,7 +116583,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1WIAcitgQ9SnJatKjYIF7U",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -115835,8 +116597,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "106*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Nada artist:The Soft Moon",
@@ -115856,7 +116618,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5ZkoRDQq8Iq9xe9p8qCVUu",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -115867,8 +116632,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "190*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Stupid Child artist:The Soft Moon",
@@ -115886,7 +116651,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1Zrg3s7Wrb3wOeqiP00Zqp",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -115897,8 +116665,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "144*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Him artist:The Soft Moon",
@@ -115918,7 +116686,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "16GofBEzO3NEhAtSQIfBoG",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -115929,8 +116700,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "172*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:Unforgiven artist:The Soft Moon",
@@ -115950,7 +116721,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1h2ARRwUPImDtVpZEvlRmU",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B6",
@@ -115961,8 +116735,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "82*",
+     "camelot": "6A*",
      "tried": [
       {
        "search": "song:Exister artist:The Soft Moon",
@@ -115982,7 +116756,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1LCLt5NBNeUTluzCrnHWnL",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -116342,7 +117119,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4KyYXZCjBt7c9ChcdsYP3M",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -116374,7 +117153,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6U0LV3LURUuHwjz6npy710",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -116406,7 +117187,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6PjApin6W8CzGpQWDUJ6cy",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -116438,7 +117221,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "73gtopO9H8r33YvkGds4Wm",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -116470,7 +117255,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "13STxvBtVmjkqRbVeq3D7R",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -116502,7 +117289,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4yfyPTdDnMP8weOE2MY1Iv",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -116534,7 +117323,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7KyuJQROr65fOaT8q4rib8",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -116566,7 +117357,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2vZT7bZQOK85Bu6B5HZprz",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -116598,7 +117391,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1MsTVJGuiVdpAAwvIUmz54",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -116630,7 +117425,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2m9GFrjFERwdG1nPIZpzLH",
+     "rb_v": 1
     }
    ]
   },
@@ -116689,7 +117486,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6dgDYOmHPKtvMaBoltqSuH",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -116721,7 +117520,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2PL6EkIZYth7ksVa2bsSbH",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -116753,7 +117554,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "229lZJWg9BsjVW7lxhebOF",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -116785,7 +117588,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1bk8OTzLqwZ3ophB1fYwND",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -116817,7 +117622,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5iyDyOV9yyi25cVYlkELNI",
+     "rb_v": 1
     },
     {
      "pos": "A6",
@@ -116849,7 +117656,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1sF5kSV2QfgDE7nKfjCpSw",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -116881,7 +117690,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1Xv189klRmca77iArDpBpW",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -116909,7 +117720,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -116941,7 +117753,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "11BDsdWLhO0fCziHR7MtTH",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -116973,7 +117787,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2Bsa7OU39MUaAqqOlnxLOS",
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -117005,7 +117821,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1u9sCBd5zhye57roovAHsC",
+     "rb_v": 1
     },
     {
      "pos": "B6",
@@ -117037,7 +117855,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7zylWYHd0SYerSFxGntcBw",
+     "rb_v": 1
     }
    ]
   },
@@ -125336,8 +126156,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "181*",
+     "camelot": "7B*",
      "tried": [
       {
        "search": "song:Casa Domani artist:Move",
@@ -125353,7 +126173,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3YCxfplggxXJ13hmaJz3N2",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -125385,7 +126208,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A6",
@@ -126549,7 +127373,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -126561,7 +127386,7 @@
      "looked_up": "2026-10-24",
      "lookup_v": 4,
      "bpm": "163*",
-     "camelot": "",
+     "camelot": "10B*",
      "tried": [
       {
        "search": "song:A Skeleton At The Feast  artist:The Middle Class",
@@ -126578,7 +127403,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer + ReccoBeats key",
+     "spotify_id": "4zdkrUWS11ZP2uSM4p78Uy",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -126604,7 +127431,7 @@
      "looked_up": "2026-10-24",
      "lookup_v": 4,
      "bpm": "149*",
-     "camelot": "",
+     "camelot": "12B*",
      "tried": [
       {
        "search": "song:Whiplash artist:Veda",
@@ -126625,7 +127452,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer + ReccoBeats key",
+     "spotify_id": "1JAQ9Ufl4b93Oxz7hzToou",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -126648,8 +127477,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "130*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:The Freedom Curse  artist:Flowers For Agatha",
@@ -126665,7 +127494,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2gU0GDx8BUgNHs7HB8ojLI",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -126688,8 +127520,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "132*",
+     "camelot": "8B*",
      "tried": [
       {
        "search": "song:What's Wrong Yvette  artist:Crank Call Love Affair",
@@ -126705,7 +127537,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3d8q0Rj6LLq6BQ08MdPuUw",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -126787,7 +127622,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5kupEQM62qo0ENDNiCm9eO",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -127079,7 +127916,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     }
    ]
   },
@@ -128607,7 +129445,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -128618,8 +129457,8 @@
      "cue_out": "5:59*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "117*",
+     "camelot": "7B*",
      "tried": [
       {
        "search": "song:Illusion artist:Optik",
@@ -128639,7 +129478,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7tjX8WCgzUcBTJ4PhkMwTB",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -128650,8 +129492,8 @@
      "cue_out": "5:19*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "122*",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Universal artist:Leo Anibaldi",
@@ -128671,7 +129513,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3IEESYIXCVI1PPpLNmJZ8J",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -128682,8 +129527,8 @@
      "cue_out": "5:08*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "124*",
+     "camelot": "4B*",
      "tried": [
       {
        "search": "song:Tramp Heart artist:Green Baize",
@@ -128699,7 +129544,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0YkoToE7lyt7JcxxLhMBTb",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -128711,7 +129559,7 @@
      "looked_up": "2026-10-24",
      "lookup_v": 4,
      "bpm": "122*",
-     "camelot": "",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Children Trip artist:Deep Choice",
@@ -128728,7 +129576,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer + ReccoBeats key",
+     "spotify_id": "4rJlcjUhKj2m0u6ajDGujL",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -128772,7 +129622,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "C2",
@@ -128783,8 +129634,8 @@
      "cue_out": "5:36*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "121*",
+     "camelot": "1B*",
      "tried": [
       {
        "search": "song:Sun City artist:Golem",
@@ -128804,7 +129655,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2beWLgy5RkTlhi6keUHp32",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "D1",
@@ -128832,7 +129686,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "D2",
@@ -128843,8 +129698,8 @@
      "cue_out": "5:17*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "120*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Dance To The House (Unreleased Edit) artist:Neuro State",
@@ -128863,7 +129718,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "0P0dADI1KQJ84oualFZagj",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "D3",
@@ -128874,8 +129732,8 @@
      "cue_out": "6:33*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "124*",
+     "camelot": "7A*",
      "tried": [
       {
        "search": "song:Ouverture artist:Don Carlos",
@@ -128895,7 +129753,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7oyJdRgeNXDxTR3rQLmBMj",
+     "source": "ReccoBeats",
+     "rb_v": 1
     }
    ]
   },
@@ -128929,8 +129790,8 @@
      "cue_out": "2:25*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "122*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Ethero-Disco artist:R. Roland",
@@ -128946,7 +129807,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3S0vCMxbkxlDD6R4z8cKYS",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -128957,8 +129821,8 @@
      "cue_out": "2:38*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "98*",
+     "camelot": "3A*",
      "tried": [
       {
        "search": "song:King Kong artist:Carl Watson",
@@ -128978,7 +129842,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2bedhfKKL3bV3OWpKGpoki",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -128989,8 +129856,8 @@
      "cue_out": "3:33*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "120*",
+     "camelot": "10A*",
      "tried": [
       {
        "search": "song:Baby Won't You Turn Me On artist:Charles Vernon",
@@ -129008,7 +129875,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "2Bo3zDcCxdd56nMmYvFRqw",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -129040,7 +129910,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -129051,8 +129922,8 @@
      "cue_out": "3:35*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "114*",
+     "camelot": "3B*",
      "tried": [
       {
        "search": "song:Tropicana Beach artist:Fancy",
@@ -129068,7 +129939,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "19pHAOHqlTmfVQu9hAC21L",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -129079,8 +129953,8 @@
      "cue_out": "2:26*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "122*",
+     "camelot": "5B*",
      "tried": [
       {
        "search": "song:Queen To The Pharaoh artist:Marianne",
@@ -129096,7 +129970,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7bp4SwXx6rIByBKGyByvXT",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -129107,8 +129984,8 @@
      "cue_out": "3:28*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "126*",
+     "camelot": "11A*",
      "tried": [
       {
        "search": "song:Groovin' To The Music artist:Flame",
@@ -129124,7 +130001,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1bz6D3xQXy47cKokZ7AMBa",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -129135,8 +130015,8 @@
      "cue_out": "2:22*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "141*",
+     "camelot": "10B*",
      "tried": [
       {
        "search": "song:I'm Free artist:Steve",
@@ -129156,7 +130036,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "750wjOrJwSgnHsbSMX8HyP",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "C1",
@@ -129167,8 +130050,8 @@
      "cue_out": "3:44*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "105*",
+     "camelot": "1B*",
      "tried": [
       {
        "search": "song:Be My Love Tonight artist:C.C. Band",
@@ -129184,7 +130067,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4ygpW8LuyypAYR9ZWgmCd2",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "C2",
@@ -129195,8 +130081,8 @@
      "cue_out": "3:47*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "101*",
+     "camelot": "12A*",
      "tried": [
       {
        "search": "song:Cool & Get Up artist:Quartz",
@@ -129212,7 +130098,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "48ygYCKsRZ3cWSuEBPWLGP",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "C3",
@@ -129223,8 +130112,8 @@
      "cue_out": "2:59*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "98*",
+     "camelot": "2A*",
      "tried": [
       {
        "search": "song:Feel So Glad artist:Dan Davis",
@@ -129242,7 +130131,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4MKAZE8dCRLt4wGlfxaLuF",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "C4",
@@ -129267,8 +130159,8 @@
      "cue_out": "2:36*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "106*",
+     "camelot": "1B*",
      "tried": [
       {
        "search": "song:La Gomme artist:L2",
@@ -129287,7 +130179,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "593QEavJPvBVpy8zrHSTUE",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "D1",
@@ -129315,7 +130210,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4dJVjDI6UYg0tUc1UnngLR",
+     "rb_v": 1
     },
     {
      "pos": "D2",
@@ -129347,7 +130244,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6UdXxvBfPMOZT49xyaUQPi",
+     "rb_v": 1
     },
     {
      "pos": "D3",
@@ -129379,7 +130278,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     }
    ]
   },
@@ -129556,7 +130456,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B6",
@@ -129744,7 +130645,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     }
    ]
   },
@@ -129812,7 +130714,7 @@
      "looked_up": "2026-10-24",
      "lookup_v": 4,
      "bpm": "150*",
-     "camelot": "",
+     "camelot": "8A*",
      "tried": [
       {
        "search": "song:In Havana artist:Kenny Vance",
@@ -129831,7 +130733,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer + ReccoBeats key",
+     "spotify_id": "6WVvdi6rTyNRjkYN2PgarY",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -129843,7 +130747,7 @@
      "looked_up": "2026-10-24",
      "lookup_v": 4,
      "bpm": "104*",
-     "camelot": "",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Echoes In My Mind artist:Mandrill",
@@ -129862,7 +130766,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer + ReccoBeats key",
+     "spotify_id": "2e24jW0P7pZKKkQx3tZkcN",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -129895,7 +130801,8 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer",
+     "rb_v": 1
     },
     {
      "pos": "B6",
@@ -129950,7 +130857,8 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer",
+     "rb_v": 1
     },
     {
      "pos": "B9",
@@ -129976,7 +130884,7 @@
      "looked_up": "2026-10-24",
      "lookup_v": 4,
      "bpm": "113*",
-     "camelot": "",
+     "camelot": "7B*",
      "tried": [
       {
        "search": "song:Last Of An Ancient Breed artist:Desmond Child",
@@ -129995,7 +130903,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer + ReccoBeats key",
+     "spotify_id": "5V3y4BsWqpS7mk4I8CHSgt",
+     "rb_v": 1
     },
     {
      "pos": "C11",
@@ -130027,7 +130937,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "C12",
@@ -130059,7 +130970,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "C13",
@@ -130091,7 +131003,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "C14",
@@ -130119,7 +131032,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "C15",
@@ -130147,7 +131061,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "C16",
@@ -130175,7 +131090,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "D17",
@@ -130219,7 +131135,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "D18",
@@ -130251,7 +131168,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "D19",
@@ -130295,7 +131213,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "D20",
@@ -130323,7 +131242,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "D21",
@@ -130351,7 +131271,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     }
    ]
   },
@@ -130928,7 +131849,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "7mzTTwnCRSxOsM1ghC0gDh",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -130956,7 +131879,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -130986,7 +131910,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -131018,7 +131943,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -131162,7 +132088,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "3DWV5a8Lr5eXgvaMwvJ5Xz",
+     "rb_v": 1
     },
     {
      "pos": "D3",
@@ -131204,7 +132132,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "F",
@@ -131232,7 +132161,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     }
    ]
   },
@@ -133749,7 +134679,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer",
+     "spotify_id": "55W8nJsdEn33t1OULDGWLY",
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -133777,7 +134709,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5C5cMkYtVPX6tHvE9sje8Q",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -133847,7 +134781,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -133957,7 +134892,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "D4",
@@ -134025,7 +134961,7 @@
      "looked_up": "2026-10-24",
      "lookup_v": 4,
      "bpm": "133*",
-     "camelot": "",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:Rompe Cocorioco artist:Juan Pablo Torres",
@@ -134042,7 +134978,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer + ReccoBeats key",
+     "spotify_id": "3FCsOc1B24FSsG6968SW2a",
+     "rb_v": 1
     },
     {
      "pos": "E4",
@@ -134110,7 +135048,7 @@
      "looked_up": "2026-10-24",
      "lookup_v": 4,
      "bpm": "142*",
-     "camelot": "",
+     "camelot": "4A*",
      "tried": [
       {
        "search": "song:Juana 1600 artist:Irakere",
@@ -134127,7 +135065,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer + ReccoBeats key",
+     "spotify_id": "1L0aUmd5qwHYp0vVQCGViV",
+     "rb_v": 1
     }
    ]
   },
@@ -134262,7 +135202,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "6TZVQw2OLCxBAjsTrfzWlu",
+     "rb_v": 1
     },
     {
      "pos": "C1",
@@ -134318,7 +135260,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "1IL2euh3UgQCoZ3FCOShQb",
+     "rb_v": 1
     },
     {
      "pos": "D2",
@@ -134535,7 +135479,7 @@
      "looked_up": "2026-10-24",
      "lookup_v": 4,
      "bpm": "168*",
-     "camelot": "",
+     "camelot": "5B*",
      "tried": [
       {
        "search": "song:La Fille À La Moto artist:Dani",
@@ -134572,7 +135516,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer + ReccoBeats key",
+     "spotify_id": "7GX9I1XReXGDRzymZCd0qy",
+     "rb_v": 1
     },
     {
      "pos": "C3",
@@ -134583,8 +135529,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "124*",
+     "camelot": "7A*",
      "tried": [
       {
        "search": "song:Tu Fais Partie Du Passé artist:Zouzou",
@@ -134612,7 +135558,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5g8IVPV9HlhiSRcnfr7qSu",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "C4",
@@ -136032,8 +136981,8 @@
      "cue_out": "3:33*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "110*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:God's Deneuve artist:Pankow",
@@ -136049,7 +136998,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5GlEt06IDqsVshPlyI55Pr",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A3",
@@ -136061,7 +137013,7 @@
      "looked_up": "2026-10-24",
      "lookup_v": 4,
      "bpm": "75*",
-     "camelot": "",
+     "camelot": "11A*",
      "tried": [
       {
        "search": "song:Mother And Son artist:Le Masque",
@@ -136082,7 +137034,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer + ReccoBeats key",
+     "spotify_id": "2kL4VgwPHJQxedrMegnc8O",
+     "rb_v": 1
     },
     {
      "pos": "A4",
@@ -136093,8 +137047,8 @@
      "cue_out": "4:38*",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "113*",
+     "camelot": "9A*",
      "tried": [
       {
        "search": "song:Forbidden Planet artist:N.O.I.A.",
@@ -136114,7 +137068,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "4uGTO1CJ5LqoI70gKg0wsu",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "A5",
@@ -136146,7 +137103,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A6",
@@ -136178,7 +137136,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B1",
@@ -136210,7 +137169,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B2",
@@ -136238,7 +137198,9 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "198L3NaOm5bVVg9uJ8EPCr",
+     "rb_v": 1
     },
     {
      "pos": "B3",
@@ -136266,7 +137228,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B4",
@@ -136296,7 +137259,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B5",
@@ -136308,7 +137272,7 @@
      "looked_up": "2026-10-24",
      "lookup_v": 4,
      "bpm": "121*",
-     "camelot": "",
+     "camelot": "11B*",
      "tried": [
       {
        "search": "song:Abilità Motoria artist:Illogico",
@@ -136337,7 +137301,9 @@
      ],
      "fb_v": 1,
      "dz_v": 1,
-     "source": "Deezer"
+     "source": "Deezer + ReccoBeats key",
+     "spotify_id": "3XUbSVCRs9hQwJNdIRkSyf",
+     "rb_v": 1
     },
     {
      "pos": "B6",
@@ -136365,7 +137331,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "B7",
@@ -136433,7 +137400,8 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "rb_v": 1
     },
     {
      "pos": "A2",
@@ -136590,8 +137558,8 @@
      "cue_out": "",
      "looked_up": "2026-10-24",
      "lookup_v": 4,
-     "bpm": "",
-     "camelot": "",
+     "bpm": "81*",
+     "camelot": "9B*",
      "tried": [
       {
        "search": "song:It’s Taking So Long artist:Kathy Smith",
@@ -136607,7 +137575,10 @@
       }
      ],
      "fb_v": 1,
-     "dz_v": 1
+     "dz_v": 1,
+     "spotify_id": "5AreeuM6X03ybY6ILVNp4k",
+     "source": "ReccoBeats",
+     "rb_v": 1
     },
     {
      "pos": "D2",
