@@ -1169,6 +1169,30 @@ async function syncStart() {
   setSync("off", hasPending() ? "Changes saved on this device only. Connect to sync." : "Not connected (read-only)");
 }
 window.addEventListener("focus", () => { if (TOKEN && !syncing && !hasPending()) syncNow(); });
+// "Sync with Discogs now": starts the GitHub update job (needs the token's Actions: Read and write permission)
+const GH = path => fetch(`https://api.github.com/repos/${REPO}${path}`, { headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" }, cache: "no-store" });
+const NEED_ACTIONS = `Your access code needs one more permission. On GitHub: <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener">Fine-grained tokens ↗</a> → your Setwright token → <b>Edit</b> → Repository permissions → <b>Actions: Read and write</b> → <b>Update</b>. The code itself stays the same.`;
+async function discogsStatus() {
+  const el = $("#dgStatus"); if (!el) return;
+  try {
+    const r = await GH("/actions/workflows/update.yml/runs?per_page=1");
+    if (r.status === 403 || r.status === 404) { el.innerHTML = NEED_ACTIONS; return; }
+    const run = ((await r.json()).workflow_runs || [])[0]; if (!run) return;
+    const when = new Date(run.created_at).toLocaleString([], { dateStyle: "medium", timeStyle: "short" });
+    el.textContent = run.status === "completed"
+      ? `Last check: ${when} (${run.conclusion === "success" ? "done" : run.conclusion})`
+      : `Checking Discogs now (started ${when})… new records appear on the Records page when it's done.`;
+    if (run.status !== "completed") { clearTimeout(discogsStatus.t); discogsStatus.t = setTimeout(discogsStatus, 30000); }
+  } catch (e) {}
+}
+async function discogsSyncNow() {
+  const el = $("#dgStatus"); el.textContent = "Starting…";
+  const r = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/update.yml/dispatches`, {
+    method: "POST", headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" }, body: JSON.stringify({ ref: "main" }) });
+  if (r.status === 403 || r.status === 404) { el.innerHTML = NEED_ACTIONS; return; }
+  if (!r.ok) { el.textContent = `Couldn't start it (GitHub ${r.status}).`; return; }
+  toast("Checking Discogs for new records…"); setTimeout(discogsStatus, 4000);
+}
 function renderSync() {
   const st = { ok: "✅ Connected and synced", pending: "⏳ Syncing…", error: "⚠️ Problem", off: "Not connected on this device" }[SYNC.state];
   $("#view").innerHTML = `<div class="guide" style="max-width:720px">
@@ -1176,7 +1200,10 @@ function renderSync() {
     <p><b>${st}</b>${SYNC.msg ? ` · ${esc(SYNC.msg)}` : ""}</p>
     <p>Your BPM/key/cue edits, style edits and setlists are saved to your GitHub repository, so every device sees the same thing.
       Each device needs a one-time <b>access code</b>. Devices without one can still <b>see</b> everything, but can't save changes.</p>
-    ${TOKEN ? `<div class="tools"><button class="btn primary" id="syncBtn">Sync now</button><button class="btn danger" id="discBtn">Disconnect this device</button></div>` : `
+    ${TOKEN ? `<div class="tools"><button class="btn primary" id="syncBtn">Sync now</button><button class="btn danger" id="discBtn">Disconnect this device</button></div>
+    <h3>Your Discogs collection</h3>
+    <p>New records on Discogs are picked up automatically every few hours. To fetch them straight away:</p>
+    <div class="tools"><button class="btn primary" id="dgBtn">Sync with Discogs now</button><span class="sub" id="dgStatus"></span></div>` : `
     <h3>Connect this device</h3>
     <ol>
       <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → New fine-grained token ↗</a></li>
@@ -1191,6 +1218,7 @@ function renderSync() {
     <p><kbd>[</kbd> back · <kbd>]</kbd> forward · <kbd>L</kbd> records list. Your browser's back/forward buttons work too.</p>
   </div>`;
   $("#syncBtn")?.addEventListener("click", syncNow);
+  if ($("#dgBtn")) { $("#dgBtn").onclick = discogsSyncNow; discogsStatus(); }
   $("#discBtn")?.addEventListener("click", () => { TOKEN = ""; store.set("ghToken", ""); setSync("off", "Disconnected"); renderSync(); });
   $("#connBtn")?.addEventListener("click", async () => {
     const v = $("#tok").value.trim(); if (!v) return;
