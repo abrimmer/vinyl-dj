@@ -191,6 +191,38 @@
     }
    ],
    "updated": 1793099790916
+  },
+  {
+   "id": 1793171432740,
+   "name": "djfnbskdjfbakdjss",
+   "one": true,
+   "rules": {
+    "tempo": 8,
+    "keySteps": 1,
+    "styleSteps": 2,
+    "route": "tight"
+   },
+   "styleMode": "any",
+   "styles": [
+    "New Wave",
+    "Goth Rock"
+   ],
+   "slots": [
+    {
+     "k": "9018182|A1",
+     "lock": true
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "updated": 1793171432741
   }
  ]
 }
