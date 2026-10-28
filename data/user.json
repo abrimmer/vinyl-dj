@@ -250,6 +250,39 @@
     }
    ],
    "updated": 1793171490164
+  },
+  {
+   "id": 1793171629163,
+   "name": "Setlist 6",
+   "one": true,
+   "rules": {
+    "tempo": 8,
+    "keySteps": 1,
+    "styleSteps": 3,
+    "route": "evolve"
+   },
+   "styleMode": "any",
+   "styles": [
+    "Pop Rock",
+    "Synth-pop",
+    "Ballad"
+   ],
+   "slots": [
+    {
+     "k": "11372705|A1",
+     "lock": true
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "updated": 1793171629163
   }
  ]
 }
