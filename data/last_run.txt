@@ -1,16 +1,7 @@
 Finished
-18:54:58 Collection: 642 items
-18:55:13 Records: 642
-18:59:15 Fallback checks this run: 39
-18:59:16 Deezer check 'Boy Harsher - Ronny': {'data': [{'id': 4158638452, 'readable': True, 'title': 'Ronny', 'title_short': 'Ronny', 'title_version': '', 'isrc': 'USAT22605000', 'link': 'https://www.deezer.com/track/4158638452', 'duration': 246, 'rank': 472690, 'explicit_lyrics': False, 'explicit_content_lyrics': 6, 'explicit_content_cover': 
-18:59:16 Deezer track 4158638452 bpm=0 error=None
-18:59:17 Deezer check 'Boy Harsher - Jeans': {'data': [{'id': 4158638472, 'readable': True, 'title': 'Jeans', 'title_short': 'Jeans', 'title_version': '', 'isrc': 'USAT22604489', 'link': 'https://www.deezer.com/track/4158638472', 'duration': 207, 'rank': 482124, 'explicit_lyrics': False, 'explicit_content_lyrics': 6, 'explicit_content_cover': 
-18:59:17 Deezer track 4158638472 bpm=0 error=None
-18:59:18 Deezer check 'Boy Harsher - Break Me': {'data': [{'id': 4158638502, 'readable': True, 'title': 'Break Me', 'title_short': 'Break Me', 'title_version': '', 'isrc': 'USAT22605001', 'link': 'https://www.deezer.com/track/4158638502', 'duration': 200, 'rank': 481269, 'explicit_lyrics': False, 'explicit_content_lyrics': 6, 'explicit_content_co
-18:59:18 Deezer track 4158638502 bpm=0 error=None
-18:59:19 Deezer track 4158638522 bpm=0 error=None
-18:59:20 Deezer track 4158638532 bpm=0 error=None
-18:59:44 Deezer checks this run: 29, found: 0
-19:00:23 ReccoBeats 200: {'content': [{'id': '4ecb516b-f456-47c0-b969-dda6c01f8834', 'href': 'https://open.spotify.com/track/5FwTXOYkLaZzSYKQq0BFfc', 'isrc': 'QZHN92291727', 'acousticness': 0.000695, 'danceability': 0.736, 'energy': 0.847, 'instrumentalness': 0.8, 'key': 6, 'liveness': 0.0951, 'loudness': -9.932, 'mode': 1,
-19:00:23 ReccoBeats checks this run: 29, found: 2
-19:00:23 Lookups this run: 140. Tracks still to look up: 0.
+21:42:23 Collection: 642 items
+21:42:23 Records: 642
+21:42:23 Fallback checks this run: 0
+21:42:23 Deezer checks this run: 0, found: 0
+21:42:23 ReccoBeats checks this run: 0, found: 0
+21:42:23 Lookups this run: 0. Tracks still to look up: 0.
