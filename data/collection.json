@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T18:55+00:00",
+ "updated": "2026-10-28T19:00+00:00",
  "spotify_resume_at": 1793111104.9769309,
  "source": "Discogs + GetSongBPM.com",
  "releases": [
@@ -14033,6 +14033,431 @@
    "master_id": 909540
   },
   {
+   "id": 38463585,
+   "title": "Get Mean",
+   "artist": "Boy Harsher",
+   "year": 2026,
+   "genres": [
+    "Electronic"
+   ],
+   "styles": [
+    "Synth-pop",
+    "New Wave",
+    "EBM",
+    "Coldwave"
+   ],
+   "label": "Atlantic",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/l7aUpAJv6wrtYEOUDqlZJQz7t1F7pns0DnvsfBe06oc/rs:fit/g:sm/q:90/h:587/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM4NDYz/NTg1LTE3ODk3NTIx/OTItMTEwNy5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/WskrGZ7Skzgwy1Nl1A6uEummTwzM3QDbhToDm1psBhs/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM4NDYz/NTg1LTE3ODk3NTIx/OTItMTEwNy5qcGVn.jpeg",
+   "folder": "Uncategorized",
+   "added": "2026-10-28T11:18:52-07:00",
+   "url": "https://www.discogs.com/release/38463585",
+   "master_id": 4349103,
+   "orig_year": 2026,
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Ronny",
+     "artist": "Boy Harsher",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Ronny artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Ronny artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Ronny",
+       "found": [
+        "Ronny & Clyde - The Toten Crackhuren im Kofferraum",
+        "Ronny & Ragges Brevlåda - Ronny & Ragge",
+        "Ronny - Shriekback"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "26de1cwFCg7LO1gf2nXcTr",
+     "rb_v": 1
+    },
+    {
+     "pos": "A2",
+     "title": "Jeans",
+     "artist": "Boy Harsher",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Jeans artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Jeans artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Jeans",
+       "found": [
+        "Jeans - Quadron",
+        "Jeans - Velhos e Usados",
+        "Jeans And Flip-Flops - John Heffron"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "1la2aLFef8ny9Ft0gmsxAw",
+     "rb_v": 1
+    },
+    {
+     "pos": "A3",
+     "title": "Break Me",
+     "artist": "Boy Harsher",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Break Me artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Break Me artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Break Me",
+       "found": [
+        "Break Me - The Lemonheads",
+        "Break Me - Seventh Day Slumber",
+        "Break Me - Entwine"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "22m6BocmDlBBScE4xsFhFp",
+     "rb_v": 1
+    },
+    {
+     "pos": "A4",
+     "title": "Tough Luck (When You Don't Call)",
+     "artist": "Boy Harsher",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Tough Luck (When You Don't Call) artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Tough Luck artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Tough Luck",
+       "found": [
+        "Tough Luck - Caesars",
+        "Tough Luck - Siiri Nordin",
+        "Tough Luck - John Eddie"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "2TyZQCEGojwynP4EWdPtwP",
+     "rb_v": 1
+    },
+    {
+     "pos": "A5",
+     "title": "Faulty",
+     "artist": "Boy Harsher",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Faulty artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Faulty artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Faulty",
+       "found": [
+        "Faulty - Del the Funky Homosapien",
+        "Faulty Characteristics - 187 Fac",
+        "Faulty Designs - Magnolia Summer"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "1oLrfOvf2TaMR23qu8QThR",
+     "rb_v": 1
+    },
+    {
+     "pos": "A6",
+     "title": "Coming Home",
+     "artist": "Boy Harsher",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Coming Home artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Coming Home artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Coming Home",
+       "found": [
+        "Coming Home - Stratovarius",
+        "Coming Home - SWV",
+        "Coming Home - Persephone"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "2s0QiiRfaEMg7VBMhDB4DZ",
+     "rb_v": 1
+    },
+    {
+     "pos": "B1",
+     "title": "Hard Beat",
+     "artist": "Boy Harsher",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Hard Beat artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Hard Beat artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Hard Beat",
+       "found": [
+        "Hard Beat - NaRick",
+        "Hard Beat - Dead Allison"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "5PE9c9ubXE1TeU4S2DlTZ5",
+     "rb_v": 1
+    },
+    {
+     "pos": "B2",
+     "title": "Ice Pick (Walk Away)",
+     "artist": "Boy Harsher",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Ice Pick (Walk Away) artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Ice Pick artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Ice Pick",
+       "found": [
+        "Ice Pick - Albert Collins",
+        "Ice Pick Freek - The Atomic Bitchwax",
+        "Ice Pick - Oz Noy"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "0mckaPr96LQTfFpddaiA7G",
+     "rb_v": 1
+    },
+    {
+     "pos": "B3",
+     "title": "Ivy's Spiral",
+     "artist": "Boy Harsher",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Ivy's Spiral artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Ivy's Spiral artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Ivy's Spiral",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "7jzJIdllDcPSUyLBsHvYvc",
+     "rb_v": 1
+    },
+    {
+     "pos": "B4",
+     "title": "Pray 4 Me",
+     "artist": "Boy Harsher",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Pray 4 Me artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Pray 4 Me artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Pray 4 Me",
+       "found": [
+        "Pray 4 Me - Playboi Carti",
+        "Pray 4 Me - Roc Marciano",
+        "Pray 4 Me - Doomsday Productions"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "62V5tjQrLyXQrkhBK59Tz4",
+     "rb_v": 1
+    },
+    {
+     "pos": "B5",
+     "title": "Falling ~",
+     "artist": "Boy Harsher",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Falling ~ artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Falling ~ artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Falling ~",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "3nZcVUTzMrRlgQyRWAGSrH",
+     "rb_v": 1
+    },
+    {
+     "pos": "B6",
+     "title": "Bleed",
+     "artist": "Boy Harsher",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Bleed artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "song:Bleed artist:Boy Harsher",
+       "found": []
+      },
+      {
+       "search": "Bleed",
+       "found": [
+        "Bleed - Collective Soul",
+        "Bleed - Skin Yard",
+        "Bleed - Catatonia"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "6bHaYUPPau4p2PoIuEnO2H",
+     "rb_v": 1
+    }
+   ]
+  },
+  {
    "id": 28045602,
    "title": "I Saw Nothing Good So I Left",
    "artist": "Bragolin",
@@ -25397,6 +25822,340 @@
    ]
   },
   {
+   "id": 35079104,
+   "title": "The First Cuts",
+   "artist": "Damascus Knives",
+   "year": 2025,
+   "genres": [
+    "Electronic"
+   ],
+   "styles": [
+    "EBM",
+    "Industrial",
+    "Techno"
+   ],
+   "label": "Rustblade",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/IQvWeEcB-c9GvbsEIvAXLt_pS_06NjJY54m61R3lVtw/rs:fit/g:sm/q:90/h:595/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM1MDc5/MTA0LTE3NTc2OTQw/MTgtNjE0OS5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/nJaH8jSupExtADNgSmEgWWGHkWSuVwVXNMjuhXtnV3s/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM1MDc5/MTA0LTE3NTc2OTQw/MTgtNjE0OS5qcGVn.jpeg",
+   "folder": "Uncategorized",
+   "added": "2026-10-28T11:20:40-07:00",
+   "url": "https://www.discogs.com/release/35079104",
+   "master_id": 3981622,
+   "orig_year": 2025,
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Damascus Knives",
+     "artist": "Damascus Knives",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Damascus Knives artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "song:Damascus Knives artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "Damascus Knives",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "1G45RkuTnOjrnDzHx1sq20",
+     "rb_v": 1
+    },
+    {
+     "pos": "A2",
+     "title": "Am I Evil",
+     "artist": "Damascus Knives",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Am I Evil artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "song:Am I Evil artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "Am I Evil",
+       "found": [
+        "Am I Evil? - Diamond Head",
+        "Am I Evil - Diamond Head",
+        "Am I Evil? - Severance"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "5IrZki6K7W8N1uAfjloemX",
+     "rb_v": 1
+    },
+    {
+     "pos": "A3",
+     "title": "My Body Is A Temple, My Sound Matters Most",
+     "artist": "Damascus Knives",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:My Body Is A Temple, My Sound Matters Most artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "song:My Body Is A Temple, My Sound Matters Most artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "My Body Is A Temple, My Sound Matters Most",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "2t54hUOp24RI1og9zFtfYF",
+     "rb_v": 1
+    },
+    {
+     "pos": "A4",
+     "title": "Please Never Take Anyone",
+     "artist": "Damascus Knives",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Please Never Take Anyone artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "song:Please Never Take Anyone artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "Please Never Take Anyone",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "06RDM29ha2vLEjPSRLaQl6",
+     "rb_v": 1
+    },
+    {
+     "pos": "A5",
+     "title": "Some Women May I Know You Here",
+     "artist": "Damascus Knives",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Some Women May I Know You Here artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "song:Some Women May I Know You Here artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "Some Women May I Know You Here",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "rb_v": 1
+    },
+    {
+     "pos": "B1",
+     "title": "What's your Poison",
+     "artist": "Damascus Knives",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:What's your Poison artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "song:What's your Poison artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "What's your Poison",
+       "found": [
+        "What's Your Poison - Dylan Rhymes",
+        "What's Your Poison - King Automatic",
+        "What's Your Poison? - Stylah"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "0tbsOhN8ENPXXFJ4Ujt50x",
+     "rb_v": 1
+    },
+    {
+     "pos": "B2",
+     "title": "Trusted Meds",
+     "artist": "Damascus Knives",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "120*",
+     "camelot": "2B*",
+     "tried": [
+      {
+       "search": "song:Trusted Meds artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "song:Trusted Meds artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "Trusted Meds",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "5FwTXOYkLaZzSYKQq0BFfc",
+     "source": "ReccoBeats",
+     "rb_v": 1
+    },
+    {
+     "pos": "B3",
+     "title": "Why Not Accept Me",
+     "artist": "Damascus Knives",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "120*",
+     "camelot": "9B*",
+     "tried": [
+      {
+       "search": "song:Why Not Accept Me artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "song:Why Not Accept Me artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "Why Not Accept Me",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "3oUuGUBgWWindPJ8GEs8AH",
+     "source": "ReccoBeats",
+     "rb_v": 1
+    },
+    {
+     "pos": "B4",
+     "title": "Would You Feel Safer If You Carried A Gun?",
+     "artist": "Damascus Knives",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Would You Feel Safer If You Carried A Gun? artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "song:Would You Feel Safer If You Carried A Gun? artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "Would You Feel Safer If You Carried A Gun?",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "4RLFlPyOnRq1Z8S1ZevWP0",
+     "rb_v": 1
+    },
+    {
+     "pos": "B5",
+     "title": "You Want Control",
+     "artist": "Damascus Knives",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:You Want Control artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "song:You Want Control artist:Damascus Knives",
+       "found": []
+      },
+      {
+       "search": "You Want Control",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "1YLDu2d99TGTqzGcUfdQlG",
+     "rb_v": 1
+    }
+   ]
+  },
+  {
    "id": 15265817,
    "title": "Yo Quiero, Yo Puedo",
    "artist": "Dame Area",
@@ -34393,6 +35152,102 @@
      "camelot": "7B*",
      "fb_v": 1,
      "source": "AcousticBrainz"
+    }
+   ]
+  },
+  {
+   "id": 15345092,
+   "title": "Dream 2 Science",
+   "artist": "Dream 2 Science",
+   "year": 2012,
+   "genres": [
+    "Electronic"
+   ],
+   "styles": [
+    "Acid House",
+    "Deep House"
+   ],
+   "label": "Rush Hour (4)",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/YBhzGwgJumKEpeFBtL71VNQWadZwdIsq-OJeAUwEHa8/rs:fit/g:sm/q:90/h:596/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1MzQ1/MDkyLTE1OTAwNjc4/NDItODU1NC5tcG8.jpeg",
+   "thumb": "https://i.discogs.com/B82Fv6hvrlIWlTFRG6lm0bL-KJETGblPBw5QQi85_I8/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1MzQ1/MDkyLTE1OTAwNjc4/NDItODU1NC5tcG8.jpeg",
+   "folder": "Uncategorized",
+   "added": "2026-10-28T11:21:28-07:00",
+   "url": "https://www.discogs.com/release/15345092",
+   "master_id": 290250,
+   "orig_year": 1990,
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "My Love Turns To Liquid",
+     "artist": "Dream 2 Science",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "120",
+     "camelot": "2B"
+    },
+    {
+     "pos": "A2",
+     "title": "Breathe Deep",
+     "artist": "Dream 2 Science",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "118",
+     "camelot": "10A"
+    },
+    {
+     "pos": "A3",
+     "title": "Mystery Of Love",
+     "artist": "Dream 2 Science",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "120",
+     "camelot": "10B"
+    },
+    {
+     "pos": "B1",
+     "title": "How Do I Love Thee",
+     "artist": "Dream 2 Science",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "120",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B2",
+     "title": "Liquid",
+     "artist": "Dream 2 Science",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "120",
+     "camelot": "2B"
+    },
+    {
+     "pos": "B3",
+     "title": "Dream 2 Science",
+     "artist": "Dream 2 Science",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "120",
+     "camelot": "2B"
     }
    ]
   },
@@ -45889,6 +46744,176 @@
      "lookup_v": 4,
      "bpm": "131",
      "camelot": "6B"
+    }
+   ]
+  },
+  {
+   "id": 6011977,
+   "title": "Entertainment!",
+   "artist": "Gang Of Four",
+   "year": 2014,
+   "genres": [
+    "Rock"
+   ],
+   "styles": [
+    "Post-Punk",
+    "New Wave"
+   ],
+   "label": "Parlophone",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/Cois2e2tIKTdbhFxhBt4Pf5d8prrEZCH0mfYEbcUnxM/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTYwMTE5/NzctMTczMDY1NzU1/Mi0xOTcyLmpwZWc.jpeg",
+   "thumb": "https://i.discogs.com/w9hpV3wOobvkfxwev6wP8PqlDA6ZOSwqtZJ_xP204SU/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTYwMTE5/NzctMTczMDY1NzU1/Mi0xOTcyLmpwZWc.jpeg",
+   "folder": "Uncategorized",
+   "added": "2026-10-28T11:19:47-07:00",
+   "url": "https://www.discogs.com/release/6011977",
+   "master_id": 6309,
+   "orig_year": 1979,
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Ether",
+     "artist": "Gang Of Four",
+     "duration": "3:05",
+     "cue_in": "0:00*",
+     "cue_out": "2:45*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "164",
+     "camelot": "12B"
+    },
+    {
+     "pos": "A2",
+     "title": "Natural's Not In It",
+     "artist": "Gang Of Four",
+     "duration": "3:05",
+     "cue_in": "0:00*",
+     "cue_out": "2:45*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "161",
+     "camelot": "8B"
+    },
+    {
+     "pos": "A3",
+     "title": "Not Great Men",
+     "artist": "Gang Of Four",
+     "duration": "3:05",
+     "cue_in": "0:00*",
+     "cue_out": "2:45*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "123",
+     "camelot": "10B"
+    },
+    {
+     "pos": "A4",
+     "title": "Damaged Goods",
+     "artist": "Gang Of Four",
+     "duration": "3:30",
+     "cue_in": "0:00*",
+     "cue_out": "3:10*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "157",
+     "camelot": "9A"
+    },
+    {
+     "pos": "A5",
+     "title": "Return The Gift",
+     "artist": "Gang Of Four",
+     "duration": "3:04",
+     "cue_in": "0:00*",
+     "cue_out": "2:44*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "143",
+     "camelot": "10B"
+    },
+    {
+     "pos": "A6",
+     "title": "Guns Before Butter",
+     "artist": "Gang Of Four",
+     "duration": "3:43",
+     "cue_in": "0:00*",
+     "cue_out": "3:23*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "127",
+     "camelot": "11A"
+    },
+    {
+     "pos": "B1",
+     "title": "I Found That Essence Rare",
+     "artist": "Gang Of Four",
+     "duration": "3:50",
+     "cue_in": "0:00*",
+     "cue_out": "3:30*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "160",
+     "camelot": "11B"
+    },
+    {
+     "pos": "B2",
+     "title": "Glass",
+     "artist": "Gang Of Four",
+     "duration": "2:37",
+     "cue_in": "0:00*",
+     "cue_out": "2:17*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "153",
+     "camelot": "10A"
+    },
+    {
+     "pos": "B3",
+     "title": "Contract",
+     "artist": "Gang Of Four",
+     "duration": "2:40",
+     "cue_in": "0:00*",
+     "cue_out": "2:20*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "180",
+     "camelot": "11B"
+    },
+    {
+     "pos": "B4",
+     "title": "At Home He's A Tourist",
+     "artist": "Gang Of Four",
+     "duration": "3:30",
+     "cue_in": "0:00*",
+     "cue_out": "3:10*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "138",
+     "camelot": "8B"
+    },
+    {
+     "pos": "B5",
+     "title": "5.45",
+     "artist": "Gang Of Four",
+     "duration": "3:40",
+     "cue_in": "0:00*",
+     "cue_out": "3:20*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "139",
+     "camelot": "12B"
+    },
+    {
+     "pos": "B6",
+     "title": "Love Like Anthrax",
+     "artist": "Gang Of Four",
+     "duration": "4:20",
+     "cue_in": "0:00*",
+     "cue_out": "4:00*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "148*",
+     "camelot": "5B*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
     }
    ]
   },
@@ -99469,6 +100494,270 @@
    "master_id": 1563867
   },
   {
+   "id": 37630743,
+   "title": "Mizantrop",
+   "artist": "She Past Away",
+   "year": 2026,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "Darkwave",
+    "Post-Punk"
+   ],
+   "label": "Fabrika Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/UjarnQ-M1oyqfFaPwRUOolYIWnzZ6qxMiT9K-ysH-Ag/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM3NjMw/NzQzLTE3ODE0ODUw/NjItMzE1OC5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/Ujfv7z9ePPJpfbNLyzL-uLySAEmQY-xYJGEvVhkzTIw/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM3NjMw/NzQzLTE3ODE0ODUw/NjItMzE1OC5qcGVn.jpeg",
+   "folder": "Uncategorized",
+   "added": "2026-10-28T11:22:24-07:00",
+   "url": "https://www.discogs.com/release/37630743",
+   "master_id": 4219383,
+   "orig_year": 2026,
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "İçimdeki Düşman",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:İçimdeki Düşman artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "song:Icimdeki Dusman artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "Icimdeki Dusman",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "rb_v": 1
+    },
+    {
+     "pos": "A2",
+     "title": "Mizantrop",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Mizantrop artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "song:Mizantrop artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "Mizantrop",
+       "found": [
+        "Mizantropi - Pasi",
+        "Mizantropia - MSHAA",
+        "Mizantropiczna Wizja Mrocznej Egzystencji (Instrumental) - Demiurg"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "2cRdX6mRkBRFOnM050fQa9",
+     "rb_v": 1
+    },
+    {
+     "pos": "A3",
+     "title": "Sessiz Orman",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Sessiz Orman artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "song:Sessiz Orman artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "Sessiz Orman",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "0yCCpzlSVDC4fhf5KbeD50",
+     "rb_v": 1
+    },
+    {
+     "pos": "B1",
+     "title": "Inziva",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Inziva artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "song:Inziva artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "Inziva",
+       "found": [
+        "İnziva - Kolera"
+       ]
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "6KMp3ha8E3C4Fhhi7qLdE9",
+     "rb_v": 1
+    },
+    {
+     "pos": "B2",
+     "title": "Kaygan Kayalıklar",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Kaygan Kayalıklar artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "song:Kaygan Kayaliklar artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "Kaygan Kayaliklar",
+       "found": []
+      },
+      {
+       "search": "song:Kaygan Kayaliklar artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "song:Kaygan Kayaliklar artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "Kaygan Kayaliklar",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "3dvF0z70dCXWgQnOQesAk2",
+     "rb_v": 1
+    },
+    {
+     "pos": "B3",
+     "title": "Kuyu Mezar",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Kuyu Mezar artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "song:Kuyu Mezar artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "Kuyu Mezar",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "2lK4mc9gaVzdVDo3pAliPn",
+     "rb_v": 1
+    },
+    {
+     "pos": "B4",
+     "title": "İçe Kapanış III",
+     "artist": "She Past Away",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:İçe Kapanış III artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "song:Ice Kapanis III artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "Ice Kapanis III",
+       "found": []
+      },
+      {
+       "search": "song:Ice Kapanis III artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "song:Ice Kapanis III artist:She Past Away",
+       "found": []
+      },
+      {
+       "search": "Ice Kapanis III",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "spotify_id": "5rrwvnYcWk8ZhLadONpYu6",
+     "rb_v": 1
+    }
+   ]
+  },
+  {
    "id": 10689201,
    "title": "Nowa Aleksandria",
    "artist": "Siekiera",
@@ -121708,6 +122997,158 @@
      "lookup_v": 3,
      "bpm": "113",
      "camelot": "8B"
+    }
+   ]
+  },
+  {
+   "id": 25827787,
+   "title": "Shadows",
+   "artist": "Twin Tribes",
+   "year": 2023,
+   "genres": [
+    "Electronic",
+    "Rock"
+   ],
+   "styles": [
+    "Coldwave",
+    "Post-Punk",
+    "Synth-pop"
+   ],
+   "label": "Young And Cold Records",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/57moM1RrBwaI3czJvPlclQ8YStSnUhAPat0VFMqzQzc/rs:fit/g:sm/q:90/h:538/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI1ODI3/Nzg3LTE3MzAyODg3/OTQtMzM0NC5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/F94Pj73xznLMP0J8yijhVv6ag1A2BKBC7Yux9Y7a23Y/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI1ODI3/Nzg3LTE3MzAyODg3/OTQtMzM0NC5qcGVn.jpeg",
+   "folder": "Uncategorized",
+   "added": "2026-10-28T11:20:14-07:00",
+   "url": "https://www.discogs.com/release/25827787",
+   "master_id": 1324974,
+   "orig_year": 2018,
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "The Path To Antares",
+     "artist": "Twin Tribes",
+     "duration": "2:03",
+     "cue_in": "0:00*",
+     "cue_out": "1:43*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "110*",
+     "camelot": "8A*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
+    },
+    {
+     "pos": "A2",
+     "title": "Shadows",
+     "artist": "Twin Tribes",
+     "duration": "3:09",
+     "cue_in": "0:00*",
+     "cue_out": "2:49*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "172*",
+     "camelot": "11A*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
+    },
+    {
+     "pos": "A3",
+     "title": "The Vessel",
+     "artist": "Twin Tribes",
+     "duration": "2:52",
+     "cue_in": "0:00*",
+     "cue_out": "2:32*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "138*",
+     "camelot": "6A*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
+    },
+    {
+     "pos": "A4",
+     "title": "Lapiz Lazuli",
+     "artist": "Twin Tribes",
+     "duration": "1:23",
+     "cue_in": "0:00*",
+     "cue_out": "1:03*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "133*",
+     "camelot": "8B*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
+    },
+    {
+     "pos": "A5",
+     "title": "Tower Of Glass",
+     "artist": "Twin Tribes",
+     "duration": "3:26",
+     "cue_in": "0:00*",
+     "cue_out": "3:06*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "150*",
+     "camelot": "9A*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
+    },
+    {
+     "pos": "B1",
+     "title": "Dark Crystal",
+     "artist": "Twin Tribes",
+     "duration": "4:00",
+     "cue_in": "0:00*",
+     "cue_out": "3:40*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "141*",
+     "camelot": "7B*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
+    },
+    {
+     "pos": "B2",
+     "title": "Portal To The Void",
+     "artist": "Twin Tribes",
+     "duration": "4:00",
+     "cue_in": "0:00*",
+     "cue_out": "3:40*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "154*",
+     "camelot": "8A*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
+    },
+    {
+     "pos": "B3",
+     "title": "Talisman",
+     "artist": "Twin Tribes",
+     "duration": "3:42",
+     "cue_in": "0:00*",
+     "cue_out": "3:22*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "130*",
+     "camelot": "4A*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
+    },
+    {
+     "pos": "B4",
+     "title": "Catharsis",
+     "artist": "Twin Tribes",
+     "duration": "2:14",
+     "cue_in": "0:00*",
+     "cue_out": "1:54*",
+     "looked_up": "2026-10-28",
+     "lookup_v": 4,
+     "bpm": "126*",
+     "camelot": "7B*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
     }
    ]
   },
