@@ -1,7 +1,14 @@
 Finished
-05:50:42 Collection: 642 items
-05:50:42 Records: 642
-05:50:42 Fallback checks this run: 0
-05:50:42 Deezer checks this run: 0, found: 0
-05:50:42 ReccoBeats checks this run: 0, found: 0
-05:50:42 Lookups this run: 0. Tracks still to look up: 0.
+06:00:32 Collection: 643 items
+06:00:34 Records: 643
+06:02:45 Fallback checks this run: 10
+06:02:46 Deezer check 'You & The Explosion Band - Silhouette = 愛のシルエット': {'data': [], 'total': 0}
+06:02:47 Deezer check 'You & The Explosion Band - Silhouette': {'data': [{'id': 2524738151, 'readable': True, 'title': 'Silhouette', 'title_short': 'Silhouette', 'title_version': '', 'isrc': 'JPCO07712570', 'link': 'https://www.deezer.com/track/2524738151', 'duration': 264, 'rank': 375749, 'explicit_lyrics': False, 'explicit_content_lyrics': 0, 'explicit_conten
+06:02:47 Deezer track 2524738151 bpm=0 error=None
+06:02:48 Deezer check 'You & The Explosion Band - 愛のシルエット': {'data': [], 'total': 0}
+06:02:48 Deezer check 'You & The Explosion Band - I Miss You Babe (,Yes, I Do) = 抱いて、ルパン': {'data': [], 'total': 0}
+06:02:53 Deezer track 2524738201 bpm=0 error=None
+06:02:56 Deezer track 2524738211 bpm=0 error=None
+06:02:58 Deezer checks this run: 6, found: 0
+06:03:20 ReccoBeats checks this run: 6, found: 0
+06:03:20 Lookups this run: 75. Tracks still to look up: 0.

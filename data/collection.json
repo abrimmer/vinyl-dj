@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28T19:00+00:00",
+ "updated": "2026-10-31T06:03+00:00",
  "spotify_resume_at": 1793111104.9769309,
  "source": "Discogs + GetSongBPM.com",
  "releases": [
@@ -143427,6 +143427,373 @@
      "spotify_id": "55iztv7QuxLx1Twb8iXA00",
      "source": "ReccoBeats",
      "rb_v": 1
+    }
+   ]
+  },
+  {
+   "id": 38792031,
+   "title": "Original Soundtrack From Lupin III = ルパン三世 オリジナル・サウンドトラック",
+   "artist": "You & The Explosion Band",
+   "year": 2026,
+   "genres": [
+    "Jazz",
+    "Funk / Soul",
+    "Stage & Screen"
+   ],
+   "styles": [
+    "Jazz-Funk",
+    "Funk",
+    "Disco",
+    "Soundtrack",
+    "Dialogue"
+   ],
+   "label": "Columbia",
+   "format": "Vinyl",
+   "cover": "https://i.discogs.com/YSgzaUANPEvf--dy35KF-v1i-qczEn20r-jTRvgqCHk/rs:fit/g:sm/q:90/h:566/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM4Nzky/MDMxLTE3OTI2NTk3/MjEtNDIzMy5qcGVn.jpeg",
+   "thumb": "https://i.discogs.com/qgXQzNw1iHhStjkntdu-UFdYMM3Hcnq0Vg-0bBnGvkc/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM4Nzky/MDMxLTE3OTI2NTk3/MjEtNDIzMy5qcGVn.jpeg",
+   "folder": "Uncategorized",
+   "added": "2026-10-30T22:52:10-07:00",
+   "url": "https://www.discogs.com/release/38792031",
+   "master_id": 749496,
+   "orig_year": 1978,
+   "tracks": [
+    {
+     "pos": "A1",
+     "title": "Theme From Lupin III = ルパン三世のテーマ (「ルパン三世のテーマ’78」アルバム用ミックス・ヴァージョン)",
+     "artist": "You & The Explosion Band",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-31",
+     "lookup_v": 4,
+     "bpm": "136*",
+     "camelot": "6A*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
+    },
+    {
+     "pos": "A2",
+     "title": "Silhouette = 愛のシルエット",
+     "artist": "You & The Explosion Band",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-31",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Silhouette = 愛のシルエット artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:Silhouette = 愛のシルエット artist:You",
+       "found": []
+      },
+      {
+       "search": "song:Silhouette artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:愛のシルエット artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "Silhouette = 愛のシルエット",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "rb_v": 1
+    },
+    {
+     "pos": "A3",
+     "title": "I Miss You Babe (,Yes, I Do) = 抱いて、ルパン",
+     "artist": "You & The Explosion Band",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-31",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:I Miss You Babe (,Yes, I Do) = 抱いて、ルパン artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:I Miss You Babe  = 抱いて、ルハン artist:You",
+       "found": []
+      },
+      {
+       "search": "song:I Miss You Babe artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:抱いて、ルハン artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "I Miss You Babe  = 抱いて、ルハン",
+       "found": []
+      },
+      {
+       "search": "song:I Miss You Babe,  = 抱いて、ルハン artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:I Miss You Babe,  = 抱いて、ルハン artist:You",
+       "found": []
+      },
+      {
+       "search": "song:I Miss You Babe, artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:抱いて、ルハン artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "I Miss You Babe,  = 抱いて、ルハン",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "rb_v": 1
+    },
+    {
+     "pos": "A4",
+     "title": "Red Roses For The Killer = 殺し屋に紅薔薇を",
+     "artist": "You & The Explosion Band",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-31",
+     "lookup_v": 4,
+     "bpm": "136*",
+     "camelot": "7A*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
+    },
+    {
+     "pos": "A5",
+     "title": "Goodnight Moon-Shadow = 月影におやすみ",
+     "artist": "You & The Explosion Band",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-31",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Goodnight Moon-Shadow = 月影におやすみ artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:Goodnight Moon-Shadow = 月影におやすみ artist:You",
+       "found": []
+      },
+      {
+       "search": "song:Goodnight Moon-Shadow artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:月影におやすみ artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "Goodnight Moon-Shadow = 月影におやすみ",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "rb_v": 1
+    },
+    {
+     "pos": "C1",
+     "title": "Dangerous Zone = デンジャラス・ゾーン",
+     "artist": "You & The Explosion Band",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-31",
+     "lookup_v": 4,
+     "bpm": "130*",
+     "camelot": "7B*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
+    },
+    {
+     "pos": "C2",
+     "title": "Sunset Flight = サンセット・フライト",
+     "artist": "You & The Explosion Band",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-31",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Sunset Flight = サンセット・フライト artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:Sunset Flight = サンセット・フライト artist:You",
+       "found": []
+      },
+      {
+       "search": "song:Sunset Flight artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:サンセット・フライト artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "Sunset Flight = サンセット・フライト",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "rb_v": 1
+    },
+    {
+     "pos": "C3",
+     "title": "Magnum Dance~Lonely For The Road = マグナム・ダンス~ロンリー・フォー・ザ・ロード",
+     "artist": "You & The Explosion Band",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-31",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Magnum Dance~Lonely For The Road = マグナム・ダンス~ロンリー・フォー・ザ・ロード artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:Magnum Dance~Lonely For The Road = マクナム・タンス~ロンリー・フォー・サ・ロート artist:You",
+       "found": []
+      },
+      {
+       "search": "song:Magnum Dance~Lonely For The Road artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:マクナム・タンス~ロンリー・フォー・サ・ロート artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "Magnum Dance~Lonely For The Road = マクナム・タンス~ロンリー・フォー・サ・ロート",
+       "found": []
+      },
+      {
+       "search": "song:Magnum Dance ~ Lonely For The Road = マクナム・タンス~ロンリー・フォー・サ・ロート artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:Magnum Dance ~ Lonely For The Road = マクナム・タンス~ロンリー・フォー・サ・ロート artist:You",
+       "found": []
+      },
+      {
+       "search": "song:Magnum Dance ~ Lonely For The Road artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:マクナム・タンス~ロンリー・フォー・サ・ロート artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "Magnum Dance ~ Lonely For The Road = マクナム・タンス~ロンリー・フォー・サ・ロート",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "rb_v": 1
+    },
+    {
+     "pos": "C4",
+     "title": "Lovin' You (Lucky) = ラヴィン・ユー(ラッキー)",
+     "artist": "You & The Explosion Band",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-31",
+     "lookup_v": 4,
+     "bpm": "",
+     "camelot": "",
+     "tried": [
+      {
+       "search": "song:Lovin' You (Lucky) = ラヴィン・ユー(ラッキー) artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:Lovin' You  = ラウィン・ユー artist:You",
+       "found": []
+      },
+      {
+       "search": "song:Lovin' You artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:ラウィン・ユー artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "Lovin' You  = ラウィン・ユー",
+       "found": []
+      },
+      {
+       "search": "song:Lovin' You  = ラウィン・ユー artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:Lovin' You  = ラウィン・ユー artist:You",
+       "found": []
+      },
+      {
+       "search": "song:Lovin' You artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "song:ラウィン・ユー artist:You & The Explosion Band",
+       "found": []
+      },
+      {
+       "search": "Lovin' You  = ラウィン・ユー",
+       "found": []
+      }
+     ],
+     "fb_v": 1,
+     "dz_v": 1,
+     "rb_v": 1
+    },
+    {
+     "pos": "C5",
+     "title": "Love Theme = 愛のテーマ (アルバム用ミックス・ヴァージョン)",
+     "artist": "You & The Explosion Band",
+     "duration": "",
+     "cue_in": "0:00*",
+     "cue_out": "",
+     "looked_up": "2026-10-31",
+     "lookup_v": 4,
+     "bpm": "150*",
+     "camelot": "6A*",
+     "fb_v": 1,
+     "source": "AcousticBrainz"
     }
    ]
   },
