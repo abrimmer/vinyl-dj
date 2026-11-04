@@ -1,7 +1,7 @@
 Finished
-01:26:42 Collection: 643 items
-01:26:42 Records: 643
-01:26:42 Fallback checks this run: 0
-01:26:42 Deezer checks this run: 0, found: 0
-01:26:42 ReccoBeats checks this run: 0, found: 0
-01:26:42 Lookups this run: 0. Tracks still to look up: 0.
+09:22:01 Collection: 643 items
+09:22:01 Records: 643
+09:22:01 Fallback checks this run: 0
+09:22:01 Deezer checks this run: 0, found: 0
+09:22:01 ReccoBeats checks this run: 0, found: 0
+09:22:01 Lookups this run: 0. Tracks still to look up: 0.
