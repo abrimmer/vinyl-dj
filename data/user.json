@@ -23,7 +23,7 @@
  "setlists": [
   {
    "id": 1793963660348,
-   "name": "Setlist 1",
+   "name": "120BPM",
    "one": true,
    "rules": {
     "tempo": 8,
@@ -59,7 +59,7 @@
      "lock": true
     }
    ],
-   "updated": 1793974166861
+   "updated": 1793974179788
   },
   {
    "id": 1793974036938,
