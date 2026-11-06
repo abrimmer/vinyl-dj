@@ -17,69 +17,8 @@
   1793086639399,
   1793171432740,
   1793171629163,
-  1792995517156
+  1792995517156,
+  1793099757208
  ],
- "setlists": [
-  {
-   "id": 1793099757208,
-   "name": "Setlist 4",
-   "one": true,
-   "rules": {
-    "tempo": 8,
-    "keySteps": 1,
-    "styleSteps": 2,
-    "route": "tight"
-   },
-   "styleMode": "any",
-   "styles": [
-    "Minneapolis Sound",
-    "Funk",
-    "Pop Rock",
-    "Soundtrack"
-   ],
-   "slots": [
-    {
-     "k": "15156398|B4",
-     "lock": true
-    },
-    {
-     "k": "10781508|C2",
-     "lock": true
-    },
-    {
-     "k": "14164364|B2",
-     "lock": true
-    },
-    {
-     "k": "14333870|D4",
-     "lock": false
-    },
-    {
-     "k": "11941685|B3",
-     "lock": false
-    },
-    {
-     "k": "30211688|A1",
-     "lock": false
-    },
-    {
-     "k": "3835087|B4",
-     "lock": false
-    },
-    {
-     "k": "12975017|B2",
-     "lock": false
-    },
-    {
-     "k": "15540505|D2",
-     "lock": false
-    },
-    {
-     "k": "11557309|A6",
-     "lock": true
-    }
-   ],
-   "updated": 1793099790916
-  }
- ]
+ "setlists": []
 }
