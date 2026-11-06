@@ -16,40 +16,10 @@
   1792923034381,
   1793086639399,
   1793171432740,
-  1793171629163
+  1793171629163,
+  1792995517156
  ],
  "setlists": [
-  {
-   "id": 1792995517156,
-   "name": "Setlist 2",
-   "one": true,
-   "rules": {
-    "tempo": 8,
-    "keySteps": 1,
-    "styleSteps": 2,
-    "route": "tight"
-   },
-   "styleMode": "any",
-   "styles": [
-    "Synth-pop"
-   ],
-   "slots": [
-    {
-     "k": "11761271|A1",
-     "lock": true
-    },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-   ],
-   "updated": 1792995517156
-  },
   {
    "id": 1793099757208,
    "name": "Setlist 4",
