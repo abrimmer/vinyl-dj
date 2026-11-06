@@ -20,5 +20,37 @@
   1792995517156,
   1793099757208
  ],
- "setlists": []
+ "setlists": [
+  {
+   "id": 1793963660348,
+   "name": "Setlist 1",
+   "one": true,
+   "rules": {
+    "tempo": 8,
+    "keySteps": 1,
+    "styleSteps": 2,
+    "route": "tight"
+   },
+   "styleMode": "any",
+   "styles": [],
+   "slots": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "updated": 1793963660348
+  }
+ ]
 }
