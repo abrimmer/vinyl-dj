@@ -48,9 +48,12 @@
     null,
     null,
     null,
-    null
+    {
+     "k": "28045602|A1",
+     "lock": true
+    }
    ],
-   "updated": 1793973894864
+   "updated": 1793973909184
   }
  ]
 }
