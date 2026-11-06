@@ -14,7 +14,8 @@
   1792909654491,
   1792920031240,
   1792923034381,
-  1793086639399
+  1793086639399,
+  1793171432740
  ],
  "setlists": [
   {
@@ -108,65 +109,6 @@
     }
    ],
    "updated": 1793099790916
-  },
-  {
-   "id": 1793171432740,
-   "name": "djfnbskdjfbakdjss",
-   "one": true,
-   "rules": {
-    "tempo": 8,
-    "keySteps": 1,
-    "styleSteps": 2,
-    "route": "tight"
-   },
-   "styleMode": "any",
-   "styles": [
-    "New Wave",
-    "Goth Rock"
-   ],
-   "slots": [
-    {
-     "k": "9018182|A1",
-     "lock": true
-    },
-    {
-     "k": "250345|B4",
-     "lock": true
-    },
-    {
-     "k": "16033567|A3",
-     "lock": false
-    },
-    {
-     "k": "32156865|B3",
-     "lock": false
-    },
-    {
-     "k": "544142|A1",
-     "lock": false
-    },
-    {
-     "k": "2815429|A1",
-     "lock": false
-    },
-    {
-     "k": "15173452|B4",
-     "lock": false
-    },
-    {
-     "k": "17780254|A3",
-     "lock": false
-    },
-    {
-     "k": "28494934|A2",
-     "lock": false
-    },
-    {
-     "k": "22799249|A3",
-     "lock": true
-    }
-   ],
-   "updated": 1793171490164
   },
   {
    "id": 1793171629163,
