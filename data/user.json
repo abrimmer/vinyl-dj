@@ -15,7 +15,8 @@
   1792920031240,
   1792923034381,
   1793086639399,
-  1793171432740
+  1793171432740,
+  1793171629163
  ],
  "setlists": [
   {
@@ -109,66 +110,6 @@
     }
    ],
    "updated": 1793099790916
-  },
-  {
-   "id": 1793171629163,
-   "name": "Setlist 6",
-   "one": true,
-   "rules": {
-    "tempo": 8,
-    "keySteps": 1,
-    "styleSteps": 3,
-    "route": "evolve"
-   },
-   "styleMode": "any",
-   "styles": [
-    "Pop Rock",
-    "Synth-pop",
-    "Ballad"
-   ],
-   "slots": [
-    {
-     "k": "11372705|A1",
-     "lock": true
-    },
-    {
-     "k": "11862976|A1",
-     "lock": false
-    },
-    {
-     "k": "1381483|A1",
-     "lock": false
-    },
-    {
-     "k": "8593485|A3",
-     "lock": false
-    },
-    {
-     "k": "11009347|A4",
-     "lock": false
-    },
-    {
-     "k": "15871518|B4",
-     "lock": false
-    },
-    {
-     "k": "15167847|B9",
-     "lock": false
-    },
-    {
-     "k": "5873986|B4",
-     "lock": false
-    },
-    {
-     "k": "14808271|B2",
-     "lock": false
-    },
-    {
-     "k": "30540322|A1",
-     "lock": true
-    }
-   ],
-   "updated": 1793171639675
   }
  ]
 }
