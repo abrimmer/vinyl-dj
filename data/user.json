@@ -207,9 +207,12 @@
     "keySteps": 1,
     "styleSteps": 2,
     "route": "tight",
-    "pop": "any",
+    "pop": "mix",
     "deepEvery": 4,
-    "wave": "steady"
+    "wave": "steady",
+    "dbl": "off",
+    "tpath": "hold",
+    "endBpm": ""
    },
    "styleMode": "any",
    "styles": [],
@@ -233,7 +236,7 @@
     null,
     null
    ],
-   "updated": 1794420801284
+   "updated": 1794420811974
   },
   {
    "id": 1794416909837,
