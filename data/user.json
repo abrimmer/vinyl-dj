@@ -209,7 +209,7 @@
     "route": "tight",
     "pop": "mix",
     "deepEvery": 4,
-    "wave": "steady",
+    "wave": "wave",
     "dbl": "off",
     "tpath": "hold",
     "endBpm": ""
@@ -236,7 +236,7 @@
     null,
     null
    ],
-   "updated": 1794420887930
+   "updated": 1794420896470
   },
   {
    "id": 1794416909837,
