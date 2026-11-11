@@ -412,14 +412,8 @@
      "k": "9018182|B3",
      "lock": false
     },
-    {
-     "k": "28494934|A1",
-     "lock": false
-    },
-    {
-     "k": "21145240|A5",
-     "lock": false
-    },
+    null,
+    null,
     {
      "k": "3177172|A4",
      "lock": false
@@ -451,8 +445,10 @@
    ],
    "startBpm": 100,
    "startKey": null,
-   "updated": 1794417788989,
+   "updated": 1794417795007,
    "want": [
+    "banger",
+    "banger",
     "banger"
    ]
   }
