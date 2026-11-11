@@ -451,6 +451,35 @@
     "banger",
     "banger"
    ]
+  },
+  {
+   "id": 1794418136990,
+   "name": "Setlist 10",
+   "one": true,
+   "source": "table",
+   "rules": {
+    "tempo": 8,
+    "keySteps": 1,
+    "styleSteps": 2,
+    "route": "tight",
+    "pop": "any",
+    "deepEvery": 4,
+    "wave": "steady"
+   },
+   "styleMode": "any",
+   "styles": [],
+   "slots": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "startBpm": 100,
+   "startKey": null,
+   "updated": 1794418139005,
+   "want": [
+    "banger"
+   ]
   }
  ],
  "crates": [
