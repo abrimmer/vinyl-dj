@@ -205,10 +205,7 @@
    "styleMode": "any",
    "styles": [],
    "slots": [
-    {
-     "k": "5096910|A3",
-     "lock": true
-    },
+    null,
     null,
     null,
     null,
@@ -224,7 +221,7 @@
     null,
     null
    ],
-   "updated": 1794416478217
+   "updated": 1794416487664
   }
  ],
  "crates": [
