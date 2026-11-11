@@ -129,6 +129,40 @@
     null
    ],
    "updated": 1794209891199
+  },
+  {
+   "id": 1794398590671,
+   "name": "Setlist 4",
+   "one": true,
+   "source": null,
+   "rules": {
+    "tempo": 8,
+    "keySteps": 1,
+    "styleSteps": 2,
+    "route": "tight"
+   },
+   "styleMode": "any",
+   "styles": [],
+   "slots": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "updated": 1794398590672
+  }
+ ],
+ "crates": [
+  {
+   "id": "table",
+   "name": "On the table",
+   "recs": []
   }
  ]
 }
