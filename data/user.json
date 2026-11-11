@@ -332,7 +332,7 @@
     },
     {
      "k": "11512586|A2",
-     "lock": false
+     "lock": true
     },
     {
      "k": "17204797|A5",
@@ -369,7 +369,7 @@
    ],
    "startBpm": 128,
    "startKey": null,
-   "updated": 1794417070271
+   "updated": 1794417093842
   }
  ],
  "crates": [
