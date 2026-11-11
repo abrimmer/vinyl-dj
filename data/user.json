@@ -18,7 +18,8 @@
   1793171432740,
   1793171629163,
   1792995517156,
-  1793099757208
+  1793099757208,
+  1794415491626
  ],
  "setlists": [
   {
@@ -186,51 +187,6 @@
     }
    ],
    "updated": 1794398640572
-  },
-  {
-   "id": 1794415491626,
-   "name": "Tester",
-   "one": true,
-   "source": 1794415460181,
-   "rules": {
-    "tempo": 8,
-    "keySteps": 1,
-    "styleSteps": 2,
-    "route": "tight",
-    "pop": "any",
-    "deepEvery": 4,
-    "wave": "steady"
-   },
-   "styleMode": "any",
-   "styles": [],
-   "slots": [
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-   ],
-   "updated": 1794415496760,
-   "want": [
-    "banger",
-    "banger",
-    "known"
-   ]
   }
  ],
  "crates": [
