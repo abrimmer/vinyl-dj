@@ -26,6 +26,7 @@ FB_V = 1
 DZ_V = 1
 RB_V = 1
 POP_V = 1  # Deezer popularity (rank); bump to re-check every track
+LFM_V = 1  # Last.fm all-time listeners; bump to re-check every track
 POP_FIRST = ("goth", "post-punk", "darkwave", "coldwave")  # looked up first
 RB_PAUSED = [False]
 META = {}  # bump when the fallback sources change, so misses get retried  # bump when matching improves, so missing tracks get retried once
@@ -318,6 +319,46 @@ class Fallback:
         return best
 
 
+class LastFm:
+    """Last.fm track.getInfo: all-time listeners + play count (balances Deezer's lean towards new releases)."""
+    def __init__(self, key):
+        self.key, self.s = key, requests.Session()
+        self.s.headers.update({"User-Agent": FB_UA})
+
+    def get(self, **params):
+        for _ in range(3):
+            try:
+                r = self.s.get("https://ws.audioscrobbler.com/2.0/", timeout=30,
+                               params={"api_key": self.key, "format": "json", "autocorrect": 1, **params})
+            except requests.RequestException:
+                time.sleep(5); continue
+            time.sleep(0.22)  # stay under ~5 requests a second
+            if r.status_code == 429:
+                time.sleep(30); continue
+            try:
+                j = r.json()
+            except ValueError:
+                return {}
+            if j.get("error") in (26, 10):  # suspended / invalid key: no point continuing
+                raise StopLookups(f"Last.fm key problem: {j.get('message')}")
+            if j.get("error") == 29:  # rate limit
+                time.sleep(30); continue
+            return j
+        return {}
+
+    def listeners(self, title, artist):
+        artists = list(dict.fromkeys([artist.split(" = ")[0], *[x.strip() for x in artist.split(" = ")]]))
+        titles = list(dict.fromkeys([title, *[x.strip() for x in title.split(" = ")], plain(title)]))
+        for a in artists:
+            for t in titles:
+                if not t:
+                    continue
+                tr = self.get(method="track.getInfo", artist=a, track=t).get("track")
+                if tr and tr.get("listeners") is not None:
+                    return int(tr.get("listeners") or 0), int(tr.get("playcount") or 0)
+        return None
+
+
 PITCH = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
 
 
@@ -599,6 +640,33 @@ def main():
         log(str(e))
     log(f"Popularity checks this run: {pop_done}, found: {pop_found}")
 
+    # 4c. Last.fm all-time listeners (needs LASTFM_API_KEY), core scenes first
+    lkey, lfm_done, lfm_found = os.environ.get("LASTFM_API_KEY"), 0, 0
+    if lkey:
+        try:
+            lf = LastFm(lkey)
+            core = lambda r: any(k in (s or "").lower() for s in r.get("styles", []) for k in POP_FIRST)
+            for rel in sorted(releases, key=lambda r: not core(r)):
+                for t in rel["tracks"]:
+                    if t.get("lfm_v") == LFM_V:
+                        continue
+                    if time.time() - STARTED > 85 * 60:
+                        raise StopLookups("Time budget used; Last.fm checks continue next run")
+                    res = lf.listeners(t.get("matched_as") or t["title"], t["artist"])
+                    t["lfm_listeners"], t["lfm_plays"] = res if res else (None, None)
+                    t["lfm_v"] = LFM_V; lfm_done += 1
+                    if res:
+                        lfm_found += 1
+                    if lfm_done < 4:
+                        log(f"Last.fm '{t['artist']} - {t['title']}': {res}")
+                    if lfm_done % 300 == 0:
+                        save(releases, "In progress (Last.fm)")
+        except StopLookups as e:
+            log(str(e))
+        log(f"Last.fm checks this run: {lfm_done}, found: {lfm_found}")
+    else:
+        log("No LASTFM_API_KEY secret; skipping Last.fm")
+
     # 5. ReccoBeats via Spotify IDs: fills tracks still missing, and adds keys to BPM-only (Deezer) tracks
     cid, csec = os.environ.get("SPOTIFY_CLIENT_ID"), os.environ.get("SPOTIFY_CLIENT_SECRET")
     spotify_ok = time.time() > META.get("spotify_resume_at", 0)
@@ -646,6 +714,8 @@ def main():
                     if (not t.get("bpm") or not t.get("camelot")) and t.get("rb_v") != RB_V and t.get("fb_v") == FB_V)
     pop_left = sum(1 for r in releases for t in r["tracks"] if t.get("pop_v") != POP_V)
     left += pop_left
+    if lkey:
+        left += sum(1 for r in releases for t in r["tracks"] if t.get("lfm_v") != LFM_V)
     log(f"Lookups this run: {api.lookups}. Tracks still to look up: {left} (popularity: {pop_left}).")
     save(releases, "Finished")
     if os.environ.get("GITHUB_OUTPUT"):  # tells the workflow whether to start another run
