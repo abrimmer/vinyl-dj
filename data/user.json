@@ -187,6 +187,41 @@
     }
    ],
    "updated": 1794398640572
+  },
+  {
+   "id": 1794416439510,
+   "name": "Setlist 5",
+   "one": true,
+   "source": "table",
+   "rules": {
+    "tempo": 8,
+    "keySteps": 1,
+    "styleSteps": 2,
+    "route": "tight",
+    "pop": "any",
+    "deepEvery": 4,
+    "wave": "steady"
+   },
+   "styleMode": "any",
+   "styles": [],
+   "slots": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "updated": 1794416439510
   }
  ],
  "crates": [
