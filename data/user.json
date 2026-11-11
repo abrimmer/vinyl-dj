@@ -76,7 +76,7 @@
     "deepEvery": 4,
     "wave": "steady",
     "dbl": "off",
-    "tpath": "hold",
+    "tpath": "ramp",
     "endBpm": ""
    },
    "styleMode": "any",
@@ -104,7 +104,7 @@
     null,
     null
    ],
-   "updated": 1794420227898
+   "updated": 1794420240316
   },
   {
    "id": 1794398590671,
