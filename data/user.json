@@ -144,18 +144,48 @@
    "styleMode": "any",
    "styles": [],
    "slots": [
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
+    {
+     "k": "24927962|B5",
+     "lock": false
+    },
+    {
+     "k": "15669264|B2",
+     "lock": false
+    },
+    {
+     "k": "14175037|8",
+     "lock": false
+    },
+    {
+     "k": "6676874|B2",
+     "lock": false
+    },
+    {
+     "k": "7597701|B2",
+     "lock": false
+    },
+    {
+     "k": "14826845|D1",
+     "lock": false
+    },
+    {
+     "k": "968765|A2",
+     "lock": false
+    },
+    {
+     "k": "8640693|C1",
+     "lock": false
+    },
+    {
+     "k": "8452534|A2",
+     "lock": false
+    },
+    {
+     "k": "9908238|B8",
+     "lock": false
+    }
    ],
-   "updated": 1794398590672
+   "updated": 1794398629540
   }
  ],
  "crates": [
