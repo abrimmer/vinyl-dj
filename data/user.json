@@ -241,15 +241,51 @@
    "styles": [],
    "slots": [
     {
-     "k": "21551143|C1",
+     "k": "544142|A3",
      "lock": false
     },
     {
-     "k": "9018182|A2",
+     "k": "9018182|B4",
      "lock": false
     },
     {
-     "k": "8593485|B1",
+     "k": "19041229|B4",
+     "lock": false
+    },
+    {
+     "k": "20698900|B2",
+     "lock": false
+    },
+    {
+     "k": "15892415|A1",
+     "lock": false
+    },
+    {
+     "k": "21771637|A2",
+     "lock": false
+    },
+    {
+     "k": "7108294|A7",
+     "lock": false
+    },
+    {
+     "k": "15328741|B4",
+     "lock": false
+    },
+    {
+     "k": "1381483|B2",
+     "lock": false
+    },
+    {
+     "k": "1453298|B3",
+     "lock": false
+    },
+    {
+     "k": "25245802|B3",
+     "lock": false
+    },
+    {
+     "k": "26970047|A1",
      "lock": false
     },
     {
@@ -261,49 +297,13 @@
      "lock": false
     },
     {
-     "k": "1381483|B2",
-     "lock": false
-    },
-    {
-     "k": "7108294|A7",
-     "lock": false
-    },
-    {
-     "k": "25245802|B3",
-     "lock": false
-    },
-    {
-     "k": "5854221|B4",
-     "lock": false
-    },
-    {
-     "k": "23837213|B4",
-     "lock": false
-    },
-    {
-     "k": "19120720|D3",
-     "lock": false
-    },
-    {
-     "k": "33079902|C3",
-     "lock": false
-    },
-    {
-     "k": "27585060|B2",
-     "lock": false
-    },
-    {
-     "k": "20698900|B1",
-     "lock": false
-    },
-    {
-     "k": "24730781|B4",
+     "k": "630577|A2",
      "lock": false
     }
    ],
    "startBpm": 120,
    "startKey": null,
-   "updated": 1794416920340,
+   "updated": 1794416925426,
    "want": [
     "banger",
     "banger"
