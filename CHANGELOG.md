@@ -19,4 +19,4 @@ kept separately and is never rolled back by a revert.
 | 0.11 | 25 Oct 2026 | `06b4363` | Data-status dots, version numbers in the app |
 | 0.12 | 26 Oct 2026 | `b9b2ce0` | Swipe cards for filling slots, song previews (Apple Music / Deezer / Spotify player), Spotify playlist export |
 | 0.13 | 2 Nov 2026 | `010482f` | New look: Bricolage + Archivo fonts, compact setlist screen (rules bar, drag to reorder, swipe right to lock / left to clear, BPM + key tiles, play on cover), bento-style track picker. Revert to 0.12 if it misbehaves. |
-| 0.14 | 11 Nov 2026 | (see git log) | Stacks + crates: pick records for the table, save them as named crates, build setlists from just those records; Fill / Re-shuffle picks a random first track when slot 1 is empty |
+| 0.14 | 11 Nov 2026 | `6441e06` | Stacks + crates: pick records for the table, save them as named crates, build setlists from just those records; Fill / Re-shuffle picks a random first track when slot 1 is empty |
