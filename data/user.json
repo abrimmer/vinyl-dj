@@ -390,6 +390,38 @@
    "startBpm": null,
    "startKey": null,
    "updated": 1794417540278
+  },
+  {
+   "id": 1794417740983,
+   "name": "Setlist 9",
+   "one": true,
+   "source": "table",
+   "rules": {
+    "tempo": 8,
+    "keySteps": 1,
+    "styleSteps": 2,
+    "route": "tight",
+    "pop": "any",
+    "deepEvery": 4,
+    "wave": "steady"
+   },
+   "styleMode": "any",
+   "styles": [],
+   "slots": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "startBpm": 100,
+   "startKey": null,
+   "updated": 1794417740983
   }
  ],
  "crates": [
