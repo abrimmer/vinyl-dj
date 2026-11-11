@@ -330,19 +330,46 @@
      "k": "313897|A1",
      "lock": true
     },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
+    {
+     "k": "11512586|A2",
+     "lock": false
+    },
+    {
+     "k": "17204797|A5",
+     "lock": false
+    },
+    {
+     "k": "15173452|A4",
+     "lock": false
+    },
+    {
+     "k": "13644222|A1",
+     "lock": false
+    },
+    {
+     "k": "21551143|B1",
+     "lock": false
+    },
+    {
+     "k": "25827709|A1",
+     "lock": false
+    },
+    {
+     "k": "4439654|A1",
+     "lock": false
+    },
+    {
+     "k": "3740880|B4",
+     "lock": false
+    },
+    {
+     "k": "17618050|A3",
+     "lock": false
+    }
    ],
    "startBpm": 128,
    "startKey": null,
-   "updated": 1794417064558
+   "updated": 1794417070271
   }
  ],
  "crates": [
