@@ -90,21 +90,61 @@
      "k": "27585060|B2",
      "lock": true
     },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
+    {
+     "k": "20698900|B1",
+     "lock": false
+    },
+    {
+     "k": "1381483|A1",
+     "lock": false
+    },
+    {
+     "k": "8593485|A3",
+     "lock": false
+    },
+    {
+     "k": "9304077|B1",
+     "lock": false
+    },
+    {
+     "k": "14000144|A3",
+     "lock": false
+    },
+    {
+     "k": "16033567|A2",
+     "lock": false
+    },
+    {
+     "k": "22799249|B2",
+     "lock": false
+    },
+    {
+     "k": "3122319|B3",
+     "lock": false
+    },
+    {
+     "k": "13875394|C5",
+     "lock": false
+    },
+    {
+     "k": "23120720|A4",
+     "lock": false
+    },
+    {
+     "k": "19041229|B2",
+     "lock": false
+    },
+    {
+     "k": "13718689|A4",
+     "lock": false
+    },
+    {
+     "k": "15892415|B4",
+     "lock": false
+    }
    ],
-   "updated": 1794420256571
+   "updated": 1794420267971,
+   "source": "table"
   },
   {
    "id": 1794398590671,
