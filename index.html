@@ -346,7 +346,7 @@
 <footer>
   BPM and key data by <a href="https://getsongbpm.com" target="_blank" rel="noopener">GetSongBPM.com</a> ·
   Collection from <a href="https://www.discogs.com/user/abrimmer/collection" target="_blank" rel="noopener">Discogs</a> ·
-  <span id="updated"></span> · Setwright v0.17<br>* = unsure / estimated · manual entries and setlists are saved on this device
+  <span id="updated"></span> · Setwright v0.18<br>* = unsure / estimated · manual entries and setlists are saved on this device
 </footer>
 
 <script>
@@ -1102,6 +1102,7 @@ function bridgeBits(a, b) {
 }
 let RULES_OPEN = false;
 function showSetlist(s, push = true) {
+  s = SETLISTS.find(x => x.id === s.id) || s;
   if (push) pushView(() => showSetlist(s, false));
   $("#crumb").textContent = s.name;
   const T = s.slots.map(x => x && BYKEY[x.k]), R = rulesOf(s);
@@ -1144,9 +1145,9 @@ function showSetlist(s, push = true) {
         <button class="lk" data-lock="${i}" title="${x.lock ? "Locked: tap to unlock" : "Tap to lock"}">${x.lock ? ICON.lock : ICON.unlock}</button>
         <button class="xc" data-clear="${i}" title="Clear slot">${ICON.x}</button>
       </div></div>`
-      : `<div class="slot" data-i="${i}"><div class="slot-inner empty" data-pick="${i}"><span class="grip"><i>${i + 1}</i></span>
+      : `<div class="slot" data-i="${i}"><div class="slot-inner empty" data-pick="${i}"><span class="grip" data-grip title="Drag to reorder"><i>${i + 1}</i>${ICON.grip}</span>
         <span>${i === 0 ? "+ Pick first track" : i === T.length - 1 ? "+ Pick last track (optional)" : "+ Pick a track"}</span>
-        <span class="wants">${["banger", "known", "deep"].map(k => `<button class="wch ${k}${(s.want || [])[i] === k ? " on" : ""}" data-want="${i}" data-w="${k}">${TIERS[k]}</button>`).join("")}</span></div></div>`;
+        <span class="wants">${["banger", "known", "deep"].map(k => `<button class="wch ${k}${(s.want || [])[i] === k ? " on" : ""}" data-want="${i}" data-w="${k}">${TIERS[k]}</button>`).join("")}<button class="wch" data-delslot="${i}" title="Delete this slot">✕</button></span></div></div>`;
   });
   html += `</div><div class="tools" style="margin-top:28px"><button class="btn danger" id="delSet">Delete setlist</button></div>`;
   $("#sheetBody").innerHTML = html;
@@ -1171,7 +1172,10 @@ function showSetlist(s, push = true) {
     else { e.target.dataset.sure = 1; e.target.textContent = "Tap again to delete for good"; }
   };
   const toggleLock = i => { const x = s.slots[i]; if (!x) return; x.lock = !x.lock; saveSets(s); showSetlist(s, false); };
-  B.querySelectorAll("[data-pick]").forEach(el => el.onclick = () => pickForSlot(s, +el.dataset.pick));
+  B.querySelectorAll("[data-pick]").forEach(el => el.onclick = e => { if (e.target.closest("[data-grip]")) return; pickForSlot(s, +el.dataset.pick); });
+  B.querySelectorAll("[data-delslot]").forEach(el => el.onclick = e => { e.stopPropagation(); const i = +el.dataset.delslot;
+    if (s.slots.length <= 2) return toast("A setlist needs at least 2 slots");
+    s.slots.splice(i, 1); if (s.want) s.want.splice(i, 1); saveSets(s); showSetlist(s, false); });
   B.querySelectorAll("[data-want]").forEach(el => el.onclick = e => { e.stopPropagation();
     const i = +el.dataset.want; s.want = s.want || []; while (s.want.length <= i) s.want.push(null);
     s.want[i] = s.want[i] === el.dataset.w ? null : el.dataset.w; saveSets(s); showSetlist(s, false); });
@@ -1199,7 +1203,7 @@ function swipe(el, done) {
 // Drag the ⋮ handle to reorder slots
 function dragSort(list, s) {
   list.querySelectorAll("[data-grip]").forEach(g => g.addEventListener("pointerdown", e => {
-    const el = g.closest(".slot"); if (!el.querySelector(".slot-inner:not(.empty)")) return;
+    const el = g.closest(".slot"); e.stopPropagation();
     e.preventDefault(); g.setPointerCapture(e.pointerId);
     const rows = [...list.querySelectorAll(".slot")], from = rows.indexOf(el);
     list.classList.add("sorting");
@@ -1214,7 +1218,9 @@ function dragSort(list, s) {
     };
     const up = () => { g.removeEventListener("pointermove", move); g.removeEventListener("pointerup", up); g.removeEventListener("pointercancel", up);
       list.classList.remove("sorting");
-      if (to !== from) { const [x] = s.slots.splice(from, 1); s.slots.splice(to, 0, x); saveSets(s); }
+      if (to !== from) { const [x] = s.slots.splice(from, 1); s.slots.splice(to, 0, x);
+        if (s.want && s.want.some(Boolean)) { while (s.want.length < s.slots.length) s.want.push(null); const [w] = s.want.splice(from, 1); s.want.splice(to, 0, w); }
+        saveSets(s); }
       showSetlist(s, false); };
     g.addEventListener("pointermove", move); g.addEventListener("pointerup", up); g.addEventListener("pointercancel", up);
   }));
@@ -1571,10 +1577,14 @@ function merge(remote) {
   return out;
 }
 function adopt(d) {
+  const snap = () => JSON.stringify([EDITS, STYLE_EDITS, [...DELETED], SETLISTS, CRATES]);
+  const before = snap();
   EDITS = d.edits || {}; STYLE_EDITS = d.styles || {}; DELETED = new Set(d.deleted || []);
   const ids = new Set(); SETLISTS = (d.setlists || []).filter(x => !DELETED.has(x.id) && !ids.has(x.id) && ids.add(x.id));
   CRATES = (d.crates || []).filter(x => !DELETED.has(x.id));
+  if (snap() === before) return;  // nothing new from other devices: leave the page alone
   applyEdits(); applyStyleEdits(); renderChips(); saveLocal();
+  const a = document.activeElement; if (a && a.matches("input, textarea, select") && a.closest("#sheet, #view")) return; // don't redraw mid-typing
   if ($("#sheet").classList.contains("open")) { const cur = STACK[STACK.length - 1]; cur && cur(); } else render();
 }
 async function syncNow() {
@@ -1666,12 +1676,13 @@ function renderSync() {
 }
 
 // ---------- sheet / nav ----------
-function openSheet() { $("#sheet").classList.add("open"); $("#sheet").scrollTop = 0; document.body.style.overflow = "hidden"; }
+let NEW_VIEW = true;
+function openSheet() { const sh = $("#sheet"), was = sh.classList.contains("open"); sh.classList.add("open"); if (!was || NEW_VIEW) sh.scrollTop = 0; NEW_VIEW = false; document.body.style.overflow = "hidden"; }
 function closeSheet() { const n = STACK.length; STACK = []; FWD = []; $("#sheet").classList.remove("open"); document.body.style.overflow = "";
   if (n) try { history.replaceState({ d: 0 }, ""); } catch (e) {} }
 function refreshSheet() { if ($("#sheet").classList.contains("open")) { const cur = STACK[STACK.length - 1]; cur && cur(); } else render(); }
 // Screens stack up as you go deeper; the browser's back/forward (and [ ]) move through them.
-function pushView(fn) { STACK.push(fn); FWD = []; try { history.pushState({ d: STACK.length }, ""); } catch (e) {} }
+function pushView(fn) { NEW_VIEW = true; STACK.push(fn); FWD = []; try { history.pushState({ d: STACK.length }, ""); } catch (e) {} }
 function doBack() {
   const cur = STACK.pop(); if (cur) FWD.push(cur);
   const prev = STACK[STACK.length - 1];
