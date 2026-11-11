@@ -470,25 +470,25 @@
    "styles": [],
    "slots": [
     {
-     "k": "9018182|A4",
+     "k": "9018182|B3",
      "lock": false
     },
     {
-     "k": "21551143|B3",
+     "k": "2815429|B4",
      "lock": false
     },
     {
-     "k": "5529916|B3",
+     "k": "3177172|A4",
      "lock": false
     },
     {
-     "k": "630577|B1",
+     "k": "11643866|A4",
      "lock": false
     }
    ],
    "startBpm": 100,
    "startKey": null,
-   "updated": 1794418145258,
+   "updated": 1794418150335,
    "want": [
     "banger",
     "banger",
