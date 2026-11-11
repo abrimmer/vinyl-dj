@@ -95,6 +95,19 @@
   .card .t { margin-top: 6px; font-weight: 600; font-size: 14px; }
   .card .a, .muted { color: var(--muted); font-size: 13px; }
   .count { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+  .stackbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; padding: 10px 12px;
+    border: 1px solid var(--line); border-radius: 14px; background: var(--panel); font-size: 13px; }
+  .stackbar.picking { border-color: var(--accent); }
+  .stackbar .lbl { flex: 1 1 auto; color: var(--muted); }
+  .stackbar .lbl b { color: var(--text); }
+  .card { position: relative; }
+  .card .ck { position: absolute; top: 6px; right: 6px; width: 26px; height: 26px; border-radius: 50%; display: none;
+    align-items: center; justify-content: center; background: var(--accent); color: #111; font-weight: 800; font-size: 15px; }
+  .card.in-stack .ck { display: flex; }
+  .card.in-stack img, .card.in-stack .cover-ph { outline: 3px solid var(--accent); outline-offset: -3px; }
+  .picking-on .card:not(.in-stack) img { opacity: .55; }
+  .crate-row { display: flex; gap: 8px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .crate-row .nm { flex: 1 1 160px; font-weight: 600; }
   .btn { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 7px 12px; cursor: pointer; }
   .btn.primary { background: var(--accent); border-color: var(--accent); color: #111; font-weight: 600; }
   .btn.danger { border-color: var(--bad); color: var(--bad); }
@@ -322,7 +335,7 @@
 <footer>
   BPM and key data by <a href="https://getsongbpm.com" target="_blank" rel="noopener">GetSongBPM.com</a> ·
   Collection from <a href="https://www.discogs.com/user/abrimmer/collection" target="_blank" rel="noopener">Discogs</a> ·
-  <span id="updated"></span> · Setwright v0.13<br>* = unsure / estimated · manual entries and setlists are saved on this device
+  <span id="updated"></span> · Setwright v0.14<br>* = unsure / estimated · manual entries and setlists are saved on this device
 </footer>
 
 <script>
@@ -337,6 +350,12 @@ let DATA = [], TRACKS = [], BYKEY = {}, BASE = {}, VIEW = "records", STACK = [];
 let RANGE = store.get("range", 8), STYLES = new Set(store.get("styles", []));
 let EDITS = store.get("edits", {}), SETLISTS = store.get("setlists", []), STYLE_EDITS = store.get("styleEdits", {});
 let DELETED = new Set(store.get("deletedSets", [])), FWD = [];
+// Crates: saved groups of records. The crate with id "table" is the live stack (records on the table now).
+let CRATES = store.get("crates", []), PICKING = false, STACK_ONLY = false;
+const tableCrate = () => { let c = CRATES.find(x => x.id === "table"); if (!c) { c = { id: "table", name: "On the table", recs: [] }; CRATES.push(c); } return c; };
+const inTable = id => tableCrate().recs.includes(id);
+const saveCrate = c => { c.updated = Date.now(); markChange("crates", c.id); };
+const crateName = id => { const c = CRATES.find(x => x.id === id); return c ? (c.id === "table" ? "Stack on the table" : c.name) : null; };
 
 function toast(msg) { const t = $("#toast"); t.textContent = msg; t.style.display = "block"; clearTimeout(toast.h); toast.h = setTimeout(() => t.style.display = "none", 2200); }
 
@@ -571,7 +590,7 @@ $("#chips").onclick = e => {
 
 function renderGrid() {
   const q = $("#q").value.trim().toLowerCase();
-  const list = DATA.filter(r => styleOk(r) &&
+  const list = DATA.filter(r => styleOk(r) && (!STACK_ONLY || inTable(r.id)) &&
     (!q || [r.artist, r.title, ...r.tracks.map(t => t.title)].join(" ").toLowerCase().includes(q)));
   const by = $("#sort").value, A = x => x.artist.replace(/^the /i, "").toLowerCase(), Y = x => +(x.orig_year || x.year) || 9999;
   // Each entry = a record plus the heading it sits under
@@ -599,18 +618,80 @@ function renderGrid() {
     rows = list.map(r => ({ r, g: head(r) }));
   }
   let last = null;
-  $("#view").innerHTML = `<div class="count">${list.length} records${by === "genre" ? " (shown under up to 3 styles each)" : ""} · data updated ${esc($("#updated").textContent.replace("Updated ", ""))}${STYLES.size ? " · any of: " + esc([...STYLES].join(", ")) : ""}
+  $("#view").innerHTML = stackBar() + `<div class="count">${list.length} records${by === "genre" ? " (shown under up to 3 styles each)" : ""} · data updated ${esc($("#updated").textContent.replace("Updated ", ""))}${STYLES.size ? " · any of: " + esc([...STYLES].join(", ")) : ""}
     ${by === "random" ? ` · <a href="#" id="reshuffle">Shuffle again</a>` : ""}</div>
     <div class="grid">${rows.map(({ r, g }) => (g && g !== last ? `<div class="sep">${esc(last = g)}</div>` : "") + `
-    <button class="card" data-id="${r.id}">
+    <button class="card${inTable(r.id) ? " in-stack" : ""}" data-id="${r.id}"><span class="ck">✓</span>
       ${r.cover ? `<img loading="lazy" src="${esc(r.cover)}" alt="">` : `<div class="cover-ph"></div>`}
       <div class="t">${statusDot(r)}${esc(r.title)}</div>
       <div class="a">${esc(r.artist)}${r.orig_year || r.year ? " · " + esc(r.orig_year || r.year) : ""}</div>
     </button>`).join("")}</div>`;
   $("#reshuffle")?.addEventListener("click", e => { e.preventDefault(); renderGrid.order = null; renderGrid(); });
+  $("#view").classList.toggle("picking-on", PICKING);
+  wireStackBar();
+}
+function stackBar() {
+  const n = tableCrate().recs.length, saved = CRATES.filter(c => c.id !== "table");
+  return `<div class="stackbar${PICKING ? " picking" : ""}" id="stackbar">
+    <span class="lbl">${PICKING ? "Tap records to add or remove · " : ""}Stack: <b id="stackN">${n}</b> record${n === 1 ? "" : "s"}</span>
+    <button class="btn${PICKING ? " primary" : ""}" id="pickBtn">${PICKING ? "Done" : n ? "Edit stack" : "Build a stack"}</button>
+    ${n ? `<button class="btn primary" id="stackSet">Setlist from stack</button>
+      <button class="btn" id="stackOnly">${STACK_ONLY ? "Show all" : "Show stack only"}</button>` : ""}
+    <button class="btn" id="cratesBtn">Crates${saved.length ? " (" + saved.length + ")" : ""}</button>
+    ${n ? `<button class="btn" id="stackClear">Clear</button>` : ""}
+  </div>`;
+}
+function wireStackBar() {
+  const b = $("#stackbar"); if (!b) return;
+  $("#pickBtn").onclick = () => { PICKING = !PICKING; if (!PICKING && !tableCrate().recs.length) STACK_ONLY = false; renderGrid(); };
+  $("#stackSet") && ($("#stackSet").onclick = () => { STACK = []; newSetlist(null, true, "table"); });
+  $("#stackOnly") && ($("#stackOnly").onclick = () => { STACK_ONLY = !STACK_ONLY; renderGrid(); });
+  $("#cratesBtn").onclick = () => { STACK = []; showCrates(); };
+  $("#stackClear") && ($("#stackClear").onclick = e => {
+    if (!e.target.dataset.sure) { e.target.dataset.sure = 1; e.target.textContent = "Tap again to clear"; return; }
+    const t = tableCrate(); t.recs = []; saveCrate(t); STACK_ONLY = false; renderGrid(); toast("Stack cleared"); });
+}
+function toggleStack(id) {
+  const t = tableCrate(); t.recs = t.recs.includes(id) ? t.recs.filter(x => x !== id) : [...t.recs, id]; saveCrate(t);
+  return t.recs.includes(id);
+}
+function showCrates(push = true) {
+  if (push) pushView(() => showCrates(false));
+  $("#crumb").textContent = "Crates";
+  const t = tableCrate(), saved = CRATES.filter(c => c.id !== "table").sort((a, b) => (b.updated || 0) - (a.updated || 0));
+  $("#sheetBody").innerHTML = `<h3>Crates</h3>
+    <p class="help">A crate is a saved stack of records. Load one onto the table to build setlists from just those records.</p>
+    <p class="help">On the table now: <b>${t.recs.length}</b> record${t.recs.length === 1 ? "" : "s"}.</p>
+    ${t.recs.length ? `<form class="form" id="crateNew" style="margin-bottom:16px"><label>Save the stack as a new crate
+      <input type="text" name="nm" required placeholder="e.g. Friday goth night"></label>
+      <button class="btn primary" type="submit">Save crate</button></form>` : ""}
+    ${saved.length ? saved.map(c => `<div class="crate-row" data-c="${c.id}"><span class="nm">${esc(c.name)} <span class="muted">· ${c.recs.length} records</span></span>
+      <button class="btn small primary" data-load>Load onto table</button>
+      ${t.recs.length ? `<button class="btn small" data-upd>Replace with stack</button>` : ""}
+      <button class="btn small" data-ren>Rename</button>
+      <button class="btn small danger" data-del>Delete</button></div>`).join("") : `<p class="help">No crates yet.</p>`}`;
+  $("#crateNew")?.addEventListener("submit", e => { e.preventDefault();
+    const c = { id: Date.now(), name: e.target.nm.value.trim() || "Crate", recs: t.recs.slice() }; CRATES.push(c); saveCrate(c);
+    toast(`Saved "${c.name}"`); showCrates(false); });
+  $("#sheetBody").querySelectorAll(".crate-row").forEach(row => {
+    const c = CRATES.find(x => String(x.id) === row.dataset.c);
+    row.querySelector("[data-load]").onclick = () => { t.recs = c.recs.slice(); saveCrate(t); toast(`"${c.name}" is on the table`); showCrates(false); };
+    row.querySelector("[data-upd]")?.addEventListener("click", e => { if (!e.target.dataset.sure) { e.target.dataset.sure = 1; e.target.textContent = "Tap again to replace"; return; }
+      c.recs = t.recs.slice(); saveCrate(c); toast(`"${c.name}" updated`); showCrates(false); });
+    row.querySelector("[data-ren]").onclick = () => { const span = row.querySelector(".nm");
+      span.innerHTML = `<input type="text" value="${esc(c.name)}" style="width:100%">`; const inp = span.querySelector("input"); inp.focus(); inp.select();
+      const done = () => { const v = inp.value.trim(); if (v && v !== c.name) { c.name = v; saveCrate(c); } showCrates(false); };
+      inp.onkeydown = e => { if (e.key === "Enter") inp.blur(); }; inp.onblur = done; };
+    row.querySelector("[data-del]").onclick = e => { if (!e.target.dataset.sure) { e.target.dataset.sure = 1; e.target.textContent = "Tap again to delete"; return; }
+      CRATES = CRATES.filter(x => x !== c); DELETED.add(c.id); markChange("deleted", c.id); toast("Crate deleted"); showCrates(false); };
+  });
+  openSheet();
 }
 $("#view").addEventListener("click", e => {
-  const c = e.target.closest(".card"); if (c) { STACK = []; showAlbum(DATA.find(r => r.id == c.dataset.id)); }
+  const c = e.target.closest(".card"); if (!c) return;
+  if (PICKING) { const id = DATA.find(r => r.id == c.dataset.id).id, on = toggleStack(id); c.classList.toggle("in-stack", on);
+    const n = tableCrate().recs.length; $("#stackN").textContent = n; return; }
+  STACK = []; showAlbum(DATA.find(r => r.id == c.dataset.id));
 });
 
 // ---------- album ----------
@@ -653,6 +734,7 @@ function showAlbum(r, push = true) {
         <div id="styleEditor"></div>
         ${closeStyles(r).length ? `<div class="sub" style="margin-top:6px">Close styles (1 step): ${esc(closeStyles(r).join(", "))}</div>` : ""}
         ${albumPlay(r)}
+        <div style="margin-top:8px"><button class="btn small${inTable(r.id) ? " primary" : ""}" id="stackToggle">${inTable(r.id) ? "✓ In stack" : "+ Add to stack"}</button></div>
         <div style="margin-top:8px"><a href="${esc(r.url)}" target="_blank" rel="noopener">View on Discogs ↗</a></div>
       </div>
     </div>
@@ -662,6 +744,7 @@ function showAlbum(r, push = true) {
     <div class="tracks">${r.tracks.map((t, i) => trackRow(t, i)).join("")}</div>`;
   wireTrackRows($("#sheetBody"), r.tracks);
   $("#editStyles").onclick = () => styleEditor(r);
+  $("#stackToggle").onclick = () => { const on = toggleStack(r.id); toast(on ? "Added to stack" : "Removed from stack"); showAlbum(r, false); };
   openSheet();
 }
 function styleEditor(r) {
@@ -761,6 +844,14 @@ function showMix(t, push = true) {
 const saveSets = s => { if (s) s.updated = Date.now(); markChange("sets", s && s.id); };
 const stylesOf = t => t.rel.styles || [];
 const styleAllowed = (s, o) => s.styleMode !== "within" || !(s.styles || []).length || stylesOf(o).some(x => s.styles.includes(x));
+// Source: null = whole collection, otherwise a crate id ("table" = the live stack). Read live, so editing the stack changes the next fill.
+const poolIds = s => { if (s.source == null) return null; const c = CRATES.find(x => x.id === s.source); return c ? new Set(c.recs) : null; };
+const inPool = (ids, o) => !ids || ids.has(o.rel.id);
+const sourceSelect = cur => `<label>Records <select data-src>
+    <option value="" ${cur == null ? "selected" : ""}>Whole collection</option>
+    ${CRATES.filter(c => c.id === "table" ? c.recs.length : true).map(c => `<option value="${c.id}" ${String(cur) === String(c.id) ? "selected" : ""}>${esc(crateName(c.id))} (${c.recs.length})</option>`).join("")}
+  </select></label>`;
+const parseSrc = v => v === "" ? null : v === "table" ? "table" : +v;
 const DEFAULT_RULES = () => ({ tempo: RANGE, keySteps: 1, styleSteps: 2, route: "tight" });
 const rulesOf = s => ({ ...DEFAULT_RULES(), ...(s.rules || {}) });
 const anchorOf = s => s.slots[0] && BYKEY[s.slots[0].k];
@@ -810,20 +901,23 @@ function renderSetlists() {
   $("#newSet").onclick = () => { STACK = []; newSetlist(); };
   $("#view").querySelectorAll(".sl-card").forEach(c => c.onclick = () => { STACK = []; showSetlist(SETLISTS[+c.dataset.i]); });
 }
-function newSetlist(firstTrack, push = true) {
-  if (push) pushView(() => newSetlist(firstTrack, false));
+function newSetlist(firstTrack, push = true, source = null) {
+  if (push) pushView(() => newSetlist(firstTrack, false, source));
+  const nRec = source != null ? (poolIds({ source }) || new Set()).size : 0;
   $("#crumb").textContent = "New setlist";
   $("#sheetBody").innerHTML = `<h3>New setlist</h3><form class="form" id="nf">
     <label>Name<input type="text" name="nm" required value="Setlist ${SETLISTS.length + 1}"></label>
     <label>Number of tracks<input type="number" name="len" min="2" max="60" value="10"></label>
+    <div class="rules" id="nfSrc">${sourceSelect(source)}</div>
     ${rulesHtml(DEFAULT_RULES(), "nfRules")}
-    <label class="chk" style="margin:0"><input type="checkbox" name="one" checked> Max 1 track per record</label>
+    <label class="chk" style="margin:0"><input type="checkbox" name="one" ${source != null && nRec < 10 ? "" : "checked"}> Max 1 track per record</label>
+    ${source != null ? `<p class="help">Leave the first track empty and press <b>Fill slots</b> for a random set from these records.</p>` : ""}
     ${firstTrack ? `<p class="help">Starts with <b>${esc(firstTrack.title)}</b>.</p>` : ""}
     <button class="btn primary" type="submit">Create</button></form>`;
   const NF_RULES = DEFAULT_RULES(); wireRules("nfRules", NF_RULES, () => {});
   $("#nf").onsubmit = e => {
     e.preventDefault(); const f = e.target;
-    const s = { id: Date.now(), name: f.nm.value.trim() || "Setlist", one: f.one.checked, rules: NF_RULES, styleMode: "any", styles: firstTrack ? stylesOf(firstTrack).slice() : [],
+    const s = { id: Date.now(), name: f.nm.value.trim() || "Setlist", one: f.one.checked, source: parseSrc($("#nfSrc [data-src]").value), rules: NF_RULES, styleMode: "any", styles: firstTrack ? stylesOf(firstTrack).slice() : [],
       slots: Array(Math.max(2, Math.min(60, +f.len.value || 10))).fill(null) };
     if (firstTrack) s.slots[0] = { k: tkey(firstTrack), lock: true };
     SETLISTS.push(s); saveSets(s); if (VIEW === "setlists") renderSetlists();
@@ -881,13 +975,13 @@ function showSetlist(s, push = true) {
   const filled = T.filter(Boolean).length, locked = s.slots.filter(x => x && x.lock).length;
   const keyLbl = { 0: "same", 1: "±1", 2: "bold", any: "any" }[R.keySteps] ?? R.keySteps;
   let html = `<input class="sl-title" id="slName" value="${esc(s.name)}" aria-label="Setlist name">
-    <div class="sl-meta num">${filled} of ${s.slots.length} slots filled · ${locked} locked</div>
+    <div class="sl-meta num">${filled} of ${s.slots.length} slots filled · ${locked} locked${s.source != null && s.one && (poolIds(s) || new Set()).size < s.slots.length ? ` · <span style="color:var(--warn)">fewer records than slots: turn off "Max 1 track per record"</span>` : ""}</div>
     <details class="rulebar" id="rulebar" ${RULES_OPEN ? "open" : ""}><summary>
       <span class="rc">Tempo <b>±${Math.min(R.tempo, RANGE)}%</b></span><span class="rc">Key <b>${esc(keyLbl)}</b></span>
       <span class="rc">Style <b>${esc(R.styleSteps)}${R.styleSteps === "any" ? "" : " · " + (R.route === "tight" ? "tight" : "evolve")}</b></span>
-      ${s.one ? `<span class="rc">1 per record</span>` : ""}${s.styleMode === "within" ? `<span class="rc">${(s.styles || []).length} styles only</span>` : ""}
+      ${s.source != null ? `<span class="rc">From <b>${esc(crateName(s.source) || "deleted crate")}</b></span>` : ""}${s.one ? `<span class="rc">1 per record</span>` : ""}${s.styleMode === "within" ? `<span class="rc">${(s.styles || []).length} styles only</span>` : ""}
       <span class="edit">Rules</span></summary>
-      <div class="rulebody">${rulesHtml(R, "slRules")}
+      <div class="rulebody"><div class="rules" id="slSrc">${sourceSelect(s.source)}</div>${rulesHtml(R, "slRules")}
         <label class="chk"><input type="checkbox" id="slOne" ${s.one ? "checked" : ""}> Max 1 track per record</label>
         <label class="chk"><input type="checkbox" id="slWithin" ${s.styleMode === "within" ? "checked" : ""}> Only use these styles…</label>
         ${s.styleMode === "within" ? `<div class="chips" id="slStyles" style="flex-wrap:wrap;padding-top:0">${allStyles().map(x =>
@@ -926,14 +1020,15 @@ function showSetlist(s, push = true) {
   $("#slName").onchange = e => { s.name = e.target.value.trim() || s.name; saveSets(s); $("#crumb").textContent = s.name; };
   $("#rulebar").ontoggle = e => { RULES_OPEN = e.target.open; };
   wireRules("slRules", R, R2 => { s.rules = { ...R2 }; saveSets(s); showSetlist(s, false); });
+  $("#slSrc [data-src]").onchange = e => { s.source = parseSrc(e.target.value); saveSets(s); showSetlist(s, false); };
   $("#slOne").onchange = e => { s.one = e.target.checked; saveSets(s); showSetlist(s, false); };
   $("#slWithin").onchange = e => { s.styleMode = e.target.checked ? "within" : "any"; saveSets(s); showSetlist(s, false); };
   $("#slStyles")?.addEventListener("click", e => { const c = e.target.closest(".chip"); if (!c) return;
     s.styles = s.styles || []; const x = c.dataset.s; s.styles = s.styles.includes(x) ? s.styles.filter(y => y !== x) : [...s.styles, x];
     saveSets(s); showSetlist(s, false); });
   $("#fillEmpty").onclick = () => { const n = autoFill(s, false); saveSets(s); showSetlist(s, false);
-    toast(!s.slots[0] ? "Pick a first track, then fill" : n ? `Filled ${n} slot${n > 1 ? "s" : ""}` : "No fitting tracks found. Try a wider pitch range"); };
-  $("#refill").onclick = () => { s.slots = s.slots.map(x => x && x.lock ? x : null); const n = autoFill(s, true); saveSets(s); showSetlist(s, false); toast(`Re-filled ${n}`); };
+    toast(n ? `Filled ${n} slot${n > 1 ? "s" : ""}` : "No fitting tracks found. Try a wider pitch range"); };
+  $("#refill").onclick = () => { s.slots = s.slots.map(x => x && x.lock ? x : null); const n = autoFill(s, true); saveSets(s); showSetlist(s, false); toast(n ? `Re-filled ${n}` : "No fitting tracks found. Try looser rules"); };
   $("#addSlot").onclick = () => { s.slots.push(null); saveSets(s); showSetlist(s, false); };
   $("#spExport").onclick = () => exportSpotify(s);
   $("#delSet").onclick = e => {
@@ -1001,10 +1096,10 @@ function pickForSlot(s, i, push = true) {
   $("#crumb").textContent = `${s.name} · slot ${i + 1}`;
   const prev = s.slots.slice(0, i).reverse().find(Boolean), next = s.slots.slice(i + 1).find(Boolean);
   const P = prev && BYKEY[prev.k], N = next && BYKEY[next.k];
-  const used = usedSets(s, i);
+  const used = usedSets(s, i), ids = poolIds(s);
   let list = [];
   if (usable(P || {}) || usable(N || {})) for (const o of TRACKS) {
-    if (!usable(o) || used.keys.has(tkey(o)) || (s.one && used.recs.has(o.rel.id)) || !styleAllowed(s, o)) continue;
+    if (!usable(o) || used.keys.has(tkey(o)) || (s.one && used.recs.has(o.rel.id)) || !styleAllowed(s, o) || !inPool(ids, o)) continue;
     const a = P && usable(P) ? transition(P, o) : null, b = N && usable(N) ? transition(o, N) : null;
     const sc = (a ? setCost(s, P, o) : 0) + (b ? setCost(s, o, N) : 0);
     if (sc < 999) list.push({ o, tr: a, b, score: sc });
@@ -1077,6 +1172,22 @@ function usedSets(s, skip = -1) {
 }
 // Fill empty slots between filled ones (filled slots act as fixed waypoints)
 function autoFill(s, shuffle) {
+  if (s.slots[0] && BYKEY[s.slots[0].k] && usable(BYKEY[s.slots[0].k])) return fillFrom(s, shuffle);
+  // No first track: try a few random starts from the pool and keep the fullest result
+  const used = usedSets(s), ids = poolIds(s);
+  const starts = TRACKS.filter(o => usable(o) && !used.keys.has(tkey(o)) && styleAllowed(s, o) && inPool(ids, o) && !(s.one && used.recs.has(o.rel.id)));
+  if (!starts.length) return 0;
+  const tries = Math.min(starts.length, starts.length > 600 ? 3 : 10), base = s.slots.slice();
+  let best = null, bestN = -1;
+  for (let k = 0; k < tries; k++) {
+    s.slots = base.slice(); s.slots[0] = { k: tkey(starts[Math.floor(Math.random() * starts.length)]), lock: false };
+    const n = fillFrom(s, true) + 1;
+    if (n > bestN) { bestN = n; best = s.slots; }
+    if (n >= base.filter(x => !x).length) break;
+  }
+  s.slots = best; return bestN;
+}
+function fillFrom(s, shuffle) {
   const idx = s.slots.map((x, i) => x && BYKEY[x.k] && usable(BYKEY[x.k]) ? i : -1).filter(i => i >= 0);
   if (!idx.length || idx[0] !== 0) return 0;
   let filled = 0;
@@ -1092,7 +1203,7 @@ function autoFill(s, shuffle) {
   return filled;
 }
 function beam(s, start, end, steps, shuffle) {
-  const used = usedSets(s), W = 40, pool = TRACKS.filter(o => usable(o) && !used.keys.has(tkey(o)) && styleAllowed(s, o));
+  const used = usedSets(s), W = 40, ids = poolIds(s), pool = TRACKS.filter(o => usable(o) && !used.keys.has(tkey(o)) && styleAllowed(s, o) && inPool(ids, o));
   const endC = end && cam(end.camelot), endB = end && num(end.bpm);
   let beams = [{ path: [], last: start, cost: 0, h: 0, recs: new Set(used.recs) }];
   for (let d = 0; d < steps; d++) {
@@ -1265,14 +1376,14 @@ function renderGuide() {
 
 // ---------- sync: edits, styles and setlists saved to GitHub (data/user.json) ----------
 const REPO = "abrimmer/vinyl-dj", UPATH = "data/user.json";
-let TOKEN = store.get("ghToken", ""), SYNC = { state: "off", msg: "" }, PENDING = store.get("pending", { edits: [], styles: [], sets: [], deleted: [] });
+let TOKEN = store.get("ghToken", ""), SYNC = { state: "off", msg: "" }, PENDING = { crates: [], ...store.get("pending", { edits: [], styles: [], sets: [], deleted: [] }) };
 let syncTimer = null, syncing = false, again = false;
 const b64enc = str => { const b = new TextEncoder().encode(str); let out = ""; for (let i = 0; i < b.length; i += 0x8000) out += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000)); return btoa(out); };
 const b64dec = b64 => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\s/g, "")), c => c.charCodeAt(0)));
 const hasPending = () => Object.values(PENDING).some(a => a.length);
 function saveLocal() {
   store.set("edits", EDITS); store.set("styleEdits", STYLE_EDITS); store.set("setlists", SETLISTS);
-  store.set("deletedSets", [...DELETED]); store.set("pending", PENDING);
+  store.set("deletedSets", [...DELETED]); store.set("pending", PENDING); store.set("crates", CRATES);
 }
 function markChange(kind, key) {
   if (key !== undefined && key !== null && !PENDING[kind].includes(key)) PENDING[kind].push(key);
@@ -1286,7 +1397,7 @@ function setSync(state, msg) {
   $("#syncDot").style.background = col; $("#syncDot").parentElement.title = msg;
   if (VIEW === "sync" && !$("#sheet").classList.contains("open")) renderSync();
 }
-const emptyUser = () => ({ edits: {}, styles: {}, setlists: [], deleted: [] });
+const emptyUser = () => ({ edits: {}, styles: {}, setlists: [], deleted: [], crates: [] });
 async function ghGet() {
   const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${UPATH}?ref=main&_=${Date.now()}`,
     { headers: { Authorization: `Bearer ${TOKEN}`, Accept: "application/vnd.github+json" }, cache: "no-store" });
@@ -1312,11 +1423,15 @@ function merge(remote) {
   const map = new Map((remote.setlists || []).map(x => [x.id, x]));
   for (const x of SETLISTS) if (PENDING.sets.includes(x.id) || !map.has(x.id)) map.set(x.id, x);
   out.setlists = [...map.values()].filter(x => !out.deleted.includes(x.id));
+  const cm = new Map((remote.crates || []).map(x => [x.id, x]));
+  for (const x of CRATES) if (PENDING.crates.includes(x.id) || !cm.has(x.id)) cm.set(x.id, x);
+  out.crates = [...cm.values()].filter(x => !out.deleted.includes(x.id));
   return out;
 }
 function adopt(d) {
   EDITS = d.edits || {}; STYLE_EDITS = d.styles || {}; DELETED = new Set(d.deleted || []);
   const ids = new Set(); SETLISTS = (d.setlists || []).filter(x => !DELETED.has(x.id) && !ids.has(x.id) && ids.add(x.id));
+  CRATES = (d.crates || []).filter(x => !DELETED.has(x.id));
   applyEdits(); applyStyleEdits(); renderChips(); saveLocal();
   if ($("#sheet").classList.contains("open")) { const cur = STACK[STACK.length - 1]; cur && cur(); } else render();
 }
@@ -1329,7 +1444,7 @@ async function syncNow() {
       const { data, sha } = await ghGet();
       if (!hasPending()) { adopt(data); break; }
       const merged = merge(data);
-      if (await ghPut(merged, sha)) { PENDING = { edits: [], styles: [], sets: [], deleted: [] }; adopt(merged); break; }
+      if (await ghPut(merged, sha)) { PENDING = { edits: [], styles: [], sets: [], deleted: [], crates: [] }; adopt(merged); break; }
     }
     setSync("ok", "Synced " + new Date().toLocaleTimeString([], { timeStyle: "short" }));
   } catch (e) { setSync("error", e.message); }
@@ -1401,7 +1516,7 @@ function renderSync() {
     TOKEN = v;
     try { await ghGet(); store.set("ghToken", v);
       // first connection: send everything on this device up, merged with what's already there
-      PENDING = { edits: Object.keys(EDITS), styles: Object.keys(STYLE_EDITS), sets: SETLISTS.map(x => x.id), deleted: [...DELETED] };
+      PENDING = { edits: Object.keys(EDITS), styles: Object.keys(STYLE_EDITS), sets: SETLISTS.map(x => x.id), deleted: [...DELETED], crates: CRATES.map(x => x.id) };
       await syncNow(); toast("Connected"); }
     catch (e) { TOKEN = ""; toast(e.message); }
     renderSync();
