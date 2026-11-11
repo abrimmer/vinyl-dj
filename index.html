@@ -346,7 +346,7 @@
 <footer>
   BPM and key data by <a href="https://getsongbpm.com" target="_blank" rel="noopener">GetSongBPM.com</a> ·
   Collection from <a href="https://www.discogs.com/user/abrimmer/collection" target="_blank" rel="noopener">Discogs</a> ·
-  <span id="updated"></span> · Setwright v0.16<br>* = unsure / estimated · manual entries and setlists are saved on this device
+  <span id="updated"></span> · Setwright v0.17<br>* = unsure / estimated · manual entries and setlists are saved on this device
 </footer>
 
 <script>
@@ -920,13 +920,14 @@ function startOk(s, o) {
   return true;
 }
 const parseSrc = v => v === "" ? null : v === "table" ? "table" : +v;
-const DEFAULT_RULES = () => ({ tempo: RANGE, keySteps: 1, styleSteps: 2, route: "tight", pop: "any", deepEvery: 4, wave: "steady" });
+const DEFAULT_RULES = () => ({ tempo: RANGE, keySteps: 1, styleSteps: 2, route: "tight", pop: "any", deepEvery: 4, wave: "steady", dbl: "off", tpath: "hold", endBpm: "" });
 const rulesOf = s => ({ ...DEFAULT_RULES(), ...(s.rules || {}) });
 const anchorOf = s => s.slots[0] && BYKEY[s.slots[0].k];
 // Cost of going from track a to track b under the rules. Lower = smoother. 999 = not allowed.
 function ruleCost(R, a, b, anchor) {
   const tr = transition(a, b); if (!tr) return 999;
   const p = Math.abs(tr.fit.p) * 100; if (p > Math.min(R.tempo, RANGE) + 1e-9) return 999;
+  if (tr.fit.f !== 1 && R.dbl !== "on") return 999;  // half/double-time jumps only when allowed
   const ks = tr.plays && cam(a.camelot) ? wheelDist(cam(a.camelot), tr.plays) : 9;
   if (R.keySteps !== "any" && ks > R.keySteps) return 999;
   let sd = 0;
@@ -938,7 +939,7 @@ function ruleCost(R, a, b, anchor) {
 }
 const setCost = (s, a, b) => ruleCost(rulesOf(s), a, b, anchorOf(s));
 function rulesSummary(R) {
-  return `±${Math.min(R.tempo, RANGE)}% · key ${R.keySteps} · style ${R.styleSteps}${R.styleSteps === "any" ? "" : " · " + (R.route === "tight" ? "tight" : "evolve")}${popLbl(R) ? " · " + popLbl(R) : ""}`;
+  return `±${Math.min(R.tempo, RANGE)}% · key ${R.keySteps} · style ${R.styleSteps}${R.styleSteps === "any" ? "" : " · " + (R.route === "tight" ? "tight" : "evolve")}${R.tpath === "ramp" && R.endBpm ? " · → " + R.endBpm + " BPM" : R.tpath === "free" ? " · free tempo" : ""}${popLbl(R) ? " · " + popLbl(R) : ""}`;
 }
 function popLbl(R) {
   return { bangers: "Bangers only", deep: "Deep cuts only", mix: `Mix 1 in ${R.deepEvery || 4}${R.wave === "wave" ? " · wave" : ""}` }[R.pop] || "";
@@ -950,6 +951,9 @@ function rulesHtml(R, id, withRoute = true) {
       <input type="range" min="1" max="${RANGE}" step="1" value="${Math.min(R.tempo, RANGE)}" data-r="tempo"></label>
     <label>Key steps <select data-r="keySteps">${o(0, R.keySteps, "0 · same key only")}${o(1, R.keySteps, "1 · neighbours (±1, minor/major)")}${o(2, R.keySteps, "2 · bolder changes")}${o("any", R.keySteps, "Any · ignore key")}</select></label>
     <label>Style steps <select data-r="styleSteps">${o(1, R.styleSteps, "1 · same scene")}${o(2, R.styleSteps, "2 · neighbouring scenes")}${o(3, R.styleSteps, "3 · anything connected")}${o("any", R.styleSteps, "Any · ignore style")}</select></label>
+    <label>Tempo path <select data-r="tpath">${o("hold", R.tpath || "hold", "Hold · stay near the first BPM")}${o("ramp", R.tpath, "Ramp · move towards an end BPM")}${o("free", R.tpath, "Free · drift as it likes")}</select></label>
+    <label data-ramp ${R.tpath === "ramp" ? "" : 'style="display:none"'}>End BPM <input type="number" data-r="endBpm" min="40" max="220" value="${R.endBpm || ""}" placeholder="e.g. 128" style="width:90px"></label>
+    <label>Half / double time <select data-r="dbl">${o("off", R.dbl || "off", "Off · no tempo jumps")}${o("on", R.dbl, "Allowed (e.g. 92 → 184)")}</select></label>
     <label>Popularity <select data-r="pop">${o("any", R.pop, "Any · ignore popularity")}${o("bangers", R.pop, "Bangers only")}${o("deep", R.pop, "Deep cuts only")}${o("mix", R.pop, "Mix bangers and deep cuts")}</select></label>
     <label data-mix ${R.pop === "mix" ? "" : 'style="display:none"'}>Mix: 1 deep cut in every <select data-r="deepEvery">${[2, 3, 4, 5, 6].map(n => o(n, R.deepEvery, n + " tracks")).join("")}</select></label>
     <label data-mix ${R.pop === "mix" ? "" : 'style="display:none"'}>Mix pattern <select data-r="wave">${o("steady", R.wave, "Steady · deep cuts spread evenly")}${o("wave", R.wave, "Wave · rises to bangers, dips to deep cuts")}</select></label>
@@ -962,6 +966,7 @@ function wireRules(id, R, onChange) {
     if (el.type === "range") el.addEventListener("input", () => { box.querySelector("[data-tv]").textContent = el.value; });
     el.addEventListener("change", () => { const v = el.value; R[el.dataset.r] = isNaN(+v) ? v : +v;
       if (el.dataset.r === "pop") box.querySelectorAll("[data-mix]").forEach(m => m.style.display = v === "mix" ? "" : "none");
+      if (el.dataset.r === "tpath") box.querySelectorAll("[data-ramp]").forEach(m => m.style.display = v === "ramp" ? "" : "none");
       onChange(R); });
   });
 }
@@ -1064,6 +1069,18 @@ function popPenalty(s, i, o) {
   const t = tierOf(o);
   if (w.tier === "notdeep") return t === "deep" ? 40 : 0;
   return t === w.tier ? 0 : (w.tier === "known" || t === "known") ? 25 : 40;
+}
+// Tempo path: Hold keeps every track near the first BPM; Ramp moves in a straight line to the end BPM.
+function tempoTarget(s, i) {
+  const R = rulesOf(s), tp = R.tpath || "hold"; if (tp === "free") return null;
+  const a = s.startBpm || num(anchorOf(s)?.bpm); if (!a) return null;
+  if (tp === "ramp" && +R.endBpm > 0) { const n = Math.max(1, s.slots.length - 1); return a + (+R.endBpm - a) * Math.min(i, n) / n; }
+  return a;
+}
+function tempoPenalty(s, i, o) {
+  const t = tempoTarget(s, i), b = num(o.bpm); if (!t || !b) return 0;
+  const dev = Math.abs(b / t - 1) * 100, R = rulesOf(s), tol = (R.tpath || "hold") === "ramp" ? 3 : Math.min(R.tempo, RANGE) / 2;
+  return Math.max(0, dev - tol) * 8;
 }
 const wantMisses = s => s.slots.reduce((n, x, i) => n + (x && !x.lock && (s.want || [])[i] && BYKEY[x.k] && tierOf(BYKEY[x.k]) !== s.want[i] ? 1 : 0), 0);
 const bpmTile = t => `<div class="tile"><b>${esc(t.bpm || "–")}</b><small>BPM</small></div>`;
@@ -1222,7 +1239,7 @@ function pickForSlot(s, i, push = true) {
   if (usable(P || {}) || usable(N || {})) for (const o of TRACKS) {
     if (!usable(o) || used.keys.has(tkey(o)) || (s.one && used.recs.has(o.rel.id)) || !styleAllowed(s, o) || !inPool(ids, o)) continue;
     const a = P && usable(P) ? transition(P, o) : null, b = N && usable(N) ? transition(o, N) : null;
-    const sc = (a ? setCost(s, P, o) : 0) + (b ? setCost(s, o, N) : 0) + popPenalty(s, i, o);
+    const sc = (a ? setCost(s, P, o) : 0) + (b ? setCost(s, o, N) : 0) + popPenalty(s, i, o) + tempoPenalty(s, i, o);
     if (sc < 999) list.push({ o, tr: a, b, score: sc });
   }
   list.sort((x, y) => x.score - y.score); list = list.slice(0, 30);
@@ -1342,7 +1359,7 @@ function beam(s, start, end, steps, shuffle, off = 1) {
         if (left === 1) { const ce = setCost(s, o, end); if (ce >= 999) continue; h += ce; }
         const R = rulesOf(s); if (R.route === "evolve" && R.styleSteps !== "any") h += styleDist(o, end) * 3 / left;
       }
-      next.push({ path: [...bm.path, o], last: o, cost: bm.cost + c + popPenalty(s, off + d, o) + (shuffle ? Math.random() * 6 : 0), h, recs: new Set([...bm.recs, o.rel.id]) });
+      next.push({ path: [...bm.path, o], last: o, cost: bm.cost + c + popPenalty(s, off + d, o) + tempoPenalty(s, off + d, o) + (shuffle ? Math.random() * 6 : 0), h, recs: new Set([...bm.recs, o.rel.id]) });
     }
     if (!next.length) break;
     next.sort((x, y) => (x.cost + x.h) - (y.cost + y.h));

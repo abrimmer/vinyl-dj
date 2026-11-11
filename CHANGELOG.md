@@ -22,3 +22,4 @@ kept separately and is never rolled back by a revert.
 | 0.14 | 11 Nov 2026 | `6441e06` | Stacks + crates: pick records for the table, save them as named crates, build setlists from just those records; Fill / Re-shuffle picks a random first track when slot 1 is empty |
 | 0.15 | 11 Nov 2026 | `2c4968b` | Popularity: world-scale score 0–100 (Last.fm listeners + Deezer rank), Banger / Known / Deep cut tiers, Popularity rule (Bangers only / Deep cuts only / Mix 1-in-N, steady or wave), tick a tier on any empty slot before filling |
 | 0.16 | 11 Nov 2026 | `a680ce6` | Hot fixes: all style tags visible (wrapped, below the header), Select all shown / Select none, Add stack to crate (existing or new), start BPM + start key for setlists, drag a box to select covers on desktop |
+| 0.17 | 11 Nov 2026 | (see git log) | Tempo control: half/double-time jumps off by default; Tempo path rule (Hold near first BPM / Ramp to end BPM / Free) |
