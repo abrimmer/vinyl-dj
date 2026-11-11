@@ -1,12 +1,9 @@
 Finished
-15:31:53 Collection: 643 items
-15:31:53 Records: 643
-15:31:53 Fallback checks this run: 0
-15:31:53 Deezer checks this run: 0, found: 0
-15:31:53 Popularity checks this run: 0, found: 0
-15:31:54 Last.fm 'The Sound - Winning': (128581, 662234)
-15:31:54 Last.fm 'The Sound - Sense Of Purpose': (76488, 351258)
-15:31:55 Last.fm 'The Sound - Contact The Fact': (57135, 255012)
-16:27:46 Last.fm checks this run: 7441, found: 7409
-16:27:46 ReccoBeats checks this run: 0, found: 0
-16:27:46 Lookups this run: 0. Tracks still to look up: 0 (popularity: 0).
+22:43:53 Collection: 643 items
+22:43:53 Records: 643
+22:43:54 Fallback checks this run: 0
+22:43:54 Deezer checks this run: 0, found: 0
+22:43:54 Popularity checks this run: 0, found: 0
+22:43:54 Last.fm checks this run: 0, found: 0
+22:43:54 ReccoBeats checks this run: 0, found: 0
+22:43:54 Lookups this run: 0. Tracks still to look up: 0 (popularity: 0).
