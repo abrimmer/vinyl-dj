@@ -308,6 +308,38 @@
     "banger",
     "banger"
    ]
+  },
+  {
+   "id": 1794417053902,
+   "name": "Setlist 7",
+   "one": true,
+   "source": "table",
+   "rules": {
+    "tempo": 8,
+    "keySteps": 1,
+    "styleSteps": 2,
+    "route": "tight",
+    "pop": "any",
+    "deepEvery": 4,
+    "wave": "steady"
+   },
+   "styleMode": "any",
+   "styles": [],
+   "slots": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "startBpm": 128,
+   "startKey": null,
+   "updated": 1794417053902
   }
  ],
  "crates": [
