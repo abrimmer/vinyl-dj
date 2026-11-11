@@ -82,7 +82,10 @@
    "styleMode": "any",
    "styles": [],
    "slots": [
-    null,
+    {
+     "k": "11648940|B2",
+     "lock": true
+    },
     {
      "k": "5994837|B2",
      "lock": false
@@ -140,7 +143,7 @@
      "lock": false
     }
    ],
-   "updated": 1794420391930,
+   "updated": 1794420407998,
    "source": "table"
   },
   {
