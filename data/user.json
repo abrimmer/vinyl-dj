@@ -373,7 +373,10 @@
    "styleMode": "any",
    "styles": [],
    "slots": [
-    null,
+    {
+     "k": "19041229|A1",
+     "lock": true
+    },
     null,
     null,
     null,
@@ -386,7 +389,7 @@
    ],
    "startBpm": null,
    "startKey": null,
-   "updated": 1794417531155
+   "updated": 1794417540278
   }
  ],
  "crates": [
