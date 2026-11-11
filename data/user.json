@@ -19,7 +19,8 @@
   1793171629163,
   1792995517156,
   1793099757208,
-  1794415491626
+  1794415491626,
+  1794209733755
  ],
  "setlists": [
   {
@@ -98,38 +99,6 @@
     null
    ],
    "updated": 1793974580833
-  },
-  {
-   "id": 1794209733755,
-   "name": "test",
-   "one": true,
-   "rules": {
-    "tempo": 8,
-    "keySteps": 1,
-    "styleSteps": 2,
-    "route": "tight"
-   },
-   "styleMode": "any",
-   "styles": [],
-   "slots": [
-    {
-     "k": "22583561|5",
-     "lock": true
-    },
-    null,
-    null,
-    {
-     "k": "250345|A2",
-     "lock": true
-    },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-   ],
-   "updated": 1794209891199
   },
   {
    "id": 1794398590671,
