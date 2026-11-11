@@ -40,8 +40,7 @@
   .seg { display: flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
   .seg button { background: var(--panel); border: 0; padding: 8px 10px; cursor: pointer; color: var(--muted); }
   .seg button.on { background: var(--accent); color: #111; font-weight: 600; }
-  .chips { display: flex; gap: 6px; overflow-x: auto; padding: 10px 0 2px; max-width: 1200px; margin: 0 auto;
-    scrollbar-width: none; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 16px 0; max-width: 1200px; margin: 0 auto; }
   .chips::-webkit-scrollbar { display: none; }
   .chip { flex: none; border: 1px solid var(--line); background: none; border-radius: 999px; padding: 4px 10px;
     font-size: 13px; color: var(--muted); cursor: pointer; }
@@ -106,6 +105,9 @@
   .card.in-stack .ck { display: flex; }
   .card.in-stack img, .card.in-stack .cover-ph { outline: 3px solid var(--accent); outline-offset: -3px; }
   .picking-on .card:not(.in-stack) img { opacity: .55; }
+  .marquee { position: fixed; border: 1px solid var(--accent); background: color-mix(in srgb, var(--accent) 15%, transparent); z-index: 20; pointer-events: none; border-radius: 4px; }
+  .card.hover-sel img, .card.hover-sel .cover-ph { outline: 3px dashed var(--accent); outline-offset: -3px; opacity: 1; }
+  .picking-on .grid { user-select: none; }
   .crate-row { display: flex; gap: 8px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
   .crate-row .nm { flex: 1 1 160px; font-weight: 600; }
   .btn { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 7px 12px; cursor: pointer; }
@@ -329,8 +331,8 @@
       <button data-r="8">±8%</button><button data-r="16">±16%</button><button data-r="24">±24%</button>
     </div>
   </div>
-  <div class="chips" id="chips"></div>
 </header>
+<div class="chips" id="chips"></div>
 
 <main id="view"></main>
 
@@ -344,7 +346,7 @@
 <footer>
   BPM and key data by <a href="https://getsongbpm.com" target="_blank" rel="noopener">GetSongBPM.com</a> ·
   Collection from <a href="https://www.discogs.com/user/abrimmer/collection" target="_blank" rel="noopener">Discogs</a> ·
-  <span id="updated"></span> · Setwright v0.15<br>* = unsure / estimated · manual entries and setlists are saved on this device
+  <span id="updated"></span> · Setwright v0.16<br>* = unsure / estimated · manual entries and setlists are saved on this device
 </footer>
 
 <script>
@@ -644,6 +646,9 @@ function stackBar() {
   return `<div class="stackbar${PICKING ? " picking" : ""}" id="stackbar">
     <span class="lbl">${PICKING ? "Tap records to add or remove · " : ""}Stack: <b id="stackN">${n}</b> record${n === 1 ? "" : "s"}</span>
     <button class="btn${PICKING ? " primary" : ""}" id="pickBtn">${PICKING ? "Done" : n ? "Edit stack" : "Build a stack"}</button>
+    ${PICKING ? `<button class="btn" id="selAll">Select all shown</button><button class="btn" id="selNone">Select none</button>` : ""}
+    ${n ? `<select class="btn" id="toCrate" aria-label="Add to crate"><option value="">+ Add to crate…</option>
+      ${saved.map(c => `<option value="${c.id}">${esc(c.name)} (${c.recs.length})</option>`).join("")}<option value="new">New crate…</option></select>` : ""}
     ${n ? `<button class="btn primary" id="stackSet">Setlist from stack</button>
       <button class="btn" id="stackOnly">${STACK_ONLY ? "Show all" : "Show stack only"}</button>` : ""}
     <button class="btn" id="cratesBtn">Crates${saved.length ? " (" + saved.length + ")" : ""}</button>
@@ -656,10 +661,53 @@ function wireStackBar() {
   $("#stackSet") && ($("#stackSet").onclick = () => { STACK = []; newSetlist(null, true, "table"); });
   $("#stackOnly") && ($("#stackOnly").onclick = () => { STACK_ONLY = !STACK_ONLY; renderGrid(); });
   $("#cratesBtn").onclick = () => { STACK = []; showCrates(); };
+  $("#selAll") && ($("#selAll").onclick = () => { const t = tableCrate(), ids = [...$("#view").querySelectorAll(".card")].map(c => DATA.find(r => r.id == c.dataset.id).id);
+    t.recs = [...new Set([...t.recs, ...ids])]; saveCrate(t); renderGrid(); toast(`${ids.length} added`); });
+  $("#selNone") && ($("#selNone").onclick = () => { const t = tableCrate(); t.recs = []; saveCrate(t); renderGrid(); });
+  $("#toCrate") && ($("#toCrate").onchange = e => { const v = e.target.value, t = tableCrate(); if (!v) return;
+    let c;
+    if (v === "new") { const nm = (prompt("Name for the new crate") || "").trim(); if (!nm) { e.target.value = ""; return; }
+      c = { id: Date.now(), name: nm, recs: [] }; CRATES.push(c); }
+    else c = CRATES.find(x => String(x.id) === v);
+    const before = c.recs.length; c.recs = [...new Set([...c.recs, ...t.recs])]; saveCrate(c);
+    toast(`${c.recs.length - before} added to "${c.name}"`); renderGrid(); });
   $("#stackClear") && ($("#stackClear").onclick = e => {
     if (!e.target.dataset.sure) { e.target.dataset.sure = 1; e.target.textContent = "Tap again to clear"; return; }
     const t = tableCrate(); t.recs = []; saveCrate(t); STACK_ONLY = false; renderGrid(); toast("Stack cleared"); });
 }
+// Desktop: drag a box over covers to select (or deselect, if you start on a selected cover)
+(() => {
+  let st = null, box = null, justDragged = false;
+  const v = () => $("#view");
+  document.addEventListener("mousedown", e => {
+    if (!PICKING || e.button !== 0 || !e.target.closest("#view .grid") && !e.target.closest("#view") ) return;
+    if (!v().querySelector(".grid") || e.target.closest(".stackbar, input, select, button:not(.card)")) return;
+    const c0 = e.target.closest(".card"); e.preventDefault();
+    st = { x: e.clientX, y: e.clientY, add: !(c0 && c0.classList.contains("in-stack")), moved: false };
+  });
+  document.addEventListener("mousemove", e => {
+    if (!st) return;
+    if (!st.moved && Math.hypot(e.clientX - st.x, e.clientY - st.y) < 6) return;
+    st.moved = true; e.preventDefault();
+    if (!box) { box = document.createElement("div"); box.className = "marquee"; document.body.appendChild(box); }
+    const x1 = Math.min(st.x, e.clientX), y1 = Math.min(st.y, e.clientY), x2 = Math.max(st.x, e.clientX), y2 = Math.max(st.y, e.clientY);
+    Object.assign(box.style, { left: x1 + "px", top: y1 + "px", width: x2 - x1 + "px", height: y2 - y1 + "px" });
+    v().querySelectorAll(".card").forEach(c => { const r = c.getBoundingClientRect();
+      c.classList.toggle("hover-sel", r.left < x2 && r.right > x1 && r.top < y2 && r.bottom > y1); });
+  });
+  document.addEventListener("mouseup", () => {
+    if (!st) return;
+    if (st.moved) {
+      const hit = [...v().querySelectorAll(".card.hover-sel")].map(c => DATA.find(r => r.id == c.dataset.id).id), t = tableCrate();
+      t.recs = st.add ? [...new Set([...t.recs, ...hit])] : t.recs.filter(id => !hit.includes(id)); saveCrate(t);
+      justDragged = true; setTimeout(() => justDragged = false, 50);
+      box?.remove(); box = null; renderGrid(); toast(`${hit.length} ${st.add ? "added to" : "removed from"} stack`);
+    }
+    st = null;
+  });
+  document.addEventListener("dragstart", e => { if (PICKING && e.target.closest("#view .grid")) e.preventDefault(); });
+  document.addEventListener("click", e => { if (justDragged) { e.stopPropagation(); e.preventDefault(); } }, true);
+})();
 function toggleStack(id) {
   const t = tableCrate(); t.recs = t.recs.includes(id) ? t.recs.filter(x => x !== id) : [...t.recs, id]; saveCrate(t);
   return t.recs.includes(id);
@@ -860,6 +908,17 @@ const sourceSelect = cur => `<label>Records <select data-src>
     <option value="" ${cur == null ? "selected" : ""}>Whole collection</option>
     ${CRATES.filter(c => c.id === "table" ? c.recs.length : true).map(c => `<option value="${c.id}" ${String(cur) === String(c.id) ? "selected" : ""}>${esc(crateName(c.id))} (${c.recs.length})</option>`).join("")}
   </select></label>`;
+const CAMS = [...Array(12)].flatMap((_, i) => [i + 1 + "A", i + 1 + "B"]);
+const startFields = s => `<label>Start BPM <input type="number" data-sb min="40" max="220" placeholder="any" value="${s.startBpm || ""}" style="width:90px"></label>
+  <label>Start key <select data-sk><option value="">any</option>${CAMS.map(k => `<option ${s.startKey === k ? "selected" : ""}>${k}</option>`).join("")}</select></label>`;
+const readStart = (box, s) => { const b = +box.querySelector("[data-sb]").value; s.startBpm = b > 0 ? b : null; s.startKey = box.querySelector("[data-sk]").value || null; };
+// Does a track work as the opening track for the chosen start BPM / key (within the tempo and key rules)?
+function startOk(s, o) {
+  const R = rulesOf(s);
+  if (s.startBpm) { const b = +o.bpm; if (!b || Math.abs(b / s.startBpm - 1) * 100 > Math.min(R.tempo, RANGE)) return false; }
+  if (s.startKey) { const a = cam(o.camelot), k = cam(s.startKey); if (!a || !k || wheelDist(a, k) > (R.keySteps === "any" ? 1 : R.keySteps)) return false; }
+  return true;
+}
 const parseSrc = v => v === "" ? null : v === "table" ? "table" : +v;
 const DEFAULT_RULES = () => ({ tempo: RANGE, keySteps: 1, styleSteps: 2, route: "tight", pop: "any", deepEvery: 4, wave: "steady" });
 const rulesOf = s => ({ ...DEFAULT_RULES(), ...(s.rules || {}) });
@@ -925,7 +984,7 @@ function newSetlist(firstTrack, push = true, source = null) {
   $("#sheetBody").innerHTML = `<h3>New setlist</h3><form class="form" id="nf">
     <label>Name<input type="text" name="nm" required value="Setlist ${SETLISTS.length + 1}"></label>
     <label>Number of tracks<input type="number" name="len" min="2" max="60" value="10"></label>
-    <div class="rules" id="nfSrc">${sourceSelect(source)}</div>
+    <div class="rules" id="nfSrc">${sourceSelect(source)}${firstTrack ? "" : startFields({})}</div>
     ${rulesHtml(DEFAULT_RULES(), "nfRules")}
     <label class="chk" style="margin:0"><input type="checkbox" name="one" ${source != null && nRec < 10 ? "" : "checked"}> Max 1 track per record</label>
     ${source != null ? `<p class="help">Leave the first track empty and press <b>Fill slots</b> for a random set from these records.</p>` : ""}
@@ -936,6 +995,7 @@ function newSetlist(firstTrack, push = true, source = null) {
     e.preventDefault(); const f = e.target;
     const s = { id: Date.now(), name: f.nm.value.trim() || "Setlist", one: f.one.checked, source: parseSrc($("#nfSrc [data-src]").value), rules: NF_RULES, styleMode: "any", styles: firstTrack ? stylesOf(firstTrack).slice() : [],
       slots: Array(Math.max(2, Math.min(60, +f.len.value || 10))).fill(null) };
+    if ($("#nfSrc [data-sb]")) readStart($("#nfSrc"), s);
     if (firstTrack) s.slots[0] = { k: tkey(firstTrack), lock: true };
     SETLISTS.push(s); saveSets(s); if (VIEW === "setlists") renderSetlists();
     STACK = []; showSetlist(s);
@@ -1035,9 +1095,9 @@ function showSetlist(s, push = true) {
     <details class="rulebar" id="rulebar" ${RULES_OPEN ? "open" : ""}><summary>
       <span class="rc">Tempo <b>±${Math.min(R.tempo, RANGE)}%</b></span><span class="rc">Key <b>${esc(keyLbl)}</b></span>
       <span class="rc">Style <b>${esc(R.styleSteps)}${R.styleSteps === "any" ? "" : " · " + (R.route === "tight" ? "tight" : "evolve")}</b></span>
-      ${popLbl(R) ? `<span class="rc"><b>${esc(popLbl(R))}</b></span>` : ""}${s.source != null ? `<span class="rc">From <b>${esc(crateName(s.source) || "deleted crate")}</b></span>` : ""}${s.one ? `<span class="rc">1 per record</span>` : ""}${s.styleMode === "within" ? `<span class="rc">${(s.styles || []).length} styles only</span>` : ""}
+      ${s.startBpm || s.startKey ? `<span class="rc">Start <b>${[s.startBpm && s.startBpm + " BPM", s.startKey].filter(Boolean).join(" · ")}</b></span>` : ""}${popLbl(R) ? `<span class="rc"><b>${esc(popLbl(R))}</b></span>` : ""}${s.source != null ? `<span class="rc">From <b>${esc(crateName(s.source) || "deleted crate")}</b></span>` : ""}${s.one ? `<span class="rc">1 per record</span>` : ""}${s.styleMode === "within" ? `<span class="rc">${(s.styles || []).length} styles only</span>` : ""}
       <span class="edit">Rules</span></summary>
-      <div class="rulebody"><div class="rules" id="slSrc">${sourceSelect(s.source)}</div>${rulesHtml(R, "slRules")}
+      <div class="rulebody"><div class="rules" id="slSrc">${sourceSelect(s.source)}${startFields(s)}</div>${rulesHtml(R, "slRules")}
         <label class="chk"><input type="checkbox" id="slOne" ${s.one ? "checked" : ""}> Max 1 track per record</label>
         <label class="chk"><input type="checkbox" id="slWithin" ${s.styleMode === "within" ? "checked" : ""}> Only use these styles…</label>
         ${s.styleMode === "within" ? `<div class="chips" id="slStyles" style="flex-wrap:wrap;padding-top:0">${allStyles().map(x =>
@@ -1078,13 +1138,14 @@ function showSetlist(s, push = true) {
   $("#rulebar").ontoggle = e => { RULES_OPEN = e.target.open; };
   wireRules("slRules", R, R2 => { s.rules = { ...R2 }; saveSets(s); showSetlist(s, false); });
   $("#slSrc [data-src]").onchange = e => { s.source = parseSrc(e.target.value); saveSets(s); showSetlist(s, false); };
+  $("#slSrc").querySelectorAll("[data-sb],[data-sk]").forEach(el => el.onchange = () => { readStart($("#slSrc"), s); saveSets(s); showSetlist(s, false); });
   $("#slOne").onchange = e => { s.one = e.target.checked; saveSets(s); showSetlist(s, false); };
   $("#slWithin").onchange = e => { s.styleMode = e.target.checked ? "within" : "any"; saveSets(s); showSetlist(s, false); };
   $("#slStyles")?.addEventListener("click", e => { const c = e.target.closest(".chip"); if (!c) return;
     s.styles = s.styles || []; const x = c.dataset.s; s.styles = s.styles.includes(x) ? s.styles.filter(y => y !== x) : [...s.styles, x];
     saveSets(s); showSetlist(s, false); });
   $("#fillEmpty").onclick = () => { const n = autoFill(s, false); saveSets(s); showSetlist(s, false);
-    const mm = wantMisses(s); toast(n ? `Filled ${n} slot${n > 1 ? "s" : ""}${mm ? ` · ${mm} couldn't get the popularity you ticked` : ""}` : "No fitting tracks found. Try a wider pitch range"); };
+    const mm = wantMisses(s); toast(n ? `Filled ${n} slot${n > 1 ? "s" : ""}${mm ? ` · ${mm} couldn't get the popularity you ticked` : ""}${START_MISS ? " · nothing matched the start BPM/key, so it started anywhere" : ""}` : "No fitting tracks found. Try a wider pitch range"); };
   $("#refill").onclick = () => { s.slots = s.slots.map(x => x && x.lock ? x : null); const n = autoFill(s, true); saveSets(s); showSetlist(s, false); toast(n ? `Re-filled ${n}${wantMisses(s) ? ` · ${wantMisses(s)} couldn't get the popularity you ticked` : ""}` : "No fitting tracks found. Try looser rules"); };
   $("#addSlot").onclick = () => { s.slots.push(null); saveSets(s); showSetlist(s, false); };
   $("#spExport").onclick = () => exportSpotify(s);
@@ -1231,12 +1292,15 @@ function usedSets(s, skip = -1) {
   return { keys, recs };
 }
 // Fill empty slots between filled ones (filled slots act as fixed waypoints)
+let START_MISS = false;
 function autoFill(s, shuffle) {
   if (s.slots[0] && BYKEY[s.slots[0].k] && usable(BYKEY[s.slots[0].k])) return fillFrom(s, shuffle);
   // No first track: try a few random starts from the pool and keep the fullest result
   const used = usedSets(s), ids = poolIds(s);
   const starts = TRACKS.filter(o => usable(o) && !used.keys.has(tkey(o)) && styleAllowed(s, o) && inPool(ids, o) && !(s.one && used.recs.has(o.rel.id)));
   if (!starts.length) return 0;
+  START_MISS = false;
+  if (s.startBpm || s.startKey) { const ok = starts.filter(o => startOk(s, o)); if (ok.length) starts.splice(0, starts.length, ...ok); else START_MISS = true; }
   { const good = starts.filter(o => popPenalty(s, 0, o) === 0); if (good.length) starts.splice(0, starts.length, ...good); }
   const tries = Math.min(starts.length, starts.length > 600 ? 3 : 10), base = s.slots.slice();
   let best = null, bestN = -1;
