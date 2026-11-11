@@ -355,6 +355,38 @@
    "startBpm": 128,
    "startKey": null,
    "updated": 1794417103173
+  },
+  {
+   "id": 1794417531154,
+   "name": "Setlist 8",
+   "one": true,
+   "source": "table",
+   "rules": {
+    "tempo": 8,
+    "keySteps": 1,
+    "styleSteps": 2,
+    "route": "tight",
+    "pop": "any",
+    "deepEvery": 4,
+    "wave": "steady"
+   },
+   "styleMode": "any",
+   "styles": [],
+   "slots": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "startBpm": null,
+   "startKey": null,
+   "updated": 1794417531155
   }
  ],
  "crates": [
