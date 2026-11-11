@@ -334,26 +334,11 @@
      "k": "11512586|A2",
      "lock": true
     },
-    {
-     "k": "17204797|A5",
-     "lock": false
-    },
-    {
-     "k": "15173452|A4",
-     "lock": false
-    },
-    {
-     "k": "13644222|A1",
-     "lock": false
-    },
-    {
-     "k": "21551143|B1",
-     "lock": false
-    },
-    {
-     "k": "25827709|A1",
-     "lock": false
-    },
+    null,
+    null,
+    null,
+    null,
+    null,
     {
      "k": "4439654|A1",
      "lock": false
@@ -369,7 +354,7 @@
    ],
    "startBpm": 128,
    "startKey": null,
-   "updated": 1794417093842
+   "updated": 1794417103173
   }
  ],
  "crates": [
