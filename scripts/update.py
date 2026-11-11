@@ -25,6 +25,8 @@ LOOKUP_V = 4
 FB_V = 1
 DZ_V = 1
 RB_V = 1
+POP_V = 1  # Deezer popularity (rank); bump to re-check every track
+POP_FIRST = ("goth", "post-punk", "darkwave", "coldwave")  # looked up first
 RB_PAUSED = [False]
 META = {}  # bump when the fallback sources change, so misses get retried  # bump when matching improves, so missing tracks get retried once
 MAX_NEW_LOOKUPS = int(os.environ.get("MAX_NEW_LOOKUPS", "1500"))  # stay well under GetSongBPM's 3000/hour
@@ -290,6 +292,32 @@ class Fallback:
         return None
 
 
+    def popularity(self, title, artist):
+        """Deezer rank for this track (higher = more played). Takes the best-ranked version that matches artist + title."""
+        mine = [norm(plain(x)) for x in [artist, *artist.split(" = ")]]
+        best = None
+        for tv in dict.fromkeys([title, *[x.strip() for x in title.split(" = ")]]):
+            want = norm(plain(tv))
+            if not want:
+                continue
+            for q in (f'artist:"{artist.split(" = ")[0]}" track:"{tv}"', f'{artist.split(" = ")[0]} {tv}'):
+                res = self.get("https://api.deezer.com/search", q=q, limit=10)
+                time.sleep(0.15)
+                for hit in res.get("data", []) or []:
+                    ha = norm(plain((hit.get("artist") or {}).get("name")))
+                    ht = norm(plain(hit.get("title_short") or hit.get("title")))
+                    if not (ha and any(m and (m == ha or m in ha or ha in m) for m in mine)):
+                        continue
+                    if not (ht and (ht == want or ht.startswith(want) or want.startswith(ht))):
+                        continue
+                    r = int(hit.get("rank") or 0)
+                    if best is None or r > best:
+                        best = r
+                if best is not None:
+                    return best
+        return best
+
+
 PITCH = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
 
 
@@ -550,6 +578,27 @@ def main():
             log(str(e))
         log(f"Deezer checks this run: {dz_done}, found: {dz_found}")
 
+    # 4b. Popularity (Deezer rank), Adam's core scenes first. Independent of GetSongBPM limits.
+    pop_done = pop_found = 0
+    try:
+        fbp = Fallback()
+        core = lambda r: any(k in (s or "").lower() for s in r.get("styles", []) for k in POP_FIRST)
+        for rel in sorted(releases, key=lambda r: not core(r)):
+            for t in rel["tracks"]:
+                if t.get("pop_v") == POP_V:
+                    continue
+                if time.time() - STARTED > 85 * 60:
+                    raise StopLookups("Time budget used; popularity checks continue next run")
+                t["dz_rank"] = fbp.popularity(t.get("matched_as") or t["title"], t["artist"])
+                t["pop_v"] = POP_V; pop_done += 1
+                if t["dz_rank"] is not None:
+                    pop_found += 1
+                if pop_done % 300 == 0:
+                    save(releases, "In progress (popularity)")
+    except StopLookups as e:
+        log(str(e))
+    log(f"Popularity checks this run: {pop_done}, found: {pop_found}")
+
     # 5. ReccoBeats via Spotify IDs: fills tracks still missing, and adds keys to BPM-only (Deezer) tracks
     cid, csec = os.environ.get("SPOTIFY_CLIENT_ID"), os.environ.get("SPOTIFY_CLIENT_SECRET")
     spotify_ok = time.time() > META.get("spotify_resume_at", 0)
@@ -595,7 +644,9 @@ def main():
     if cid and csec and time.time() > META.get("spotify_resume_at", 0):
         left += sum(1 for r in releases for t in r["tracks"]
                     if (not t.get("bpm") or not t.get("camelot")) and t.get("rb_v") != RB_V and t.get("fb_v") == FB_V)
-    log(f"Lookups this run: {api.lookups}. Tracks still to look up: {left}.")
+    pop_left = sum(1 for r in releases for t in r["tracks"] if t.get("pop_v") != POP_V)
+    left += pop_left
+    log(f"Lookups this run: {api.lookups}. Tracks still to look up: {left} (popularity: {pop_left}).")
     save(releases, "Finished")
     if os.environ.get("GITHUB_OUTPUT"):  # tells the workflow whether to start another run
         with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
