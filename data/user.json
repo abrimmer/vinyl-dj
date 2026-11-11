@@ -72,7 +72,7 @@
     "keySteps": 1,
     "styleSteps": 2,
     "route": "evolve",
-    "pop": "any",
+    "pop": "mix",
     "deepEvery": 4,
     "wave": "steady",
     "dbl": "off",
@@ -104,7 +104,7 @@
     null,
     null
    ],
-   "updated": 1794420247664
+   "updated": 1794420251971
   },
   {
    "id": 1794398590671,
