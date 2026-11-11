@@ -26,7 +26,7 @@ FB_V = 1
 DZ_V = 1
 RB_V = 1
 POP_V = 1  # Deezer popularity (rank); bump to re-check every track
-LFM_V = 1  # Last.fm all-time listeners; bump to re-check every track
+LFM_V = 2  # Last.fm all-time listeners; bump to re-check every track
 POP_FIRST = ("goth", "post-punk", "darkwave", "coldwave")  # looked up first
 RB_PAUSED = [False]
 META = {}  # bump when the fallback sources change, so misses get retried  # bump when matching improves, so missing tracks get retried once
@@ -348,15 +348,21 @@ class LastFm:
 
     def listeners(self, title, artist):
         artists = list(dict.fromkeys([artist.split(" = ")[0], *[x.strip() for x in artist.split(" = ")]]))
-        titles = list(dict.fromkeys([title, *[x.strip() for x in title.split(" = ")], plain(title)]))
+        straight = title.replace("’", "'").replace("‘", "'")  # curly apostrophes miss on Last.fm
+        titles = list(dict.fromkeys([straight, title, *[x.strip() for x in straight.split(" = ")], plain(straight)]))
+        best = None  # try every spelling and keep the most-listened match (bracketed extras often hit a minor version)
         for a in artists:
             for t in titles:
                 if not t:
                     continue
                 tr = self.get(method="track.getInfo", artist=a, track=t).get("track")
                 if tr and tr.get("listeners") is not None:
-                    return int(tr.get("listeners") or 0), int(tr.get("playcount") or 0)
-        return None
+                    hit = (int(tr.get("listeners") or 0), int(tr.get("playcount") or 0))
+                    if best is None or hit[0] > best[0]:
+                        best = hit
+            if best and best[0] >= 1000:
+                break
+        return best
 
 
 PITCH = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
@@ -648,8 +654,10 @@ def main():
             core = lambda r: any(k in (s or "").lower() for s in r.get("styles", []) for k in POP_FIRST)
             for rel in sorted(releases, key=lambda r: not core(r)):
                 for t in rel["tracks"]:
-                    if t.get("lfm_v") == LFM_V:
+                    curly = "’" in t["title"] or "‘" in t["title"]
+                    if t.get("lfm_v") == LFM_V and not (curly and not t.get("lfm_q")):
                         continue
+                    t["lfm_q"] = 1
                     if time.time() - STARTED > 85 * 60:
                         raise StopLookups("Time budget used; Last.fm checks continue next run")
                     res = lf.listeners(t.get("matched_as") or t["title"], t["artist"])

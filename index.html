@@ -284,7 +284,16 @@
   .cvw img.cv, .cvw .cv { border-radius: var(--r-m); aspect-ratio: 5 / 4; }
   .ccard .rank { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,.65); color: #fff; backdrop-filter: blur(4px);
     padding: 3px 9px; border-radius: 999px; font-size: var(--t-xs); letter-spacing: .04em; text-transform: none; }
-  .cgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .cgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .tile.pop.banger { background: var(--accent); color: #111; }
+  .tile.pop.deep { background: color-mix(in srgb, #3fb6a8 22%, var(--panel2)); color: #8fe0d6; }
+  .popb { font-size: 11px; font-weight: 700; padding: 2px 6px; border-radius: 999px; background: var(--panel2); font-variant-numeric: tabular-nums; }
+  .popb.banger { background: var(--accent); color: #111; } .popb.deep { color: #8fe0d6; }
+  .wants { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; justify-content: flex-end; }
+  .wch { font-size: 11px; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--line); background: none; color: var(--muted); cursor: pointer; font-family: inherit; }
+  .wch.on { background: var(--accent); border-color: var(--accent); color: #111; font-weight: 700; }
+  .wch.on.deep { background: #3fb6a8; border-color: #3fb6a8; }
+  .wtag { color: var(--accent); }
   .cgrid .tile { padding: 8px 4px; border-radius: var(--r-s); }
   .cgrid .tile b { font-size: var(--t-l); }
   .cmeta { padding: 0 2px; }
@@ -335,7 +344,7 @@
 <footer>
   BPM and key data by <a href="https://getsongbpm.com" target="_blank" rel="noopener">GetSongBPM.com</a> ·
   Collection from <a href="https://www.discogs.com/user/abrimmer/collection" target="_blank" rel="noopener">Discogs</a> ·
-  <span id="updated"></span> · Setwright v0.14<br>* = unsure / estimated · manual entries and setlists are saved on this device
+  <span id="updated"></span> · Setwright v0.15<br>* = unsure / estimated · manual entries and setlists are saved on this device
 </footer>
 
 <script>
@@ -706,7 +715,7 @@ function trackRow(t, i, opts = {}) {
       <div class="acts"><button class="${missing ? "hl" : ""}" data-edit="${i}" data-box="${id}">✎ ${missing ? "Add BPM / key" : "Edit BPM / key / cues"}</button><button data-add="${i}">+ Add to setlist</button>${missing ? lookupLinks(t) : ""}</div>
       <div id="edit-${id}"></div>
     </div>
-    <span class="right"><span class="bpm">${t.bpm ? esc(t.bpm) : "–"}</span>${camBadge(t.camelot)}</span>
+    <span class="right">${popBadge(t)}<span class="bpm">${t.bpm ? esc(t.bpm) : "–"}</span>${camBadge(t.camelot)}</span>
   </div>`;
 }
 function wireTrackRows(root, tracks) {
@@ -852,7 +861,7 @@ const sourceSelect = cur => `<label>Records <select data-src>
     ${CRATES.filter(c => c.id === "table" ? c.recs.length : true).map(c => `<option value="${c.id}" ${String(cur) === String(c.id) ? "selected" : ""}>${esc(crateName(c.id))} (${c.recs.length})</option>`).join("")}
   </select></label>`;
 const parseSrc = v => v === "" ? null : v === "table" ? "table" : +v;
-const DEFAULT_RULES = () => ({ tempo: RANGE, keySteps: 1, styleSteps: 2, route: "tight" });
+const DEFAULT_RULES = () => ({ tempo: RANGE, keySteps: 1, styleSteps: 2, route: "tight", pop: "any", deepEvery: 4, wave: "steady" });
 const rulesOf = s => ({ ...DEFAULT_RULES(), ...(s.rules || {}) });
 const anchorOf = s => s.slots[0] && BYKEY[s.slots[0].k];
 // Cost of going from track a to track b under the rules. Lower = smoother. 999 = not allowed.
@@ -870,7 +879,10 @@ function ruleCost(R, a, b, anchor) {
 }
 const setCost = (s, a, b) => ruleCost(rulesOf(s), a, b, anchorOf(s));
 function rulesSummary(R) {
-  return `±${Math.min(R.tempo, RANGE)}% · key ${R.keySteps} · style ${R.styleSteps}${R.styleSteps === "any" ? "" : " · " + (R.route === "tight" ? "tight" : "evolve")}`;
+  return `±${Math.min(R.tempo, RANGE)}% · key ${R.keySteps} · style ${R.styleSteps}${R.styleSteps === "any" ? "" : " · " + (R.route === "tight" ? "tight" : "evolve")}${popLbl(R) ? " · " + popLbl(R) : ""}`;
+}
+function popLbl(R) {
+  return { bangers: "Bangers only", deep: "Deep cuts only", mix: `Mix 1 in ${R.deepEvery || 4}${R.wave === "wave" ? " · wave" : ""}` }[R.pop] || "";
 }
 function rulesHtml(R, id, withRoute = true) {
   const o = (v, cur, label) => `<option value="${v}" ${String(cur) === String(v) ? "selected" : ""}>${label}</option>`;
@@ -879,6 +891,9 @@ function rulesHtml(R, id, withRoute = true) {
       <input type="range" min="1" max="${RANGE}" step="1" value="${Math.min(R.tempo, RANGE)}" data-r="tempo"></label>
     <label>Key steps <select data-r="keySteps">${o(0, R.keySteps, "0 · same key only")}${o(1, R.keySteps, "1 · neighbours (±1, minor/major)")}${o(2, R.keySteps, "2 · bolder changes")}${o("any", R.keySteps, "Any · ignore key")}</select></label>
     <label>Style steps <select data-r="styleSteps">${o(1, R.styleSteps, "1 · same scene")}${o(2, R.styleSteps, "2 · neighbouring scenes")}${o(3, R.styleSteps, "3 · anything connected")}${o("any", R.styleSteps, "Any · ignore style")}</select></label>
+    <label>Popularity <select data-r="pop">${o("any", R.pop, "Any · ignore popularity")}${o("bangers", R.pop, "Bangers only")}${o("deep", R.pop, "Deep cuts only")}${o("mix", R.pop, "Mix bangers and deep cuts")}</select></label>
+    <label data-mix ${R.pop === "mix" ? "" : 'style="display:none"'}>Mix: 1 deep cut in every <select data-r="deepEvery">${[2, 3, 4, 5, 6].map(n => o(n, R.deepEvery, n + " tracks")).join("")}</select></label>
+    <label data-mix ${R.pop === "mix" ? "" : 'style="display:none"'}>Mix pattern <select data-r="wave">${o("steady", R.wave, "Steady · deep cuts spread evenly")}${o("wave", R.wave, "Wave · rises to bangers, dips to deep cuts")}</select></label>
     ${withRoute ? `<label>Style route <select data-r="route">${o("tight", R.route, "Tight · stays near your first track")}${o("evolve", R.route, "Evolve · style can change step by step")}</select></label>` : ""}
   </div>`;
 }
@@ -886,7 +901,9 @@ function wireRules(id, R, onChange) {
   const box = $("#" + id);
   box.querySelectorAll("[data-r]").forEach(el => {
     if (el.type === "range") el.addEventListener("input", () => { box.querySelector("[data-tv]").textContent = el.value; });
-    el.addEventListener("change", () => { const v = el.value; R[el.dataset.r] = isNaN(+v) ? v : +v; onChange(R); });
+    el.addEventListener("change", () => { const v = el.value; R[el.dataset.r] = isNaN(+v) ? v : +v;
+      if (el.dataset.r === "pop") box.querySelectorAll("[data-mix]").forEach(m => m.style.display = v === "mix" ? "" : "none");
+      onChange(R); });
   });
 }
 function renderSetlists() {
@@ -950,6 +967,45 @@ const ICON = {
 const pvo = (t, big) => `<button class="pv pvo${big ? " big" : ""}${NOW === tkey(t) && !AUDIO.paused ? " on" : ""}" data-pv="${esc(tkey(t))}" title="30-second preview">${NOW === tkey(t) && !AUDIO.paused ? "❚❚" : "▶"}</button>`;
 const pitchTxt = p => Math.abs(p) < 0.0005 ? "0%" : (p >= 0 ? "+" : "−") + Math.abs(p * 100).toFixed(1) + "%";
 const keyTile = v => { const c = cam(v); return c ? `<div class="tile key" style="background:${camColor(c)}"><b>${esc(v)}</b><small>KEY</small></div>` : `<div class="tile key none"><b>?</b><small>KEY</small></div>`; };
+// ---------- popularity (world scale, 0–100) ----------
+// Last.fm all-time listeners on a log scale (1k = 0, 1M = 100); Deezer rank mapped onto the same scale.
+// Both: average, unless one is near zero (a bad match), then the other one.
+const DZ_X = [0, 21760, 97098, 197108, 345850, 635059, 1000000], DZ_Y = [0, 0, 27, 47, 68, 94, 100];
+const interp = (x, X, Y) => { if (x <= X[0]) return Y[0]; for (let i = 1; i < X.length; i++) if (x <= X[i]) return Y[i - 1] + (Y[i] - Y[i - 1]) * (x - X[i - 1]) / (X[i] - X[i - 1]); return Y[Y.length - 1]; };
+function popScore(t) {
+  if (t._pop !== undefined) return t._pop;
+  const a = t.lfm_listeners > 0 ? Math.max(0, Math.min(100, (Math.log10(t.lfm_listeners) - 3) / 3 * 100)) : null;
+  const b = t.dz_rank > 0 ? interp(t.dz_rank, DZ_X, DZ_Y) : null;
+  // A near-zero score next to a solid one is almost always a bad match: trust the solid one. Otherwise average.
+  const v = a == null ? b : b == null ? a : (Math.min(a, b) <= 10 && Math.max(a, b) >= 40) ? Math.max(a, b) : (a + b) / 2;
+  return (t._pop = v == null ? null : Math.round(v));
+}
+const TIERS = { banger: "Banger", known: "Known", deep: "Deep cut" };
+const tierOf = t => { const p = popScore(t); return p == null || p < 40 ? "deep" : p >= 70 ? "banger" : "known"; };
+const popTile = t => { const p = popScore(t), tr = tierOf(t); return `<div class="tile pop ${tr}" title="${TIERS[tr]} (popularity ${p ?? "unknown"})"><b>${p ?? "–"}</b><small>${tr === "deep" ? "DEEP" : tr.toUpperCase()}</small></div>`; };
+const popBadge = t => { const p = popScore(t); return p == null ? "" : `<span class="popb ${tierOf(t)}" title="${TIERS[tierOf(t)]}">${p}</span>`; };
+// What a slot is asking for: a ticked tier, or the setlist's Popularity rule
+function slotWant(s, i) {
+  const w = (s.want || [])[i]; if (w) return { tier: w };
+  const R = rulesOf(s);
+  if (R.pop === "bangers") return { tier: "banger" };
+  if (R.pop === "deep") return { tier: "deep" };
+  if (R.pop === "mix") {
+    const N = +R.deepEvery || 4;
+    if (R.wave === "wave") return { score: 50 - 45 * Math.cos(2 * Math.PI * (i % (2 * N)) / (2 * N)) }; // deep → banger → deep
+    return (i + 1) % N === 0 ? { tier: "deep" } : { tier: "notdeep" };
+  }
+  return null;
+}
+// Extra cost for a track that doesn't match what the slot wants (soft, so a slot still fills if nothing matches)
+function popPenalty(s, i, o) {
+  const w = slotWant(s, i); if (!w) return 0;
+  if (w.score != null) return Math.abs((popScore(o) ?? 10) - w.score) / 3;
+  const t = tierOf(o);
+  if (w.tier === "notdeep") return t === "deep" ? 40 : 0;
+  return t === w.tier ? 0 : (w.tier === "known" || t === "known") ? 25 : 40;
+}
+const wantMisses = s => s.slots.reduce((n, x, i) => n + (x && !x.lock && (s.want || [])[i] && BYKEY[x.k] && tierOf(BYKEY[x.k]) !== s.want[i] ? 1 : 0), 0);
 const bpmTile = t => `<div class="tile"><b>${esc(t.bpm || "–")}</b><small>BPM</small></div>`;
 // Transition info as plain text with status dots (not button-like pills)
 function bridgeBits(a, b) {
@@ -979,7 +1035,7 @@ function showSetlist(s, push = true) {
     <details class="rulebar" id="rulebar" ${RULES_OPEN ? "open" : ""}><summary>
       <span class="rc">Tempo <b>±${Math.min(R.tempo, RANGE)}%</b></span><span class="rc">Key <b>${esc(keyLbl)}</b></span>
       <span class="rc">Style <b>${esc(R.styleSteps)}${R.styleSteps === "any" ? "" : " · " + (R.route === "tight" ? "tight" : "evolve")}</b></span>
-      ${s.source != null ? `<span class="rc">From <b>${esc(crateName(s.source) || "deleted crate")}</b></span>` : ""}${s.one ? `<span class="rc">1 per record</span>` : ""}${s.styleMode === "within" ? `<span class="rc">${(s.styles || []).length} styles only</span>` : ""}
+      ${popLbl(R) ? `<span class="rc"><b>${esc(popLbl(R))}</b></span>` : ""}${s.source != null ? `<span class="rc">From <b>${esc(crateName(s.source) || "deleted crate")}</b></span>` : ""}${s.one ? `<span class="rc">1 per record</span>` : ""}${s.styleMode === "within" ? `<span class="rc">${(s.styles || []).length} styles only</span>` : ""}
       <span class="edit">Rules</span></summary>
       <div class="rulebody"><div class="rules" id="slSrc">${sourceSelect(s.source)}</div>${rulesHtml(R, "slRules")}
         <label class="chk"><input type="checkbox" id="slOne" ${s.one ? "checked" : ""}> Max 1 track per record</label>
@@ -1006,13 +1062,14 @@ function showSetlist(s, push = true) {
         <span class="grip" data-grip title="Drag to reorder"><i>${i + 1}</i>${ICON.grip}</span>
         <div class="sc">${t.rel.thumb ? `<img src="${esc(t.rel.thumb)}" alt="">` : `<div class="ph"></div>`}${pvo(t)}</div>
         <div class="slot-body" data-pick="${i}"><div class="sname">${esc(t.title)}</div><div class="sart">${esc(t.artist || t.rel.artist)}</div>
-          <div class="salb">${esc(t.rel.title)} · ${esc(t.pos)}${t.duration ? " · " + esc(t.duration) : ""}</div></div>
-        <div class="tiles">${bpmTile(t)}${keyTile(t.camelot)}</div>
+          <div class="salb">${esc(t.rel.title)} · ${esc(t.pos)}${t.duration ? " · " + esc(t.duration) : ""}${(s.want || [])[i] ? ` · <span class="wtag">${TIERS[s.want[i]]} wanted</span>` : ""}</div></div>
+        <div class="tiles">${bpmTile(t)}${keyTile(t.camelot)}${popTile(t)}</div>
         <button class="lk" data-lock="${i}" title="${x.lock ? "Locked: tap to unlock" : "Tap to lock"}">${x.lock ? ICON.lock : ICON.unlock}</button>
         <button class="xc" data-clear="${i}" title="Clear slot">${ICON.x}</button>
       </div></div>`
       : `<div class="slot" data-i="${i}"><div class="slot-inner empty" data-pick="${i}"><span class="grip"><i>${i + 1}</i></span>
-        ${i === 0 ? "+ Pick first track" : i === T.length - 1 ? "+ Pick last track (optional)" : "+ Pick a track"}</div></div>`;
+        <span>${i === 0 ? "+ Pick first track" : i === T.length - 1 ? "+ Pick last track (optional)" : "+ Pick a track"}</span>
+        <span class="wants">${["banger", "known", "deep"].map(k => `<button class="wch ${k}${(s.want || [])[i] === k ? " on" : ""}" data-want="${i}" data-w="${k}">${TIERS[k]}</button>`).join("")}</span></div></div>`;
   });
   html += `</div><div class="tools" style="margin-top:28px"><button class="btn danger" id="delSet">Delete setlist</button></div>`;
   $("#sheetBody").innerHTML = html;
@@ -1027,8 +1084,8 @@ function showSetlist(s, push = true) {
     s.styles = s.styles || []; const x = c.dataset.s; s.styles = s.styles.includes(x) ? s.styles.filter(y => y !== x) : [...s.styles, x];
     saveSets(s); showSetlist(s, false); });
   $("#fillEmpty").onclick = () => { const n = autoFill(s, false); saveSets(s); showSetlist(s, false);
-    toast(n ? `Filled ${n} slot${n > 1 ? "s" : ""}` : "No fitting tracks found. Try a wider pitch range"); };
-  $("#refill").onclick = () => { s.slots = s.slots.map(x => x && x.lock ? x : null); const n = autoFill(s, true); saveSets(s); showSetlist(s, false); toast(n ? `Re-filled ${n}` : "No fitting tracks found. Try looser rules"); };
+    const mm = wantMisses(s); toast(n ? `Filled ${n} slot${n > 1 ? "s" : ""}${mm ? ` · ${mm} couldn't get the popularity you ticked` : ""}` : "No fitting tracks found. Try a wider pitch range"); };
+  $("#refill").onclick = () => { s.slots = s.slots.map(x => x && x.lock ? x : null); const n = autoFill(s, true); saveSets(s); showSetlist(s, false); toast(n ? `Re-filled ${n}${wantMisses(s) ? ` · ${wantMisses(s)} couldn't get the popularity you ticked` : ""}` : "No fitting tracks found. Try looser rules"); };
   $("#addSlot").onclick = () => { s.slots.push(null); saveSets(s); showSetlist(s, false); };
   $("#spExport").onclick = () => exportSpotify(s);
   $("#delSet").onclick = e => {
@@ -1037,6 +1094,9 @@ function showSetlist(s, push = true) {
   };
   const toggleLock = i => { const x = s.slots[i]; if (!x) return; x.lock = !x.lock; saveSets(s); showSetlist(s, false); };
   B.querySelectorAll("[data-pick]").forEach(el => el.onclick = () => pickForSlot(s, +el.dataset.pick));
+  B.querySelectorAll("[data-want]").forEach(el => el.onclick = e => { e.stopPropagation();
+    const i = +el.dataset.want; s.want = s.want || []; while (s.want.length <= i) s.want.push(null);
+    s.want[i] = s.want[i] === el.dataset.w ? null : el.dataset.w; saveSets(s); showSetlist(s, false); });
   B.querySelectorAll("[data-lock]").forEach(el => el.onclick = () => toggleLock(+el.dataset.lock));
   B.querySelectorAll("[data-clear]").forEach(el => el.onclick = () => clearSlot(s, +el.dataset.clear));
   B.querySelectorAll(".slot").forEach(el => swipe(el, dir => dir < 0 ? clearSlot(s, +el.dataset.i) : toggleLock(+el.dataset.i)));
@@ -1101,7 +1161,7 @@ function pickForSlot(s, i, push = true) {
   if (usable(P || {}) || usable(N || {})) for (const o of TRACKS) {
     if (!usable(o) || used.keys.has(tkey(o)) || (s.one && used.recs.has(o.rel.id)) || !styleAllowed(s, o) || !inPool(ids, o)) continue;
     const a = P && usable(P) ? transition(P, o) : null, b = N && usable(N) ? transition(o, N) : null;
-    const sc = (a ? setCost(s, P, o) : 0) + (b ? setCost(s, o, N) : 0);
+    const sc = (a ? setCost(s, P, o) : 0) + (b ? setCost(s, o, N) : 0) + popPenalty(s, i, o);
     if (sc < 999) list.push({ o, tr: a, b, score: sc });
   }
   list.sort((x, y) => x.score - y.score); list = list.slice(0, 30);
@@ -1154,7 +1214,7 @@ function cardHtml(s, i, x, j, total, P, N) {
   return `<div class="ccard">
     <div class="cvw">${r.cover ? `<img class="cv" loading="lazy" src="${esc(r.cover)}" alt="">` : `<div class="cv"></div>`}
       <span class="rank">${j === 0 ? "Best fit" : `${j + 1} of ${total}`}</span>${pvo(o, true)}</div>
-    <div class="cgrid">${bpmTile(o)}${keyTile(o.camelot)}
+    <div class="cgrid">${bpmTile(o)}${keyTile(o.camelot)}${popTile(o)}
       <div class="tile ${tr && !tr.inRange ? "bad" : ""}"><b>${tr ? pitchTxt(tr.fit.p) : "–"}</b><small>PITCH</small></div></div>
     <div class="cmeta"><div class="sname">${esc(o.title)}</div><div class="sart">${esc(o.artist || r.artist)}</div>
       <div class="salb">${esc(r.title)} · ${esc(o.pos)}${o.duration ? " · " + esc(o.duration) : ""}</div></div>
@@ -1177,6 +1237,7 @@ function autoFill(s, shuffle) {
   const used = usedSets(s), ids = poolIds(s);
   const starts = TRACKS.filter(o => usable(o) && !used.keys.has(tkey(o)) && styleAllowed(s, o) && inPool(ids, o) && !(s.one && used.recs.has(o.rel.id)));
   if (!starts.length) return 0;
+  { const good = starts.filter(o => popPenalty(s, 0, o) === 0); if (good.length) starts.splice(0, starts.length, ...good); }
   const tries = Math.min(starts.length, starts.length > 600 ? 3 : 10), base = s.slots.slice();
   let best = null, bestN = -1;
   for (let k = 0; k < tries; k++) {
@@ -1197,12 +1258,12 @@ function fillFrom(s, shuffle) {
     while (k < end && !s.slots[k]) k++;
     const run = k - a - 1; if (!run) continue;
     const target = k < s.slots.length && s.slots[k] ? BYKEY[s.slots[k].k] : null;
-    const path = beam(s, BYKEY[s.slots[a].k], target && usable(target) ? target : null, run, shuffle);
+    const path = beam(s, BYKEY[s.slots[a].k], target && usable(target) ? target : null, run, shuffle, a + 1);
     path.forEach((t, m) => { if (t) { s.slots[a + 1 + m] = { k: tkey(t), lock: false }; filled++; } });
   }
   return filled;
 }
-function beam(s, start, end, steps, shuffle) {
+function beam(s, start, end, steps, shuffle, off = 1) {
   const used = usedSets(s), W = 40, ids = poolIds(s), pool = TRACKS.filter(o => usable(o) && !used.keys.has(tkey(o)) && styleAllowed(s, o) && inPool(ids, o));
   const endC = end && cam(end.camelot), endB = end && num(end.bpm);
   let beams = [{ path: [], last: start, cost: 0, h: 0, recs: new Set(used.recs) }];
@@ -1217,7 +1278,7 @@ function beam(s, start, end, steps, shuffle) {
         if (left === 1) { const ce = setCost(s, o, end); if (ce >= 999) continue; h += ce; }
         const R = rulesOf(s); if (R.route === "evolve" && R.styleSteps !== "any") h += styleDist(o, end) * 3 / left;
       }
-      next.push({ path: [...bm.path, o], last: o, cost: bm.cost + c + (shuffle ? Math.random() * 6 : 0), h, recs: new Set([...bm.recs, o.rel.id]) });
+      next.push({ path: [...bm.path, o], last: o, cost: bm.cost + c + popPenalty(s, off + d, o) + (shuffle ? Math.random() * 6 : 0), h, recs: new Set([...bm.recs, o.rel.id]) });
     }
     if (!next.length) break;
     next.sort((x, y) => (x.cost + x.h) - (y.cost + y.h));
