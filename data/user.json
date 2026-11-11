@@ -214,7 +214,10 @@
    "styleMode": "any",
    "styles": [],
    "slots": [
-    null,
+    {
+     "k": "28494934|A2",
+     "lock": true
+    },
     null,
     null,
     null,
@@ -230,7 +233,7 @@
     null,
     null
    ],
-   "updated": 1794416487664
+   "updated": 1794420801284
   },
   {
    "id": 1794416909837,
