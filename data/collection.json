@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T16:27+00:00",
+ "updated": "2026-11-14T06:31+00:00",
  "spotify_resume_at": 1793111104.9769309,
  "source": "Discogs + GetSongBPM.com",
  "releases": [
@@ -169870,7 +169870,7 @@
   },
   {
    "id": 11209038,
-   "title": "حبيبي فنك مختارات موسيقية متنوعة من الوطن العربي = Habibi Funk: An Eclectic Selection Of Music From The Arab World",
+   "title": "حبيبي فنك مختارات موسيقية متنوعة من الوطن العربي = Habibi Funk (An Eclectic Selection Of Music From The Arab World)",
    "artist": "Various",
    "year": 2017,
    "genres": [
@@ -169880,9 +169880,12 @@
     "Folk, World, & Country"
    ],
    "styles": [
+    "Garage Rock",
+    "Soul",
+    "AOR",
     "Disco",
     "Funk",
-    "Beat"
+    "Rock & Roll"
    ],
    "label": "Habibi Funk",
    "format": "Vinyl",
