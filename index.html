@@ -1428,6 +1428,7 @@ async function spToken() {
 async function spApi(path, opts = {}) {
   const r = await fetch("https://api.spotify.com/v1" + path, { ...opts, headers: { Authorization: "Bearer " + await spToken(), "Content-Type": "application/json" } });
   if (r.status === 429) throw new Error("Spotify is pausing requests from Setwright right now. Try again later.");
+  if (r.status === 401 || r.status === 403) store.set("spTok", null);
   if (!r.ok) { const j = await r.json().catch(() => ({})); const msg = (j.error && j.error.message) || ""; throw new Error(`Spotify error ${r.status} on ${(opts.method || "GET")} ${path.split("?")[0]}${msg ? ": " + msg : ""}`); }
   return r.status === 204 || r.status === 201 && r.headers.get("content-length") === "0" ? {} : r.json();
 }
