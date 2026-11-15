@@ -346,7 +346,7 @@
 <footer>
   BPM and key data by <a href="https://getsongbpm.com" target="_blank" rel="noopener">GetSongBPM.com</a> ·
   Collection from <a href="https://www.discogs.com/user/abrimmer/collection" target="_blank" rel="noopener">Discogs</a> ·
-  <span id="updated"></span> · Setwright v0.18<br>* = unsure / estimated · manual entries and setlists are saved on this device
+  <span id="updated"></span> · Setwright v0.19<br>* = unsure / estimated · manual entries and setlists are saved on this device
 </footer>
 
 <script>
@@ -1428,7 +1428,7 @@ async function spToken() {
 async function spApi(path, opts = {}) {
   const r = await fetch("https://api.spotify.com/v1" + path, { ...opts, headers: { Authorization: "Bearer " + await spToken(), "Content-Type": "application/json" } });
   if (r.status === 429) throw new Error("Spotify is pausing requests from Setwright right now. Try again later.");
-  if (r.status === 403) throw new Error("Spotify refused (403). In your Spotify developer app, add your account under User Management.");
+  if (r.status === 403) throw new Error("Spotify refused (403). Check your account is in User Management in the Spotify developer app and has Premium.");
   if (!r.ok) throw new Error(`Spotify error ${r.status}`);
   return r.status === 204 || r.status === 201 && r.headers.get("content-length") === "0" ? {} : r.json();
 }
@@ -1451,11 +1451,10 @@ async function exportSpotify(s) {
       id ? uris.push("spotify:track:" + id) : missing.push(t.title);
     }
     if (!uris.length) return toast("None of these tracks were found on Spotify");
-    const me = await spApi("/me");
-    const pl = await spApi(`/users/${encodeURIComponent(me.id)}/playlists`, { method: "POST",
+    const pl = await spApi(`/me/playlists`, { method: "POST",
       body: JSON.stringify({ name: `${s.name} · Setwright`, public: false, description: "Made with Setwright from a vinyl collection" }) });
     for (let i = 0; i < uris.length; i += 100)
-      await spApi(`/playlists/${pl.id}/tracks`, { method: "POST", body: JSON.stringify({ uris: uris.slice(i, i + 100) }) });
+      await spApi(`/playlists/${pl.id}/items`, { method: "POST", body: JSON.stringify({ uris: uris.slice(i, i + 100) }) });
     s.spotifyUrl = pl.external_urls && pl.external_urls.spotify; s.spotifyMissing = missing; saveSets(s);
     toast(`Playlist created: ${uris.length} tracks${missing.length ? `, ${missing.length} not on Spotify` : ""}`);
     if (STACK.length) showSetlist(s, false);
