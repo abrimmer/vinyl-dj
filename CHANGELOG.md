@@ -24,3 +24,4 @@ kept separately and is never rolled back by a revert.
 | 0.16 | 11 Nov 2026 | `a680ce6` | Hot fixes: all style tags visible (wrapped, below the header), Select all shown / Select none, Add stack to crate (existing or new), start BPM + start key for setlists, drag a box to select covers on desktop |
 | 0.17 | 11 Nov 2026 | `d439581` | Tempo control: half/double-time jumps off by default; Tempo path rule (Hold near first BPM / Ramp to end BPM / Free) |
 | 0.18 | 11 Nov 2026 | `d1474c5` | Setlist page no longer redraws/jumps to top after each sync (only redraws when another device changed something, never mid-typing; keeps scroll position); empty slots can be dragged and deleted (✕); ticks move with their slot |
+| 0.19 | 15 Nov 2026 | `2803e2f` | Spotify export fixed for Spotify's Feb 2026 API changes (new playlist endpoints) |
