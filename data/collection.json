@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14T19:12+00:00",
+ "updated": "2026-11-17T14:30+00:00",
  "spotify_resume_at": 1793111104.9769309,
  "source": "Discogs + GetSongBPM.com",
  "releases": [
@@ -12306,7 +12306,8 @@
    ],
    "styles": [
     "Punk",
-    "Post-Punk"
+    "Hardcore",
+    "Noise Rock"
    ],
    "label": "Go Down Records",
    "format": "Vinyl",
