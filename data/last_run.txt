@@ -1,9 +1,9 @@
 Finished
-13:18:07 Collection: 643 items
-13:18:07 Records: 643
-13:18:07 Fallback checks this run: 0
-13:18:07 Deezer checks this run: 0, found: 0
-13:18:07 Popularity checks this run: 0, found: 0
-13:18:07 Last.fm checks this run: 0, found: 0
-13:18:07 ReccoBeats checks this run: 0, found: 0
-13:18:07 Lookups this run: 0. Tracks still to look up: 0 (popularity: 0).
+22:11:52 Collection: 643 items
+22:11:52 Records: 643
+22:11:52 Fallback checks this run: 0
+22:11:52 Deezer checks this run: 0, found: 0
+22:11:52 Popularity checks this run: 0, found: 0
+22:11:52 Last.fm checks this run: 0, found: 0
+22:11:52 ReccoBeats checks this run: 0, found: 0
+22:11:52 Lookups this run: 0. Tracks still to look up: 0 (popularity: 0).
